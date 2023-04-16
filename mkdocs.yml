@@ -1,27 +1,26 @@
 site_name: Family Music System
 nav:
-    - Home: index.md
-    - Documentação: documentacao.md
+  - Home: index.md
+  - Documentação: documentacao.md
 theme:
-    name: material
-    palette:
-      - scheme: default
-        primary: yellow
-        toggle:
-          icon: material/weather-night
-          name: Modo noturno
-      - scheme: slate
-        primary: amber
-        toggle:
-          icon: material/weather-sunny
-          name: Modo claro
-
+  name: material
+  language: pt
+  favicon: images/logo-color.png
+  logo: assets/logo.svg
+  font:
+    text: Roboto
+  palette:
+    - scheme: default
+      primary: yellow
+      toggle:
+        icon: material/weather-night
+        name: Modo noturno
+    - scheme: slate
+      primary: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
 extra_css:
-  - |
-    .full-width table {
-      width: 100%;
-    }
-# theme:
-#   name: material
-# extra:
-#   generator: false
+  - stylesheets/extra.css
+extra:
+  generator: false
