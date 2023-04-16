@@ -1,6 +1,6 @@
 # Family Music System 🎷
 
-![pequena-logo](https://user-images.githubusercontent.com/89596623/232319820-a4da19c4-7714-4526-b49a-0cae794f81ca.png)
+![logo-100px](https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png)
 
 
 ## 1. Introdução 😊
@@ -19,4 +19,5 @@ Esta página tem como finalidade o armazenamento da documentação referente ao 
 | [Luana Ribeiro Soares](https://github.com/luanasoares0901)    | 202016720 |
 | [Maykon Júnio dos Santos Soares](https://github.com/maykonjuso)    | 211030863 |
 
-
+![davi-100px](https://user-images.githubusercontent.com/89596623/232323850-f6920271-f3b8-4a93-a85a-f297b488818d.png) ![guilherme-100px](https://user-images.githubusercontent.com/89596623/232323619-266f5893-43e8-4af0-acdf-6c8019875635.png) ![levi-100px](https://user-images.githubusercontent.com/89596623/232323687-8ce9f6bb-d9ff-49b7-bb90-ee302f198674.png)
+ ![luana-100px](https://user-images.githubusercontent.com/89596623/232323941-5a51a89d-f4d5-4bcd-9825-cd0fab786ba6.png) ![luan-100px](https://user-images.githubusercontent.com/89596623/232324117-8c756f90-709b-484f-9da8-9216cb91c8c4.png) ![maykon-100px](https://user-images.githubusercontent.com/89596623/232324013-64ea6fa9-f0e9-402a-9787-2d9745eebfcb.png)    
