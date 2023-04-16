@@ -1,11 +1,12 @@
 # Family Music System 🎷
 
-![logoooo](https://user-images.githubusercontent.com/89596623/232319500-58540520-2507-432e-b855-47c24d515eae.png)
+![pequena-logo](https://user-images.githubusercontent.com/89596623/232319820-a4da19c4-7714-4526-b49a-0cae794f81ca.png)
 
 
 ## 1. Introdução 😊
 
 Esta página tem como finalidade o armazenamento da documentação referente ao projeto "Family Music System", desenvolvido pela equipe "FMS" durante a disciplina "Métodos de Desenvolvimento de Software" no semestre 2023/1. O propósito do projeto consiste em criar uma aplicação web para gerenciar a escola de música "Family Music School". 
+
 
 ## 2. Equipe 🤝
 
