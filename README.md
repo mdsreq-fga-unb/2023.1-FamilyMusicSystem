@@ -15,7 +15,7 @@
 * [Documentação](#documentação)
 * [Clonando o Repositório](#clonando-o-repositório)
 * [Instalação](#instalação)
-* [Equipe](#equipe)
+* [Equipe](#Equipe)
 
 ## 😊 Introdução
 
