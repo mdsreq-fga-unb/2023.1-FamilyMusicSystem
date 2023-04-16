@@ -13,7 +13,7 @@
 * [Instalação](#instalação)
 * [Equipe](#equipe)
 
-## Introdução
+## 😊 Introdução
 
 O projeto **"Family Music System"** está em desenvolvimento pela equipe **"FMS"** durante a disciplina **"Métodos de Desenvolvimento de Software"** no semestre 2023/1. O propósito do projeto consiste em criar uma aplicação web para gerenciar a escola de música **"Family Music School"**. 
 
@@ -21,19 +21,19 @@ O projeto **"Family Music System"** está em desenvolvimento pela equipe **"FMS"
 <a href="https://www.instagram.com/familymusicschool_/"><img src="https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png"><a>
 </p>
 
-### Documentação
+### 😎 Documentação
 
 [Clique aqui](https://mdsreq-fga-unb.github.io/2023.1-FamilyMusicSystem/) para acessar a documentação do projeto. 
 
 
-## Clonando o repositório
+## 😉 Clonando o repositório
 ```bash
 $ git clone https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem.git
 $ cd 2023.1-FamilyMusicSystem
 ```
 
 
-## Instalação
+## 🤓 Instalação
 Para utilização do aplicativo será necessário:
 
 - [Git](https://git-scm.com/)
@@ -41,7 +41,7 @@ Para utilização do aplicativo será necessário:
 - [Strapi](https://strapi.io/)
 
 
-## Equipe
+## ✌️ Equipe
    
 <p align="center">
 <a href="https://github.com/davirany"><img src="https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png"/><a> <a href="https://github.com/guinuto"><img src="https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png"/><a> <a href="https://github.com/lordiin"><img src="https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png"/><a> 
