@@ -25,11 +25,13 @@ O projeto **"Family Music System"** está em desenvolvimento pela equipe **"FMS"
 
 [Clique aqui](https://mdsreq-fga-unb.github.io/2023.1-FamilyMusicSystem/) para acessar a documentação do projeto. 
 
+
 ## Clonando o repositório
 ```bash
 $ git clone https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem.git
 $ cd 2023.1-FamilyMusicSystem
 ```
+
 
 ## Instalação
 `Para utilização do aplicativo será necessário: `
@@ -37,6 +39,7 @@ $ cd 2023.1-FamilyMusicSystem
 - [Git](https://git-scm.com/)
 - [Angular](https://angular.io/)
 - [Strapi](https://strapi.io/)
+
 
 ## Equipe
 <a href="https://github.com/davirany"> ![davi-100px](https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png) <a>
