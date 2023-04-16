@@ -1,6 +1,6 @@
 # Family Music System 🎷
 
-![pequena-logo](https://user-images.githubusercontent.com/89596623/232319820-a4da19c4-7714-4526-b49a-0cae794f81ca.png)
+<center> ![pequena-logo](https://user-images.githubusercontent.com/89596623/232319820-a4da19c4-7714-4526-b49a-0cae794f81ca.png) </center>
 
 
 ## 1. Introdução 😊
