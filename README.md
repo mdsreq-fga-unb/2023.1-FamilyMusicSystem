@@ -44,10 +44,11 @@ Para utilização do aplicativo será necessário:
 ## Equipe
    
 <p align="center">
-<a href="https://github.com/davirany"> ![davi-100px](https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png) <a>
-   <a href="https://github.com/guinuto">![guilherme-100px](https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png)<a>   <a href="https://github.com/lordiin">![levi-100px](https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png)<a> 
-
-<a href="https://github.com/luanduartee">![luan-100px](https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png)<a>   <a href="https://github.com/luanasoares0901">![luana-100px](https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png)<a>   <a href="https://github.com/maykonjuso">![maykon-100px](https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png)    
+<a href="https://github.com/davirany"><img src="https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png"/><a> <a href="https://github.com/guinuto"><img src="https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png"/><a> <a href="https://github.com/lordiin"><img src="https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png"/><a> 
+<p/>
+   
+<p align="center">
+<a href="https://github.com/luanduartee"><img src="https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png"/><a>   <a href="https://github.com/luanasoares0901"><img src="https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png"/><a>   <a href="https://github.com/maykonjuso"><img src="https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png"/><a>   
 </p>
 
 
