@@ -1,5 +1,27 @@
-site_name: My Docs
+site_name: Family Music System
+nav:
+    - Home: index.md
+    - Documentação: documentacao.md
 theme:
-  name: material
-extra:
-  generator: false
+    name: material
+    palette:
+      - scheme: default
+        primary: yellow
+        toggle:
+          icon: material/weather-night
+          name: Modo noturno
+      - scheme: slate
+        primary: amber
+        toggle:
+          icon: material/weather-sunny
+          name: Modo claro
+
+extra_css:
+  - |
+    .full-width table {
+      width: 100%;
+    }
+# theme:
+#   name: material
+# extra:
+#   generator: false

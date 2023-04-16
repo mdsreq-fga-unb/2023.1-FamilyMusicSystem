@@ -10,12 +10,14 @@
       
       
       
+        <link rel="next" href="documentacao/">
+      
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>My Docs</title>
+        <title>Family Music System</title>
       
     
     
@@ -38,6 +40,11 @@
       
     
     
+      <link rel="stylesheet" href=".full-width table {
+  width: 100%;
+}
+">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -50,12 +57,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent="">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -63,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fms" class="md-skip">
+        <a href="#bem-vindoa-ao-family-music-system" class="md-skip">
           Skip to content
         </a>
       
@@ -79,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="." title="Family Music System" class="md-header__button md-logo" aria-label="Family Music System" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -92,18 +103,38 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Family Music System
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FMS
+              Home
             
           </span>
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="yellow" data-md-color-accent=""  aria-label="Modo noturno"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Modo noturno" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent=""  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -165,13 +196,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="." title="Family Music System" class="md-nav__button md-logo" aria-label="Family Music System" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Family Music System
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -194,12 +225,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          FMS
+          Home
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="." class="md-nav__link md-nav__link--active">
-        FMS
+        Home
       </a>
       
         
@@ -218,15 +249,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#membros-da-equipe" class="md-nav__link">
+    Membros da Equipe
   </a>
   
 </li>
@@ -235,6 +259,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="documentacao/" class="md-nav__link">
+        Documentação
+      </a>
     </li>
   
 
@@ -266,15 +305,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#membros-da-equipe" class="md-nav__link">
+    Membros da Equipe
   </a>
   
 </li>
@@ -294,22 +326,95 @@
                   
 
 
-<h1 id="fms">FMS</h1>
-<p>Documentação do Family music School</p>
-<h2 id="commands">Commands</h2>
-<p>isso é um teste</p>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<h1 id="bem-vindoa-ao-family-music-system">Bem-vindo(a) ao <strong>Family Music System</strong>!</h1>
+<p><br /></p>
+<p>O presente projeto propõe a criação de uma solução web para uma escola de música que, atualmente vem sofrendo com gastos excessivos com uma plataforma que possui ferramentas não muito utilizadas pela escola no dia a dia. Com isso, o Family Music System visa ajudar na rotina da instituição, sendo uma plataforma totalmente personalizada para o cenário da escola de música.
+<br /> <br /></p>
+<h2 id="membros-da-equipe">Membros da Equipe</h2>
+<p><br/></p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Matrícula</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/davirany">Davi Ranieri</a></td>
+<td>190086131</td>
+<td>davirany</td>
+</tr>
+<tr>
+<td><a href="https://github.com/guinuto">Guilherme Evangelista</a></td>
+<td>200038028</td>
+<td>guinuto</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lordiin">Levi Braz</a></td>
+<td>180076744</td>
+<td>lordiin</td>
+</tr>
+<tr>
+<td><a href="https://github.com/luanduartee">Luan Mateus</a></td>
+<td>211041221</td>
+<td>luanduartee</td>
+</tr>
+<tr>
+<td><a href="https://github.com/luanasoares0901">Luana Ribeiro</a></td>
+<td>202016720</td>
+<td>luanasoares0901</td>
+</tr>
+<tr>
+<td><a href="https://github.com/maykonjuso">Maykon Junio</a></td>
+<td>211030863</td>
+<td>maykonjuso</td>
+</tr>
+</tbody>
+</table>
+<!-- <table style="width:100%;">
+  <tr>
+    <th style="text-align:center;">Nome</th>
+    <th style="text-align:center;">Matrícula</th>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/davirany">Davi Ranieri</a></td>
+    <td style="text-align:center;">190086131</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/guinuto">Guilherme Evangelista</a></td>
+    <td style="text-align:center;">200038028</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/lordiin">Levi Braz</a></td>
+    <td style="text-align:center;">180076744</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/luanduartee">Luan Mateus</a></td>
+    <td style="text-align:center;">211041221</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/luanasoares0901">Luana Ribeiro</a></td>
+    <td style="text-align:center;">202016720</td>
+  </tr>
+  <tr>
+    <td style="text-align:center;"><a href="https://github.com/maykonjuso">Maykon Junio</a></td>
+    <td style="text-align:center;">211030863</td>
+  </tr>
+</table> -->
+
+<p><br /></p>
+<p align="center">
+<a href="https://github.com/davirany"><img src="https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png"/><a> 
+<a href="https://github.com/guinuto"><img src="https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png"/><a> 
+<a href="https://github.com/lordiin"><img src="https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png"/><a> 
+<a href="https://github.com/luanduartee"><img src="https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png"/><a>   
+<a href="https://github.com/luanasoares0901"><img src="https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png"/><a>   
+<a href="https://github.com/maykonjuso"><img src="https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png"/><a>   
+</p>
+
+<p><br /></p>
 
 
 
@@ -330,6 +435,11 @@ docs/
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
   
 </div>
       
