@@ -3,7 +3,7 @@
 
 ## 😊 Introdução
 
-Esta página tem como finalidade o armazenamento da documentação referente ao projeto "Family Music System", desenvolvido pela equipe "FMS" durante a disciplina "Métodos de Desenvolvimento de Software" no semestre 2023/1. O propósito do projeto consiste em criar uma aplicação web para gerenciar a escola de música "Family Music School". 
+Esta página tem como finalidade o armazenamento da documentação referente ao projeto **"Family Music System"**, desenvolvido pela equipe **"FMS"** durante a disciplina **"Métodos de Desenvolvimento de Software"** no semestre 2023/1. O propósito do projeto consiste em criar uma aplicação web para gerenciar a escola de música **"Family Music School"**. 
 
 ![logo-100px](https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png)
 
