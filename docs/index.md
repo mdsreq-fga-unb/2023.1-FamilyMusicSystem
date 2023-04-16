@@ -1,12 +1,10 @@
-# Bem-vindo(a) ao **<span style="color: #F3910A;"> Family Music System</span>**!
+# <span style="color: #F3910A;">😊</span> Bem-vindo(a) ao **<span style="color: #F3910A;"> Family Music System</span>**!
 
 <p style="text-indent: 50px;text-align: justify;">
 O presente projeto propõe a criação de uma solução web para uma escola de música que, atualmente vem sofrendo com gastos excessivos com uma plataforma que possui ferramentas não muito utilizadas pela escola no dia a dia. Com isso, o Family Music System visa ajudar na rotina da instituição, sendo uma plataforma totalmente personalizada para o cenário da escola de música.
 </p>
 
-<img src="images/crianca.png"/><img src="images/adultos.png"/>
-
-## Membros da Equipe
+## <span style="color: #F3910A;">😎</span> Membros da Equipe
 
 <br/>
 
