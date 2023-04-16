@@ -11,11 +11,11 @@
 
 ## 📚 Índice 
 
-* [Introdução](#😊-Introdução)
+* [Introdução](#Introdução)
 * [Documentação](#Documentação)
-* [Clonando o Repositório](#😉-Clonando-o-repositório)
-* [Instalação](#🤓-Instalação)
-* [Equipe](#✌️-Equipe)
+* [Clonando o Repositório](#Clonando-o-repositório)
+* [Instalação](#Instalação)
+* [Equipe](#Equipe)
 
 ## 😊 Introdução
 
