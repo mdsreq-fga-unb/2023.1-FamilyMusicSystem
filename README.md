@@ -42,7 +42,7 @@ Ferramentas necessárias para o aplicativo:
 
 ## 😊 Equipe
 
-`Olá! Somos alunos de Engenharia de Software pela Universidade de Brasília.`
+`Essa é nossa equipe.`
    
 <p align="center">
    <br>
