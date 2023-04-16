@@ -18,7 +18,7 @@
 O projeto **"Family Music System"** está em desenvolvimento pela equipe **"FMS"** durante a disciplina **"Métodos de Desenvolvimento de Software"** no semestre 2023/1. O propósito do projeto consiste em criar uma aplicação web para gerenciar a escola de música **"Family Music School"**. 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png">
+<a href="https://www.instagram.com/familymusicschool_/"><img src="https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png"><a>
 </p>
 
 ### Documentação
@@ -42,10 +42,12 @@ Para utilização do aplicativo será necessário:
 
 
 ## Equipe
+   
+<p align="center">
 <a href="https://github.com/davirany"> ![davi-100px](https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png) <a>
    <a href="https://github.com/guinuto">![guilherme-100px](https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png)<a>   <a href="https://github.com/lordiin">![levi-100px](https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png)<a> 
 
 <a href="https://github.com/luanduartee">![luan-100px](https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png)<a>   <a href="https://github.com/luanasoares0901">![luana-100px](https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png)<a>   <a href="https://github.com/maykonjuso">![maykon-100px](https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png)    
-
+</p>
 
 
