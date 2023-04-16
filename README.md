@@ -5,7 +5,7 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=PROCESSING&color=GREEN&style=for-the-badge"/>
 </p>
 
-## Índice 
+## 📚 Índice 
 
 * [Introdução](#Introdução)
 * [Documentação](#documentação)
@@ -21,7 +21,7 @@ O projeto **"Family Music System"** está em desenvolvimento pela equipe **"FMS"
 <a href="https://www.instagram.com/familymusicschool_/"><img src="https://user-images.githubusercontent.com/89596623/232324171-b4e4cb66-a4b4-4f98-8e65-2a5f54bdacb7.png"><a>
 </p>
 
-### 😎 Documentação
+### Documentação
 
 [Clique aqui](https://mdsreq-fga-unb.github.io/2023.1-FamilyMusicSystem/) para acessar a documentação do projeto. 
 
