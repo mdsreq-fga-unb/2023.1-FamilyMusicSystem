@@ -14,6 +14,12 @@ theme:
   logo: assets/logo.svg
   font:
     text: Roboto
+  features:
+    - toc.integrate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - navigation.path
   palette:
     - scheme: default
       primary: yellow
