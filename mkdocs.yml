@@ -3,8 +3,8 @@ nav:
   - Home: index.md
   - Visão do produto e projeto:
       - Ciclo de vida: visao-produto-projeto/ciclo-de-vida.md
-      - Visão geral do produto: visao-produto-projeto/visao-do-produto.md
-      - Visão geral do projeto: visao-produto-projeto/visao-do-projeto.md
+      - Visão geral do produto: visao-produto-projeto/visao-produto.md
+      - Visão geral do projeto: visao-produto-projeto/visao-projeto.md
       - Processo de desenvolvimento de software: visao-produto-projeto/processo-de-desenvolvimento-de-software.md
       - Lições aprendidas: visao-produto-projeto/licoes-aprendidas.md
 repo_url: https://github.com/squidfunk/mkdocs-material
