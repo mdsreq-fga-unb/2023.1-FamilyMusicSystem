@@ -66,7 +66,7 @@ Ferramentas necessárias para o aplicativo:
 
 <br/>
 
-<p align="center">Um pouco mais sobre nosso time...</p>
+<p>Um pouco mais sobre nosso time...</p>
 
 <div style="-webkit-display: flex;
        display: flex;
@@ -74,7 +74,7 @@ Ferramentas necessárias para o aplicativo:
        align-items: center;
        -webkit-justify-content: center;
        justify-content: center;
-       align: center;">
+       ">
 
 <table>
 <thead>
