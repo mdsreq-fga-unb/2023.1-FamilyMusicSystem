@@ -28,7 +28,7 @@ O presente projeto propõe a criação de uma solução web para uma escola de m
 
 <br/>
 
-<p align="center">Um pouco mais sobre nosso time...</p>
+<p style="text-indent: 50px;text-align: justify;">Estudantes da disciplina Métodos de Desenvolvimento de Software, Engenharia de Software, UnB. Saiba um pouco mais sobre nosso time...</p>
 
 <div style="-webkit-display: flex;
        display: flex;
