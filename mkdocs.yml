@@ -1,0 +1,30 @@
+site_name: Family Music System
+nav:
+  - Home: index.md
+  - Visão do produto e projeto:
+      - Visão geral do produto: visao-produto-projeto/visao-do-produto.md
+      - Visão geral do projeto: visao-produto-projeto/visao-do-projeto.md
+      - Processo de desenvolvimento de software: visao-produto-projeto/processo-de-desenvolvimento-de-software.md
+      - Lições aprendidas: visao-produto-projeto/licoes-aprendidas.md
+theme:
+  name: material
+  language: pt
+  favicon: images/logo-color.png
+  logo: assets/logo.svg
+  font:
+    text: Roboto
+  palette:
+    - scheme: default
+      primary: yellow
+      toggle:
+        icon: material/weather-night
+        name: Modo noturno
+    - scheme: slate
+      primary: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+extra_css:
+  - stylesheets/extra.css
+extra:
+  generator: false
