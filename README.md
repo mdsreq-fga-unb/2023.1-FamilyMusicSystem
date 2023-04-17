@@ -42,8 +42,6 @@ Ferramentas necessárias para o aplicativo:
 
 ## 😊 Equipe
 
-## <h2><span style="color: #F3910A;">😎</span> Membros da Equipe </h2>
-
 <!-- <p style="text-indent: 50px;text-align: justify;">Graduandos em Engenharia de Software, nossa equipe é composta por: </p> -->
 
 ### <h3>✅ CI-Teste</h3>
