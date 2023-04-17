@@ -73,7 +73,8 @@ Ferramentas necessárias para o aplicativo:
        -webkit-align-items: center;
        align-items: center;
        -webkit-justify-content: center;
-       justify-content: center;">
+       justify-content: center;
+       align: center;">
 
 <table>
 <thead>
