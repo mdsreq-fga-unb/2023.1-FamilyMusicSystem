@@ -11,3 +11,7 @@
   --md-primary-fg-color--dark: #f3910a;
   --md-default-bg-color: #202121;
 }
+
+.md-content {
+  --md-typeset-a-color: #f3910a;
+}
