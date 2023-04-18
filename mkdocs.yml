@@ -42,8 +42,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Modo claro
-    # icon:
-    #   repo: fontawesome/brands/github
 extra_css:
   - stylesheets/extra.css
 extra:
