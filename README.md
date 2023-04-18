@@ -40,39 +40,22 @@ Ferramentas necessárias para o aplicativo:
 * [Strapi](https://strapi.io/)
 
 
-## 😊 Equipe
-
-<!-- <p style="text-indent: 50px;text-align: justify;">Graduandos em Engenharia de Software, nossa equipe é composta por: </p> -->
-
-### <h3>✅ CI-Teste</h3>
-
-<a href="https://github.com/luanasoares0901"><img src="https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png"/></a>
-
-</p>
-
-### <h3>📝 Dev-master</h3>
-
-<a href="https://github.com/guinuto"><img src="https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png"/></a>
-
-### <h3>🌆 Dev-front</h3>
-
-<a href="https://github.com/luanduartee"><img src="https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png"/></a> <a href="https://github.com/lordiin"><img src="https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png"/></a>
-
-### <h3>🖥️ Dev-back</h3>
-
-<a href="https://github.com/davirany"><img src="https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png"/></a> <a href="https://github.com/maykonjuso"><img src="https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png"/></a>
+## 😎 Equipe </h2>
 
 <br/>
+<p align="center">
+<a href="https://github.com/luanasoares0901"><img src="https://user-images.githubusercontent.com/89596623/232325390-1e27cef3-f27c-49dd-9b05-f61952f2c506.png"/></a> <a href="https://github.com/guinuto"><img src="https://user-images.githubusercontent.com/89596623/232325368-feb63fbe-fe9f-4e8a-aa7f-1666a4a7e407.png"/></a> <a href="https://github.com/luanduartee"><img src="https://user-images.githubusercontent.com/89596623/232325387-e9d71652-536c-46ea-99ef-26182b0af2d0.png"/></a> <a href="https://github.com/lordiin"><img src="https://user-images.githubusercontent.com/89596623/232325382-09f5ce01-2580-462d-ab33-88ed6863ddc0.png"/></a> <a href="https://github.com/davirany"><img src="https://user-images.githubusercontent.com/89596623/232325365-f51e4b38-d22e-4f74-ab3f-a39b55a71721.png"/></a> <a href="https://github.com/maykonjuso"><img src="https://user-images.githubusercontent.com/89596623/232325392-79161aa9-10dd-4be2-9623-e7cd645b6455.png"/></a>
+</p>
+<br/>
 
-<p>Um pouco mais sobre nosso time... </p>
+<p style="text-indent: 50px;text-align: justify;">Estudantes da disciplina Métodos de Desenvolvimento de Software, Engenharia de Software, UnB. Saiba um pouco mais sobre nosso time...</p>
 
 <div style="-webkit-display: flex;
        display: flex;
        -webkit-align-items: center;
        align-items: center;
        -webkit-justify-content: center;
-       justify-content: center;
-       ">
+       justify-content: center;">
 
 <table>
 <thead>
@@ -116,8 +99,6 @@ Ferramentas necessárias para o aplicativo:
 </tbody>
 </table>
 </div>
-
-   
 
 
 
