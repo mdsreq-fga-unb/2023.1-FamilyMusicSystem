@@ -15,12 +15,17 @@ theme:
   language: pt
   favicon: images/logo-color.png
   logo: assets/logo.svg
-  font:
-    text: Roboto
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
     - toc.integrate
+    - content.action.edit
+    - content.action.view
+    - navigation.top
+    - content.tabs.link
+    - content.code.annotation
+    - search.suggest
+    - search.highlight
+    - content.code.copy
   palette:
     - scheme: default
       primary: yellow
@@ -32,10 +37,9 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Modo claro
-    icon:
-      repo: fontawesome/brands/github
+    # icon:
+    #   repo: fontawesome/brands/github
 extra_css:
   - stylesheets/extra.css
-  
 extra:
   generator: false
