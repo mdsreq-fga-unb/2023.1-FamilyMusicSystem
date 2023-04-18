@@ -8,9 +8,8 @@ nav:
       - Processo de desenvolvimento de software: visao-produto-projeto/processo-de-desenvolvimento-de-software.md
       - Lições aprendidas: visao-produto-projeto/licoes-aprendidas.md
       - Seminário de processos e ciclo de vida: visao-produto-projeto/ciclo-de-vida.md
-
 repo_url: https://github.com/squidfunk/mkdocs-material
-
+repo_name: Github FamilyMusicSystem
 theme:
   name: material
   language: pt
@@ -33,7 +32,8 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Modo claro
-
+    icon:
+      repo: fontawesome/brands/github
 extra_css:
   - stylesheets/extra.css
   
