@@ -2,11 +2,11 @@
 
 |    Data    | Versão |      Descrição       |  Autor(es)  |
 | :--------: | :----: | :------------------: | :---------: |
-| 17/04/2023 |  0.1   | Criação do documento | Luan Mateus |
+| 17/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
 
 ## Declaração Geral do Produto
 
-<p style="text-indent: 50px;text-align: justify;">Um dos problemas enfrentados por escolas, é a dificuldade de gerenciar a rotina diária do ambiente acadêmico e, nos dias de hoje, que o cenário atual é totalmente tecnológico, essas instituições buscam por opções rápidas e automáticas para facilitar esse processo, que muitas vezes chega a ser cansativo. Com a escola de música Family Music School não é diferente, visto que, atualmente, utilizam um software que não atende, totalmente, as suas expectativas e necessidades, sendo necessária a criação de uma nova plataforma que seja totalmente personalizada para o cenário atual da empresa.
+<p style="text-indent: 50px;text-align: justify;">Um dos problemas enfrentados por escolas, é a dificuldade de gerenciar a rotina diária do ambiente acadêmico e, nos dias de hoje, que o cenário atual é totalmente tecnológico, essas instituições buscam por opções rápidas e automáticas para facilitar esse processo, que muitas vezes chega a ser cansativo. Com a escola de música Family Music School não é diferente, visto que, atualmente, utilizam um software que não atende, totalmente, as suas expectativas e necessidades, pois oferece ferramentas não necessárias para o atual cenário da escola, tornando-as inutilizáveis atualmente, sendo necessária a criação de uma nova plataforma que seja totalmente personalizada para o cenário atual da empresa.
 </p>
 <p style="text-indent: 50px;text-align: justify;">
 Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facilitar o desempenho organizacional da gestão da escola de música.</p>
