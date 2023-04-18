@@ -64,7 +64,7 @@ Ferramentas necessárias para o aplicativo:
 
 <br/>
 
-<p>Um pouco mais sobre nosso time...</p>
+<p>Um pouco mais sobre nosso time... </p>
 
 <div style="-webkit-display: flex;
        display: flex;
