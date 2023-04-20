@@ -20,14 +20,24 @@
 
 # Estratégias eXtremme Programming
 
-| Estratégia          | Descrição                                                                                                                   | Ferramenta                      |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-                  | Toda a Equipe | Faz com que a equipe possa trabalhar junta para resolver problemas e alcançar os objetivos do
-                    projeto,
-                    aumentando a produtividade e diminuindo conflitos entre os membros da equipe. | Discord |           Pequenas Versões | Torna o acompanhamento do progresso do projeto de forma mais clara e objetiva. Permite, também, que a equipe e
-                    o cliente identifiquem problemas com mais rapidez. | VisualStudio Code |            Jogo de Planejamento | Será utilizado no início de cada Sprint da metodologia SCRUM para priorizar as funcionalidades e definir as tarefas que serão realizadas para cumprir os objetivos. | VisualStudio Code |           Testes de Cliente | O cliente especifica um ou mais Testes de Cliente para cada história de usuário do sistema,
-                    descrevendo em detalhes como ele espera que cada história funcione. | Google Meet |         Propriedade Coletiva | A prática de propriedade coletiva declara que qualquer membro da equipe pode alterar qualquer parte do código do sistema a qualquer momento. | VisualStudio Code |           Padrões de Codificações | Definir um padrão de codificação aumenta a capacidade de entendimento do código entre os membros da equipe. | VisualStudio Code |         Ritmo Sustentável | Evita a sobrecarga de trabalho e o esgotamento físico e mental dos membros da equipe. O que sucede em uma boa qualidade do produto, diminuição na incidência de erros e prazos não cumpridos. | VisualStudio Code |             Metáfora | Para tornar mais claro o entendimento de toda a equipe sobre o projeto e suas funcionalidades. | Discord |               Integração Contínua | Automatizar a compilação e os testes do código faz com que problemas (bugs) sejam detectados com maior facilidade. | VisualStudio Code </br> Git Hub |            Design Simples | Um projeto com a prática de um design simples é benéfico, principalmente, para a manutenibilidade do projeto. | VisualStudio Code |                Refatoração | Prática que envolve a melhoria contínua do código existente sem alterar sua funcionalidade | VisualStudio Code |           Testes Unitários | A prática da refatoração torna o código inteligível, pode ajudar na diminuição de ocorrência de
-                    bugs e,
-                    também, podendo melhorar o desempenho do software. | Jest </br> GitActions |
+| Estratégia          | Descrição | Ferramenta                      |
+| ------------------- |---------- | ------------------------------- |
+| Toda a Equipe       | Faz com que a equipe possa trabalhar junta para resolver problemas e alcançar os objetivos do projeto, aumentando a produtividade e diminuindo conflitos entre os membros da equipe. | Discord |
+| Pequenas Versões | Torna o acompanhamento do progresso do projeto de forma mais clara e objetiva. Permite, também, que a equipe e o cliente identifiquem problemas com mais rapidez. | VisualStudio Code |
+| Jogo de Planejamento | Será utilizado no início de cada Sprint da metodologia SCRUM para priorizar as funcionalidades e definir as tarefas que serão realizadas para cumprir os objetivos. | VisualStudio Code |
+| Testes de Cliente | O cliente especifica um ou mais Testes de Cliente para cada história de usuário do sistema, descrevendo em detalhes como ele espera que cada história funcione. | Google Meet |
+| Propriedade Coletiva | A prática de propriedade coletiva declara que qualquer membro da equipe pode alterar qualquer parte do código do sistema a qualquer momento. | VisualStudio Code |
+| Padrões de Codificações | Definir um padrão de codificação aumenta a capacidade de entendimento do código entre os membros da equipe. | VisualStudio Code |
+| Ritmo Sustentável | Evita a sobrecarga de trabalho e o esgotamento físico e mental dos membros da equipe. O que sucede em uma boa qualidade do produto, diminuição na incidência de erros e prazos não cumpridos. | VisualStudio Code |
+| Metáfora | Para tornar mais claro o entendimento de toda a equipe sobre o projeto e suas funcionalidades. | Discord |
+| Integração Contínua | Automatizar a compilação e os testes do código faz com que problemas (bugs) sejam detectados com maior facilidade. | VisualStudio Code \| Git Hub |
+| Design Simples | Um projeto com a prática de um design simples é benéfico, principalmente, para a manutenibilidade do projeto. | VisualStudio Code |
+| Refatoração | Prática que envolve a melhoria contínua do código existente sem alterar sua funcionalidade | VisualStudio Code |
+| Testes Unitários | A prática da refatoração torna o código inteligível, pode ajudar na diminuição de ocorrência de bugs e, também, podendo melhorar o desempenho do software. | Jest \| GitActions |
+
+| Não Desempenharemos                                               | Motivo |
+| :-----------------------------------------------------------------: | :------: |
+| TDD  |  Principalmente pela falta de experiência com essa metodologia por parte da equipe. Como o prazo da entrega é curto e a elaboração de testes antes da implementação demanda tempo, essa prática pode comprometer a entrega do projeto. |
+| Programação em Pares  |  Devido à dificuldade em coincidir o tempo disponível para trabalhar no projeto entre os membros do grupo. |
 
 Para realizações das devidas sprints, a equipe utilizará as técnicas do XP listadas acima.
