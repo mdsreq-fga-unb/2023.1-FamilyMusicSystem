@@ -23,10 +23,22 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 - Desenvolver uma homepage personalizada para a escola;
 - Desenvolver um sistema de Gerenciamento de aulas, horários, professores e alunos;
-- Facilitar os processos diários da escola de forma econômica e personalizada;
+-  Facilitar o desempenho organizacional da gestão da escola de música;
 
 ## Tecnologias Utilizadas
 
 - Angular - Desenvolvimento do Frontend
+- Boostrap - Desenvolvimento do Frontend
+- Javascript - Desenvolvimento do Frontend
+- Node - Desenvolvimento do Backend
 - Strapi - Desenvolvimento do Backend
 - PostgreSQL - Banco de dados
+- Git Actions - Testes
+- Jest - Testes
+
+## Ferramentas
+
+- Miro - Planejamento de rotina
+- Discord - Reuniões de Daily
+- GiHub - armazenamento de versões
+- Visual Studio Code - editor de código

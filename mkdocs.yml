@@ -22,6 +22,7 @@ theme:
   logo: assets/logo.svg
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - toc.integrate
     - content.action.edit
     - content.action.view
