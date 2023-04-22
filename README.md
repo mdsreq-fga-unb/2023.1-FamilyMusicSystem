@@ -37,7 +37,7 @@ Ferramentas necessárias para o aplicativo:
 
 * [Git](https://git-scm.com/)
 * [Angular](https://angular.io/)
-* [Strapi](https://strapi.io/)
+* [Node](https://nodejs.org/)
 
 
 ## 😎 Equipe </h2>
