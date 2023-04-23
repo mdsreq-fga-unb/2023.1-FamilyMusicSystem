@@ -1,3 +1,7 @@
+<p align="center">
+<img src="images\logo-200px.png">
+</p>
+
 # <h1><b> <span style="color: #F3910A;">😊</span> Bem-vindo(a) ao **<span style="color: #F3910A;"> Family Music System</span>**! </h1></b>
 
 <p style="text-indent: 50px;text-align: justify;">

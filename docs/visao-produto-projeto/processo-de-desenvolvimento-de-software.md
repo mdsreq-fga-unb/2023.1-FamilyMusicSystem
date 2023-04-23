@@ -18,8 +18,6 @@
 | Sprint Review        | Evento realizado pela equipe para revisar todas as funcionalidades concluídas ao final da sprint com a participação do Product Owner (PO)                                | Discord    |
 | Product Backlog      | Lista priorizada dos requisitos do produto que precisam ser desenvolvidos para atender aos objetivos do projeto                                                          |            |
 
-![review (1)](https://user-images.githubusercontent.com/89596623/233391050-4f6b04f9-ec8e-4cb1-81c0-5b83fab6b672.png)
-
 # Estratégias eXtremme Programming
 
 | Estratégia              | Descrição                                                                                                                                                                                     | Ferramenta                   |
@@ -43,3 +41,11 @@
 | Programação em Pares |                                                               Devido à dificuldade em coincidir o tempo disponível para trabalhar no projeto entre os membros do grupo.                                                               |
 
 Para realizações das devidas sprints, a equipe utilizará as técnicas do XP listadas acima.
+
+# Representação ScrumXP
+
+<p align="center">
+
+<img src="https://user-images.githubusercontent.com/89596623/233391050-4f6b04f9-ec8e-4cb1-81c0-5b83fab6b672.png">
+
+</p>
