@@ -40,5 +40,5 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 - Miro - Planejamento de rotina
 - Discord - Reuniões de Daily
-- GiHub - armazenamento de versões
-- Visual Studio Code - editor de código
+- GiHub - Armazenamento de versões
+- Visual Studio Code - Editor de código
