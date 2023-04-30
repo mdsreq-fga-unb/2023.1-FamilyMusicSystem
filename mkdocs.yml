@@ -8,6 +8,7 @@ nav:
       - Processo de desenvolvimento de software: visao-produto-projeto/processo-de-desenvolvimento-de-software.md
       - Lições aprendidas: visao-produto-projeto/licoes-aprendidas.md
       - Seminário de processos e ciclo de vida: visao-produto-projeto/ciclo-de-vida.md
+  - Backlog do Produto: backlog_produto/backlog_produto.md
   - Entregas:
       - Unidade 1: entregas\unidade-1.md
       - Unidade 2: entregas\unidade-2.md
