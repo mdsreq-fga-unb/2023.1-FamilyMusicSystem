@@ -1,7 +1,7 @@
 ## Histórico de revisão
 
-|    Data    | Versão |      Descrição       |  Autor(es)  |
-| :--------: | :----: | :------------------: | :---------: |
+|    Data    | Versão |              Descrição              |  Autor(es)  |
+| :--------: | :----: | :---------------------------------: | :---------: |
 | 17/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
 
 ## Declaração Geral do Produto
@@ -23,7 +23,7 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 - Desenvolver uma homepage personalizada para a escola;
 - Desenvolver um sistema de Gerenciamento de aulas, horários, professores e alunos;
--  Facilitar o desempenho organizacional da gestão da escola de música;
+- Facilitar o desempenho organizacional da gestão da escola de música;
 
 ## Tecnologias Utilizadas
 
@@ -42,3 +42,11 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 - Discord - Reuniões de Daily
 - GiHub - Armazenamento de versões
 - Visual Studio Code - Editor de código
+
+## Miro
+
+<p style="text-indent: 50px;text-align: justify;">A ferramenta Miro contém o controle de atividades da equipe, além de questões quanto ao desempenho de cada integrante.</p>
+
+<p align="center">
+<iframe width="768" height="432" src="https://miro.com/app/board/uXjVMVoHHhw=/?share_link_id=619056764609" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</p>
