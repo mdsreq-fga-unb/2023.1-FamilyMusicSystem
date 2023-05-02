@@ -61,10 +61,10 @@ Antes de adicionar os requisitos no backlog da sprint a equipe deverá realizar 
 - Todas as dependências e recursos necessários para a conclusão do Requisito foram identificados e estão disponíveis?
 - O Requisito está priorizado corretamente em relação aos outros Requisitos do backlog?
 - A equipe de desenvolvimento entendeu completamente o Requisito e seus objetivos?
-- A equipe tem conhecimento e preparo para inciar a história?
 - O Requisito tem detalhes suficientes, incluindo critérios de aceitação claros?
 - O Requisito foi validado e aprovado pelo PO?
 - O Requisito está devidamente representado por uma História de usuário?
+- A equipe tem conhecimento e preparo necessários para iniciar a história?
 - A História está pontuada corretamente e é realista em termos de esforço necessário para conclusão?
 
 ### Definition of Done
