@@ -41,8 +41,8 @@
 ## MVP 1
 | Requisitos            | Justificativa                                                                                                                                              |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cadastro de Professores| O super-usuário deve ser capaz de cadastrar os professores na plataforma.|
-| Cadastro de Alunos    | O super-usuário deve ser capaz de cadastrar os alunos na plataforma.|
+| CRUD de Professores| O super-usuário deve ser capaz de cadastrar os professores na plataforma.|
+| CRUD de Alunos    | O super-usuário deve ser capaz de cadastrar os alunos na plataforma.|
 | Agendamento de Aulas  | O super-usuário deve ser capaz de agendar as aulas de cada aluno com seus respectivos professores na plataforma.|
 | Agenda dos Professores  | Os professores devem ter a capacidade de atualizar a sua agenda de disponibilidades para novas aulas, enquanto o super-usuário tem acesso à todas elas.|
 | Geração de um contrato de Prestação de serviços | O super-usuário deve ser capaz de gerar um contrato personalizado para novos alunos através da plataforma.|
