@@ -57,3 +57,5 @@
 | Gestão de Inadimplência | O super-usuário deve ser verificar quais alunos estão se tornando inadimplentes por falta de pagamento ou não renovação do contrato.|
 | Relatório de Despesas |   O super-usuário deve ser capaz de contabilizar as despesas do espaço físico da escola.|
 | Histórico de Aulas |   O super-usuário deve ser capaz de vizualizar todo o histórico de aulas ministradas e não ministradas devido a faltas ou reposições.|
+| Avaliação de Professores | Os alunos devem ser capazes de avaliar os professores mensalmente para que o feedback seja visível ao super-usuário |
+| Avaliação de Alunos | Os professores devem ser capazes de avaliar os alunos mensalmente para que o feedback seja visível ao super-usuário |
