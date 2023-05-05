@@ -37,3 +37,23 @@
 | Suportabilidade | <b>[RNF05]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.            |
 | Confiabilidade  | <b>[RNF06]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).         |
 | Confiabilidade  | <b>[RNF07]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele. |
+
+## MVP 1
+| Requisitos            | Justificativa                                                                                                                                              |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cadastro de Professores| O super-usuário deve ser capaz de cadastrar os professores na plataforma.|
+| Cadastro de Alunos    | O super-usuário deve ser capaz de cadastrar os alunos na plataforma.|
+| Agendamento de Aulas  | O super-usuário deve ser capaz de agendar as aulas de cada aluno com seus respectivos professores na plataforma.|
+| Agenda dos Professores  | Os professores devem ter a capacidade de atualizar a sua agenda de disponibilidades para novas aulas, enquanto o super-usuário tem acesso à todas elas.|
+| Geração de um contrato de Prestação de serviços | O super-usuário deve ser capaz de gerar um contrato personalizado para novos alunos através da plataforma.|
+| Gerenciamento de Salas de Aula e de Ensaio  |   O super-usuário deve ser capaz de gerenciar as salas de aulas para remanejamento de turmas, aulas e ensaios musicais.
+
+## MVP 2
+| Requisitos            | Justificativa                                                                                                                                              |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Gestão de Pagamentos e Mensalidades| O super-usuário deve ser capaz de acompanhar o fluxo de pagamento de cada aluno.|
+| Controle de Frequência de Alunos    | O super-usuário, professores e alunos deve ser capazes de acompanhar a frequência dos alunos nas aulas.|
+| Central de Comunicação  | O super-usuário deve ser capaz de enviar mensagens de texto para os alunos e responsáveis via WhatsApp e Email.|
+| Gestão de Inadimplência | O super-usuário deve ser verificar quais alunos estão se tornando inadimplentes por falta de pagamento ou não renovação do contrato.|
+| Relatório de Despesas |   O super-usuário deve ser capaz de contabilizar as despesas do espaço físico da escola.|
+| Histórico de Aulas |   O super-usuário deve ser capaz de vizualizar todo o histórico de aulas ministradas e não ministradas devido a faltas ou reposições.|
