@@ -3,6 +3,8 @@
 |    Data    | Versão |              Descrição              |  Autor(es)  |
 | :--------: | :----: | :---------------------------------: | :---------: |
 | 17/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
+| 23/04/2023 |  0.2   | Inserção de todas as tecnologias e ferramentas que serão utilizadas  | Maykon Junio |
+
 
 ## Declaração Geral do Produto
 
