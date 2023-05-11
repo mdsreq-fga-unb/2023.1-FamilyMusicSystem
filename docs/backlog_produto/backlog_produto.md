@@ -3,7 +3,8 @@
 |    Data    | Versão |                            Descrição                            |            Autor(es)            |
 | :--------: | :----: | :-------------------------------------------------------------: | :-----------------------------: |
 | 30/04/2023 |  0.1   | Criação e estruturação da primeira versão do backlog do produto | Luan Mateus, </br>Maykon Júnio  |
-| 07/04/2023 |  0.2   |        Ajuste de Granularidade dos Requisitos Funcionais        | Luan Mateus, </br>Luana Ribeiro |
+| 07/05/2023 |  0.2   |        Ajuste de Granularidade dos Requisitos Funcionais        | Luan Mateus, </br>Luana Ribeiro |
+| 10/05/2023 |  0.3   |        Criação de Tabela de Analíse de Viabilidade dos Requisitos        | Luan Mateus, </br>Luana Ribeiro, </br>Maykon Júnio |
 
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
@@ -61,3 +62,20 @@
 | Agenda dos Professores                          | Os professores devem ter a capacidade de atualizar a sua agenda de disponibilidades para novas aulas, enquanto o super-usuário tem acesso à todas elas. |
 | Gerenciamento de Salas de Aula e de Ensaio      | O super-usuário deve ser capaz de gerenciar as salas de aulas para remanejamento de turmas, aulas e ensaios musicais.                                   |
 | Histórico de Aulas                  | O super-usuário deve ser capaz de vizualizar todo o histórico de aulas ministradas e não ministradas devido a faltas ou reposições.  |
+
+## Analíse de Viabilidade - Requisitos Funcionais
+
+| Requisito | Valor de Negócio | Viabilidade | Criticidade | Total |
+| --------- | ---------------- | ----------- | ----------- | ----- |
+| <b>[MVP1]</b> CRUD de Alunos | 5.0 | 4.0 | 4.0 | <b>4.33 |
+| <b>[MVP1]</b> CRUD de Professores | 4.0 | 4.0 | 4.0 | <b>4.0 |
+| <b>[MVP1]</b> Agenda dos Professores | 3.0 | 4.0 | 4.0 | <b>3.67 |
+| <b>[MVP1]</b> Agendamento de Aulas | 2.0 | 4.0 | 4.0 | <b>3.33 |
+| <b>[MVP1]</b> Geração de um contrato de Prestação de serviços | 5.0 | 4.0 | 4.0 | <b>4.33 |
+| <b>[MVP2]</b> Gestão de Pagamentos e Mensalidades | 3.0 | 2.0 | 2.0 | <b>2.33 |
+| <b>[MVP2]</b> Controle de Frequência de Alunos | 3.0 | 3.0 | 3.0 | <b>3.00 |
+| <b>[MVP2]</b> Central de Comunicação | 3.0 | 2.0 | 3.0 | <b>2.67 |
+| <b>[MVP2]</b> Relatório de Inadimplência | 4.0 | 3.0 | 2.0 | <b>3.00 |
+| <b>[MVP2]</b> Gerenciamento de Salas de Aula e de Ensaio | 3.0 | 2.0 | 3.0 | <b>2.67 |
+| <b>[MVP2]</b> Histórico de Aulas | 3.0 | 3.0 | 3.0 | <b>3.00 |
+| <b>[MVP2]</b> CRUD de salas de aula  | 2.0 | 3.0 | 1.0 | <b>2.00 |
