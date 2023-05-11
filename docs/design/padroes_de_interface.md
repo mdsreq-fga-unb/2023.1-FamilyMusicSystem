@@ -118,3 +118,17 @@ Componente onde será exibido o conteúdo do tópico selecionado, tem a função
 <p style="text-indent: 50px;text-align: justify;">
 Componente destinado a conter as informções de Copyright, bem como o ano de desenvolvimento e redes sociais do cliente. 
 </p>
+
+## Protótipo de representação
+
+### Tela de Login
+
+<p align="center">
+<img src="https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem/assets/89596623/deeca36d-bc11-441d-90b3-e0072780bbfd"/>
+</p>
+
+### Tela principal
+
+<p align="center">
+<img src="https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem/assets/89596623/835bfd7a-ae0b-4010-8020-627ee85e8c3d"/>
+</p>
