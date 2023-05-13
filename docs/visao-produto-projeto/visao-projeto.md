@@ -3,15 +3,16 @@
 |    Data    | Versão |              Descrição              |  Autor(es)  |
 | :--------: | :----: | :---------------------------------: | :---------: |
 | 18/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
+| 13/05/2023 |  0.2   | Modificação na Organização do Projeto, Planejamento das Fases e Critérios de Replanejamento | Luan Mateus |
 
 ## Organização do projeto
 
 | Papel                      | Atribuições                                                                                                                                              | Responsável                              | Participantes                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Desenvolvedor Frontend     | Responsável por codificar o design do produto e fazer as devidas implementações referentes ao visual da aplicação. Além de montar o protótipo do sistema | Levi Braz<br> Luan Mateus                | Davi Ranieri<br> Guilherme Santos<br> Levi Braz<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
-| Desenvolvedor Backend      | Responsável por implementar as funcionalidades e os devidos fluxos que tem a função de controlar a aplicação                                             | Davi Ranieri<br> Maykon Junio            | Davi Ranieri<br> Guilherme Santos<br> Levi Braz<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
-| Desenvolvedor Master Scrum | Tem a função de assegurar que a metodologia do Scrum esteja ocorrendo de maneira funcional na equipe                                                     | Guilherme Santos                         | Davi Ranieri<br> Guilherme Santos<br> Levi Braz<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
-| Desenvolvedor CI Test      | É o responsável por testar e preparar o sistema para um ambiente de homologação do produto                                                               | Luana Ribeiro                            | Davi Ranieri<br> Guilherme Santos<br> Levi Braz<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor Frontend     | Responsável por codificar o design do produto e fazer as devidas implementações referentes ao visual da aplicação. Além de montar o protótipo do sistema | Luan Mateus                | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor Backend      | Responsável por implementar as funcionalidades e os devidos fluxos que tem a função de controlar a aplicação                                             | Davi Ranieri<br> Maykon Junio            | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor Master Scrum | Tem a função de assegurar que a metodologia do Scrum esteja ocorrendo de maneira funcional na equipe                                                     | Guilherme Santos                         | Davi Ranieri<br> Guilherme Santos<br>  Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor CI Test      | É o responsável por testar e preparar o sistema para um ambiente de homologação do produto                                                               | Luana Ribeiro                            | Davi Ranieri<br> Guilherme Santos<br>  Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
 | Product Owner              | É o responsável por desenvolver os objetivos do produto e garantir a compreensão do backlog do produto, ou seja, ele será o dono do produto              | Luiz Felipe                              | Luiz Felipe                                                                                        |
 | Cliente                    | Responsável por validar as entregas e protótipos e conceder feedback constante à equipe em relação ao projeto                                            | Luiz Felipe <br> George Marsicano Correa | Luiz Felipe <br> George Marsicano Correa                                                           |
 
@@ -21,10 +22,10 @@
 | :----: | -------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- |
 |   0    | Definição do produto;<br>Definição do Problema;<br>Início do GitPages;<br>Lista Inicial dos requisitos do produto                | 28/03/2023  | 11/04/2023 |
 |   0    | Conclusão da ideia do produto;<br>Produção da Visão do Produto e Projeto;<br>Produção do Processo de Desenvolvimento de Software | 12/04/2023  | 27/04/2023 |
-|   1    | Produto (Entrega - Sprint) -                                                                                                     | 28/04/2023  | 12/05/2023 |
-|   2    | Produto (Entrega - Sprint) -                                                                                                     | 13/05/2023  | 27/05/2023 |
+|   1    | Criação da Versão Inicial do Backlog do Produto; <br> Definição da Arquitetura a Ser Utiliada no Projeto; <br> Definição dos Padrões de UI <br>  | 28/04/2023  | 12/05/2023 |
+|   2    | Produto (Entrega - Sprint)                                                                                                    | 13/05/2023  | 27/05/2023 |
 |   3    | Produto (Entrega - Sprint) - MVP1                                                                                                | 28/05/2023  | 11/06/2023 |
-|   4    | Produto (Entrega - Sprint) -                                                                                                     | 12/06/2023  | 26/06/2023 |
+|   4    | Produto (Entrega - Sprint)                                                                                                 | 12/06/2023  | 26/06/2023 |
 |   5    | Produto (Entrega - Sprint) - MVP2                                                                                                | 27/06/2023  | 11/07/2023 |
 
 ## Matriz de Comunicação
@@ -55,4 +56,4 @@ Devido às incertezas e receios que surgem durante um projeto, é importante ced
 
 <li>Trancamento de disciplina por parte de integrantes da equipe</li>
 <li>Dificuldade no desenvolvimento por conta de ferramentas escolhidas</li>
-<li>Sinalização de insatisfação do cliente</li>
+<li>Atraso na entrega do MVP1</li>

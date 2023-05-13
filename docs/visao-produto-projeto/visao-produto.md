@@ -23,9 +23,9 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 ## Objetivos do Produto
 
-- Desenvolver uma homepage personalizada para a escola;
-- Desenvolver um sistema de Gerenciamento de aulas, horários, professores e alunos;
 - Facilitar o desempenho organizacional da gestão da escola de música;
+- Desenvolver um sistema de Gerenciamento de aulas, horários, professores e alunos;
+- Disponibilizar ao cliente ferramentas úteis para seu cenário atual.
 
 ## Tecnologias Utilizadas
 
