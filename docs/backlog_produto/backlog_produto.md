@@ -11,6 +11,7 @@
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
 
+
 ## Personas
 
 - **Professor:** É o usuário comum que é capaz de ter o controle de turmas e alunos. <br>
@@ -29,9 +30,9 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[TE01]</b> Gerenciar Pessoas | <b>[EP02]</b> Autenticar Usuário na Plataforma <br> | <b>[US07]</b> Eu, como usuário, quero poder acessar a plataforma com e-mail e senha para que eu tenha privacidade e meus dados estejam seguros <br> <b>[US08]</b> Eu, como usuário, quero recuperar minha senha, caso eu esqueça, para acessar a plataforma.| 5.0 </br></br></br></br> 5.0 | 4.0 </br></br></br></br> 3.0| 3.0 </br></br></br></br> 3.0 | 4.0 </br></br></br></br> 3.0 |
 | <b>[TE02]</b> Gerenciar Aulas   | <b>[EP03]</b> Gerir Salas de Aulas                        | <b>[US09]</b> Eu, como administrador, quero ter a opção de cadastrar novas salas de aula na minha escola. <br> <b>[US10]</b> Eu, como administrador, quero ter a opção de gerenciar as salas de aula existentes na minha instituição, para possíveis alterações de turmas, aulas e ensaios musicais. <br>  | 1.0 </br></br></br> 1.0 | 2.0 </br></br></br> 2.0 | 1.0 </br></br></br> 1.0 | 1.0 </br></br></br> 1.0|
 | <b>[TE02]</b> Gerenciar Aulas   | <b>[EP04]</b> Controlar Agendas                        | <b>[US11]</b> Eu, como administrador, quero ter a opção de agendar as aulas dos alunos, para que sejam registradas na agenda do professor. <br> <b>[US12]</b>  Eu como administrador, devo registrar novas aulas com alunos e professores para ter controle de organização.<br> <b>[US13]</b> Eu, como administrador, quero ter a opção de visualizar a agenda do professor para escolher a data para agendamento de aulas.<br><b>[US14]</b>Eu, como professor, devo atualizar minha agenda para novas aulas que serão ministradas por mim. | 5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0 | 4.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0| 5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0| 5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0|
-| <b>[TE02]</b> Gerenciar Aulas   | <b>[EP05]</b> Controlar Faltas e Notas                 | <b>[US15]</b> Eu, como professor, quero ter o controle de frequência dos alunos na aula para que eu saiba quem precisa repor as aulas.|4.0|3.0|4.0|3.67|
-| <b>[TE03]</b> Gerenciar Finanças | <b>[EP06]</b> Registrar Mensalidades dos Alunos                    | <b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma <br>| 4.0|3.0|4.0|3.67|
-| <b>[TE03]</b> Gerenciar Finanças | <b>[EP07]</b> Gerir Contratos                   | <b>[US17]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula <br> <b>[US18]</b> Eu, como administrador, quero verificar a situação de cada aluno em relação ao cumprimento ou descumprimento do contrato, para ter noção dos alunos que estão se tornando inadimplentes, seja por falta de pagamento ou por não renovação do contrato.  | 5.0 </br></br></br> 4.0| 3.0 </br></br></br> 3.0 | 4.0 </br></br></br> 3.0 | 4.0 </br></br></br> 3.33|
+| <b>[TE02]</b> Gerenciar Aulas   | <b>[EP05]</b> Controlar Faltas e Notas                 | <b>[US15]</b> Eu, como administrador, quero ter o controle de frequência dos alunos na aula para que eu saiba quem precisa repor as aulas.|4.0|3.0|4.0|3.67|
+| <b>[TE03]</b> Gerenciar Finanças | <b>[EP06]</b> Registrar Mensalidades dos Alunos                    | <b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma <br> <b>[US17]</b> Eu, como administrador, quero verificar a situação de cada aluno em relação ao cumprimento ou descumprimento do contrato, para ter noção dos alunos que estão se tornando inadimplentes, seja por falta de pagamento ou por não renovação do contrato.  | 4.0 </br></br></br> 4.0| 3.0 </br></br></br> 3.0 | 4.0 </br></br></br> 3.0 | 3.67 </br></br></br> 3.33|
+| <b>[TE03]</b> Gerenciar Finanças | <b>[EP07]</b> Gerir Contratos                   | <b>[US18]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula <br>| 5.0 | 3.0  | 4.0 | 4.0 |
 | <b>[TE04]</b> Comunicar             | <b>[EP08]</b> Postar no Mural de Avisos                            | <b>[US19]</b> Eu, como administrador, quero me comunicar com os devidos alunos e/ou responsáveis para avisá-los de algum impasse que possa surgir.| 5.0 | 4.0 | 3.0| 3.67|
 
 ## Requisitos não-funcionais
@@ -56,12 +57,10 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 
 
 ## MVP 2
-| Requisitos                          | Justificativa                                                                                                                        |
+| User Stories                          | Justificativa                                                                                                                        |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Gestão de Pagamentos e Mensalidades | O super-usuário deve ser capaz de acompanhar o fluxo de pagamento de cada aluno.                                                     |
-| Controle de Frequência de Alunos    | O super-usuário, professores e alunos deve ser capazes de acompanhar a frequência dos alunos nas aulas.                              |
-| Central de Comunicação              | O super-usuário deve ser capaz de enviar mensagens de texto para os alunos e responsáveis via WhatsApp e Email.                      |
-| Relatório de Inadimplência             | O super-usuário deve ser  capaz de verificar quais alunos estão se tornando inadimplentes por falta de pagamento ou não renovação do contrato. |
-| Agenda dos Professores                          | Os professores devem ter a capacidade de atualizar a sua agenda de disponibilidades para novas aulas, enquanto o super-usuário tem acesso à todas elas. |
-| Gerenciamento de Salas de Aula e de Ensaio      | O super-usuário deve ser capaz de gerenciar as salas de aulas para remanejamento de turmas, aulas e ensaios musicais.                                   |
-| Histórico de Aulas                  | O super-usuário deve ser capaz de visualizar todo o histórico de aulas ministradas e não ministradas devido a faltas ou reposições.  |
+| <b>[US9] [US10]<b> | O administrador deve ser capaz de gerenciar as salas de aula da escola.                                                    |
+| <b>[US15]</b>    | O administrador deve ter o controle de frequência dos alunos nas aulas.                              |
+| <b>[US16]<b>           | O administrador deve conseguir registrar o pagamento de mensalidade de cada aluno.                      |
+| <b>[US17]<b>             | O administrador deve ser capaz de verificar a situação de cada aluno em relação ao cumprimento e descumprimento do contrato. |
+| <b>[US19]<b>                          | O administrador deve ser capaz de se comunicar com cada aluno e ou responsável por meio de um mural de avisos. |
