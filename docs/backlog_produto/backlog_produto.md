@@ -7,6 +7,7 @@
 | 10/05/2023 |  0.3   |             Criação de Tabela de Analíse de Viabilidade dos Requisitos             |                       Luan Mateus, </br>Luana Ribeiro, </br>Maykon Júnio                       |
 | 12/05/2023 |  0.3   | Alteração no Backlog do Produto e Inserção das Histórias de Usuário no MVP1 e MVP2 |                              Davi Ranieri, </br>Guilherme Santos                               |
 | 15/05/2023 |  0.4   |    Inserção de Valorização no Backlog e critérios de aceitação. Edição de MVP2.    | Davi Ranieri,</br> Guilherme Santos, </br>Luan Mateus, </br> Luana Ribeiro, </br> Maykon Júnio |
+| 16/05/2023 | 0.5  | Edição da tabela de critérios de aceitação | Luana Ribeiro |
 
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
