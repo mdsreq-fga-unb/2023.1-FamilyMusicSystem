@@ -4,13 +4,14 @@
 | :--------: | :----: | :---------------------------------: | :---------: |
 | 18/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
 | 13/05/2023 |  0.2   | Modificação na Organização do Projeto, Planejamento das Fases e Critérios de Replanejamento | Luan Mateus |
+| 16/05/2023 | 0.3 | Edição dos papéis | Luana Ribeiro |
 
 ## Organização do projeto
 
 | Papel                      | Atribuições                                                                                                                                              | Responsável                              | Participantes                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Desenvolvedor Frontend     | Responsável por codificar o design do produto e fazer as devidas implementações referentes ao visual da aplicação. Além de montar o protótipo do sistema | Luan Mateus                | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
-| Desenvolvedor Backend      | Responsável por implementar as funcionalidades e os devidos fluxos que tem a função de controlar a aplicação                                             | Davi Ranieri<br> Maykon Junio            | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor Frontend     | Responsável por codificar o design do produto e fazer as devidas implementações referentes ao visual da aplicação. Além de montar o protótipo do sistema | Luan Mateus  </br> Maykon Junio           | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
+| Desenvolvedor Backend      | Responsável por implementar as funcionalidades e os devidos fluxos que tem a função de controlar a aplicação                                             | Davi Ranieri           | Davi Ranieri<br> Guilherme Santos<br> Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
 | Desenvolvedor Master Scrum | Tem a função de assegurar que a metodologia do Scrum esteja ocorrendo de maneira funcional na equipe                                                     | Guilherme Santos                         | Davi Ranieri<br> Guilherme Santos<br>  Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
 | Desenvolvedor CI Test      | É o responsável por testar e preparar o sistema para um ambiente de homologação do produto                                                               | Luana Ribeiro                            | Davi Ranieri<br> Guilherme Santos<br>  Luan Mateus<br> Luana Ribeiro<br> Maykon Junio |
 | Product Owner              | É o responsável por desenvolver os objetivos do produto e garantir a compreensão do backlog do produto, ou seja, ele será o dono do produto              | Luiz Felipe                              | Luiz Felipe                                                                                        |

@@ -4,6 +4,7 @@
 | :--------: | :----: | :------------------------------------------------: | :----------------------------------------------------------------------: |
 | 16/04/2023 |  0.1   |        Criação e estruturação do documento         | Guilherme Santos, </br> Levi Braz, </br> Luan Mateus, </br> Maykon Junio |
 | 30/04/2023 |  0.2   | Adicionando Definition of done e Defition of Ready |                               Maykon Junio                               |
+| 16/05/2023 | 0.3 | Edição das abordagens XP utilizadas | Luana Ribeiro |
 
 ## Metodologia
 
@@ -37,10 +38,7 @@
 | Refatoração             | Prática que envolve a melhoria contínua do código existente sem alterar sua funcionalidade                                                                                                   | VisualStudio Code            |
 | Testes Unitários        | A prática da refatoração torna o código inteligível, pode ajudar na diminuição de ocorrência de bugs e, também, podendo melhorar o desempenho do software                                    | Jest \| GitActions           |
 | Programação em Pares    | Prática que permite que dois ou mais participantes trabalhem simultâneamente no mesmo código através de uma vídeo-chamada ou até chamada de voz                                              | VisualStudio Code \| Discord |
-
-| Não Desempenharemos |                                                                                                                Motivo                                                                                                                 |
-| :-----------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|         TDD         | Principalmente pela falta de experiência com essa metodologia por parte da equipe. Como o prazo da entrega é curto e a elaboração de testes antes da implementação demanda tempo, essa prática pode comprometer a entrega do projeto. |
+| TDD | Elaboração dos testes antes da implementação | GitActions | 
 
 Para realizações das devidas sprints, a equipe utilizará as técnicas do XP listadas acima.
 

@@ -861,7 +861,7 @@
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
 <td><b>[EP04]</b> Controle de Agendas</td>
-<td><b>[US14]</b> Eu, como professor, devo atualizar minha agenda para novas aulas que serão ministradas por mim. <a href="#us14">Critérios de aceitação</a>.</td>
+<td><b>[US14]</b> Eu, como professor, devo atualizar minha agenda para organizar as novas aulas que serão ministradas por mim. <a href="#us14">Critérios de aceitação</a>.</td>
 <td align="center">4.0</td>
 <td align="center">4.0</td>
 <td align="center">4.0</td>
@@ -870,7 +870,7 @@
 <tr>
 <td><b>[TE03]</b> Gerenciar Finanças</td>
 <td><b>[EP07]</b> Gerir Contratos</td>
-<td><b>[US17]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula. <a href="#us17">Critérios de aceitação</a>.</td>
+<td><b>[US17]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula, para que esse processo não seja feito de forma manual. <a href="#us17">Critérios de aceitação</a>.</td>
 <td align="center">5.0</td>
 <td align="center">3.0</td>
 <td align="center">4.0</td>
@@ -933,7 +933,7 @@
 <tr>
 <td><b>[TE03]</b> Gerenciar Finanças</td>
 <td><b>[EP06]</b> Registrar Mensalidades dos Alunos</td>
-<td><b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma. <a href="#us16">Critérios de aceitação</a>.</td>
+<td><b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma, para obter um controle dos pagamentos. <a href="#us16">Critérios de aceitação</a>.</td>
 <td align="center">4.0</td>
 <td align="center">3.0</td>
 <td align="center">4.0</td>
@@ -1041,19 +1041,25 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us12">[US12]</b></td>
-<td>- O administrador deve realizar um agendamento de aula sem que o software permita horários que se choquem;<br/> - As aulas agendadas devem ficar registradas no banco de dados;<br/>- O administrador deve ver a confirmação do agendamento;</td>
+<td>-Para agendar, devem ser solicitados: nome do professor, horário, tipo de aula (coletiva ou individual) que deverá estar disposta em um campo de seleção e o instrumento;</br> -Se a aula for coletiva , deverá ser solicitado o número da turma, e se for individual, o nome do aluno;</br> - O horário escolhido deverá estar de acordo com o horário de funcionamento das aulas;   </br> - O administrador deve realizar um agendamento de aula sem que o software permita horários que se choquem;</br> - As aulas agendadas devem ser registradas no banco de dados;</br>- O administrador deve ver a confirmação do agendamento;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us13">[US13]</b></td>
-<td>- O administrador deve conseguir filtrar as aulas agendadas por dia, mês e ano;</td>
+<td>- O administrador deve conseguir filtrar as aulas agendadas por dia, mês e ano; </br> - Deve ser possível visualizar o nome do professor que dará a aula, o tipo da aula (coletiva ou individual), se for individual mostrar o nome do aluno e se for coletiva mostrar o número da turma, o instrumento, o dia e horário; </br > - Deve ser visível uma área para edição da aula agendada; </br > - Deve ser visível uma área para remoção da aula agendada;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us14">[US14]</b></td>
-<td>- O professor deve conseguir editar aulas anteriormente marcada;<br/>- O professor deve visualizar as alteraçōes realizadas;</td>
+<td>- O professor deve conseguir editar aulas anteriormente marcadas;</br> - Devem ser solicitados os dados de alteração: tipo de aula (coletiva ou individual)(número da turma ou nome do aluno), instrumento, dia e horário; </br> - Deve ser perguntado se o professor realmente deseja fazer essa alteração; </br> - O professor deve visualizar as alteraçōes realizadas;  </br > - As alterações devem ser salvas no banco de dados;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
