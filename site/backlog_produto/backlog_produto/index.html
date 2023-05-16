@@ -749,8 +749,8 @@
 <tr>
 <td align="center">15/05/2023</td>
 <td align="center">0.4</td>
-<td align="center">Atualização do Backlog - Requisitos Funcionais</td>
-<td align="center">Luan Mateus, </br> Luana Ribeiro</td>
+<td align="center">Inserção de Valorização no Backlog e Edição de MVP2</td>
+<td align="center">Davi Ranieri,</br> Guilherme Santos, </br>Luan Mateus, </br> Luana Ribeiro</td>
 </tr>
 </tbody>
 </table>
@@ -766,91 +766,210 @@
   <br></li>
 </ul>
 <h2 id="requisitos-funcionais">Requisitos funcionais</h2>
-<p>Os requisitos funcionais são as funcionalidades que o software deve realizar, e dependem de diversos fatores, como a abordagem utilizada para descrever os requisitos, o usuário do software, dentre outros. No projeto FMS, a análise de viabilidade do projeto conta com três critérios: Valor de negócio (N), Viabilidade (V) e Criticidade (C). Na tabela a seguir, cada requisito recebe uma nota de 1 a 5 atribuindo valor para esse requisito, e cada um receberá seu grau de prioridade de acordo com a média desses critérios para cada requisito: (N+V+C)/3.</p>
+<p>Os requisitos funcionais são as funcionalidades que o software deve realizar, e dependem de diversos fatores, como a abordagem utilizada para descrever os requisitos, o usuário do software, dentre outros. No projeto FMS, a análise de viabilidade do projeto conta com três critérios: Valor de negócio (N), Viabilidade (V) e Criticidade (C). Na tabela a seguir, cada requisito recebe uma nota de 1 a 5 atribuindo valor para esse requisito, e cada um receberá seu grau de prioridade de acordo com a média desses critérios para cada requisito: <b>(N+V+C)/3</b>.</p>
 <table>
 <thead>
 <tr>
 <th>Temas</th>
 <th>Épicos</th>
 <th>User Story</th>
-<th>Valor de negócio</th>
-<th>Viabilidade</th>
-<th>Criticidade</th>
-<th>Total</th>
+<th align="center">Valor de Negócio</th>
+<th align="center">Viabilidade</th>
+<th align="center">Criticidade</th>
+<th align="center">Total</th>
+<th align="center">Critérios de Aceitação</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><b>[TE01]</b> Gerenciamento de Pessoas</td>
+<td><b>[EP01]</b> Gestão de Usuários</td>
+<td><b>[US01]</b> Eu, como administrador, quero ser capaz de realizar o cadastro de professores para que possam ter acesso à plataforma.</td>
+<td align="center">5.0</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">4.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE02]</b> Gerenciar Aulas</td>
+<td><b>[EP04]</b> Controle de Agendas</td>
+<td><b>[US11]</b> Eu, como administrador, quero ter a opção de agendar as aulas dos alunos, para que sejam registradas na agenda do professor.</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">5.0</td>
+<td align="center">4.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE02]</b> Gerenciar Aulas</td>
+<td><b>[EP04]</b> Controle de Agendas</td>
+<td><b>[US12]</b> Eu como administrador, devo registrar novas aulas com alunos e professores para ter controle de organização.</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">5.0</td>
+<td align="center">4.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciamento de Pessoas</td>
+<td><b>[EP01]</b> Gestão de Usuários</td>
+<td><b>[US02]</b> Eu, como administrador, quero ser capaz de realizar o cadastro de professores, para que possam ter acesso à plataforma.</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciamento de Pessoas</td>
+<td><b>[EP01]</b> Gestão de Usuários</td>
+<td><b>[US03]</b> Eu, como administrador, quero ser capaz de realizar a atualização do perfil de professores para manter seus dados sempre atualizados.</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciamento de Pessoas</td>
+<td><b>[EP01]</b> Gestão de Usuários</td>
+<td><b>[US04]</b> Eu, como administrador, quero ser capaz de realizar a atualização do perfil de alunos para manter seus dados sempre atualizados.</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
+</tr>
+<tr>
 <td><b>[TE01]</b> Gerenciar Pessoas</td>
-<td><b>[EP01]</b> Gerir Usuários</td>
-<td><b>[US01]</b> Eu, como administrador, quero ser capaz de realizar o cadastro de alunos para que possam ter acesso à plataforma.<br><b>[US02]</b> Eu, como administrador, quero ser capaz de realizar o cadastro de professores, para que possam ter acesso à plataforma. <br> <b>[US03]</b> Eu, como administrador, quero ser capaz de realizar a atualização do perfil de professores para manter seus dados sempre atualizados. <br> <b>[US04]</b>Eu, como administrador, quero ser capaz de realizar a atualização do perfil de alunos para manter seus dados sempre atualizados. <br> <b>[US05]</b> Eu, como administrador, quero ser capaz de remover o cadastro de professores, para remover do banco de dados os que não fazem mais parte da escola. <br><b>[US06]</b> Eu, como administrador, quero ser capaz de remover o cadastro de alunos,para remover do banco de dados os que não fazem mais parte da escola. <br></td>
-<td>5.0 </br> </br> </br> 4.0 </br> </br> </br> 4.0 </br> </br> </br></br> 4.0</br> </br> </br></br> 3.0 </br></br> </br> </br>3.0</td>
-<td>5.0 </br> </br> </br> 4.0</br> </br> </br> 4.0 </br> </br> </br></br>4.0 </br> </br> </br></br> 4.0</br> </br> </br></br>4.0</td>
-<td>4.0 </br> </br> </br> 4.0 </br> </br> </br> 4.0 </br> </br> </br></br>4.0</br> </br> </br></br>4.0</br> </br> </br></br>4.0</td>
-<td>5.0 </br> </br> </br> 4.0</br> </br> </br>4.0</br> </br> </br></br>4.0</br> </br> </br></br>4.0</br> </br> </br></br>4.0</td>
-</tr>
-<tr>
-<td><b>[TE01]</b> Gerenciar Pessoas</td>
-<td><b>[EP02]</b> Autenticar Usuário na Plataforma <br></td>
-<td><b>[US07]</b> Eu, como usuário, quero poder acessar a plataforma com e-mail e senha para que eu tenha privacidade e meus dados estejam seguros <br> <b>[US08]</b> Eu, como usuário, quero recuperar minha senha, caso eu esqueça, para acessar a plataforma.</td>
-<td>5.0 </br></br></br></br> 5.0</td>
-<td>4.0 </br></br></br></br> 3.0</td>
-<td>3.0 </br></br></br></br> 3.0</td>
-<td>4.0 </br></br></br></br> 3.0</td>
+<td><b>[EP02]</b> Autenticar Usuário na Plataforma</td>
+<td><b>[US07]</b> Eu, como usuário, quero poder acessar a plataforma com e-mail e senha para que eu tenha privacidade e meus dados estejam seguros</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
-<td><b>[EP03]</b> Gerir Salas de Aulas</td>
-<td><b>[US09]</b> Eu, como administrador, quero ter a opção de cadastrar novas salas de aula na minha escola. <br> <b>[US10]</b> Eu, como administrador, quero ter a opção de gerenciar as salas de aula existentes na minha instituição, para possíveis alterações de turmas, aulas e ensaios musicais. <br></td>
-<td>1.0 </br></br></br> 1.0</td>
-<td>2.0 </br></br></br> 2.0</td>
-<td>1.0 </br></br></br> 1.0</td>
-<td>1.0 </br></br></br> 1.0</td>
+<td><b>[EP04]</b> Controle de Agendas</td>
+<td><b>[US13]</b> Eu, como administrador, quero ter a opção de visualizar a agenda do professor para escolher a data para agendamento de aulas.</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
-<td><b>[EP04]</b> Controlar Agendas</td>
-<td><b>[US11]</b> Eu, como administrador, quero ter a opção de agendar as aulas dos alunos, para que sejam registradas na agenda do professor. <br> <b>[US12]</b>  Eu como administrador, devo registrar novas aulas com alunos e professores para ter controle de organização.<br> <b>[US13]</b> Eu, como administrador, quero ter a opção de visualizar a agenda do professor para escolher a data para agendamento de aulas.<br><b>[US14]</b>Eu, como professor, devo atualizar minha agenda para novas aulas que serão ministradas por mim.</td>
-<td>5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0</td>
-<td>4.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0</td>
-<td>5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0</td>
-<td>5.0 </br></br></br></br> 5.0 </br></br></br></br> 4.0 </br></br></br></br> 4.0</td>
-</tr>
-<tr>
-<td><b>[TE02]</b> Gerenciar Aulas</td>
-<td><b>[EP05]</b> Controlar Faltas e Notas</td>
-<td><b>[US15]</b> Eu, como administrador, quero ter o controle de frequência dos alunos na aula para que eu saiba quem precisa repor as aulas.</td>
-<td>4.0</td>
-<td>3.0</td>
-<td>4.0</td>
-<td>3.67</td>
-</tr>
-<tr>
-<td><b>[TE03]</b> Gerenciar Finanças</td>
-<td><b>[EP06]</b> Registrar Mensalidades dos Alunos</td>
-<td><b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma <br> <b>[US17]</b> Eu, como administrador, quero verificar a situação de cada aluno em relação ao cumprimento ou descumprimento do contrato, para ter noção dos alunos que estão se tornando inadimplentes, seja por falta de pagamento ou por não renovação do contrato.</td>
-<td>4.0 </br></br></br> 4.0</td>
-<td>3.0 </br></br></br> 3.0</td>
-<td>4.0 </br></br></br> 3.0</td>
-<td>3.67 </br></br></br> 3.33</td>
+<td><b>[EP04]</b> Controle de Agendas</td>
+<td><b>[US14]</b> Eu, como professor, devo atualizar minha agenda para novas aulas que serão ministradas por mim.</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td><b>[TE03]</b> Gerenciar Finanças</td>
 <td><b>[EP07]</b> Gerir Contratos</td>
-<td><b>[US18]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula <br></td>
-<td>5.0</td>
-<td>3.0</td>
-<td>4.0</td>
-<td>4.0</td>
+<td><b>[US17]</b> Eu, como administrador, quero gerar um contrato de prestação de serviços para cada aluno no ato da matrícula.</td>
+<td align="center">5.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE03]</b> Gerenciar Finanças</td>
+<td><b>[EP07]</b> Gerir Contratos</td>
+<td><b>[US18]</b> Eu, como administrador, quero verificar a situação de cada aluno em relação ao cumprimento ou descumprimento do contrato, para ter noção dos alunos que estão se tornando inadimplentes, seja por falta de pagamento ou por não renovação do contrato..</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td><b>[TE04]</b> Comunicar</td>
 <td><b>[EP08]</b> Postar no Mural de Avisos</td>
 <td><b>[US19]</b> Eu, como administrador, quero me comunicar com os devidos alunos e/ou responsáveis para avisá-los de algum impasse que possa surgir.</td>
-<td>5.0</td>
-<td>4.0</td>
-<td>3.0</td>
-<td>3.67</td>
+<td align="center">5.0</td>
+<td align="center">4.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciar Pessoas</td>
+<td><b>[EP01]</b> Gerir Usuários</td>
+<td><b>[US05]</b> Eu, como administrador, quero ser capaz de remover o cadastro de professores, para remover do banco de dados os que não fazem mais parte da escola.</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">3.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciar Pessoas</td>
+<td><b>[EP01]</b> Gerir Usuários</td>
+<td><b>[US06]</b> Eu, como administrador, quero ser capaz de remover o cadastro de alunos,para remover do banco de dados os que não fazem mais parte da escola.</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center">4.0</td>
+<td align="center">3.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE01]</b> Gerenciar Pessoas</td>
+<td><b>[EP02]</b> Autenticar Usuário na Plataforma</td>
+<td><b>[US08]</b> Eu, como usuário, quero recuperar minha senha, caso eu esqueça, para acessar a plataforma.</td>
+<td align="center">5.0</td>
+<td align="center">3.0</td>
+<td align="center">3.0</td>
+<td align="center">3.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE02]</b> Gerenciar Aulas</td>
+<td><b>[EP05]</b> Controlar Faltas e Notas</td>
+<td><b>[US15]</b> Eu, como professor, quero ter o controle de frequência dos alunos na aula para que eu saiba quem precisa repor as aulas.</td>
+<td align="center">4.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center">3.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE03]</b> Gerenciar Finanças</td>
+<td><b>[EP06]</b> Registrar Mensalidades dos Alunos</td>
+<td><b>[US16]</b> Eu, como administrador, quero poder registrar o pagamento da mensalidade de cada aluno na plataforma.</td>
+<td align="center">4.0</td>
+<td align="center">3.0</td>
+<td align="center">4.0</td>
+<td align="center">3.6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE02]</b> Gerenciar Aulas</td>
+<td><b>[EP03]</b> Gerir Salas de Aulas</td>
+<td><b>[US09]</b> Eu, como administrador, quero ter a opção de cadastrar novas salas de aula na minha escola para hospedagem das turmas.</td>
+<td align="center">1.0</td>
+<td align="center">2.0</td>
+<td align="center">1.0</td>
+<td align="center">1.3</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><b>[TE02]</b> Gerenciar Aulas</td>
+<td><b>[EP03]</b> Gerir Salas de Aulas</td>
+<td><b>[US10]</b> Eu, como administrador, quero ter a opção de gerenciar as salas de aula existentes na minha instituição, para possíveis alterações de turmas, aulas e ensaios musicais.</td>
+<td align="center">1.0</td>
+<td align="center">2.0</td>
+<td align="center">1.0</td>
+<td align="center">1.3</td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
