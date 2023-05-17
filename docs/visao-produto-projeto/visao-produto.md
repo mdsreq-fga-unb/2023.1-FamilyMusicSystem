@@ -4,6 +4,7 @@
 | :--------: | :----: | :---------------------------------: | :---------: |
 | 17/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
 | 23/04/2023 |  0.2   | Inserção de todas as tecnologias e ferramentas que serão utilizadas  | Maykon Junio |
+| 11/05/2023 |  0.3   | Atualização dos Objetivos do Produto  | Luan Mateus |
 
 
 ## Declaração Geral do Produto
@@ -30,7 +31,7 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 ## Tecnologias Utilizadas
 
 - Angular - Desenvolvimento do Frontend
-- Boostrap - Desenvolvimento do Frontend
+- Bootstrap - Desenvolvimento do Frontend
 - Javascript - Desenvolvimento do Frontend
 - Node - Desenvolvimento do Backend
 - Strapi - Desenvolvimento do Backend
@@ -41,8 +42,8 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 ## Ferramentas
 
 - Miro - Planejamento de rotina
-- Discord - Reuniões de Daily
-- GiHub - Armazenamento de versões
+- Discord - Reuniões de Daily, Review e Retrospective
+- GitHub - Armazenamento de versões
 - Visual Studio Code - Editor de código
 
 ## Miro
