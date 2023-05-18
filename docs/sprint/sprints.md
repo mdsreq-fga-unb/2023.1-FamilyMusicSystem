@@ -17,6 +17,8 @@
 
 ## Sprint 1
 
+![1](images/../../images/slides-unidade-1/Sprint1.jpeg)
+
 | Data | Tipo da reunião | Quem participou | Oque foi decidido | Oque foi falado |
 | ---- | --------------- | --------------- | ----------------- | --------------- |
 | <b>27/04/2023</b> | Sprint Planning | Guilherme Santos,<br> Luan Mateus,<br> Maykon Junio. | Decidido o que vamos entregar durante a sprint com referência nos slides de entrega da unidade 2 | Data de entrega de algumas atividades |
@@ -25,3 +27,7 @@
 | <b>07/05/2023<b>  | Daily Assíncrona | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.  | Atualizações do que cada um fez | Saber o que cada integrante do grupo fez nos dias anteriores |
 | <b>08/05/2023<b>  | Daily Síncrona com Atualizações do Grupo | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.   | - Separação de papéis na apresentação </br> - Sanar algumas dúvidas com o professor </br> - Apresentar UI para o cliente </br> - Divisão de equipes | Discussão sobre o cliente e a plataforma |
 | <b>15/05/2023<b>  | Sprint Retrospective | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | - Definição de pessoas que apresentariam no dia seguinte </br> - Mudanca de papéis com a saída do Levi </br> - Foco no Miro | - Atualizacoes do Backlog. </br> - Relatório de Gamificacao. </br> - Pontos positivos, negativos e melhorias. </br> - Review do que foi realizado na Sprint com o grupo. |
+
+## Sprint 2
+
+![2](images/../../images/slides-unidade-1/Sprint2.jpeg)
