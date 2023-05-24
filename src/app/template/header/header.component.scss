@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+
+.header .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ajuda {
+  position: fixed;
+  left: 0;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--contrast);
+  transform: scale(1.2);
+  margin-left: 1rem;
+}
+
+.perfil {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--contrast);
+  color: var(--primary);
+  border: none;
+  border-radius: 32px;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.perfil img {
+  margin: 0;
+  width: 2.5em;
+  position: relative;
+  right: 0;
+}
+
+.perfil p {
+  padding: 0.5em 0.9em;
+  margin: 0;
+}
+

@@ -1,6 +1,34 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+:root {
+  --background: #b7cd96;
+  --selector: #b5dc79;
+  --contrast: #222222;
+  --primary: #fffdf0;
+  --secondary: #f0efdd;
+  --shadow: #aaaaaa;
+  --cyan: #1aa58f;
+  --orange: #f39106;
+  --red: #f66e43;
+}
+
+:root .darkTheme {
+  --background: #273c32;
+  --selector: #365346;
+  --contrast: #fffdf0;
+  --primary: #222222;
+  --secondary: #2c2b2b;
+  --shadow: #aaaaaa;
+  --cyan: #1aa58f;
+  --orange: #f39106;
+  --red: #f66e43;
+}
+
+html,
 body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
   height: auto;
   padding: 0;
@@ -8,15 +36,3 @@ body {
   box-sizing: border-box;
   position: relative;
 }
-
-:root {
-  --fundoClaro: #b7cd96;
-  --fundoEscuro: #273c32;
-  --pretoPrimario: #222222;
-  --pretoSecundario: #2c2b2b;
-  --brancoPrimario: #fffdf0;
-  --brancoSecundario: #f0efdd;
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

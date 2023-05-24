@@ -1,3 +1,56 @@
-p {
-  color: blue;
+.fundo {
+  width: 100%;
+  min-height: 96vh;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  background: var(--primary);
+  height: max-content;
+  width: max-content;
+  border-radius: 0 0 1rem 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.logo svg {
+  transform: scale(75%);
+}
+
+.buttons {
+  list-style-type: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 0;
+  width: max-content;
+  margin-top: 1rem;
+}
+
+.buttons li {
+  display: flex;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.buttons li a {
+  color: var(--contrast);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.buttons li mat-icon {
+  margin-right: 1.2rem;
+  color: var(--cyan);
+  transform: scale(1);
 }

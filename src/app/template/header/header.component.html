@@ -1,3 +1,18 @@
-<app-button nome="ajuda">
-  <mat-icon> home </mat-icon>
-</app-button>
+<header class="header">
+  <app-button nome="ajuda">
+    <mat-icon> contact_support </mat-icon>
+  </app-button>
+  <div class="right">
+    <app-button nome="sair">
+      <mat-icon> exit_to_app </mat-icon>
+    </app-button>
+    <mat-icon class="theme" (click)="toggle()"> {{ icon_now }} </mat-icon>
+    <button class="perfil">
+      <p class="text">Felipe Luiz</p>
+      <img src="\assets\image\foto perfil.png" class="photo" />
+    </button>
+  </div>
+</header>
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>

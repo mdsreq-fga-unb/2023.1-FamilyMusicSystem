@@ -1,16 +1,16 @@
-footer {
+.footer {
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  background: var(--pretoPrimario);
   bottom: 0;
-  height: 4%;
+  height: 4vh;
   width: 100%;
+  background: var(--contrast);
 }
 
-p {
+.footer p {
   margin: 0;
-  color: var(--brancoPrimario);
-  font-size: 0.9em;
+  color: var(--primary);
+  font-size: 0.9rem;
 }

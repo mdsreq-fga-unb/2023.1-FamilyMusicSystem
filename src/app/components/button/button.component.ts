@@ -8,4 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ButtonComponent {
   @Input('nome') nome: string = '';
   @Input('icone') icone: string = '';
+  
 }
+
