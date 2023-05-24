@@ -5,20 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastroAlunosComponent } from './modules/cadastro-alunos/cadastro-alunos.component';
-import { LoginComponentComponent } from './modules/login/login.component';
+import { LoginComponent } from './modules/login/login.component';
+import { SidebarComponent } from './template/sidebar/sidebar.component';
+import { FooterComponent } from './template/footer/footer.component';
+import { HeaderComponent } from './template/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroAlunosComponent,
-    LoginComponentComponent
+    LoginComponent,
+    SidebarComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

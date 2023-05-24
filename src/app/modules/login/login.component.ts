@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-login-component',
-  templateUrl: './login-component.component.html',
-  styleUrls: ['./login-component.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponentComponent {
+export class LoginComponent {
+  numero = 0;
 
+  contar(): number {
+    return (this.numero = this.numero + 1);
+  }
 }
