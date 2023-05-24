@@ -1,5 +1,5 @@
 body {
   display: flex;
-  padding: 10px;
-  
+  flex-direction: column;
+  background: var(--fundoClaro);
 }

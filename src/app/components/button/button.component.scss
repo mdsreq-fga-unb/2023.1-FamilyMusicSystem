@@ -1,0 +1,13 @@
+.ajuda {
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--pretoPrimario);
+  color: var(--brancoPrimario);
+  border: none;
+  border-radius: 32px;
+  padding: 0.5em 1em;
+}
+
+.ajuda div {
+  padding-left: 0.5em;
+}

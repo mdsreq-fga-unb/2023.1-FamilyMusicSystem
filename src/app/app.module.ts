@@ -9,6 +9,8 @@ import { LoginComponent } from './modules/login/login.component';
 import { SidebarComponent } from './template/sidebar/sidebar.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { HeaderComponent } from './template/header/header.component';
+import { ButtonComponent } from './components/button/button.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,14 @@ import { HeaderComponent } from './template/header/header.component';
     SidebarComponent,
     FooterComponent,
     HeaderComponent,
+    ButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
