@@ -1,0 +1,7 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: 18vw auto;
+  flex-direction: column;
+  background: var(--background);
+  height: 100%;
+}

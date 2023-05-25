@@ -3,7 +3,7 @@
     <mat-icon> contact_support </mat-icon>
   </app-button>
   <div class="right">
-    <app-button nome="sair">
+    <app-button nome="sair" routerLink="">
       <mat-icon> exit_to_app </mat-icon>
     </app-button>
     <mat-icon class="theme" (click)="toggle()"> {{ icon_now }} </mat-icon>
@@ -13,6 +13,3 @@
     </button>
   </div>
 </header>
-<div class="spinner-grow text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
