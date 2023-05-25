@@ -26,13 +26,9 @@
 
 html,
 body {
-
-  min-height: 100vh;
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  height: auto;
+  height: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  position: relative;
 }

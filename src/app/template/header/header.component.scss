@@ -3,8 +3,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 1rem;
+  max-width: 100%;
+  margin: 0.5rem;
 }
 
 .header .right {
@@ -48,7 +48,9 @@
 }
 
 .perfil p {
-  padding: 0.5em 0.9em;
+  padding: 0.6em 1em;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
