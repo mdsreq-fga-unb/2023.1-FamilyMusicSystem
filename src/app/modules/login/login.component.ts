@@ -6,9 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  numero = 0;
+  icon = ['brightness_2', 'wb_sunny'];
+  icon_now = 'brightness_2';
+  toggle() {
+    const theme = document.body.classList.toggle('darkTheme');
 
-  contar(): number {
-    return (this.numero = this.numero + 1);
+    if (theme) {
+      return (this.icon_now = this.icon[1]);
+    }
+    return (this.icon_now = this.icon[0]);
   }
 }
