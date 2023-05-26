@@ -28,6 +28,16 @@
   margin-left: 1rem;
 }
 
+.theme:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--contrastSecondary);
+  transform: scale(1.2);
+  margin-left: 1rem;
+}
+
 .btn-custom {
   display: flex;
   align-items: center;
@@ -47,7 +57,7 @@
 }
 
 .btn-custom:hover {
-  background-color: rgb(68, 68, 68);
+  background-color: var(--contrastSecondary);
 }
 
 .photo {
@@ -55,4 +65,13 @@
   height: 100%;
   width: auto;
   object-fit: contain;
+}
+
+.rounded-pill {
+  background: var(--contrast);
+  color: var(--primary);
+}
+
+.rounded-pill:hover {
+  background-color: var(--contrastSecondary);
 }
