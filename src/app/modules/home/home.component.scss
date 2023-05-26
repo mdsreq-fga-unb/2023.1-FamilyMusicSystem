@@ -28,10 +28,23 @@
 
 .rounded-pill {
   background: var(--contrast);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   color: var(--primary);
   margin-top: 2rem;
   width: max-content;
+}
+.rounded-pill span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.rounded-pill span mat-icon {
+  margin-left: 8px;
 }
 
 .rounded-pill:hover {
