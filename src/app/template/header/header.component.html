@@ -1,1 +1,33 @@
-<p>header works!</p>
+<header class="header">
+  <button
+    type="button"
+    class="btn btn-dark d-flex align-items-center rounded-pill"
+  >
+    <mat-icon class="me-2">contact_support</mat-icon>
+    <span style="font-size: 1rem">ajuda</span>
+  </button>
+
+  <div class="right">
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      routerLink=""
+    >
+      <mat-icon class="me-2">exit_to_app</mat-icon>
+      <span style="font-size: 1rem">sair</span>
+    </button>
+    <mat-icon class="theme" (click)="toggle()"> {{ icon_now }} </mat-icon>
+
+    <button
+      type="button"
+      class="btn btn-custom btn-dark d-flex align-items-center rounded-pill"
+    >
+      <span class="button-text">Felipe Luiz</span>
+      <img
+        src="\assets\image\foto perfil.png"
+        class="photo"
+        alt="Foto Perfil"
+      />
+    </button>
+  </div>
+</header>
