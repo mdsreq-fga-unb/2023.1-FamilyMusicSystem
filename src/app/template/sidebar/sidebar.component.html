@@ -109,35 +109,122 @@
       />
     </svg>
   </div>
-
-  <ul class="buttons" data-mdb-animation-delay>
-    <li>
+  <div
+    class="btn-group-vertical"
+    role="group"
+    aria-label="Vertical radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio1"
+      autocomplete="off"
+      checked
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      for="vbtn-radio1"
+      routerLink="home"
+    >
       <mat-icon>home</mat-icon>
-      <a>Home</a>
-    </li>
-    <li class="buttton" routerLink="student">
-      <mat-icon> people </mat-icon>
-      <a>Alunos</a>
-    </li>
-    <li class="buttton" routerLink="teacher">
-      <mat-icon> class </mat-icon>
-      <a>Professores</a>
-    </li>
-    <li>
-      <mat-icon> meeting_room </mat-icon>
-      <a>Salas</a>
-    </li>
-    <li>
-      <mat-icon> calendar_today </mat-icon>
-      <a>Agenda</a>
-    </li>
-    <li>
-      <mat-icon> dashboard </mat-icon>
-      <a>Mural</a>
-    </li>
-    <li>
-      <mat-icon> settings </mat-icon>
-      <a>Preferências</a>
-    </li>
-  </ul>
+      Home
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio2"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="student"
+      for="vbtn-radio2"
+    >
+      <mat-icon>people</mat-icon>
+      Alunos
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio3"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="teacher"
+      for="vbtn-radio3"
+    >
+      <mat-icon>class</mat-icon>
+      Professores
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio4"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="room"
+      for="vbtn-radio4"
+    >
+      <mat-icon>meeting_room</mat-icon>
+      Salas
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio5"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="schedule"
+      for="vbtn-radio5"
+    >
+      <mat-icon>calendar_today</mat-icon>
+      Agenda
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio6"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="mural"
+      for="vbtn-radio6"
+    >
+      <mat-icon>dashboard</mat-icon>
+      Mural
+    </label>
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="vbtn-radio"
+      id="vbtn-radio7"
+      autocomplete="off"
+    />
+    <label
+      class="btn btn-outline-danger rounded-pill"
+      routerLink="settings"
+      for="vbtn-radio7"
+    >
+      <mat-icon>settings</mat-icon>
+      Preferências
+    </label>
+  </div>
 </nav>

@@ -7,7 +7,7 @@
 
 .mainContainer {
   display: grid;
-  grid-template-columns: 16rem auto;
+  grid-template-columns: 18rem auto;
   flex-direction: column;
   background: var(--background);
   height: 100%;
@@ -23,5 +23,3 @@
   width: 100%;
 }
 
-.content {
-}

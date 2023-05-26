@@ -17,40 +17,48 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .logo svg {
   transform: scale(75%);
 }
 
-.buttons {
-  list-style-type: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  padding: 0;
-  width: max-content;
-  margin-top: 1rem;
+.rounded-pill {
+  border-radius: none;
+  background: var(--secondary);
+  color: var(--contrast);
+  border: none;
 }
 
-.buttons li {
+.btn-check:checked + label.btn {
+  background-color: var(--contrast);
+  color: var(--primary);
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--contrast);
+  transition: background-color 0.3s;
+  padding: 0.8rem 2rem;
+  width: 100%;
   display: flex;
   align-items: center;
-  margin-top: 1.6rem;
-}
-
-.buttons li a {
-  color: var(--contrast);
+  justify-content: left;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 20px;
+  line-height: 28px;
 }
 
-.buttons li mat-icon {
-  margin-right: 1.2rem;
+.btn mat-icon {
   color: var(--cyan);
-  transform: scale(1);
+  margin-right: 2rem;
+  transform: scale(1.2);
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--contrast);
 }
