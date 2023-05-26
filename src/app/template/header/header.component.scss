@@ -28,30 +28,31 @@
   margin-left: 1rem;
 }
 
-.perfil {
-  margin: 0;
+.btn-custom {
   display: flex;
-  justify-content: space-evenly;
-  background: var(--contrast);
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 0 0 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--contrast);
   color: var(--primary);
   border: none;
-  border-radius: 32px;
-  padding: 0;
   margin-left: 1rem;
 }
 
-.perfil img {
-  margin: 0;
-  width: 2.5em;
-  position: relative;
-  right: 0;
+.button-text {
+  font-size: 1rem;
+  margin-left: auto;
 }
 
-.perfil p {
-  padding: 0.6em 1em;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1rem;
+.btn-custom:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+.photo {
+  margin-left: 10px;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
