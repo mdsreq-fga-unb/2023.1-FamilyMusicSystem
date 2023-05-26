@@ -1,0 +1,180 @@
+/* Estilos gerais */
+
+body {
+  background: var(--background);
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  height: 90px;
+  line-height: 70px;
+  font-size: 1.3em;
+}
+
+.icon {
+  position: absolute;
+  right: 3em;
+  top: 1.5em;
+  transform: scale(1.8);
+  color: var(--contrast);
+  cursor: pointer;
+}
+
+.sidePhoto {
+  display: flex;
+  max-height: 100%;
+  position: static;
+  margin: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: 12px;
+  flex: 1;
+  margin: 0;
+  object-fit: contain;
+}
+
+.myCard {
+  position: relative;
+  border-radius: 0% 5% 5% 0%;
+  margin-left: 12px;
+  margin-right: auto;
+  background: var(--primary);
+  flex: 1;
+  margin: 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textcard {
+  text-align: center;
+}
+
+.logo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#title {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: var(--contrast);
+}
+
+#logintext {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--contrast);
+}
+
+#loginid {
+  border-radius: 8px;
+  border: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  font-style: normal;
+  color: var(--shadow);
+  background-color: var(--secondary);
+}
+
+#forgettext {
+  text-decoration: none;
+  color: var(--contrast);
+  margin-bottom: 0px;
+}
+
+#loginbutton {
+  border-radius: 24px;
+  margin-bottom: 20px;
+  background-color: var(--contrast);
+  color: var(--primary);
+}
+
+/* Estilos responsivos */
+
+/* Dispositivos móveis */
+@media (max-width: 767px) {
+  .sidePhoto {
+    display: flex;
+    object-fit: cover;
+  }
+
+  .myCard {
+    margin-left: 0;
+  }
+
+  .logo {
+    display: flex;
+    max-width: 50%;
+  }
+
+  #title {
+    font-size: 20px;
+  }
+
+  #logintext {
+    font-size: 14px;
+  }
+
+  #forgettext {
+    font-size: 13px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sidePhoto {
+    display: flex;
+    object-fit: contain;
+    width: 70%;
+    margin-left: 3%;
+  }
+
+  .myCard {
+    margin-right: 3%;
+  }
+
+
+  #title {
+    font-size: 24px;
+  }
+
+  #logintext {
+    font-size: 18px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+  .sidePhoto {
+    display: flex;
+    object-fit: contain;
+    width: 70%;
+    margin-left: 20%;
+  }
+
+  .myCard {
+    margin-right: 20%;
+  }
+
+  #title {
+    font-size: 32px;
+  }
+
+  #logintext {
+    font-size: 24px;
+  }
+}
