@@ -99,7 +99,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #222222;
+    color: var(--contrast);
     flex-direction: column;
   }
   .content {
