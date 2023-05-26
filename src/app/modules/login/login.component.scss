@@ -21,6 +21,10 @@ header {
   cursor: pointer;
 }
 
+.img-fluid {
+  border-radius: 1rem 0 0 1rem;
+}
+
 .sidePhoto {
   display: flex;
   max-height: 100%;
@@ -146,7 +150,6 @@ header {
   .myCard {
     margin-right: 3%;
   }
-
 
   #title {
     font-size: 24px;
