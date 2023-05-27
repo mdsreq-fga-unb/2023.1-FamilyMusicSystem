@@ -23,6 +23,7 @@
   flex-direction: column;
   width: 30%;
   margin-left: 4rem;
+  max-height: -moz-max-content;
   max-height: max-content;
 }
 
@@ -34,8 +35,10 @@
   border: none;
   color: var(--primary);
   margin-top: 2rem;
+  width: -moz-max-content;
   width: max-content;
 }
+
 .rounded-pill span {
   display: flex;
   justify-content: center;
@@ -62,6 +65,7 @@ h1 {
 h1 b {
   color: var(--cyan);
 }
+
 p {
   margin-top: 2rem;
   font-family: "Roboto";
@@ -99,7 +103,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #222222;
+    color: var(--contrast);
     flex-direction: column;
   }
   .content {
@@ -110,14 +114,16 @@ p {
     justify-content: start;
     margin: 4rem;
     margin-bottom: 0;
+    max-height: -moz-max-content;
     max-height: max-content;
   }
-
   .photo {
+    width: -moz-max-content;
     width: max-content;
+    height: -moz-max-content;
     height: max-content;
     margin: 0;
     margin-bottom: 2rem;
     padding: 0;
   }
-}
+}/*# sourceMappingURL=home.component.css.map */
