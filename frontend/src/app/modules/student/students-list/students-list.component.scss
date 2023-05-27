@@ -3,16 +3,38 @@ body {
   border-radius: 1rem;
 }
 
-table {
-  border-radius: 18px 18px 0px 0px;
+header {
+  margin-bottom: 0;
+  display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+table {
+  border-radius: 1rem 1rem 0 0;
   color: var(--contrast);
+  border-collapse: collapse;
+  width: 100%;
+  
 }
 
 thead {
   background: var(--contrast);
   color: var(--primary);
+  position: sticky;
+  top: 0;
+  text-align: center; /* Alinha o conteúdo do cabeçalho ao centro */
+}
+
+tbody {
+  text-align: center; /* Alinha o conteúdo das células ao centro */
+}
+
+th, td {
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background: var(--secondary);
 }
 
 .content-content {
@@ -25,28 +47,38 @@ thead {
   justify-content: center;
   color: var(--contrast);
   flex-direction: column;
+  padding: 1rem;
+}
+
+.scrool {
+  width: 100%;
+  height: calc(100vh - 12rem);
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.content-content::-webkit-scrollbar {
+.scrool::-webkit-scrollbar {
   width: 8px; /* Largura da barra de rolagem */
 }
 
-.content-content::-webkit-scrollbar-thumb {
+.scrool::-webkit-scrollbar-thumb {
   background-color: var(
     --contrast
   ); /* Cor do preenchimento da barra de rolagem */
   border-radius: 1rem;
 }
 
-.content-content::-webkit-scrollbar-track {
+.scrool::-webkit-scrollbar-track {
   background-color: var(--secondary); /* Cor do fundo da barra de rolagem */
+}
+
+.container {
+  margin: 0;
+  padding: 0;
 }
 
 .studentsTitle {
   display: flex;
-  margin-left: 30px;
   align-items: center;
 }
 
@@ -55,13 +87,12 @@ thead {
 }
 
 .title {
-  margin-left: 20px;
+  margin-bottom: 0;
+  margin-left: 1rem;
   color: var(--contrast);
   font-weight: 500;
   font-size: 32px;
-  line-height: 38px;
   text-align: center;
-  margin-top: 15px;
 }
 
 .search-container {
