@@ -260,3 +260,12 @@ body {
   }
 }
 
+.footerApp {
+  position: absolute;
+  bottom: 0;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
