@@ -1,4 +1,4 @@
-export class Alunos {
+export class teacher {
     cpf: string;
     nome: string;
     sobrenome: string;
