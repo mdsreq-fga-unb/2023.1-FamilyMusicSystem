@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0.5rem;
+}
+
+.header .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ajuda {
+  position: fixed;
+  left: 0;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--contrast);
+  transform: scale(1.2);
+  margin-left: 1rem;
+}
+
+.theme:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--contrastSecondary);
+  transform: scale(1.2);
+  margin-left: 1rem;
+}
+
+.btn-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 0 0 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--contrast);
+  color: var(--primary);
+  border: none;
+  margin-left: 1rem;
+}
+
+.button-text {
+  font-size: 1rem;
+  margin-left: auto;
+}
+
+.btn-custom:hover {
+  background-color: var(--contrastSecondary);
+}
+
+.photo {
+  margin-left: 10px;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.rounded-pill {
+  background: var(--contrast);
+  color: var(--primary);
+}
+
+.rounded-pill:hover {
+  background-color: var(--contrastSecondary);
+}

@@ -1,0 +1,36 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+:root {
+  --background: #b7cd96;
+  --selector: #b5dc79;
+  --contrast: #222222;
+  --contrastSecondary: #2c2b2bde;
+  --primary: #fffdf0;
+  --secondary: #f0efdd;
+  --shadow: #aaaaaa;
+  --cyan: #1aa58f;
+  --orange: #f39106;
+  --red: #f66e43;
+}
+
+:root .darkTheme {
+  --background: #273c32;
+  --selector: #365346;
+  --contrast: #fffdf0;
+  --contrastSecondary: #f0efddde;
+  --primary: #222222;
+  --secondary: #2c2b2b;
+  --shadow: #aaaaaa;
+  --cyan: #1aa58f;
+  --orange: #f39106;
+  --red: #f66e43;
+}
+
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

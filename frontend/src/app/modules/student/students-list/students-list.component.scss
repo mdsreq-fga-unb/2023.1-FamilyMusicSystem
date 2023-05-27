@@ -1,0 +1,138 @@
+body {
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+table {
+  border-radius: 18px 18px 0px 0px;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast);
+}
+
+thead {
+  background: var(--contrast);
+  color: var(--primary);
+}
+
+.content-content {
+  background: var(--primary);
+  margin: 0.5rem;
+  height: calc(100vh - 5.9rem);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast);
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.content-content::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.content-content::-webkit-scrollbar-thumb {
+  background-color: var(
+    --contrast
+  ); /* Cor do preenchimento da barra de rolagem */
+  border-radius: 1rem;
+}
+
+.content-content::-webkit-scrollbar-track {
+  background-color: var(--secondary); /* Cor do fundo da barra de rolagem */
+}
+
+.studentsTitle {
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+}
+
+.personIcon {
+  position: relative;
+}
+
+.title {
+  margin-left: 20px;
+  color: var(--contrast);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.search-container {
+  position: relative;
+  width: 80%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  font-size: 24px;
+  color: #999;
+}
+
+.add-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.selected {
+  background: var(--selector); 
+}
+
+.miniProfile {
+  width: 33px;
+  border-radius: 24px;
+  margin-right: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+}
+
+#researchStudents {
+  background: var(--secondary);
+  border-radius: 32px;
+}
+
+#searchbutton {
+  border-radius: 24px;
+  background-color: var(--contrast);
+  color: var(--primary);
+  margin-left: 16px;
+}
+
+#filterbutton {
+  border: 3px solid;
+  border-color: var(--contrast);
+  border-radius: 24px;
+  background-color: var(--secondary);
+  color: var(--contrast);
+  margin-left: 16px;
+}
+
+#deleteButton {
+  border-radius: 24px;
+  background-color: var(--red);
+  color: var(--contrast);
+  margin-right: 16px;
+}
+
+#newButton {
+  border-radius: 24px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: var(--orange);
+  color: var(--contrast);
+}
