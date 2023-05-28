@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,7 @@ import { MuralComponent } from './modules/mural/mural.component';
 import { RoomsComponent } from './modules/rooms/rooms.component';
 import { ScheduleComponent } from './modules/schedule/schedule.component';
 import { SettingsComponent } from './modules/settings/settings.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { SettingsComponent } from './modules/settings/settings.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
