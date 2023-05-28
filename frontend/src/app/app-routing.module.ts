@@ -17,10 +17,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'student', component: StudentsListComponent },
-      { path: 'teacher', component: TeachersListComponent },
+      { path: 'students', component: StudentsListComponent },
+      { path: 'teachers', component: TeachersListComponent },
       { path: 'mural', component: MuralComponent },
-      { path: 'room', component: RoomsComponent },
+      { path: 'rooms', component: RoomsComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'settings', component: SettingsComponent },
     ],
