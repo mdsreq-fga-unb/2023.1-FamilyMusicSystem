@@ -3,6 +3,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import { Teacher } from 'src/app/models/teacher';
 import { TeachersRegisterComponent } from '../teachers-register/teachers-register.component';
 import { TeachersViewComponent } from '../teachers-view/teachers-view.component';
+import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
 
 @Component({
   selector: 'app-teachers-list',
@@ -49,6 +50,20 @@ export class TeachersListComponent implements OnInit{
       class : 'modal-lg'
     };
     this.bsModalRef = this.modalService.show(TeachersViewComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
+  }
+
+  modalFilterProfessores(){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+      },
+      class : 'modal-md'
+    };
+    this.bsModalRef = this.modalService.show(TeachersFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {
 
     })

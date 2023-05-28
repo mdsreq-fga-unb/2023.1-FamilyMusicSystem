@@ -3,6 +3,8 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import { Student } from 'src/app/models/student';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
+import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { StudentsContractComponent } from '../students-contract/students-contract.component';
 
 @Component({
   selector: 'app-students-list',
@@ -50,6 +52,21 @@ export class StudentsListComponent implements OnInit{
       class : 'modal-lg'
     };
     this.bsModalRef = this.modalService.show(StudentsViewComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
+  }
+
+
+  modalFilterAlunos(){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+      },
+      class : 'modal-md'
+    };
+    this.bsModalRef = this.modalService.show(StudentsFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {
 
     })

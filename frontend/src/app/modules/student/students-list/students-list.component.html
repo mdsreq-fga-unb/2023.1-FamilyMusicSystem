@@ -39,7 +39,7 @@
               <button
                 type="button"
                 class="btn btn-dark d-flex align-items-center rounded-pill"
-                routerLink=""
+                (click)="modalFilterAlunos()"
                 id="outline"
               >
                 filtrar
@@ -108,7 +108,7 @@
                   id="flexCheckDefault"
                 />
               </th>
-              <td>
+              <td class="button" (click)="modalViewAlunos()">
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"

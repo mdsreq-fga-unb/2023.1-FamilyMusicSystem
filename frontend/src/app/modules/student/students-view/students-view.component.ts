@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { Student } from 'src/app/models/student';
+import { StudentsContractComponent } from '../students-contract/students-contract.component';
 
 @Component({
   selector: 'app-students-view',
@@ -10,14 +11,12 @@ import { Student } from 'src/app/models/student';
 })
 export class StudentsViewComponent implements OnInit {
   public onClose : Subject<boolean>;
-  public edicao = false;
-  public location = false;
-  public inicial = true;
-  public Resp = false;
   public student : Student;
+
 
   constructor(
     private bsModalRef : BsModalRef,
+    private modalService : BsModalService,
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +25,19 @@ export class StudentsViewComponent implements OnInit {
 
   sair(){
     this.bsModalRef.hide();
+  }
+
+  modalContratoAlunos(){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+      },
+      class : 'modal-lg'
+    };
+    this.bsModalRef = this.modalService.show(StudentsContractComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
   }
 }
