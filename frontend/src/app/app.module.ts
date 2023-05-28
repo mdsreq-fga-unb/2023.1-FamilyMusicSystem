@@ -18,7 +18,10 @@ import { MuralComponent } from './modules/mural/mural.component';
 import { RoomsComponent } from './modules/rooms/rooms.component';
 import { ScheduleComponent } from './modules/schedule/schedule.component';
 import { SettingsComponent } from './modules/settings/settings.component';
-import { FormsModule } from '@angular/forms';
+import {BsModalRef,BsModalService} from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
+import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { FormsModule } from '@angular/forms';
     RoomsComponent,
     ScheduleComponent,
     SettingsComponent,
+    StudentsViewComponent,
+    TeachersViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +49,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
