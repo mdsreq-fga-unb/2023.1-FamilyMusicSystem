@@ -34,3 +34,10 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.modal {
+  --bs-modal-bg: var(--primary);
+  --bs-modal-border-radius: 1rem;
+  --bs-modal-border: none;
+  --bs-modal-border-width: 0;
+}

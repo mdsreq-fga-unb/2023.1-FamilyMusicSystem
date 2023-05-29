@@ -101,6 +101,8 @@ tr:nth-child(even) {
 
 .personIcon {
   position: relative;
+  color: var(--cyan);
+  transform: scale(1.5);
 }
 
 .title {
