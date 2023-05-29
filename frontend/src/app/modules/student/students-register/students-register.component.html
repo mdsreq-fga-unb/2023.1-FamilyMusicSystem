@@ -1,0 +1,153 @@
+<div class="modal-header">
+    <h2 class="modal-title"> 
+        {{edicao ? 'Editar' : 'Novo'}} Aluno
+    </h2>
+    <h3 class="modal-title" *ngIf="inicial"> 
+      Informacoes do aluno
+  </h3>
+
+    <h3 class="modal-title" *ngIf="location"> 
+      Informacoes de localidade
+  </h3>
+  <h3 class="modal-title" *ngIf="Resp"> 
+    Informacoes de Responsavel
+</h3>
+</div>
+<div class="modal-body">
+    <form  [formGroup]="studentForm" class="form-row">
+        <div class="col-md-6" *ngIf="inicial">
+            <label class="m-0" for="nome">Nome do aluno</label>
+            <input type="text" name="nome" formControlName="nomeStudent" class="form-control form-control-sm">
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+            <label class="m-0" for="sobrenome">Sobrenome do aluno</label>
+            <input type="text" name="sobrenome" formControlName="sobreStudent" class="form-control form-control-sm">
+        </div>
+<!------modal alunos-->
+        <div class="col-12 col-md-6" *ngIf="Resp">
+          <label class="m-0" for="nome">Nome do Responsavel</label>
+          <input type="text" name="nome" formControlName="nomeStudentResp" class="form-control form-control-sm">
+      </div>
+
+      <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0" for="sobrenome">Sobrenome do Responsavel</label>
+          <input type="text" name="sobrenome" formControlName="sobreStudentResp" class="form-control form-control-sm">
+      </div>
+
+      <div class="col-md-6" *ngIf="Resp">
+        <label class="m-0" for="data">CPF</label>
+        <input type="text" name="cpf" class="form-control form-control-sm">
+    </div>
+
+    <div class="col-md-6" *ngIf="Resp">
+      <label class="m-0" for="data">RG</label>
+      <input type="text" name="rg" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-md-6" *ngIf="Resp">
+    <label class="m-0" for="data">PCD</label>
+    <select name="pcd" id="" class="form-control form-control-sm">
+      <option value="S">Sim</option>
+      <option value="N">Nao</option>
+    </select>
+</div>
+
+<div class="col-md-6" *ngIf="Resp">
+  <label class="m-0" for="data">Se sim , qual tipo ?</label>
+  <input type="text" name="tipopcd" class="form-control form-control-sm">
+</div>
+
+<div class="col-md-6" *ngIf="Resp">
+  <label class="m-0" for="data">Gênero</label>
+  <select name="genero" id="" class="form-control form-control-sm">
+    <option value="M">Masculino</option>
+    <option value="F">Feminino</option>
+  </select>
+</div>
+
+
+    <div class="col-12 col-md-6" *ngIf="Resp">
+      <label class="m-0" for="data">Data nasc</label>
+      <input type="date" name="data" class="form-control form-control-sm">
+  </div>
+<!----Modal Resp-->
+      <div class="col-12 col-md-6" *ngIf="location">
+        <label class="m-0" for="nome">CEP</label>
+        <input type="text" name="nome" formControlName="cepStudent" class="form-control form-control-sm">
+    </div>
+
+    <div class="col-12 col-md-6" *ngIf="location">
+        <label class="m-0" for="sobrenome">Cidade</label>
+        <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+    </div>
+
+    <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Estado</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Bairoo</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Endereco</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Complemento</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Numero</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+  <div class="col-12 col-md-6" *ngIf="location">
+      <label class="m-0" for="sobrenome">Obs</label>
+      <input type="text" name="sobrenome" formControlName="cityStudent" class="form-control form-control-sm">
+  </div>
+
+
+
+
+
+    </form>
+</div>
+<div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          *ngIf="Resp"
+        >
+          <span style="font-size: 1rem">salvar</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="informacoesLoc()"
+          *ngIf="inicial"
+        >
+          <span style="font-size: 1rem">Continuar</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="informacoesResp()"
+          *ngIf="location"
+        >
+          <span style="font-size: 1rem">Continuar</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="sair()"
+        >
+          <span style="font-size: 1rem">sair</span>
+        </button>
+
+</div>

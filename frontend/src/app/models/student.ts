@@ -1,4 +1,4 @@
-export class student {
+export class Student {
     cpf: string;
     nome: string;
     sobrenome: string;

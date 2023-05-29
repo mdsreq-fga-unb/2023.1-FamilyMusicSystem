@@ -1,1 +1,61 @@
 <p>teachers-register works!</p>
+<div class="modal-header">
+    <h2 class="modal-title"> 
+        {{edicao ? 'Editar' : 'Novo'}} Professor
+    </h2>
+    <h3 class="modal-title" *ngIf="inicial"> 
+      Informacoes do professor
+  </h3>
+  <h3 class="modal-title" *ngIf="location"> 
+    Informacoes de localidade
+</h3>
+
+</div>
+<div class="modal-body">
+    <form  [formGroup]="teacherForm" class="form-row">
+        <div class="col-12 col-md-6" *ngIf="inicial">
+            <label class="m-0" for="nome">Nome do professor</label>
+            <input type="text" name="nome" formControlName="nomeTeacher" class="form-control form-control-sm">
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="inicial">
+            <label class="m-0" for="sobrenome">Sobrenome do professor</label>
+            <input type="text" name="sobrenome" formControlName="sobreTeacher" class="form-control form-control-sm">
+        </div>
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0" for="nome">CEP</label>
+          <input type="text" name="nome" formControlName="cepTeacher" class="form-control form-control-sm">
+      </div>
+
+      <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0" for="sobrenome">Cidade</label>
+          <input type="text" name="sobrenome" formControlName="cityTeacher" class="form-control form-control-sm">
+      </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          *ngIf="location"
+        >
+          <span style="font-size: 1rem">salvar</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="informacoesLoc()"
+          *ngIf="inicial"
+        >
+          <span style="font-size: 1rem">Continuar</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="sair()"
+        >
+          <span style="font-size: 1rem">sair</span>
+        </button>
+</div>

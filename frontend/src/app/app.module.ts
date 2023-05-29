@@ -15,10 +15,20 @@ import { TeachersListComponent } from './modules/teacher/teachers-list/teachers-
 import { TeachersRegisterComponent } from './modules/teacher/teachers-register/teachers-register.component';
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
-import { RoomsComponent } from './modules/rooms/rooms.component';
 import { ScheduleComponent } from './modules/schedule/schedule.component';
 import { SettingsComponent } from './modules/settings/settings.component';
-import { FormsModule } from '@angular/forms';
+import {BsModalRef,BsModalService} from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
+import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
+import { StudentsFilterComponent } from './modules/student/students-filter/students-filter.component';
+import { TeachersFilterComponent } from './modules/teacher/teachers-filter/teachers-filter.component';
+import { HelpModalComponent } from './shared/help-modal/help-modal.component';
+import { StudentsContractComponent } from './modules/student/students-contract/students-contract.component';
+import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
+import { RoomsRegisterComponent } from './modules/rooms/rooms-register/rooms-register.component';
+import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.component';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +44,18 @@ import { FormsModule } from '@angular/forms';
     TeachersRegisterComponent,
     HomeComponent,
     MuralComponent,
-    RoomsComponent,
     ScheduleComponent,
     SettingsComponent,
+    StudentsViewComponent,
+    TeachersViewComponent,
+    StudentsFilterComponent,
+    TeachersFilterComponent,
+    HelpModalComponent,
+    StudentsContractComponent,
+    RoomsListComponent,
+    RoomsRegisterComponent,
+    RoomsFilterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,8 +63,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

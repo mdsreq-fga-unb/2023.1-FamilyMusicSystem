@@ -1,23 +1,86 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import { Student } from 'src/app/models/student';
+import { StudentsRegisterComponent } from '../students-register/students-register.component';
+import { StudentsViewComponent } from '../students-view/students-view.component';
+import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { StudentsContractComponent } from '../students-contract/students-contract.component';
 
 @Component({
   selector: 'app-students-list',
   templateUrl: './students-list.component.html',
-  styleUrls: ['./students-list.component.scss'],
+  styleUrls: ['./students-list.component.scss']
 })
-export class StudentsListComponent {
-  checked: boolean = false;
+export class StudentsListComponent implements OnInit{
+  public students : Student[];
+  private bsModalRef : BsModalRef
+  checked : boolean = false;
   estilosDinamicos: any;
 
+  constructor(
+    private modalService : BsModalService,
+
+  ){}
 
 
-  toggle() {
+  ngOnInit(): void {
+
+  }
+
+  modalAlunos(edicao:boolean,student:Student = new Student()){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+        edicao,
+        student : student 
+      },
+      class : 'modal-lg'
+    };
+    this.bsModalRef = this.modalService.show(StudentsRegisterComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
+  }
+
+  modalViewAlunos(){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+      },
+      class : 'modal-lg'
+    };
+    this.bsModalRef = this.modalService.show(StudentsViewComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
+  }
+
+
+  modalFilterAlunos(){
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+      },
+      class : 'modal-md'
+    };
+    this.bsModalRef = this.modalService.show(StudentsFilterComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {
+
+    })
+  }
+
+  toggle(){
     this.estilosDinamicos = {
-      'background': this.calcularCorDeFundo(),
+      'background' : this.calcularCorDeFundo()
     };
   }
 
-  calcularCorDeFundo() {
+  calcularCorDeFundo(){
     return 'var(--selector)';
   }
+
+
 }
