@@ -57,7 +57,7 @@ O presente projeto propõe a criação de uma solução web para uma escola de m
 <tr>
 <td><a href="https://github.com/maykonjuso">Maykon Júnio dos Santos Soares</a></td>
 <td>211030863</td>
-<td>maykonjuso</td>
+<td>tonho</td>
 </tr>
 </tbody>
 </table>
