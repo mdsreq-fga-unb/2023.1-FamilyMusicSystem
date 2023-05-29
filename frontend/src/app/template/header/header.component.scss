@@ -7,10 +7,23 @@
   margin: 0.5rem;
 }
 
-.header .right {
+.right {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#ajuda {
+  margin-right: 0.5rem;
+}
+
+.dropdown-item {
+  cursor: pointer;
 }
 
 .ajuda {
@@ -25,7 +38,7 @@
   cursor: pointer;
   color: var(--contrast);
   transform: scale(1.2);
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .theme:hover {
@@ -35,7 +48,7 @@
   cursor: pointer;
   color: var(--contrastSecondary);
   transform: scale(1.2);
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .btn-custom {
@@ -48,7 +61,7 @@
   background-color: var(--contrast);
   color: var(--primary);
   border: none;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 
 .button-text {
@@ -74,4 +87,16 @@
 
 .rounded-pill:hover {
   background-color: var(--contrastSecondary);
+}
+
+#dropdown-animated {
+  background: var(--primary);
+}
+
+.dropdown-item {
+  color: var(--contrast);
+}
+
+.dropdown-item:hover {
+  background-color: var(--secondary);
 }

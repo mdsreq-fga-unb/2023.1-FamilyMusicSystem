@@ -19,15 +19,15 @@
   <div class="content">
     <div class="modal-header">
       <h2 class="modal-title" *ngIf="inicial">
-        <mat-icon class="icon">person</mat-icon>Informacoes do aluno
+        <mat-icon class="icon">person</mat-icon>Informações do aluno
       </h2>
       <h2 class="modal-title" *ngIf="location">
-        <mat-icon class="icon">location_on</mat-icon> Informacoes de localidade
+        <mat-icon class="icon">location_on</mat-icon> Informações de localidade
       </h2>
       <h2 class="modal-title" *ngIf="Resp">
-        <mat-icon class="icon">person</mat-icon>Informacoes de Responsavel
+        <mat-icon class="icon">person</mat-icon>Informações do responsavel
       </h2>
-      <h3 class="modal-title sub">{{ edicao ? "Editar" : "Novo" }}</h3>
+      <h3 class="modal-title sub">{{ edicao ? "editar" : "novo" }}</h3>
     </div>
     <div class="modal-body">
       <form [formGroup]="studentForm" class="form-row">
@@ -72,13 +72,13 @@
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="data">PCD</label>
           <select name="pcd" id="" class="form-control form-control-sm input">
-            <option value="S">Sim</option>
-            <option value="N">Nao</option>
+            <option value="N">não</option>
+            <option value="S">sim</option>
           </select>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="data">Se sim, qual tipo ?</label>
+          <label class="m-0 tittle-input" for="data">Se sim, qual tipo?</label>
           <input
             type="text"
             name="tipopcd"
@@ -93,13 +93,14 @@
             id=""
             class="form-control form-control-sm input"
           >
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
+            <option value="M">masculino</option>
+            <option value="F">feminino</option>
+            <option value="I">outro</option>
           </select>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="data">Data nasc</label>
+          <label class="m-0 tittle-input" for="data">Data nasc.</label>
           <input
             type="date"
             name="data"
@@ -149,13 +150,13 @@
         <div class="col-md-6" *ngIf="Resp">
           <label class="m-0 tittle-input" for="data">PCD</label>
           <select name="pcd" id="" class="form-control form-control-sm input">
-            <option value="S">Sim</option>
-            <option value="N">Nao</option>
+            <option value="N">não</option>
+            <option value="S">sim</option>
           </select>
         </div>
 
         <div class="col-md-6" *ngIf="Resp">
-          <label class="m-0 tittle-input" for="data">Se sim, qual tipo ?</label>
+          <label class="m-0 tittle-input" for="data">Se sim, qual tipo?</label>
           <input
             type="text"
             name="tipopcd"
@@ -170,13 +171,14 @@
             id=""
             class="form-control form-control-sm input"
           >
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
+            <option value="M">masculino</option>
+            <option value="F">feminino</option>
+            <option value="I">outro</option>
           </select>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="Resp">
-          <label class="m-0 tittle-input" for="data">Data nasc</label>
+          <label class="m-0 tittle-input" for="data">Data nasc.</label>
           <input
             type="date"
             name="data"
@@ -215,7 +217,7 @@
         </div>
 
         <div class="col-12 col-md-6" *ngIf="location">
-          <label class="m-0 tittle-input" for="sobrenome">Bairoo</label>
+          <label class="m-0 tittle-input" for="sobrenome">Bairro</label>
           <input
             type="text"
             name="sobrenome"
@@ -225,7 +227,7 @@
         </div>
 
         <div class="col-12 col-md-6" *ngIf="location">
-          <label class="m-0 tittle-input" for="sobrenome">Endereco</label>
+          <label class="m-0 tittle-input" for="sobrenome">Endereço</label>
           <input
             type="text"
             name="sobrenome"
@@ -245,7 +247,7 @@
         </div>
 
         <div class="col-12 col-md-6" *ngIf="location">
-          <label class="m-0 tittle-input" for="sobrenome">Numero</label>
+          <label class="m-0 tittle-input" for="sobrenome">Número</label>
           <input
             type="text"
             name="sobrenome"
@@ -255,7 +257,7 @@
         </div>
 
         <div class="col-12 col-md-6" *ngIf="location">
-          <label class="m-0 tittle-input" for="sobrenome">Obs</label>
+          <label class="m-0 tittle-input" for="sobrenome">Obs.:</label>
           <input
             type="text"
             name="sobrenome"

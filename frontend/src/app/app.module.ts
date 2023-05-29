@@ -16,8 +16,7 @@ import { TeachersRegisterComponent } from './modules/teacher/teachers-register/t
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleComponent } from './modules/schedule/schedule.component';
-import { SettingsComponent } from './modules/settings/settings.component';
-import {BsModalRef,BsModalService} from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
 import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
@@ -28,7 +27,11 @@ import { StudentsContractComponent } from './modules/student/students-contract/s
 import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
 import { RoomsRegisterComponent } from './modules/rooms/rooms-register/rooms-register.component';
 import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.component';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { PrivacyComponent } from './modules/settings/privacy/privacy.component';
+import { AboutComponent } from './modules/settings/about/about.component';
+import { ResourcesComponent } from './modules/settings/resources/resources.component';
+import { ContractComponent } from './modules/settings/contract/contract.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,6 @@ import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.
     HomeComponent,
     MuralComponent,
     ScheduleComponent,
-    SettingsComponent,
     StudentsViewComponent,
     TeachersViewComponent,
     StudentsFilterComponent,
@@ -55,7 +57,10 @@ import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.
     RoomsListComponent,
     RoomsRegisterComponent,
     RoomsFilterComponent,
-
+    PrivacyComponent,
+    AboutComponent,
+    ResourcesComponent,
+    ContractComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

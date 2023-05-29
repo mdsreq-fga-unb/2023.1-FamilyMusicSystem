@@ -1,6 +1,5 @@
 body {
   background: var(--primary);
-  border-radius: 1rem;
 }
 
 .form-check-input {
@@ -54,6 +53,7 @@ tr:nth-child(even) {
 .content-content {
   background: var(--primary);
   margin: 0.5rem;
+
   height: calc(100vh - 5.9rem);
   border-radius: 1rem;
   display: flex;
@@ -64,12 +64,16 @@ tr:nth-child(even) {
   padding: 0.5rem;
 }
 
+.header {
+  min-width: 100%;
+}
+
 .scrool {
   width: 100%;
   height: calc(100vh - 12rem);
   overflow-y: scroll;
   overflow-x: hidden;
-  border-radius: 1rem;
+  border-radius: 1rem 0 0 1rem;
 }
 
 .scrool::-webkit-scrollbar {
@@ -88,8 +92,11 @@ tr:nth-child(even) {
 }
 
 .container {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
 }
 
 .studentsTitle {

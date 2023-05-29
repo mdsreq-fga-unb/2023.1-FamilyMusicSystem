@@ -53,16 +53,38 @@
   background-color: var(--contrastSecondary);
 }
 
-h1 {
+.title {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
-  font-size: 72px;
+  font-size: 64px;
   line-height: 80px;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 5rem;
 }
 
 h1 b {
   color: var(--cyan);
+  font-size: 80px;
+}
+p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.8rem !important;
+  text-align: justify;
+  text-indent: 3em;
+  margin: 0 !important;
+}
+
+h1 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 74px;
+  line-height: 80px;
 }
 p {
   margin-top: 2rem;
@@ -74,56 +96,37 @@ p {
   text-align: justify;
   text-indent: 3em;
 }
+.content-content {
+  background: var(--primary);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0.5rem;
+  height: calc(100vh - 5.9rem);
+  border-radius: 1rem 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--contrast);
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.content {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  width: 90%;
+  justify-content: start;
+  margin: 4rem;
+  margin-bottom: 0;
+  max-height: max-content;
+}
 
-
-  h1 {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 72px;
-    line-height: 80px;
-  }
-  p {
-    margin-top: 2rem;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: justify;
-    text-indent: 3em;
-  }
-  .content-content {
-    background: var(--primary);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin: 0.5rem;
-    height: calc(100vh - 5.9rem);
-    border-radius: 1rem 0 0 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--contrast);
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  .content {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    width: 90%;
-    justify-content: start;
-    margin: 4rem;
-    margin-bottom: 0;
-    max-height: max-content;
-  }
-
-  .photo {
-    min-width: 100%;
-    min-height: 80%;
-    padding: 2rem 1rem;
-  }
+.photo {
+  min-width: 100%;
+  min-height: 80%;
+  padding: 2rem 1rem;
+}
 
 .content-content::-webkit-scrollbar {
   width: 8px; /* Largura da barra de rolagem */

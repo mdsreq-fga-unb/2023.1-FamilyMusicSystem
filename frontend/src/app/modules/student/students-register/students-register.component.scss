@@ -33,7 +33,7 @@
 }
 
 .subtittle {
-  margin-top: 1rem;
+  margin: 1.2rem 0;
   color: var(--contrast);
   font-style: normal;
   font-weight: 400;
@@ -60,7 +60,7 @@
 .input {
   background: var(--secondary);
   border: none;
-  max-width: 90%;
+  max-width: 95%;
   color: var(--contrast);
 }
 
@@ -103,4 +103,5 @@
 .content {
   background: var(--primary);
   border-radius: 0 1rem 1rem 0;
+  padding: 2rem;
 }
