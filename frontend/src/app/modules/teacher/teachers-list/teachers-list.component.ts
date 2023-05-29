@@ -14,6 +14,8 @@ import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.comp
 export class TeachersListComponent implements OnInit{
   public teachers : Teacher[];
   private bsModalRef : BsModalRef
+  checked : boolean = false;
+  estilosDinamicos: any;
 
   constructor(
     private modalService : BsModalService,
@@ -67,6 +69,16 @@ export class TeachersListComponent implements OnInit{
     this.bsModalRef.content.onClose.subscribe(() => {
 
     })
+  }
+
+  toggle(){
+    this.estilosDinamicos = {
+      'background' : this.calcularCorDeFundo()
+    };
+  }
+
+  calcularCorDeFundo(){
+    return 'var(--selector)';
   }
 
 }
