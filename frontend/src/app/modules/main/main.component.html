@@ -1,6 +1,11 @@
 <div class="master">
   <div class="mainContainer">
-    <app-sidebar class="sidebarApp"></app-sidebar>
+    <app-sidebar
+      class="offcanvas offcanvas-start sidebarApp"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    ></app-sidebar>
     <div class="container">
       <app-header class="headerApp"></app-header>
       <router-outlet class="content"></router-outlet>

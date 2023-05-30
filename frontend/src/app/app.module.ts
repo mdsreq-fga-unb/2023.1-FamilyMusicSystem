@@ -16,7 +16,7 @@ import { TeachersRegisterComponent } from './modules/teacher/teachers-register/t
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleComponent } from './modules/schedule/schedule.component';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
 import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
