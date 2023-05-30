@@ -19,7 +19,55 @@
   max-height: 92vh;
   --bs-gutter-x: 0;
 }
+
 .headerApp {
   width: 100%;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #222;
+}
+
+/* Estilos para telas menores que 768px */
+@media screen and (max-width: 767px) {
+  .master {
+    display: inline;
+    grid-template-rows: auto 2rem;
+    width: 100%;
+    height: 100vh; 
+  }
+  .mainContainer {
+    grid-template-columns: 100%;
+  }
+  .content {
+  }
+  .sidebarApp {
+    width: 100%;
+  }
+
+  .footer {
+    max-width: 5px;
+    max-height: 5px;
+  }
+}
+
+/* Estilos para telas maiores ou iguais a 768px */
+// @media screen and (min-width: 768px) {
+//   .master {
+//     grid-template-rows: auto 2rem;
+//     grid-template-columns: 18rem auto;
+//   }
+//   .mainContainer {
+//     height: 100%;
+//   }
+//   .sidebarApp {
+//     width: 100%;
+//     max-width: 18rem;
+//   }
+// }
 
