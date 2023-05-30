@@ -70,11 +70,11 @@
   background-color: var(--contrastSecondary);
 }
 
-.btn-check:active+.btn-dark,
-.btn-check:checked+.btn-dark,
+.btn-check:active + .btn-dark,
+.btn-check:checked + .btn-dark,
 .btn-dark.active,
 .btn-dark:active,
-.show>.btn-dark.dropdown-toggle {
+.show > .btn-dark.dropdown-toggle {
   color: var(--primary);
   background-color: var(--contrast);
   border-color: var(--contrast);
@@ -132,19 +132,34 @@
 }
 
 /* Ajuste para telas pequenas */
-@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 480px) {
+}
 
 /* Ajuste para telas médias */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-  .headerApp {
-    justify-content: space-between;
+  .button-text {
+    font-size: 0.75rem;
   }
-
-  .header {
-    min-width: 100%;
+  .btn-custom {
+    height: 30px;
+    padding: 0 0 0 0.75rem;
+    margin-left: 0.35rem;
+  }
+  .theme {
+    transform: scale(0.75);
+  }
+  .theme:hover {
+    transform: scale(0.75);
+  }
+  .rounded-pill {
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  .rounded-pill mat-icon {
     transform: scale(0.75);
   }
 }
 
 /* Ajuste para telas grandes */
-@media only screen and (min-width: 769px) {}
+@media only screen and (min-width: 769px) {
+}
