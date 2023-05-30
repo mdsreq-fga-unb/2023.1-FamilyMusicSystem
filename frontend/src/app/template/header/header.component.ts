@@ -5,7 +5,7 @@ import { ContractComponent } from 'src/app/modules/settings/contract/contract.co
 import { PrivacyComponent } from 'src/app/modules/settings/privacy/privacy.component';
 import { ResourcesComponent } from 'src/app/modules/settings/resources/resources.component';
 import { AboutComponent } from 'src/app/modules/settings/about/about.component';
-import { HelpModalComponent } from 'src/app/shared/help-modal/help-modal.component';
+import { HelpComponent } from 'src/app/modules/settings/help/help.component';
 
 @Component({
   selector: 'app-header',
@@ -21,14 +21,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  modalAjuda() {
+  modalhelp() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
       class: 'modal-lg',
     };
-    this.bsModalRef = this.modalService.show(HelpModalComponent, modalConfig);
+    this.bsModalRef = this.modalService.show(HelpComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {});
   }
   modalprofile() {

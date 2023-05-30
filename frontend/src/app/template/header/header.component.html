@@ -10,6 +10,9 @@
     >
       <mat-icon>view_headline</mat-icon>
     </button>
+  </div>
+
+  <div class="right">
     <div class="btn-group" dropdown>
       <button
         id="button-animated"
@@ -19,7 +22,7 @@
         aria-controls="dropdown-animated"
         id="ajuda"
       >
-        <mat-icon class="me-2">settings</mat-icon> preferências
+        <mat-icon class="me-2">settings</mat-icon>
         <span class="caret"></span>
       </button>
       <ul
@@ -30,9 +33,6 @@
         aria-labelledby="button-animated"
       >
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalprofile()">perfil</a>
-        </li>
-        <li role="menuitem" id="hover">
           <a class="dropdown-item" (click)="modalcontract()">contrato</a>
         </li>
         <li role="menuitem" id="hover">
@@ -42,41 +42,45 @@
           <a class="dropdown-item" (click)="modalresources()">recusos</a>
         </li>
         <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalhelp()">ajuda</a>
+        </li>
+        <li role="menuitem" id="hover">
           <a class="dropdown-item" (click)="modalabout()">sobre</a>
         </li>
       </ul>
     </div>
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      (click)="modalAjuda()"
-    >
-      <mat-icon class="me-2">contact_support</mat-icon>
-      <span style="font-size: 1rem">ajuda</span>
-    </button>
-  </div>
-
-  <div class="right">
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
-    >
-      <mat-icon class="me-2">exit_to_app</mat-icon>
-      <span style="font-size: 1rem">sair</span>
-    </button>
     <mat-icon class="theme" (click)="toggle()"> {{ icon_now }} </mat-icon>
 
-    <button
-      type="button"
-      class="btn btn-custom btn-dark d-flex align-items-center rounded-pill"
-    >
-      <span class="button-text">Felipe Luiz</span>
-      <img
-        src="\assets\image\foto perfil.png"
-        class="photo"
-        alt="Foto Perfil"
-      />
-    </button>
+    <div class="btn-group" dropdown>
+      <button
+        id="button-animated"
+        dropdownToggle
+        type="button"
+        class="btn btn btn-custom d-flex align-items-center rounded-pill dropdown-toggle perfil"
+        aria-controls="dropdown-animated"
+        id="ajuda"
+      >
+        <span class="button-text">Felipe Luiz</span>
+        <img
+          src="\assets\image\foto perfil.png"
+          class="photo"
+          alt="Foto Perfil"
+        />
+      </button>
+      <ul
+        id="dropdown-animated"
+        *dropdownMenu
+        class="dropdown-menu"
+        role="menu"
+        aria-labelledby="button-animated"
+      >
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalcontract()">meu perfil</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalprivacy()">sair</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>

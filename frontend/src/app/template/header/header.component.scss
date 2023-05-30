@@ -18,10 +18,6 @@
   align-items: center;
 }
 
-#ajuda {
-  margin-right: 0.5rem;
-}
-
 .dropdown-item {
   cursor: pointer;
 }
@@ -109,4 +105,12 @@
   margin-right: 0.5rem;
   background: var(--cyan);
   border-color: var(--cyan);
+}
+
+.perfil::after {
+  content: none !important;
+}
+
+.perfil:hover {
+  margin-right: 0;
 }

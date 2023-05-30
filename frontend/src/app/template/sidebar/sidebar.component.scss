@@ -37,7 +37,7 @@
   border: none;
 }
 
-.btn-check:checked+label.btn {
+.btn-check:checked + label.btn {
   background-color: var(--contrast);
   color: var(--primary);
 }
@@ -67,4 +67,24 @@
 .btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
   color: var(--contrast);
+}
+
+.button {
+  background: var(--contrast);
+  color: var(--primary);
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background-color: var(--contrastSecondary);
+  color: var(--primary);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
 }

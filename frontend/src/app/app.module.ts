@@ -22,7 +22,6 @@ import { StudentsViewComponent } from './modules/student/students-view/students-
 import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
 import { StudentsFilterComponent } from './modules/student/students-filter/students-filter.component';
 import { TeachersFilterComponent } from './modules/teacher/teachers-filter/teachers-filter.component';
-import { HelpModalComponent } from './shared/help-modal/help-modal.component';
 import { StudentsContractComponent } from './modules/student/students-contract/students-contract.component';
 import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
 import { RoomsRegisterComponent } from './modules/rooms/rooms-register/rooms-register.component';
@@ -32,6 +31,7 @@ import { PrivacyComponent } from './modules/settings/privacy/privacy.component';
 import { AboutComponent } from './modules/settings/about/about.component';
 import { ResourcesComponent } from './modules/settings/resources/resources.component';
 import { ContractComponent } from './modules/settings/contract/contract.component';
+import { HelpComponent } from './modules/settings/help/help.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,6 @@ import { ContractComponent } from './modules/settings/contract/contract.componen
     TeachersViewComponent,
     StudentsFilterComponent,
     TeachersFilterComponent,
-    HelpModalComponent,
     StudentsContractComponent,
     RoomsListComponent,
     RoomsRegisterComponent,
@@ -61,6 +60,7 @@ import { ContractComponent } from './modules/settings/contract/contract.componen
     AboutComponent,
     ResourcesComponent,
     ContractComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
