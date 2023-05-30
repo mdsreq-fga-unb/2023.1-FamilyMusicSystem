@@ -33,6 +33,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .modal {
@@ -43,7 +44,7 @@ body {
 }
 
 .offcanvas {
-  --bs-offcanvas-width: 20rem;
+  --bs-offcanvas-width: 17rem;
 }
 
 .btn-check:focus + .btn,

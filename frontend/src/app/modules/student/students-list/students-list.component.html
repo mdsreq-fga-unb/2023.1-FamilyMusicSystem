@@ -19,32 +19,40 @@
             </div>
             <button
               type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               routerLink=""
               style="
                 height: min-content;
                 margin-left: 0.5rem;
+                border: none;
                 width: 5rem;
                 align-items: center;
                 justify-content: center;
               "
             >
-              buscar
+              <mat-icon class="mobile">search</mat-icon>
+              <span class="button-text">buscar</span>
             </button>
             <button
               type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               (click)="modalFilterAlunos()"
               id="outline"
             >
-              filtrar
+              <mat-icon class="mobile">filter_list</mat-icon>
+              <span class="button-text">filtrar</span>
             </button>
           </form>
         </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic example"
+          style="height: max-content; align-items: center"
+        >
           <button
             type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
             routerLink=""
             style="
               background: var(--red) !important;
@@ -56,21 +64,22 @@
           >
             <span class="button-text">excluir</span>
           </button>
+
           <button
             type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
             (click)="modalAlunos(false)"
             style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
               border: none;
-              width: 6rem;
+              width: 5rem;
               justify-content: center;
-              height: 38px;
+              height: 36px;
               align-self: center;
             "
           >
-            <i class="material-icons add-icon">add</i>
+            <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
           </button>
         </div>
@@ -84,9 +93,9 @@
                 <input class="form-check-input" type="checkbox" value="" />
               </th>
               <th scope="col">Nome</th>
-              <th scope="col">Email</th>
-              <th scope="col">Plano</th>
-              <th scope="col">Telefone</th>
+              <th scope="col" class="nomobile">Email</th>
+              <th scope="col" class="notablet">Plano</th>
+              <th scope="col" class="notablet">Telefone</th>
               <th></th>
             </tr>
           </thead>
@@ -108,9 +117,9 @@
                 />
                 Luiz peidao
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet" class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -133,9 +142,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -158,9 +167,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -183,9 +192,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -208,9 +217,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -233,9 +242,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -258,9 +267,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -283,9 +292,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -308,9 +317,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -333,9 +342,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -358,9 +367,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -383,9 +392,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -408,9 +417,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -433,9 +442,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>
@@ -458,9 +467,9 @@
                 />
                 Luiz Felipe
               </td>
-              <td>luizdofrifa@gmail.com</td>
-              <td>Básico</td>
-              <td>(61) 94402-8922</td>
+              <td class="nomobile">luizdofrifa@gmail.com</td>
+              <td class="notablet">Básico</td>
+              <td class="notablet">(61) 94402-8922</td>
               <td>
                 <mat-icon>edit</mat-icon>
                 <mat-icon>restore_from_trash</mat-icon>

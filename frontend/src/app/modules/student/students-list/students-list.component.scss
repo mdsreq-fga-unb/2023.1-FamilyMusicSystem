@@ -13,7 +13,7 @@ header {
 }
 
 table {
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0;
   color: var(--contrast);
   border-collapse: collapse;
   width: 100%;
@@ -75,7 +75,6 @@ tr:nth-child(even) {
   height: calc(100vh - 12rem);
   overflow-y: scroll;
   overflow-x: hidden;
-  border-radius: 1rem 0 0 1rem;
 }
 
 .scrool::-webkit-scrollbar {
@@ -100,11 +99,13 @@ tr:nth-child(even) {
   justify-content: space-between;
   margin: 0;
   padding: 0.5rem 0;
+  align-items: center;
 }
 
 .studentsTitle {
   display: flex;
   align-items: center;
+  align-self: center;
   height: max-content;
   width: max-content;
 }
@@ -139,6 +140,7 @@ tr:nth-child(even) {
   transform: translateY(-50%);
   right: 10px;
   font-size: 24px;
+  align-self: center;
   color: var(--shadow);
 }
 
@@ -172,7 +174,7 @@ tr:nth-child(even) {
 #researchStudents {
   background: var(--secondary);
   border-radius: 2rem;
-  height: 38px !important;
+  height: 36px !important;
   margin: 0 !important;
   margin-left: 2rem !important;
   width: 16rem;
@@ -227,23 +229,70 @@ tr:nth-child(even) {
   background-color: var(--secondary);
 }
 
-/* Ajuste para telas pequenas */
-@media only screen and (max-width: 480px) {
-  
+.buttons {
+  border: none;
+  width: 5rem;
+  justify-content: center;
+}
+
+.mobile {
+  display: none;
 }
 
 /* Ajuste para telas médias */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .container{
-    transform: scale(0.75);
-    justify-content: space-evenly;
+@media only screen and (max-width: 768px) {
+  .notablet {
+    display: none;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+  }
+  .personIcon {
+    transform: scale(1.25);
+  }
+  #researchStudents {
+    width: 10rem;
+    margin-left: 0.1rem !important;
+  }
+
+  .search-icon {
+    right: 7.5rem;
   }
 }
 
-/* Ajuste para telas grandes */
-@media only screen and (min-width: 769px) {
+@media only screen and (max-width: 600px) {
   .title {
-    font-size: 32px;
-    margin-left: 1rem;
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    margin-left: 0.25rem;
+  }
+  .personIcon {
+    transform: scale(1);
+    margin: 0;
+  }
+  .notablet {
+    display: none;
+  }
+  .nomobile {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .button-text {
+    display: none;
+  }
+  #researchStudents {
+    width: 3rem;
+    margin-left: 0.1rem !important;
+  }
+  .search-icon {
+    display: none;
+  }
+  .buttons {
+    width: 3rem !important;
+    justify-content: center;
+    align-items: center;
   }
 }

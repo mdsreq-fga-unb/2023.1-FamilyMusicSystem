@@ -67,7 +67,8 @@
 }
 
 .btn-custom:hover {
-  background-color: var(--contrastSecondary);
+  background-color: var(--contrast);
+  color: var(--primary);
 }
 
 .btn-check:active + .btn-dark,
@@ -92,10 +93,6 @@
   color: var(--primary);
 }
 
-.rounded-pill:hover {
-  background-color: var(--contrastSecondary);
-}
-
 #dropdown-animated {
   background: var(--primary);
 }
@@ -109,7 +106,6 @@
 }
 
 #sidebar-button {
-  margin-right: 0.5rem;
   background: var(--contrast);
   border-color: var(--contrast);
   border-radius: 0.2rem;
@@ -132,34 +128,36 @@
 }
 
 /* Ajuste para telas pequenas */
-@media only screen and (max-width: 480px) {
-}
+// @media only screen and (max-width: 480px) {
+//   .header {
+//   }
+// }
 
-/* Ajuste para telas médias */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .button-text {
-    font-size: 0.75rem;
-  }
-  .btn-custom {
-    height: 30px;
-    padding: 0 0 0 0.75rem;
-    margin-left: 0.35rem;
-  }
-  .theme {
-    transform: scale(0.75);
-  }
-  .theme:hover {
-    transform: scale(0.75);
-  }
-  .rounded-pill {
-    height: 30px;
-    font-size: 0.75rem;
-  }
-  .rounded-pill mat-icon {
-    transform: scale(0.75);
-  }
-}
+// /* Ajuste para telas médias */
+// @media only screen and (min-width: 481px) and (max-width: 768px) {
+//   .button-text {
+//     font-size: 0.75rem;
+//   }
+//   .btn-custom {
+//     height: 30px;
+//     padding: 0 0 0 0.75rem;
+//     margin-left: 0.35rem;
+//   }
+//   .theme {
+//     transform: scale(0.75);
+//   }
+//   .theme:hover {
+//     transform: scale(0.75);
+//   }
+//   .rounded-pill {
+//     height: 30px;
+//     font-size: 0.75rem;
+//   }
+//   .rounded-pill mat-icon {
+//     transform: scale(0.75);
+//   }
+// }
 
-/* Ajuste para telas grandes */
-@media only screen and (min-width: 769px) {
-}
+// /* Ajuste para telas grandes */
+// @media only screen and (min-width: 769px) {
+// }
