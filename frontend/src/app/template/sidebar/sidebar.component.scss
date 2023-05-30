@@ -86,5 +86,11 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
 
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
 }

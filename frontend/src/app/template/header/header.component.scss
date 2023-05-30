@@ -69,6 +69,16 @@
   background-color: var(--contrastSecondary);
 }
 
+.btn-check:active + .btn-dark,
+.btn-check:checked + .btn-dark,
+.btn-dark.active,
+.btn-dark:active,
+.show > .btn-dark.dropdown-toggle {
+  color: var(--primary);
+  background-color: var(--contrast);
+  border-color: var(--contrast);
+}
+
 .photo {
   margin-left: 10px;
   height: 100%;
@@ -99,12 +109,13 @@
 
 #sidebar-button {
   margin-right: 0.5rem;
+  background: var(--contrast);
+  border-color: var(--contrast);
+  border-radius: 0.2rem;
 }
 
-#sidebar-button {
+#sidebar-button mat-icon {
   margin-right: 0.5rem;
-  background: var(--cyan);
-  border-color: var(--cyan);
 }
 
 .perfil::after {
@@ -113,4 +124,8 @@
 
 .perfil:hover {
   margin-right: 0;
+}
+
+.dropdown-menu {
+  position: left;
 }

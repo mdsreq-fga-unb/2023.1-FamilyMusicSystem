@@ -8,7 +8,8 @@
       data-bs-target="#offcanvasExample"
       aria-controls="offcanvasExample"
     >
-      <mat-icon>view_headline</mat-icon>
+      <mat-icon>menu</mat-icon>
+      menu
     </button>
   </div>
 
@@ -28,7 +29,7 @@
       <ul
         id="dropdown-animated"
         *dropdownMenu
-        class="dropdown-menu"
+        class="dropdown-menu dropdown-menu-right"
         role="menu"
         aria-labelledby="button-animated"
       >
@@ -69,16 +70,16 @@
       </button>
       <ul
         id="dropdown-animated"
-        *dropdownMenu
-        class="dropdown-menu"
+        class="dropdown-menu dropdown-menu-right"
         role="menu"
         aria-labelledby="button-animated"
+        *dropdownMenu
       >
         <li role="menuitem" id="hover">
           <a class="dropdown-item" (click)="modalcontract()">meu perfil</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalprivacy()">sair</a>
+          <a class="dropdown-item" routerLink="">sair</a>
         </li>
       </ul>
     </div>

@@ -6,11 +6,18 @@ import { PrivacyComponent } from 'src/app/modules/settings/privacy/privacy.compo
 import { ResourcesComponent } from 'src/app/modules/settings/resources/resources.component';
 import { AboutComponent } from 'src/app/modules/settings/about/about.component';
 import { HelpComponent } from 'src/app/modules/settings/help/help.component';
+import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  providers: [
+    {
+      provide: BsDropdownConfig,
+      useValue: { isAnimated: true, autoClose: true },
+    },
+  ],
 })
 export class HeaderComponent implements OnInit {
   icon = ['brightness_2', 'wb_sunny'];
