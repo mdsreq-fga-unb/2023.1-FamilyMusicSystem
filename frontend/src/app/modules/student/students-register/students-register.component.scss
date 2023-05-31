@@ -24,6 +24,7 @@
 }
 
 .modal-title {
+  display: flex;
   color: var(--contrast);
   font-style: normal;
   font-weight: 500;
@@ -104,4 +105,54 @@
   background: var(--primary);
   border-radius: 0 1rem 1rem 0;
   padding: 2rem;
+}
+
+
+@media only screen and (max-width: 992px) {
+  img {
+    max-width: 30%;
+    margin-bottom: 0.5rem;
+  }
+  .corpo {
+    display: contents;
+    border-radius: 1rem;
+  }
+  .photo {
+    flex-direction: column;
+    border-radius: 1rem;
+  }
+  .content {
+    border-radius: 1rem;
+    overflow-y: scroll;
+    max-height: 60vh;
+  }
+  .content::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+  }
+  
+  .content::-webkit-scrollbar-thumb {
+    background-color: var(
+      --contrast
+    ); /* Cor do preenchimento da barra de rolagem */
+    border-radius: 1rem;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    background-color: var(--secondary); /* Cor do fundo da barra de rolagem */
+  }
+  .subtittle {
+    display: none;
+  }
+  .form-row{
+    display: contents;
+  }
+  .modal-title {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .tittle-input {
+    font-size: 15px;
+  }
 }

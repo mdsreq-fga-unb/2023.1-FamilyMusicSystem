@@ -11,6 +11,7 @@
         width: 10rem;
         align-items: center;
         justify-content: center;
+        margin-bottom: 0.5rem;
       "
     >
       carregar imagem
@@ -19,15 +20,14 @@
   <div class="content">
     <div class="modal-header">
       <h2 class="modal-title" *ngIf="inicial">
-        <mat-icon class="icon">person</mat-icon>Informações do aluno
+        <mat-icon class="icon">person</mat-icon>Informações do Aluno
       </h2>
       <h2 class="modal-title" *ngIf="location">
-        <mat-icon class="icon">location_on</mat-icon> Informações de localidade
+        <mat-icon class="icon">location_on</mat-icon> Informações de Localidade
       </h2>
       <h2 class="modal-title" *ngIf="Resp">
-        <mat-icon class="icon">person</mat-icon>Informações do responsavel
+        <mat-icon class="icon">person</mat-icon>Informações do Responsável
       </h2>
-      <h3 class="modal-title sub">{{ edicao ? "editar" : "novo" }}</h3>
     </div>
     <div class="modal-body">
       <form [formGroup]="studentForm" class="form-row">
@@ -176,6 +176,8 @@
             <option value="I">outro</option>
           </select>
         </div>
+
+        
 
         <div class="col-12 col-md-6" *ngIf="Resp">
           <label class="m-0 tittle-input" for="data">Data nasc.</label>
