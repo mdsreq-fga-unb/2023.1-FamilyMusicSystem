@@ -1,7 +1,15 @@
 <div class="master">
-  <div class="mainContainer">
+  <div
+    [ngClass]="{
+      mainContainerComp: iscomp,
+      mainContainer: !iscomp
+    }"
+  >
     <app-sidebar
-      class="offcanvas offcanvas-start sidebarApp"
+      [ngClass]="{
+        sidebarAppComp: iscomp,
+        'offcanvas offcanvas-start sidebarApp': !iscomp
+      }"
       tabindex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
