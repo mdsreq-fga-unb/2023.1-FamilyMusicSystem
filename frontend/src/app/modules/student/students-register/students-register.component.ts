@@ -31,6 +31,13 @@ export class StudentsRegisterComponent implements OnInit {
     });
   }
 
+  scrollTop() {
+    const div = document.getElementById('scroll');
+    if (div !== null) {
+      div.scrollTop = 0;
+    }
+  }
+
   sair() {
     this.bsModalRef.hide();
   }
@@ -38,10 +45,12 @@ export class StudentsRegisterComponent implements OnInit {
   informacoesLoc() {
     this.inicial = false;
     this.Resp = true;
+    this.scrollTop();
   }
 
   informacoesResp() {
     this.Resp = false;
     this.location = true;
+    this.scrollTop();
   }
 }

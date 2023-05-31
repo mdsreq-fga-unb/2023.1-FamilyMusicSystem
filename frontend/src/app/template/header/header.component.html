@@ -8,6 +8,7 @@
       data-bs-target="#offcanvasExample"
       aria-controls="offcanvasExample"
       *ngIf="!iscomp"
+      style="height: 38px"
     >
       <mat-icon>menu</mat-icon>
       menu
@@ -23,6 +24,7 @@
         class="btn btn btn-dark d-flex align-items-center rounded-pill dropdown-toggle"
         aria-controls="dropdown-animated"
         id="ajuda"
+        style="height: 38px"
       >
         <mat-icon>settings</mat-icon>
         <span class="caret"></span>
@@ -78,7 +80,7 @@
         *dropdownMenu
       >
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalcontract()">meu perfil</a>
+          <a class="dropdown-item" (click)="modalcontract()">perfil</a>
         </li>
         <li role="menuitem" id="hover">
           <a class="dropdown-item" routerLink="">sair</a>

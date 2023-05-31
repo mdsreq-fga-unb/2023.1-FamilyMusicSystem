@@ -1,7 +1,7 @@
 .corpo {
   display: grid;
   grid-template-columns: 20rem auto;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 .photo {
@@ -107,7 +107,6 @@
   padding: 2rem;
 }
 
-
 @media only screen and (max-width: 992px) {
   img {
     max-width: 30%;
@@ -138,12 +137,33 @@
   .content::-webkit-scrollbar-track {
     background-color: var(--secondary); /* Cor do fundo da barra de rolagem */
   }
-  .form-row{
+  .form-row {
     display: contents;
   }
   .modal-title {
     font-size: 20px;
   }
+
+  .modal-header {
+    padding: 0;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+  .modal-footer {
+    margin-top: 1rem;
+  }
+  .photo {
+    padding: 1rem 0;
+  }
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {

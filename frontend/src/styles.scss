@@ -1,5 +1,10 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+@font-face {
+  font-family: "Visby";
+  src: url(../src/assets/fonts/VisbyMedium.woff);
+}
+
 :root {
   --background: #b7cd96;
   --selector: #b5dc79;
@@ -28,7 +33,7 @@
 
 html,
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
   height: 100%;
   width: 100%;
   padding: 0;
@@ -41,6 +46,16 @@ body {
   --bs-modal-border-radius: 1rem;
   --bs-modal-border: none;
   --bs-modal-border-width: 0;
+}
+
+.modal-dialog {
+  margin-top: 2rem;
+}
+
+@media (min-width: 576px) {
+  .modal {
+    --bs-modal-margin: 0;
+  }
 }
 
 .offcanvas {

@@ -1,7 +1,14 @@
 <body class="corpo">
   <div class="photo">
+    <button
+      type="button"
+      class="btn-close text-reset"
+      (click)="sair()"
+      aria-label="Close"
+      id="close"
+    ></button>
     <img src="\assets\image\foto-upload.png" />
-    <h3 class="subtittle">Insira uma imagem do aluno</h3>
+    <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
     <button
       type="button"
       class="btn btn-dark d-flex align-items-center rounded-pill"
@@ -17,7 +24,7 @@
       carregar imagem
     </button>
   </div>
-  <div class="content">
+  <div class="content" id="scroll">
     <div class="modal-header">
       <h2 class="modal-title" *ngIf="inicial">
         <mat-icon class="icon">person</mat-icon>Informações do Aluno
@@ -176,8 +183,6 @@
             <option value="I">outro</option>
           </select>
         </div>
-
-        
 
         <div class="col-12 col-md-6" *ngIf="Resp">
           <label class="m-0 tittle-input" for="data">Data nasc.</label>

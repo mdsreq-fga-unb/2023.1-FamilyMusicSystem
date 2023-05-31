@@ -41,6 +41,7 @@ td {
 th {
   padding: 0;
   vertical-align: middle;
+  font-weight: 500;
 }
 
 tr {
@@ -164,6 +165,7 @@ tr:nth-child(even) {
   border-collapse: separate;
   border-spacing: 0;
   text-align: center;
+  --bs-table-border-color: var(--secondary);
 }
 
 .right {
