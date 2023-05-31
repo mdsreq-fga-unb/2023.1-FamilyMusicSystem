@@ -7,6 +7,7 @@
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasExample"
       aria-controls="offcanvasExample"
+      *ngIf="!iscomp"
     >
       <mat-icon>menu</mat-icon>
       menu
@@ -60,7 +61,7 @@
         class="btn btn btn-custom d-flex align-items-center rounded-pill dropdown-toggle perfil"
         aria-controls="dropdown-animated"
         id="ajuda"
-        style="height: 38px;"
+        style="height: 38px"
       >
         <span class="button-text">Felipe Luiz</span>
         <img

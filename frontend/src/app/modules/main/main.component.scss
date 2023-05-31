@@ -5,9 +5,18 @@
   height: 100%;
 }
 
+.mainContainerComp {
+  display: grid;
+  grid-template-columns: 18rem auto;
+  flex-direction: column;
+  background: var(--background);
+  height: 100%;
+  width: 100%;
+}
+
 .mainContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: var(--background);
   height: 100%;
   width: 100%;

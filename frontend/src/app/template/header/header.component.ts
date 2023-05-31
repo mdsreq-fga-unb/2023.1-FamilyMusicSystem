@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsViewComponent } from 'src/app/modules/student/students-view/students-view.component';
 import { ContractComponent } from 'src/app/modules/settings/contract/contract.component';
@@ -7,6 +6,7 @@ import { ResourcesComponent } from 'src/app/modules/settings/resources/resources
 import { AboutComponent } from 'src/app/modules/settings/about/about.component';
 import { HelpComponent } from 'src/app/modules/settings/help/help.component';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -25,8 +25,6 @@ export class HeaderComponent implements OnInit {
   private bsModalRef: BsModalRef;
 
   constructor(private modalService: BsModalService) {}
-
-  ngOnInit(): void {}
 
   modalhelp() {
     const modalConfig = {
@@ -100,5 +98,29 @@ export class HeaderComponent implements OnInit {
       return (this.icon_now = this.icon[1]);
     }
     return (this.icon_now = this.icon[0]);
+  }
+
+  screenSize: number;
+  iscomp = true;
+
+  @HostListener('window:resize', [])
+  onResize() {
+    const screenWidth = window.innerWidth;
+    this.screenSize = screenWidth;
+    if (this.screenSize >= 1035) {
+      this.iscomp = true;
+    } else {
+      this.iscomp = false;
+    }
+  }
+
+  ngOnInit() {
+    const screenWidth = window.innerWidth;
+    this.screenSize = screenWidth;
+    if (this.screenSize >= 1035) {
+      this.iscomp = true;
+    } else {
+      this.iscomp = false;
+    }
   }
 }
