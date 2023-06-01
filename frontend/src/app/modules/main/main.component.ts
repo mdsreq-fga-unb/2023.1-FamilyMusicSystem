@@ -1,5 +1,7 @@
 import { Component, HostListener } from '@angular/core';
-
+import { HeaderComponent } from 'src/app/template/header/header.component';
+import { FooterComponent } from 'src/app/template/footer/footer.component';
+import { SidebarComponent } from 'src/app/template/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main',
@@ -30,5 +32,4 @@ export class MainComponent {
       this.iscomp = false;
     }
   }
-
 }
