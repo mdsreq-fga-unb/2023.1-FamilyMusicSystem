@@ -1,3 +1,56 @@
+body {
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.form-check-input {
+  margin-left: 1rem !important;
+}
+
+header {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+table {
+  border-radius: 1rem 1rem 0 0;
+  color: var(--contrast);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background: var(--contrast);
+  color: var(--primary);
+  position: sticky;
+  top: 0;
+  text-align: center; /* Alinha o conteúdo do cabeçalho ao centro */
+}
+
+tbody {
+  text-align: center; /* Alinha o conteúdo das células ao centro */
+}
+
+td {
+  padding: 0;
+  vertical-align: middle;
+}
+
+th {
+  padding: 0;
+  vertical-align: middle;
+}
+
+tr {
+  text-align: center;
+  height: 2.7rem;
+}
+
+tr:nth-child(even) {
+  background: var(--secondary);
+}
+
 .content-content {
   background: var(--primary);
   margin: 0.5rem;
@@ -7,4 +60,156 @@
   align-items: center;
   justify-content: center;
   color: var(--contrast);
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.scrool {
+  width: 100%;
+  height: calc(100vh - 12rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 1rem;
+}
+
+.scrool::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.scrool::-webkit-scrollbar-thumb {
+  background-color: var(
+    --contrast
+  ); /* Cor do preenchimento da barra de rolagem */
+  border-radius: 1rem;
+}
+
+.scrool::-webkit-scrollbar-track {
+  background-color: var(--secondary); /* Cor do fundo da barra de rolagem */
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.studentsTitle {
+  display: flex;
+  align-items: center;
+  height: max-content;
+  width: max-content;
+}
+
+.personIcon {
+  position: relative;
+}
+
+.title {
+  margin-bottom: 0;
+  margin-left: 1rem;
+  color: var(--contrast);
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+}
+
+.search-container {
+  position: relative;
+  width: 80%;
+}
+
+#researchStudents {
+  border: none;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  font-size: 24px;
+  color: var(--shadow);
+}
+
+.add-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.selected {
+  background: var(--selector);
+}
+
+.miniProfile {
+  width: 33px;
+  border-radius: 24px;
+  margin-right: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+}
+
+#researchStudents {
+  background: var(--secondary);
+  border-radius: 2rem;
+  height: 38px !important;
+  margin: 0 !important;
+  margin-left: 2rem !important;
+  width: 16rem;
+  text-indent: 2.5rem;
+}
+
+.search-container {
+  margin: 0;
+  height: max-content;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.search-icon {
+  align-self: center !important;
+  right: 13.5rem;
+}
+
+.form-check-input {
+  margin: 0;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.ng-valid {
+  align-self: center;
+}
+.rounded-pill {
+  background: var(--contrast);
+  color: var(--primary);
+}
+
+.rounded-pill:hover {
+  background-color: var(--contrastSecondary);
+}
+
+#outline {
+  height: min-content;
+  margin-left: 0.5rem;
+  background: none;
+  color: var(--contrast);
+  box-shadow: inset 0 0 0 0.1rem var(--contrast);
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#outline:hover {
+  background-color: var(--secondary);
 }

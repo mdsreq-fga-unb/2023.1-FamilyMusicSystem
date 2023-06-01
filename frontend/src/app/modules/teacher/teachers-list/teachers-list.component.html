@@ -1,1 +1,483 @@
-<div class="content-content">teacher component working!</div>
+<div class="content-content">
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar bg-body-tertiary">
+          <div class="container">
+            <div class="right">
+              <div class="studentsTitle">
+                <img
+                  src="../../../../assets/image/person.png"
+                  alt="person-icon"
+                  class="personIcon"
+                />
+                <p class="title">Professores</p>
+              </div>
+              <form class="d-flex" role="search">
+                <div class="search-container">
+                  <input
+                    class="form-control me-3"
+                    id="researchStudents"
+                    type="search"
+                    aria-label="Search"
+                  />
+                  <i class="material-icons search-icon">search</i>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-dark d-flex align-items-center rounded-pill"
+                  routerLink=""
+                  style="
+                    height: min-content;
+                    margin-left: 0.5rem;
+                    width: 5rem;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  buscar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark d-flex align-items-center rounded-pill"
+                  (click)="modalFilterProfessores()"
+                  id="outline"
+                >
+                  filtrar
+                </button>
+              </form>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button
+                type="button"
+                class="btn btn-dark d-flex align-items-center rounded-pill"
+                routerLink=""
+                style="
+                  background: var(--red) !important;
+                  border: none;
+                  width: 5rem;
+                  justify-content: center;
+                "
+                *ngIf="checked"
+              >
+                <span class="button-text">excluir</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark d-flex align-items-center rounded-pill"
+                (click)="modalProfessores(false)"
+                style="
+                  margin-left: 0.5rem;
+                  background: var(--orange) !important;
+                  border: none;
+                  width: 6rem;
+                  justify-content: center;
+                "
+              >
+                <i class="material-icons add-icon">add</i>
+                <span class="button-text">novo</span>
+              </button>
+            </div>
+          </div>
+        </nav>
+  
+        <div class="scrool">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                  />
+                </th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Instrumento</th>
+                <th scope="col">Telefone</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="selected">
+                <th scope="row" id="select-all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td class="button" (click)="modalViewProfessores()">
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz peidao
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                </th>
+                <td>
+                  <img
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Foto Aluno"
+                    class="miniProfile"
+                  />
+                  Luiz Felipe
+                </td>
+                <td>luizdofrifa@gmail.com</td>
+                <td>Violão</td>
+                <td>(61) 94402-8922</td>
+                <td>
+                  <mat-icon>edit</mat-icon>
+                  <mat-icon>restore_from_trash</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+  </div>
+  
