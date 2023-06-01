@@ -95,10 +95,10 @@ body {
   margin-bottom: 15px;
   text-align: center;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 21px;
   font-style: normal;
-  color: var(--shadow);
+  color: var(--contrast);
   background-color: var(--secondary);
 }
 
@@ -257,6 +257,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media (max-height: 667px) {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 50%;
+  }
+
+  .sidePhoto {
+    display: none;
+  }
+  .myCard {
+    border-radius: 1rem;
   }
 }
 

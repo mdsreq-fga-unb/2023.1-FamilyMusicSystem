@@ -6,8 +6,7 @@ import { StudentsListComponent } from 'src/app/modules/student/students-list/stu
 import { TeachersListComponent } from 'src/app/modules/teacher/teachers-list/teachers-list.component';
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
-import { ScheduleComponent } from './modules/schedule/schedule.component';
-import { SettingsComponent } from './modules/settings/settings.component';
+import { ScheduleListComponent } from 'src/app/modules/schedule/schedule-list/schedule-list.component';
 import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
 
 const routes: Routes = [
@@ -21,8 +20,7 @@ const routes: Routes = [
       { path: 'teachers', component: TeachersListComponent },
       { path: 'mural', component: MuralComponent },
       { path: 'rooms', component: RoomsListComponent },
-      { path: 'schedule', component: ScheduleComponent },
-      { path: 'settings', component: SettingsComponent },
+      { path: 'schedule', component: ScheduleListComponent },
     ],
   },
 ];

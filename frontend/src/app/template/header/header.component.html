@@ -1,34 +1,91 @@
 <header class="header">
-  <button
-    type="button"
-    class="btn btn-dark d-flex align-items-center rounded-pill"
-    (click)="modalAjuda()"
-  >
-    <mat-icon class="me-2">contact_support</mat-icon>
-    <span style="font-size: 1rem">ajuda</span>
-  </button>
+  <div class="left">
+    <button
+      class="btn btn btn-dark d-flex align-items-center rounded-pill"
+      id="sidebar-button"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample"
+      *ngIf="!iscomp"
+      style="height: 38px"
+    >
+      <mat-icon>menu</mat-icon>
+      menu
+    </button>
+  </div>
 
   <div class="right">
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
-    >
-      <mat-icon class="me-2">exit_to_app</mat-icon>
-      <span style="font-size: 1rem">sair</span>
-    </button>
+    <div class="btn-group" dropdown>
+      <button
+        id="button-animated"
+        dropdownToggle
+        type="button"
+        class="btn btn btn-dark d-flex align-items-center rounded-pill dropdown-toggle"
+        aria-controls="dropdown-animated"
+        id="ajuda"
+        style="height: 38px"
+      >
+        <mat-icon>settings</mat-icon>
+        <span class="caret"></span>
+      </button>
+      <ul
+        id="dropdown-animated"
+        *dropdownMenu
+        class="dropdown-menu dropdown-menu-right"
+        role="menu"
+        aria-labelledby="button-animated"
+      >
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalcontract()">contrato</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalprivacy()">privacidade</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalresources()">recusos</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalhelp()">ajuda</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalabout()">sobre</a>
+        </li>
+      </ul>
+    </div>
     <mat-icon class="theme" (click)="toggle()"> {{ icon_now }} </mat-icon>
 
-    <button
-      type="button"
-      class="btn btn-custom btn-dark d-flex align-items-center rounded-pill"
-    >
-      <span class="button-text">Felipe Luiz</span>
-      <img
-        src="\assets\image\foto perfil.png"
-        class="photo"
-        alt="Foto Perfil"
-      />
-    </button>
+    <div class="btn-group" dropdown>
+      <button
+        id="button-animated"
+        dropdownToggle
+        type="button"
+        class="btn btn btn-custom d-flex align-items-center rounded-pill dropdown-toggle perfil"
+        aria-controls="dropdown-animated"
+        id="ajuda"
+        style="height: 38px"
+      >
+        <span class="button-text">Felipe Luiz</span>
+        <img
+          src="\assets\image\foto perfil.png"
+          class="photo"
+          alt="Foto Perfil"
+        />
+      </button>
+      <ul
+        id="dropdown-animated"
+        class="dropdown-menu dropdown-menu-right"
+        role="menu"
+        aria-labelledby="button-animated"
+        *dropdownMenu
+      >
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" (click)="modalcontract()">perfil</a>
+        </li>
+        <li role="menuitem" id="hover">
+          <a class="dropdown-item" routerLink="">sair</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>

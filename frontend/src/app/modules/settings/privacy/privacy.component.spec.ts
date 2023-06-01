@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelpModalComponent } from './help-modal.component';
+import { PrivacyComponent } from './privacy.component';
 
-describe('HelpModalComponent', () => {
-  let component: HelpModalComponent;
-  let fixture: ComponentFixture<HelpModalComponent>;
+describe('PrivacyComponent', () => {
+  let component: PrivacyComponent;
+  let fixture: ComponentFixture<PrivacyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelpModalComponent ]
+      declarations: [ PrivacyComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HelpModalComponent);
+    fixture = TestBed.createComponent(PrivacyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

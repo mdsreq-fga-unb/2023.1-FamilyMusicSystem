@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  icon = ['brightness_2', 'wb_sunny'];
   icon_now = 'brightness_2';
+  icon = ['brightness_2', 'wb_sunny'];
+  
   toggle() {
     const theme = document.body.classList.toggle('darkTheme');
 

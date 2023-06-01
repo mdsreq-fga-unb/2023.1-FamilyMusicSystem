@@ -1,4 +1,7 @@
 export class Rooms {
-    numero: number;
-    local : string;
+    className: string;
+    classDescription: string;
+    classCapacity: number;
+    classNumber: number;
+    classLocal : string;
 }

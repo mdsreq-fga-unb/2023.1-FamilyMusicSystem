@@ -33,9 +33,9 @@ export class StudentsListComponent implements OnInit{
       ignoreBackdropClick: false,
       initialState: {
         edicao,
-        student : student 
+        student : student
       },
-      class : 'modal-lg'
+      class : 'modal-xl'
     };
     this.bsModalRef = this.modalService.show(StudentsRegisterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {
@@ -49,7 +49,7 @@ export class StudentsListComponent implements OnInit{
       ignoreBackdropClick: false,
       initialState: {
       },
-      class : 'modal-lg'
+      class : 'modal-md'
     };
     this.bsModalRef = this.modalService.show(StudentsViewComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {

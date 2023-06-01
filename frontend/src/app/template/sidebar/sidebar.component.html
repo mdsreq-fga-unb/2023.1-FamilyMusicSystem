@@ -1,5 +1,12 @@
-<nav class="fundo" id="sidebar">
+<nav id="sidebar" class="fundo">
   <div class="logo">
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+      id="close"
+    ></button>
     <svg
       width="193"
       height="159"
@@ -109,7 +116,6 @@
       />
     </svg>
   </div>
-
   <div
     class="btn-group-vertical"
     role="group"
@@ -124,9 +130,10 @@
       checked
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       for="vbtn-radio1"
       routerLink="home"
+      data-bs-dismiss="offcanvas"
     >
       <mat-icon>home</mat-icon>
       Home
@@ -140,11 +147,12 @@
       autocomplete="off"
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       routerLink="students"
       for="vbtn-radio2"
+      data-bs-dismiss="offcanvas"
     >
-      <mat-icon>people</mat-icon>
+      <mat-icon>person</mat-icon>
       Alunos
     </label>
 
@@ -156,9 +164,10 @@
       autocomplete="off"
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       routerLink="teachers"
       for="vbtn-radio3"
+      data-bs-dismiss="offcanvas"
     >
       <mat-icon>class</mat-icon>
       Professores
@@ -172,9 +181,10 @@
       autocomplete="off"
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       routerLink="rooms"
       for="vbtn-radio4"
+      data-bs-dismiss="offcanvas"
     >
       <mat-icon>meeting_room</mat-icon>
       Salas
@@ -188,14 +198,14 @@
       autocomplete="off"
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       routerLink="schedule"
       for="vbtn-radio5"
+      data-bs-dismiss="offcanvas"
     >
       <mat-icon>calendar_today</mat-icon>
       Agenda
     </label>
-
     <input
       type="radio"
       class="btn-check"
@@ -204,28 +214,13 @@
       autocomplete="off"
     />
     <label
-      class="btn btn-outline-danger rounded-pill"
+      class="btn btn-outline rounded-pill"
       routerLink="mural"
       for="vbtn-radio6"
+      data-bs-dismiss="offcanvas"
     >
       <mat-icon>dashboard</mat-icon>
       Mural
-    </label>
-
-    <input
-      type="radio"
-      class="btn-check"
-      name="vbtn-radio"
-      id="vbtn-radio7"
-      autocomplete="off"
-    />
-    <label
-      class="btn btn-outline-danger rounded-pill"
-      routerLink="settings"
-      for="vbtn-radio7"
-    >
-      <mat-icon>settings</mat-icon>
-      Preferências
     </label>
   </div>
 </nav>

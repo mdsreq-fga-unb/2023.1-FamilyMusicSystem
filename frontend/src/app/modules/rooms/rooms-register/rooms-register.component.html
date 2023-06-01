@@ -1,1 +1,60 @@
-<p>rooms-register works!</p>
+<body class="corpo">
+    <div class="content" id="scroll">
+        <div class="modal-header">
+            <h2 class="modal-title" *ngIf="inicial">
+                <mat-icon class="personIcon">meeting_room</mat-icon>Informações da Sala
+            </h2>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="classForm" class="form-row">
+                <div class="col-md-6" *ngIf="inicial">
+                    <label class="m-0 tittle-input" for="className">Nome da Sala</label>
+                    <input type="text" name="className" formControlName="className"
+                        class="form-control form-control-sm input" />
+                </div>
+
+                <div class="col-md-6" *ngIf="inicial">
+                    <label class="m-0 tittle-input" for="classNumber">Número</label>
+                    <input type="text" name="classNumber" formControlName="classNumber"
+                        class="form-control form-control-sm input" />
+                </div>
+
+                <div class="col-md-6" *ngIf="inicial">
+                    <label class="m-0 tittle-input" for="classCapacity">Capacidade</label>
+                    <input type="text" name="classCapacity" formControlName="classCapacity"
+                        class="form-control form-control-sm input" />
+                </div>
+
+                <div class="col-md-6" *ngIf="inicial">
+                    <label class="m-0 tittle-input" for="local">Local</label>
+                    <input type="text" name="local" formControlName="local"
+                        class="form-control form-control-sm input" />
+                </div>
+
+                <div class="col-md-6" *ngIf="inicial">
+                    <label class="m-0 tittle-input" for="classDescription">Descrição</label>
+                    <input type="text" name="classDescription" formControlName="classDescription"
+                        class="form-control form-control-sm input" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          " (click)="sair()">
+                sair
+            </button>
+            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        ">
+                salvar
+            </button>
+        </div>
+    </div>
+</body>
