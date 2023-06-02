@@ -3,7 +3,7 @@
 |    Data    | Versão |                              Descrição                              |              Autor(es)               |
 | :--------: | :----: | :-----------------------------------------------------------------: | :----------------------------------: |
 | 16/05/2023 |  0.1   | Criação e estruturação do primeiro registro de reuniões das sprints | Luana Ribeiro, </br>Guilherme Santos |
-
+|01/06/2023| 0.2 | Atualização de dailys da Sprint 3 e correções de ortografia | Luana Ribeiro |
 ## Sprint 0 
 
 <p style="text-indent: 50px;text-align: justify;"> No decorrer da Sprint 0, a equipe não seguiu a risca os fundamentos do Scrum, por esse motivo o nome.
@@ -49,4 +49,5 @@
 
 | Data | Tipo da reunião | Quem participou | O que foi decidido | O que foi falado |
 | ---- | --------------- | --------------- | ----------------- | --------------- |
-| <b>28/05/2023</b> | Sprint Planning | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | - Criação de issues com base nos requistos retirados do backlog. </br> - Inserção de tarefas da sprint 2 não concluídas para sprint 3. | - Reorgaão da entrega da Sprint </br> - Definição de workflow do GitHub </br> - Padronização de Issues |
+| <b>29/05/2023</b> | Sprint Planning | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | - Criação de issues com base nos requisitos retirados do backlog. </br> - Inserção de tarefas da sprint 2 não concluídas para sprint 3. | - Reorganização da entrega da Sprint. </br> - Definição de workflow do GitHub. </br> - Padronização de Issues. |
+| <b>01/06/2023 </b> |Daily Assíncrona | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | - lembrete dos responsáveis por cada demanda da semana. </br> - Lembrete das práticas de Scrum (Ritmo Sustentável). | - Atualização do que cada um fez no dia anterior e atual, pedidos de ajuda para sanar dificuldades. | 
