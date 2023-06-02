@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Password": {
+      "type": "password",
+      "required": true
+    },
+    "Birthdate": {
+      "type": "date",
+      "required": true,
+      "default": "2001-01-01"
+    },
+    "DisabledPerson": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ProfilePicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
