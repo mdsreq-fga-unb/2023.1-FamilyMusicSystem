@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StudentsRegisterComponent } from './students-register.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('StudentsRegisterComponent', () => {
   let component: StudentsRegisterComponent;
@@ -8,7 +10,9 @@ describe('StudentsRegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudentsRegisterComponent ]
+      declarations: [ StudentsRegisterComponent ],
+      providers: [BsModalService],
+      imports: [MatIconModule, ReactiveFormsModule],
     })
     .compileComponents();
 
