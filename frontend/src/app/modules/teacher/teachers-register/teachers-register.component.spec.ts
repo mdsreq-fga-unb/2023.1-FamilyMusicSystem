@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { TeachersRegisterComponent } from './teachers-register.component';
 
 describe('TeachersRegisterComponent', () => {
@@ -8,7 +8,8 @@ describe('TeachersRegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeachersRegisterComponent ]
+      declarations: [ TeachersRegisterComponent ],
+      imports: [ReactiveFormsModule],
     })
     .compileComponents();
 

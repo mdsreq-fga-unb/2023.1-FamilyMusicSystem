@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RoomsListComponent } from './rooms-list.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('RoomsListComponent', () => {
   let component: RoomsListComponent;
@@ -8,7 +9,9 @@ describe('RoomsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoomsListComponent ]
+      declarations: [ RoomsListComponent ],
+      providers: [BsModalService],
+      imports: [MatIconModule],
     })
     .compileComponents();
 
