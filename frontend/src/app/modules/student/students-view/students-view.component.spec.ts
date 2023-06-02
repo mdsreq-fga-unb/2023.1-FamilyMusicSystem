@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsViewComponent } from './students-view.component';
 
 describe('StudentsViewComponent', () => {
@@ -8,9 +8,9 @@ describe('StudentsViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudentsViewComponent ]
-    })
-    .compileComponents();
+      declarations: [StudentsViewComponent],
+      providers: [BsModalService],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StudentsViewComponent);
     component = fixture.componentInstance;

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +48,6 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
     StudentsRegisterComponent,
     TeachersListComponent,
     TeachersRegisterComponent,
-    HomeComponent,
     MuralComponent,
     StudentsViewComponent,
     TeachersViewComponent,
@@ -67,6 +66,7 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
     ScheduleRegisterComponent,
     ScheduleViewComponent,
     ScheduleFilterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,5 +79,6 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
