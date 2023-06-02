@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,6 @@ import { TeachersListComponent } from './modules/teacher/teachers-list/teachers-
 import { TeachersRegisterComponent } from './modules/teacher/teachers-register/teachers-register.component';
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
-import { ScheduleComponent } from './modules/schedule/schedule.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
@@ -32,6 +31,10 @@ import { AboutComponent } from './modules/settings/about/about.component';
 import { ResourcesComponent } from './modules/settings/resources/resources.component';
 import { ContractComponent } from './modules/settings/contract/contract.component';
 import { HelpComponent } from './modules/settings/help/help.component';
+import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule-list.component';
+import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/schedule-register.component';
+import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
+import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +48,7 @@ import { HelpComponent } from './modules/settings/help/help.component';
     StudentsRegisterComponent,
     TeachersListComponent,
     TeachersRegisterComponent,
-    HomeComponent,
     MuralComponent,
-    ScheduleComponent,
     StudentsViewComponent,
     TeachersViewComponent,
     StudentsFilterComponent,
@@ -61,6 +62,11 @@ import { HelpComponent } from './modules/settings/help/help.component';
     ResourcesComponent,
     ContractComponent,
     HelpComponent,
+    ScheduleListComponent,
+    ScheduleRegisterComponent,
+    ScheduleViewComponent,
+    ScheduleFilterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,5 +79,6 @@ import { HelpComponent } from './modules/settings/help/help.component';
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

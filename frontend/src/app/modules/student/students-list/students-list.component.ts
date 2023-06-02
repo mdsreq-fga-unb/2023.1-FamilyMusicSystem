@@ -4,7 +4,6 @@ import { Student } from 'src/app/models/student';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
-import { StudentsContractComponent } from '../students-contract/students-contract.component';
 
 @Component({
   selector: 'app-students-list',
