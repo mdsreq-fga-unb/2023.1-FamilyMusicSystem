@@ -1,1 +1,53 @@
-<p>teachers-filter works!</p>
+
+<div class="modal-header">
+    <h2 class="modal-title"> 
+        Filtro professores
+    </h2>
+
+</div>
+<div class="modal-body">
+    <form  [formGroup]="teacherFilterForm" class="form-row">
+        <div class="col-12 col-md-6">
+            <label class="m-0" for="radio">Por cadastro</label>
+            <input type="radio" name="typeFilter1" formControlName="typeFilter1" class="form-control form-control-sm">
+            <input type="radio" name="typeFilter2" formControlName="typeFilter2" class="form-control form-control-sm">
+        </div>
+
+        <div class="col-12 col-md-6">
+            <label class="m-0" for="genderFilter">Gênero</label>
+            <select
+            name="genero"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="genderTeacherFilter"
+          >
+            <option value="M">masculino</option>
+            <option value="F">feminino</option>
+            <option value="I">outro</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <label class="m-0" for="date1">Data de Nascimento</label>
+          <input type="date" name="date1" formControlName="dateTeacherFilter1" class="form-control form-control-sm">
+          <label class="m-0" for="date2">a</label>
+          <input type="date" name="date2" formControlName="dateTeacherFilter2" class="form-control form-control-sm">
+      </div>
+
+      <div class="col-12 col-md-6">
+          <label class="m-0" for="sobrenome">Por idade</label>
+          <input type="text" name="sobrenome" formControlName="ageTeacherFilter" class="form-control form-control-sm">
+      </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="sair()"
+        >
+          <span style="font-size: 1rem">filtrar</span>
+        </button>
+</div>
+

@@ -63,6 +63,7 @@
           <input
             type="text"
             name="cpf"
+            formControlName="cpfStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -72,13 +73,14 @@
           <input
             type="text"
             name="rg"
+            formControlName="rgStudent"
             class="form-control form-control-sm input"
           />
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="data">PCD</label>
-          <select name="pcd" id="" class="form-control form-control-sm input">
+          <select name="pcd" id="" class="form-control form-control-sm input" formControlName="pcdStudent">
             <option value="N">não</option>
             <option value="S">sim</option>
           </select>
@@ -89,6 +91,7 @@
           <input
             type="text"
             name="tipopcd"
+            formControlName="tipoPcdtudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -98,6 +101,7 @@
           <select
             name="genero"
             id=""
+            formControlName="genderStudent"
             class="form-control form-control-sm input"
           >
             <option value="M">masculino</option>
@@ -110,6 +114,7 @@
           <label class="m-0 tittle-input" for="data">Data nasc.</label>
           <input
             type="date"
+            formControlName="dateStudent"
             name="data"
             class="form-control form-control-sm input"
           />
@@ -141,6 +146,7 @@
           <input
             type="text"
             name="cpf"
+            formControlName="cpfStudentResp"
             class="form-control form-control-sm input"
           />
         </div>
@@ -150,13 +156,14 @@
           <input
             type="text"
             name="rg"
+            formControlName="rgStudentResp"
             class="form-control form-control-sm input"
           />
         </div>
 
         <div class="col-md-6" *ngIf="Resp">
           <label class="m-0 tittle-input" for="data">PCD</label>
-          <select name="pcd" id="" class="form-control form-control-sm input">
+          <select name="pcd" id="" class="form-control form-control-sm input" formControlName="pcdStudentResp">
             <option value="N">não</option>
             <option value="S">sim</option>
           </select>
@@ -167,6 +174,7 @@
           <input
             type="text"
             name="tipopcd"
+            formControlName="tipoPcdStudentResp"
             class="form-control form-control-sm input"
           />
         </div>
@@ -177,6 +185,7 @@
             name="genero"
             id=""
             class="form-control form-control-sm input"
+            formControlName="genderStudentResp"
           >
             <option value="M">masculino</option>
             <option value="F">feminino</option>
@@ -190,6 +199,7 @@
             type="date"
             name="data"
             class="form-control form-control-sm input"
+            formControlName="dateStudentResp"
           />
         </div>
         <!----Modal Resp-->
@@ -218,7 +228,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="stateStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -228,7 +238,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="neighborhoodStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -238,7 +248,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="adressStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -248,7 +258,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="complementStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -258,7 +268,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="numberStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -268,7 +278,7 @@
           <input
             type="text"
             name="sobrenome"
-            formControlName="cityStudent"
+            formControlName="obsStudent"
             class="form-control form-control-sm input"
           />
         </div>

@@ -24,10 +24,32 @@ export class StudentsRegisterComponent implements OnInit {
     this.studentForm = this.fb.group({
       nomeStudent: [null, Validators.required],
       sobreStudent: [null, Validators.required],
+      cpfStudent: [null, Validators.required],
+      rgStudent: [null, Validators.required],
+      pcdStudent: [null, Validators.required],
+      tipoPcdStudent: [null, Validators.required],
+      genderStudent: [null, Validators.required],
+      dateStudent: [null, Validators.required],
+
       nomeStudentResp: [null, Validators.required],
       sobreStudentResp: [null, Validators.required],
+      cpfStudentResp: [null, Validators.required],
+      rgStudentResp: [null, Validators.required],
+      pcdStudentResp: [null, Validators.required],
+      tipoPcdStudentResp: [null, Validators.required],
+      genderStudentResp: [null, Validators.required],
+      dateStudentResp: [null, Validators.required],
+
       cityStudent: [null, Validators.required],
       cepStudent: [null, Validators.required],
+      stateStudent: [null, Validators.required],
+      neighborhoodStudent: [null, Validators.required],
+      adressStudent: [null, Validators.required],
+      complementStudent: [null, Validators.required],
+      numberStudent: [null, Validators.required],
+      obsStudent: [null, Validators.required],
+      
+
     });
   }
 
