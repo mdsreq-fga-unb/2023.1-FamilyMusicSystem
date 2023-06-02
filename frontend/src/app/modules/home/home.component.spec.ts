@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { AboutComponent } from 'src/app/modules/settings/about/about.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -11,6 +11,7 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
       providers: [BsModalService],
+      imports: [MatIconModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
