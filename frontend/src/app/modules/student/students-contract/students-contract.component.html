@@ -1,1 +1,67 @@
+<button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          (click)="saveContract()"
+        >
+          <span style="font-size: 1rem">Salvar Contrato</span>
+        </button>
 
+<div id="containerContract" #containerContract>
+    <header>
+        <h1>Contrato de Prestação de Serviços</h1>
+    </header>
+    <section>
+        <h2>Informações do Contratante:</h2>
+        <p><strong>Nome:</strong> [Nome do contratante]</p>
+        <p><strong>Endereço:</strong> [Endereço do contratante]</p>
+        <p><strong>Telefone:</strong> [Telefone do contratante]</p>
+    </section>
+    <section>
+        <h2>Informações do Contratado:</h2>
+        <p><strong>Nome:</strong> [Nome do contratado]</p>
+        <p><strong>Endereço:</strong> [Endereço do contratado]</p>
+        <p><strong>Telefone:</strong> [Telefone do contratado]</p>
+    </section>
+    <section>
+        <h2>Descrição dos Serviços:</h2>
+        <p>[Descreva detalhadamente os serviços a serem prestados pelo contratado]</p>
+    </section>
+    <section>
+        <h2>Condições de Pagamento:</h2>
+        <p>[Descreva as condições de pagamento, incluindo valores, prazos e forma de pagamento]</p>
+    </section>
+    <section>
+        <h2>Prazo de Execução:</h2>
+        <p>[Descreva o prazo estimado para a execução dos serviços]</p>
+    </section>
+    <section>
+        <h2>Responsabilidades do Contratante:</h2>
+        <p>[Descreva as responsabilidades do contratante em relação à prestação dos serviços]</p>
+    </section>
+    <section>
+        <h2>Responsabilidades do Contratado:</h2>
+        <p>[Descreva as responsabilidades do contratado em relação à prestação dos serviços]</p>
+    </section>
+    <section>
+        <h2>Rescisão do Contrato:</h2>
+        <p>[Descreva as condições em que o contrato pode ser rescindido]</p>
+    </section>
+    <section>
+        <h2>Confidencialidade:</h2>
+        <p>[Descreva as obrigações de confidencialidade das partes, se aplicável]</p>
+    </section>
+    <section>
+        <h2>Disposições Gerais:</h2>
+        <p>[Inclua quaisquer outras disposições relevantes que se aplicam ao contrato]</p>
+    </section>
+    <footer>
+        <p>Este contrato entra em vigor na data de assinatura pelas partes.</p>
+        <p>Data: [Data de assinatura]</p>
+        <br>
+        <p>_____________________________</p>
+        <p>[Nome do contratante]</p>
+        <br>
+        <p>_____________________________</p>
+        <p>[Nome do contratado]</p>
+    </footer>
+</div>

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ResourcesComponent } from './resources.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('ResourcesComponent', () => {
   let component: ResourcesComponent;
@@ -8,7 +9,9 @@ describe('ResourcesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResourcesComponent ]
+      declarations: [ ResourcesComponent ],
+      providers: [BsModalService],
+      imports: [MatIconModule],
     })
     .compileComponents();
 
