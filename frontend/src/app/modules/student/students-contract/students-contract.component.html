@@ -2,66 +2,88 @@
           type="button"
           class="btn btn-dark d-flex align-items-center rounded-pill"
           (click)="saveContract()"
+          style="margin-top: 10px; margin-left: 10px;"
         >
-          <span style="font-size: 1rem">Salvar Contrato</span>
-        </button>
+          <span style="font-size: 1rem;">Salvar Contrato</span>
+</button>
 
-<div id="containerContract" #containerContract>
-    <header>
-        <h1>Contrato de Prestação de Serviços</h1>
-    </header>
-    <section>
-        <h2>Informações do Contratante:</h2>
-        <p><strong>Nome:</strong> [Nome do contratante]</p>
-        <p><strong>Endereço:</strong> [Endereço do contratante]</p>
-        <p><strong>Telefone:</strong> [Telefone do contratante]</p>
-    </section>
-    <section>
-        <h2>Informações do Contratado:</h2>
-        <p><strong>Nome:</strong> [Nome do contratado]</p>
-        <p><strong>Endereço:</strong> [Endereço do contratado]</p>
-        <p><strong>Telefone:</strong> [Telefone do contratado]</p>
-    </section>
-    <section>
-        <h2>Descrição dos Serviços:</h2>
-        <p>[Descreva detalhadamente os serviços a serem prestados pelo contratado]</p>
-    </section>
-    <section>
-        <h2>Condições de Pagamento:</h2>
-        <p>[Descreva as condições de pagamento, incluindo valores, prazos e forma de pagamento]</p>
-    </section>
-    <section>
-        <h2>Prazo de Execução:</h2>
-        <p>[Descreva o prazo estimado para a execução dos serviços]</p>
-    </section>
-    <section>
-        <h2>Responsabilidades do Contratante:</h2>
-        <p>[Descreva as responsabilidades do contratante em relação à prestação dos serviços]</p>
-    </section>
-    <section>
-        <h2>Responsabilidades do Contratado:</h2>
-        <p>[Descreva as responsabilidades do contratado em relação à prestação dos serviços]</p>
-    </section>
-    <section>
-        <h2>Rescisão do Contrato:</h2>
-        <p>[Descreva as condições em que o contrato pode ser rescindido]</p>
-    </section>
-    <section>
-        <h2>Confidencialidade:</h2>
-        <p>[Descreva as obrigações de confidencialidade das partes, se aplicável]</p>
-    </section>
-    <section>
-        <h2>Disposições Gerais:</h2>
-        <p>[Inclua quaisquer outras disposições relevantes que se aplicam ao contrato]</p>
-    </section>
-    <footer>
-        <p>Este contrato entra em vigor na data de assinatura pelas partes.</p>
-        <p>Data: [Data de assinatura]</p>
-        <br>
-        <p>_____________________________</p>
-        <p>[Nome do contratante]</p>
-        <br>
-        <p>_____________________________</p>
-        <p>[Nome do contratado]</p>
-    </footer>
+<div id="containerContract" #containerContract class="" style="text-align: center;">
+    <div style="border-style: solid; border-color: black; margin: 10px;">
+        <header>
+            <h1>Contrato de Prestação de Serviços</h1>
+            <h1>Family Music School</h1>
+        </header>
+        <section>
+            <p><strong>CONTRATANTE:</strong>------------ brasileiro(a), portador(a) da carteira de identidade RG de número 
+            ------------- , inscrito(a) no CPF/MF sob o número ------------ , residente e domiciliado à -------------- em Brasília DF</p>
+        </section>
+        <section>
+            <p><strong>CONTRATADO:</strong> ---------------, pessoa jurídica de direito privado, 
+                regularmente inscrita no CNPJ/MF sob o n -------------, com sede à ------------ , ----------, 
+                CEP ------------- em Brasília; neste ato, representado por seu administrador, ----------------, brasileiro, empresário, portador da carteira de identidade RG de n.o |, inscrito no 
+                CPF/MF sob o n.o ------------, residente e domiciliado em Brasília - DF.</p>
+        </section>
+        <section>
+            <h2>CLAUSULA PRIMEIRA</h2>
+            <p>O objeto do presente instrumento é a prestação, pela CONTRATADA, em favor do(a) CONTRATANTE, dos serviços de ensino de música 
+            (CNAE 8592-9/03), por meio de aulas de música e prática de instrumentos na modalidade CANTO E TÉCNICAS VOCAIS.</p>
+            <p><strong>Parágrafo 1o</strong>- Pelo presente instrumento, o(a) CONTRATANTE opta pela aquisição de um pacote de 12 (doze aulas), os quais serão cumpridos ao longo de 3 (três meses).</p>
+            <p><strong>Págrafo 2o</strong>- As aulas são intransferíveis, individuais, ministradas 1 vez por semana vez por semana, com duração de 50 (cinquenta minutos) e agendada conforme interesse do aluno e disponibilidade de horário do Professor.</p>
+        </section>
+        <section>
+            <h2>CLAUSULA SEGUNDA</h2>
+            <p>
+                 É obrigação do(a) CONTRATANTE comunicar, com antecedência mínima de 2 (duas) horas, a impossibilidade de comparecer à aula previamente agendada. 
+                 Caso o(a) CONTRATANTE não compareça a aula e não comunique a sua ausência ao Professor, computar-se-á a aula no pacote do(a) CONTRATANTE, 
+                 salvo nos casos de enfermidade ou internação hospitalar, devidamente comprovadas por atestado médico.
+            </p>
+           <p>
+            <strong>Págrafo Único</strong> - Pactua-se que a reposição ocorrerá de acordo com a disponibilidade da agenda do Professor. As faltas não comunicadas poderão ser repostas, sendo estipulado o valor de R$ 50,00 (cinquenta reais ) por hora/aula.
+           </p> 
+        </section>
+        <section>
+            <h2>CLAUSULA TERCEIRA</h2>
+            <p>Em contrapartida aos serviços prestados, o(a) CONTRATANTE pagará em favor da CONTRATADA o valor certo e ajusta de R$ 900,00 (novecentos reais),
+                 os quais serão pagos em 3 (três parcelas) iguais e sucessivas de R$ 300,00 (trezentos reais), 
+                 sendo que a primeira vencerá no dia 11 de Maio de 2023.
+            </p>
+            <p><strong>Parágrafo 1o</strong> - No caso de inadimplência de quaisquer das parcelas, 
+                    haverá a incidência de multa de 2% (dois por cento) e juros de 1% (um por cento) ao mês ou fração sobre o valor vencido e não pago.
+            </p> 
+            <p><strong>Parágrafo 2o</strong> No caso de inadimplência de 2 (duas) ou mais parcelas, 
+                o pacote do(a) CONTRATANTE será suspenso até a liquidação das pendências financeiras.
+             </p> 
+        </section>
+        <section>
+            <h2>ClAUSULA QUARTA</h2>
+            <p>Pelo presente instrumento, o(a) CONTRATANTE cede em favor da CONTRATADA os direitos de utilização de sua imagem e voz em eventos da escola.</p>
+        </section>
+        <section>
+            
+            <h2>CLAUSULA QUINTA</h2><p>O(A) CONTRATANTE poderá optar pela resilição do presente contrato antes do seu término, devendo, para tanto, comunicar tal intenção à CONTRATADA com antecedência mínima de 30 (trinta) dias.</p>
+            <p>
+                <strong>Parágrafo 1o</strong> - No caso de desfazimento antecipado, haverá a incidência de multa contratual no percentual de 20% (vinte por cento) sobre o valor do saldo vincendo do contrato.
+            </p>
+            <p>
+                <strong>Parágrafo 2o</strong> - Após comunicar a intenção de desfazer o contrato, as partes deverão fazer o acerto de contas, entre os valores pagos em contrapartida às aulas efetivamente assistidas pelo(a) CONTRATANTE, computando-se a multa contratual acima estipulada.
+            </p>
+        </section>
+        <section>
+            <h2>CLAUSULA SEXTA</h2>
+            <p>As partes elegem o Foro da Comarca Brasília, como o único competente para dirimir toda e qualquer dúvida, controvérsia e litígio, decorrente do exat</p>
+        </section>
+        <section>
+            <p>E assim, por estarem justas e contratadas, as partes assinam o presente em duas (02) vias de igual teor, valor e forma, após lido e achado conforme</p>
+        </section>
+        <footer>
+            <p>Este contrato entra em vigor na data de assinatura pelas partes.</p>
+            <p>Data: [Data de assinatura]</p>
+            <br>
+            <p>_____________________________</p>
+            <p>[Nome do contratante]</p>
+            <br>
+            <p>_____________________________</p>
+            <p>[Nome do contratado]</p>
+        </footer>
+    </div>
 </div>
