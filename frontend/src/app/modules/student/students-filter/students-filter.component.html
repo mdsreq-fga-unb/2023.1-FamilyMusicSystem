@@ -1,52 +1,83 @@
+<body class="corpo">
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <mat-icon class="personIcon">filter_list</mat-icon>Filtrar
+      </h2>
+    </div>
 
-<div class="modal-header">
-    <h2 class="modal-title"> 
-        Filtro alunos
-    </h2>
+    <div class="modal-body">
+      <form [formGroup]="studentFilterForm" class="form-row">
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="radioGroup">Por Cadastro</label>
+          <div class="radioGroup" id="radioGroup">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
+            <label class="form-check-label text-label" for="flexRadioDefault1">
+              Mais recentes
+            </label>
 
-</div>
-<div class="modal-body">
-    <form  [formGroup]="studentFilterForm" class="form-row">
-        <div class="col-12 col-md-6">
-            <label class="m-0" for="radio">Por cadastro</label>
-            <input type="radio" name="typeFilter1" formControlName="typeFilter1" class="form-control form-control-sm">
-            <input type="radio" name="typeFilter2" formControlName="typeFilter2" class="form-control form-control-sm">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
+            <label class="form-check-label text-label" for="flexRadioDefault1">
+              Mais antigos
+            </label>
+          </div>
         </div>
 
-        <div class="col-12 col-md-6">
-            <label class="m-0" for="genderFilter">Gênero</label>
-            <select
-            name="genero"
-            id=""
-            class="form-control form-control-sm input"
-            formControlName="genderStudentFilter"
-          >
-            <option value="M">masculino</option>
-            <option value="F">feminino</option>
-            <option value="I">outro</option>
-          </select>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="radioGroup">Por Gênero</label>
+          <div class="radioGroup" id="radioGroup">
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label text-label" for="flexRadioDefault1">
+              Feminino
+            </label>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label text-label" for="flexRadioDefault1">
+              Masculino
+            </label>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+            <label class="form-check-label text-label" for="flexRadioDefault1">
+              Outro
+            </label>
+          </div>
         </div>
 
-        <div class="col-12 col-md-6">
-          <label class="m-0" for="date1">Data de Nascimento</label>
-          <input type="date" name="date1" formControlName="dateStudentFilter1" class="form-control form-control-sm">
-          <label class="m-0" for="date2">a</label>
-          <input type="date" name="date2" formControlName="dateStudentFilter2" class="form-control form-control-sm">
-      </div>
+        <div class="col-md-6 formGroup2">
+          <label class="m-0 tittle-input" for="date1">Data de Nascimento</label>
+          <div class="dateClass">
+          <input type="date" name="date1" formControlName="dateStudentFilter1"
+            class="form-control form-control-sm input">
+          <label class="m-0 text-label2" for="date2">a</label>
+          <input type="date" name="date2" formControlName="dateStudentFilter2"
+            class="form-control form-control-sm input">
+        </div>
+    </div>
 
-      <div class="col-12 col-md-6">
-          <label class="m-0" for="sobrenome">Por idade</label>
-          <input type="text" name="sobrenome" formControlName="ageStudentFilter" class="form-control form-control-sm">
-      </div>
+    <div class="col-md-6 formGroup2">
+      <label class="m-0 tittle-input" for="age">Por idade</label>
+      <input type="text" name="age" formControlName="ageStudentFilter" class="form-control form-control-sm input">
+    </div>
 
     </form>
-</div>
-<div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-dark d-flex align-items-center rounded-pill"
-          (click)="sair()"
-        >
-          <span style="font-size: 1rem">filtrar</span>
-        </button>
-</div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          " (click)="sair()">
+                cancelar
+            </button>
+            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        ">
+                filtrar
+            </button>
+  </div>
+  </div>
+</body>
