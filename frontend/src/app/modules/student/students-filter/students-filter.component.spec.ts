@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StudentsFilterComponent } from './students-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('StudentsFilterComponent', () => {
   let component: StudentsFilterComponent;
@@ -8,7 +8,8 @@ describe('StudentsFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudentsFilterComponent ]
+      declarations: [ StudentsFilterComponent ],
+      imports: [ ReactiveFormsModule ],
     })
     .compileComponents();
 
