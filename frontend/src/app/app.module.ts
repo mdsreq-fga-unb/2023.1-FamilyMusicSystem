@@ -34,7 +34,7 @@ import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule
 import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/schedule-register.component';
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
-import { CountdownModule } from 'ngx-countdown';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -75,7 +75,7 @@ import { CountdownModule } from 'ngx-countdown';
     FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
-    CountdownModule,
+    HttpClientModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

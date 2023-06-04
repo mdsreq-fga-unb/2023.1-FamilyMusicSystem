@@ -59,6 +59,26 @@
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="sobrenome">Email</label>
+          <input
+            type="text"
+            name="email"
+            formControlName="emailStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="sobrenome">Telefone</label>
+          <input
+            type="text"
+            name="telefone"
+            formControlName="phoneStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="data">CPF</label>
           <input
             type="text"
@@ -80,7 +100,12 @@
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="data">PCD</label>
-          <select name="pcd" id="" class="form-control form-control-sm input" formControlName="pcdStudent">
+          <select
+            name="pcd"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="pcdStudent"
+          >
             <option value="N">não</option>
             <option value="S">sim</option>
           </select>
@@ -163,7 +188,12 @@
 
         <div class="col-md-6" *ngIf="Resp">
           <label class="m-0 tittle-input" for="data">PCD</label>
-          <select name="pcd" id="" class="form-control form-control-sm input" formControlName="pcdStudentResp">
+          <select
+            name="pcd"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="pcdStudentResp"
+          >
             <option value="N">não</option>
             <option value="S">sim</option>
           </select>
@@ -309,6 +339,8 @@
           justify-content: center;
         "
         *ngIf="location"
+        (click)="addStudent()"
+        (click)="sair()"
       >
         salvar
       </button>

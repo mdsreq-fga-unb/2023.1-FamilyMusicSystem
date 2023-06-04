@@ -2,7 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Student } from 'src/app/models/student';
+
+class Entry<T> {
+  id: number;
+  attributes: T;
+}
+
+class Response {
+  data: Entry<Student>[];
+}
 
 @Component({
   selector: 'app-students-register',
@@ -18,12 +29,20 @@ export class StudentsRegisterComponent implements OnInit {
   public student: Student;
   public studentForm: FormGroup;
 
-  constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) {}
+  error: any | undefined;
+  students$: Observable<Student[]> | undefined;
+  constructor(
+    private bsModalRef: BsModalRef,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.studentForm = this.fb.group({
       nomeStudent: [null, Validators.required],
       sobreStudent: [null, Validators.required],
+      emailStudent: [null, Validators.required],
+      phoneStudent: [null, Validators.required],
       cpfStudent: [null, Validators.required],
       rgStudent: [null, Validators.required],
       pcdStudent: [null, Validators.required],
@@ -48,9 +67,28 @@ export class StudentsRegisterComponent implements OnInit {
       complementStudent: [null, Validators.required],
       numberStudent: [null, Validators.required],
       obsStudent: [null, Validators.required],
-      
-
     });
+  }
+
+  addStudent() {
+    this.http
+      .post('http://localhost:1337/api/students', {
+        data: {
+          Name: this.studentForm.get('nomeStudent')?.value,
+          LastName: this.studentForm.get('sobreStudent')?.value,
+          Email: this.studentForm.get('emailStudent')?.value,
+          phone: this.studentForm.get('phoneStudent')?.value,
+          Birthday: this.studentForm.get('dateStudent')?.value,
+          DisabledPerson: this.studentForm.get('nomeStudent')?.value,
+          DisabledPersonType: this.studentForm.get('tipoPcdStudent')?.value,
+          CPF: this.studentForm.get('cpfStudent')?.value,
+          RG: this.studentForm.get('rgStudent')?.value,
+          Gender: this.studentForm.get('genderStudent')?.value,
+        },
+      })
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
   scrollTop() {
