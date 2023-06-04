@@ -1,1 +1,207 @@
-<p>contract works!</p>
+<div class="container">
+  <button
+    type="button"
+    class="btn-close text-reset"
+    (click)="sair()"
+    aria-label="Close"
+    id="close"
+  ></button>
+  <div class="modal-header">
+    <h3 class="modal-title">
+      <mat-icon class="icon">assignment</mat-icon>Contrato
+    </h3>
+  </div>
+
+  <div class="modal-body">
+    <div
+      #containerContract
+      [ngClass]="{
+        pdf: ispdf,
+        nopdf: !ispdf
+      }"
+    >
+      <header>
+        <h1><b>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</b></h1>
+        <h1>FAMILY MUSIC SCHOOL</h1>
+        <p><br /></p>
+      </header>
+      <section>
+        <p>
+          <b>CONTRATANTE:</b> ------------ brasileiro(a), portador(a) da
+          carteira de identidade RG de número ------------- , inscrito(a) no
+          CPF/MF sob o número ------------ , residente e domiciliado à
+          -------------- em Brasília DF.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <p>
+          <b>CONTRATADO:</b> ---------------, pessoa jurídica de direito
+          privado, regularmente inscrita no CNPJ/MF sob o número -------------,
+          com sede à ------------ , ----------, CEP ------------- em Brasília;
+          neste ato, representado por seu administrador, ----------------,
+          brasileiro, empresário, portador da carteira de identidade RG de
+          número |, inscrito no CPF/MF sob o número ------------, residente e
+          domiciliado em Brasília - DF.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA PRIMEIRA</b></h2>
+        <p><br /></p>
+        <p>
+          O objeto do presente instrumento é a prestação, pela CONTRATADA, em
+          favor do(a) CONTRATANTE, dos serviços de ensino de música (CNAE
+          8592-9/03), por meio de aulas de música e prática de instrumentos na
+          modalidade CANTO E TÉCNICAS VOCAIS.
+        </p>
+        <p><br /></p>
+        <p>
+          <b>Parágrafo 1°</b> - Pelo presente instrumento, o(a) CONTRATANTE opta
+          pela aquisição de um pacote de 12 (doze aulas), os quais serão
+          cumpridos ao longo de 3 (três meses).
+        </p>
+        <p>
+          <b>Páragrafo 2°</b> - As aulas são intransferíveis, individuais,
+          ministradas 01 (uma) vez por semana vez por semana, com duração de 50
+          (cinquenta minutos) e agendada conforme interesse do aluno e
+          disponibilidade de horário do Professor.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA SEGUNDA</b></h2>
+        <p><br /></p>
+        <p>
+          É obrigação do(a) CONTRATANTE comunicar, com antecedência mínima de 2
+          (duas) horas, a impossibilidade de comparecer à aula previamente
+          agendada. Caso o(a) CONTRATANTE não compareça a aula e não comunique a
+          sua ausência ao Professor, computar-se-á a aula no pacote do(a)
+          CONTRATANTE, salvo nos casos de enfermidade ou internação hospitalar,
+          devidamente comprovadas por atestado médico.
+        </p>
+        <p><br /></p>
+        <p>
+          <b>Páragrafo Único</b> - Pactua-se que a reposição ocorrerá de acordo
+          com a disponibilidade da agenda do Professor. As faltas não
+          comunicadas poderão ser repostas, sendo estipulado o valor de R$ 50,00
+          (cinquenta reais) por hora/aula.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA TERCEIRA</b></h2>
+        <p><br /></p>
+        <p>
+          Em contrapartida aos serviços prestados, o(a) CONTRATANTE pagará em
+          favor da CONTRATADA o valor certo e ajusta de R$ 900,00 (novecentos
+          reais), os quais serão pagos em 3 (três parcelas) iguais e sucessivas
+          de R$ 300,00 (trezentos reais), sendo que a primeira vencerá no dia 11
+          de Maio de 2023.
+        </p>
+        <p><br /></p>
+        <p>
+          <b>Parágrafo 1°</b> - No caso de inadimplência de quaisquer das
+          parcelas, haverá a incidência de multa de 2% (dois por cento) e juros
+          de 1% (um por cento) ao mês ou fração sobre o valor vencido e não
+          pago.
+        </p>
+        <p>
+          <b>Parágrafo 2°</b> No caso de inadimplência de 2 (duas) ou mais
+          parcelas, o pacote do(a) CONTRATANTE será suspenso até a liquidação
+          das pendências financeiras.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA QUARTA</b></h2>
+        <p><br /></p>
+        <p>
+          Pelo presente instrumento, o(a) CONTRATANTE cede em favor da
+          CONTRATADA os direitos de utilização de sua imagem e voz em eventos da
+          escola.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA QUINTA</b></h2>
+        <p><br /></p>
+        <p>
+          O(A) CONTRATANTE poderá optar pela resilição do presente contrato
+          antes do seu término, devendo, para tanto, comunicar tal intenção à
+          CONTRATADA com antecedência mínima de 30 (trinta) dias.
+        </p>
+        <p><br /></p>
+        <p>
+          <b>Parágrafo 1°</b> - No caso de desfazimento antecipado, haverá a
+          incidência de multa contratual no percentual de 20% (vinte por cento)
+          sobre o valor do saldo vincendo do contrato.
+        </p>
+        <p>
+          <b>Parágrafo 2°</b> - Após comunicar a intenção de desfazer o
+          contrato, as partes deverão fazer o acerto de contas, entre os valores
+          pagos em contrapartida às aulas efetivamente assistidas pelo(a)
+          CONTRATANTE, computando-se a multa contratual acima estipulada.
+        </p>
+        <p><br /></p>
+      </section>
+      <section>
+        <h2><b>CLÁUSULA SEXTA</b></h2>
+        <p><br /></p>
+        <p>
+          As partes elegem o Foro da Comarca Brasília, como o único competente
+          para dirimir toda e qualquer dúvida, controvérsia e litígio,
+          decorrente do exat
+        </p>
+      </section>
+      <section>
+        <p>
+          E assim, por estarem justas e contratadas, as partes assinam o
+          presente em duas (02) vias de igual teor, valor e forma, após lido e
+          achado conforme
+        </p>
+        <p><br /></p>
+      </section>
+      <footer>
+        <p>Este contrato entra em vigor na data de assinatura pelas partes.</p>
+        <p>Data: [Data de assinatura]</p>
+        <br />
+        <p>_____________________________</p>
+        <p>[Nome do contratante]</p>
+        <br />
+        <p>_____________________________</p>
+        <p>[Nome do contratado]</p>
+      </footer>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      id="outline"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      style="
+        height: min-content;
+        width: 6rem;
+        align-items: center;
+        justify-content: center;
+      "
+      (click)="sair()"
+    >
+      sair
+    </button>
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      style="
+        height: min-content;
+        width: 6rem;
+        align-items: center;
+        justify-content: center;
+      "
+      (click)="updateElValue()"
+      (click)="saveContract()"
+    >
+      gerar
+    </button>
+  </div>
+</div>

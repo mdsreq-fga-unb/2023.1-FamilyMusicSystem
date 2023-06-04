@@ -21,7 +21,6 @@ import { StudentsViewComponent } from './modules/student/students-view/students-
 import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
 import { StudentsFilterComponent } from './modules/student/students-filter/students-filter.component';
 import { TeachersFilterComponent } from './modules/teacher/teachers-filter/teachers-filter.component';
-import { StudentsContractComponent } from './modules/student/students-contract/students-contract.component';
 import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
 import { RoomsRegisterComponent } from './modules/rooms/rooms-register/rooms-register.component';
 import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.component';
@@ -54,7 +53,6 @@ import { CountdownModule } from 'ngx-countdown';
     TeachersViewComponent,
     StudentsFilterComponent,
     TeachersFilterComponent,
-    StudentsContractComponent,
     RoomsListComponent,
     RoomsRegisterComponent,
     RoomsFilterComponent,

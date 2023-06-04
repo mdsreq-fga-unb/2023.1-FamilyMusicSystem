@@ -2,42 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { Student } from 'src/app/models/student';
-import { StudentsContractComponent } from '../students-contract/students-contract.component';
-
+import { ContractComponent } from 'src/app/modules/settings/contract/contract.component';
 @Component({
   selector: 'app-students-view',
   templateUrl: './students-view.component.html',
-  styleUrls: ['./students-view.component.scss']
+  styleUrls: ['./students-view.component.scss'],
 })
 export class StudentsViewComponent implements OnInit {
-  public onClose : Subject<boolean>;
-  public student : Student;
-
+  public onClose: Subject<boolean>;
+  public student: Student;
 
   constructor(
-    private bsModalRef : BsModalRef,
-    private modalService : BsModalService,
+    private bsModalRef: BsModalRef,
+    private modalService: BsModalService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  sair(){
+  sair() {
     this.bsModalRef.hide();
   }
 
-  modalContratoAlunos(){
+  modalContratoAlunos() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {
-      },
-      class : 'modal-lg'
+      initialState: {},
+      class: 'modal-lg',
     };
-    this.bsModalRef = this.modalService.show(StudentsContractComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {
-
-    })
+    this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
+    this.bsModalRef.content.onClose.subscribe(() => {});
   }
 }
