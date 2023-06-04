@@ -19,7 +19,8 @@
     "@strapi/plugin-i18n": "4.10.6",
     "@strapi/plugin-users-permissions": "4.10.6",
     "@strapi/strapi": "4.10.6",
-    "better-sqlite3": "8.0.1"
+    "better-sqlite3": "8.0.1",
+    "cheerio": "^1.0.0-rc.12"
   },
   "author": {
     "name": "A Strapi developer"
