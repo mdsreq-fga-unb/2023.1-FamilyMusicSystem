@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "legal_guardians",
+  "info": {
+    "singularName": "legal-guardian",
+    "pluralName": "legal-guardians",
+    "displayName": "LegalGuardian",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student"
+    },
+    "RG": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CPF": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}
