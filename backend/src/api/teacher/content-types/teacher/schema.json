@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "students",
+  "collectionName": "teachers",
   "info": {
-    "singularName": "student",
-    "pluralName": "students",
-    "displayName": "Student",
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
     "description": ""
   },
   "options": {
@@ -16,24 +16,12 @@
       "type": "string",
       "required": true
     },
-    "Email": {
-      "type": "email",
-      "required": true,
-      "unique": true
+    "Phone": {
+      "type": "string",
+      "required": true
     },
     "Password": {
-      "type": "password",
-      "required": true
-    },
-    "Birthday": {
-      "type": "date",
-      "required": true,
-      "default": "2001-01-01"
-    },
-    "DisabledPerson": {
-      "type": "boolean",
-      "default": false,
-      "required": true
+      "type": "password"
     },
     "ProfilePicture": {
       "type": "media",
@@ -64,6 +52,26 @@
         "Others"
       ],
       "required": true
+    },
+    "Instruments": {
+      "type": "enumeration",
+      "enum": [
+        "Singing",
+        "Guitars",
+        "Piano",
+        "Child Musicalization"
+      ],
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student"
     }
   }
 }

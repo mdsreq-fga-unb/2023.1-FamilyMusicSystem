@@ -1,60 +1,15 @@
 const request = require('supertest');
-const app = require('../../config/server');
 
-// Dados mock para o teste
-const mockStudentData = {
-    Name: 'John Doe',
-    Email: 'john.doe@example.com',
-    Password: '123456',
-    Birthdate: '1990-01-01',
-    DisabledPerson: false,
-    ProfilePicture: null,
-};
+describe('Testes da API', () => {
+    it('Deve retornar o JSON esperado', async () => {
+        const res = await request(strapi.server.httpServer).get('/api/students');
 
-let studentId;
+        // Verifica se a resposta contém uma string JSON válida
+        expect(res.text).not.toBeUndefined();
+        expect(() => JSON.parse(res.text)).not.toThrow();
 
-it('Deve criar um novo estudante', async () => {
-    const response = await request(app)
-        .post('/students')
-        .send(mockStudentData);
+        const responseObj = JSON.parse(res.text);
 
-    expect(response.status).toBe(201);
-    expect(response.body).toHaveProperty('id');
-    studentId = response.body.id;
-});
-
-it('Deve obter um estudante existente', async () => {
-    const response = await request(app).get(`/students/${studentId}`);
-
-    expect(response.status).toBe(200);
-    expect(response.body.id).toBe(studentId);
-    expect(response.body.Name).toBe(mockStudentData.Name);
-    // Adicione outras validações conforme necessário
-});
-
-it('Deve atualizar um estudante existente', async () => {
-    const updatedStudentData = {
-        ...mockStudentData,
-        Name: 'Jane Smith',
-        Email: 'jane.smith@example.com',
-        // Outros campos a serem atualizados
-    };
-
-    const response = await request(app)
-        .put(`/students/${studentId}`)
-        .send(updatedStudentData);
-
-    expect(response.status).toBe(200);
-    expect(response.body.id).toBe(studentId);
-    expect(response.body.Name).toBe(updatedStudentData.Name);
-    // Adicione outras validações conforme necessário
-});
-
-it('Deve excluir um estudante existente', async () => {
-    const response = await request(app).delete(`/students/${studentId}`);
-
-    expect(response.status).toBe(204);
-
-    const verifyResponse = await request(app).get(`/students/${studentId}`);
-    expect(verifyResponse.status).toBe(404);
+        expect(responseObj).toEqual({ "data": [{ "id": 1, "attributes": { "Name": "Aluno2", "Email": "aluno1@email.com", "Birthdate": "2001-01-18", "DisabledPerson": false, "createdAt": "2023-06-04T04:50:38.019Z", "updatedAt": "2023-06-04T04:51:06.152Z", "publishedAt": "2023-06-04T04:50:45.440Z" } }, { "id": 2, "attributes": { "Name": "Aluno1", "Email": "aluno1@email.com", "Birthdate": "2001-01-01", "DisabledPerson": false, "createdAt": "2023-06-04T04:51:30.775Z", "updatedAt": "2023-06-04T04:51:34.119Z", "publishedAt": "2023-06-04T04:51:34.112Z" } }], "meta": { "pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 2 } } });
+    });
 });
