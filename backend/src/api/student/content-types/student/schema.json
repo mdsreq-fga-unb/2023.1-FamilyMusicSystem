@@ -23,7 +23,7 @@
     },
     "Password": {
       "type": "password",
-      "required": true
+      "required": false
     },
     "Birthday": {
       "type": "date",
@@ -64,6 +64,16 @@
         "Others"
       ],
       "required": true
+    },
+    "DisabledPersonType": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "LastName": {
+      "type": "string"
     }
   }
 }

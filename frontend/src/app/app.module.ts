@@ -34,6 +34,7 @@ import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule
 import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/schedule-register.component';
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
     FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
