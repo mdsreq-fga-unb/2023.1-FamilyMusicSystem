@@ -30,8 +30,6 @@ export class StudentsFilterComponent implements OnInit {
       dateStudentFilter1 : null,
       dateStudentFilter2 : null,
       ageStudentFilter : null
-      
-
     });
   }
 
