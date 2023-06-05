@@ -6,15 +6,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Student } from 'src/app/models/student';
 
-class Entry<T> {
-  id: number;
-  attributes: T;
-}
-
-class Response {
-  data: Entry<Student>[];
-}
-
 @Component({
   selector: 'app-students-register',
   templateUrl: './students-register.component.html',

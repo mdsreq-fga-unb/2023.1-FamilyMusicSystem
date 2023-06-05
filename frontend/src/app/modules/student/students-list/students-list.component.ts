@@ -1,3 +1,4 @@
+import { Student } from './../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
@@ -5,7 +6,7 @@ import { StudentsFilterComponent } from '../students-filter/students-filter.comp
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { Student } from 'src/app/models/student';
+import { tap } from 'rxjs/operators';
 
 class Entry<T> {
   id: number;
@@ -36,18 +37,25 @@ export class StudentsListComponent implements OnInit {
     const opts = { params: { populate: '*' } };
     this.students$ = this.http.get<Response>(this.prefixoUrlStudent, opts).pipe(
       catchError((error) => this.handleError(error)),
-      map((response) => response.data.map((student) => student.attributes))
+      tap((response: Response) => {
+        response.data.forEach((student) => {
+          student.attributes.id = student.id;
+        });
+      }),
+      map((response: Response) =>
+        response.data.map((student) => student.attributes)
+      )
     );
   }
 
   deleteStudent(student: Student) {
     this.http
-      .delete(`${this.prefixoUrlStudent}`)
+      .delete(`${this.prefixoUrlStudent}${student.id}`)
       .pipe(catchError((error) => this.handleError(error)))
       .subscribe((response) => {
         console.log(response);
+        this.getStudent();
       });
-    this.getStudent();
   }
 
   ngOnInit(): void {
@@ -59,11 +67,12 @@ export class StudentsListComponent implements OnInit {
     return of();
   }
 
-  modalAlunos() {
+  modalNewAlunos() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
       class: 'modal-xl',
+      initialState: {},
     };
     this.bsModalRef = this.modalService.show(
       StudentsRegisterComponent,
@@ -74,11 +83,11 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  modalViewAlunos(student: Student) {
+  modalAlunos(student: Student) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: 'modal-md',
+      class: 'modal-xl',
       initialState: {
         student: student,
       },

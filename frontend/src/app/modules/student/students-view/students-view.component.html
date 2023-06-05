@@ -1,9 +1,391 @@
-<button
-  type="button"
-  class="btn btn-dark d-flex align-items-center rounded-pill"
-  (click)="modalContratoAlunos()"
->
-  <span style="font-size: 1rem">Contrato</span>
-</button>
-<p>{{ student.Name }}</p>
-<p>{{ student.CPF }}</p>
+<body class="corpo">
+  <div class="photo">
+    <button
+      type="button"
+      class="btn-close text-reset"
+      (click)="sair()"
+      aria-label="Close"
+      id="close"
+    ></button>
+    <img src="\assets\image\foto-upload.png" />
+    <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      routerLink=""
+      style="
+        height: min-content;
+        width: 10rem;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+      "
+    >
+      carregar imagem
+    </button>
+  </div>
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title" *ngIf="inicial">
+        <mat-icon class="icon">person</mat-icon>Informações do Aluno
+      </h2>
+      <h2 class="modal-title" *ngIf="location">
+        <mat-icon class="icon">location_on</mat-icon> Informações de Localidade
+      </h2>
+      <h2 class="modal-title" *ngIf="Resp">
+        <mat-icon class="icon">person</mat-icon>Informações do Responsável
+      </h2>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="studentForm" class="form-row">
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="nome">Nome</label>
+          <input
+            type="text"
+            name="nome"
+            formControlName="nameStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="sobrenome">Sobrenome</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="sobreStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="sobrenome">Email</label>
+          <input
+            type="text"
+            name="email"
+            formControlName="emailStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="sobrenome">Telefone</label>
+          <input
+            type="text"
+            name="telefone"
+            formControlName="phoneStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">CPF</label>
+          <input
+            type="text"
+            name="cpf"
+            formControlName="cpfStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">RG</label>
+          <input
+            type="text"
+            name="rg"
+            formControlName="rgStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">PCD</label>
+          <select
+            name="pcd"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="pcdStudent"
+          >
+            <option value="false">não</option>
+            <option value="true">sim</option>
+          </select>
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">Se sim, qual tipo?</label>
+          <input
+            type="text"
+            name="tipopcd"
+            formControlName="tipoPcdStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">Gênero</label>
+          <select
+            name="genero"
+            id=""
+            formControlName="genderStudent"
+            class="form-control form-control-sm input"
+          >
+            <option value="Male">masculino</option>
+            <option value="Female">feminino</option>
+            <option value="Others">outro</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="data">Data nasc.</label>
+          <input
+            type="date"
+            formControlName="dateStudent"
+            name="data"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <!------modal alunos-->
+        <div class="col-12 col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="nome">Nome</label>
+          <input
+            type="text"
+            name="nome"
+            formControlName="nomeStudentResp"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="sobrenome">Sobrenome</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="sobreStudentResp"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">CPF</label>
+          <input
+            type="text"
+            name="cpf"
+            formControlName="cpfStudentResp"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">RG</label>
+          <input
+            type="text"
+            name="rg"
+            formControlName="rgStudentResp"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">PCD</label>
+          <select
+            name="pcd"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="pcdStudentResp"
+          >
+            <option value="false">não</option>
+            <option value="true">sim</option>
+          </select>
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">Se sim, qual tipo?</label>
+          <input
+            type="text"
+            name="tipopcd"
+            formControlName="tipoPcdStudentResp"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">Gênero</label>
+          <select
+            name="genero"
+            id=""
+            class="form-control form-control-sm input"
+            formControlName="genderStudentResp"
+          >
+            <option value="M">masculino</option>
+            <option value="F">feminino</option>
+            <option value="I">outro</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="Resp">
+          <label class="m-0 tittle-input" for="data">Data nasc.</label>
+          <input
+            type="date"
+            name="data"
+            class="form-control form-control-sm input"
+            formControlName="dateStudentResp"
+          />
+        </div>
+        <!----Modal Resp-->
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="nome">CEP</label>
+          <input
+            type="text"
+            name="nome"
+            formControlName="cepStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Cidade</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="cityStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Estado</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="stateStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Bairro</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="neighborhoodStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Endereço</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="adressStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Complemento</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="complementStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Número</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="numberStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="location">
+          <label class="m-0 tittle-input" for="sobrenome">Obs.:</label>
+          <input
+            type="text"
+            name="sobrenome"
+            formControlName="obsStudent"
+            class="form-control form-control-sm input"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        (click)="modalcontract()"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <span style="font-size: 1rem">contrato</span>
+      </button>
+      <button
+        type="button"
+        id="outline"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="sair()"
+      >
+        sair
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        *ngIf="location"
+        (click)="sair()"
+        aria-label="Close"
+      >
+        salvar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="informacoesLoc()"
+        *ngIf="inicial"
+      >
+        continuar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="onSubmit()"
+        (click)="informacoesResp()"
+        *ngIf="Resp"
+      >
+        continuar
+      </button>
+    </div>
+  </div>
+</body>
