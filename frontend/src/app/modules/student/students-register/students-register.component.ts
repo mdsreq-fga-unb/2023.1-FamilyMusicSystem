@@ -1,19 +1,12 @@
+import { Location } from 'src/app/models/location';
+import { LegalGuardian } from 'src/app/models/legalguardian';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, switchMap, Observable, of } from 'rxjs';
 import { Student } from 'src/app/models/student';
-
-class Entry<T> {
-  id: number;
-  attributes: T;
-}
-
-class Response {
-  data: Entry<Student>[];
-}
 
 @Component({
   selector: 'app-students-register',
@@ -23,14 +16,13 @@ class Response {
 export class StudentsRegisterComponent implements OnInit {
   public onClose: Subject<boolean>;
   public edicao = false;
-  public location = false;
+  public loc = false;
   public inicial = true;
   public Resp = false;
   public student: Student;
   public studentForm: FormGroup;
 
   error: any | undefined;
-  students$: Observable<Student[]> | undefined;
   constructor(
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
@@ -39,25 +31,27 @@ export class StudentsRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentForm = this.fb.group({
-      nomeStudent: [null, Validators.required],
-      sobreStudent: [null, Validators.required],
+      nameStudent: [null, Validators.required],
+      surnameStudent: [null, Validators.required],
       emailStudent: [null, Validators.required],
       phoneStudent: [null, Validators.required],
       cpfStudent: [null, Validators.required],
       rgStudent: [null, Validators.required],
-      pcdStudent: [null, Validators.required],
-      tipoPcdStudent: [null, Validators.required],
+      disabledPersonStudent: [null, Validators.required],
+      disabledPersonTypeStudent: [null, Validators.required],
       genderStudent: [null, Validators.required],
-      dateStudent: [null, Validators.required],
+      birthdayStudent: [null, Validators.required],
 
-      nomeStudentResp: [null, Validators.required],
-      sobreStudentResp: [null, Validators.required],
-      cpfStudentResp: [null, Validators.required],
-      rgStudentResp: [null, Validators.required],
-      pcdStudentResp: [null, Validators.required],
-      tipoPcdStudentResp: [null, Validators.required],
-      genderStudentResp: [null, Validators.required],
-      dateStudentResp: [null, Validators.required],
+      nameLegalGuardian: [null, Validators.required],
+      surnameLegalGuardian: [null, Validators.required],
+      emailLegalGuardian: [null, Validators.required],
+      phoneLegalGuardian: [null, Validators.required],
+      cpfLegalGuardian: [null, Validators.required],
+      rgLegalGuardian: [null, Validators.required],
+      disabledPersonLegalGuardian: [null, Validators.required],
+      disabledPersonTypeLegalGuardian: [null, Validators.required],
+      genderLegalGuardian: [null, Validators.required],
+      birthdayLegalGuardian: [null, Validators.required],
 
       cityStudent: [null, Validators.required],
       cepStudent: [null, Validators.required],
@@ -66,26 +60,68 @@ export class StudentsRegisterComponent implements OnInit {
       adressStudent: [null, Validators.required],
       complementStudent: [null, Validators.required],
       numberStudent: [null, Validators.required],
-      obsStudent: [null, Validators.required],
+      observationStudent: [null, Validators.required],
     });
   }
 
-  addStudent() {
+  // location ainda não está sendo mandada para o banco
+  // LegalGuardian ainda não está vinculado com o Student
+
+  onSubmit(): void {
+    const legalGuardian: LegalGuardian = new LegalGuardian();
+    legalGuardian.Name = this.studentForm.get('nameLegalGuardian')?.value;
+    legalGuardian.Surname = this.studentForm.get('surnameLegalGuardian')?.value;
+    legalGuardian.Email = this.studentForm.get('emailLegalGuardian')?.value;
+    legalGuardian.Phone = this.studentForm.get('phoneLegalGuardian')?.value;
+    legalGuardian.CPF = this.studentForm.get('cpfLegalGuardian')?.value;
+    legalGuardian.RG = this.studentForm.get('rgLegalGuardian')?.value;
+    legalGuardian.DisabledPerson = this.studentForm.get(
+      'disabledPersonLegalGuardian'
+    )?.value;
+    legalGuardian.DisabledPersonType = this.studentForm.get(
+      'disabledPersonTypeLegalGuardian'
+    )?.value;
+    legalGuardian.Gender = this.studentForm.get('genderLegalGuardian')?.value;
+    legalGuardian.Birthday = this.studentForm.get(
+      'birthdayLegalGuardian'
+    )?.value;
+
+    const body = {
+      data: legalGuardian,
+    };
+
     this.http
-      .post('http://localhost:1337/api/students', {
-        data: {
-          Name: this.studentForm.get('nomeStudent')?.value,
-          LastName: this.studentForm.get('sobreStudent')?.value,
-          Email: this.studentForm.get('emailStudent')?.value,
-          phone: this.studentForm.get('phoneStudent')?.value,
-          Birthday: this.studentForm.get('dateStudent')?.value,
-          DisabledPerson: this.studentForm.get('nomeStudent')?.value,
-          DisabledPersonType: this.studentForm.get('tipoPcdStudent')?.value,
-          CPF: this.studentForm.get('cpfStudent')?.value,
-          RG: this.studentForm.get('rgStudent')?.value,
-          Gender: this.studentForm.get('genderStudent')?.value,
-        },
-      })
+      .post('http://localhost:1337/api/legal-guardians', body)
+      .pipe(
+        catchError((error) => this.handleError(error)),
+        switchMap((guardianResponse: any) => {
+          const legalGuardianId = guardianResponse.id;
+
+          const student: Student = new Student();
+          student.Name = this.studentForm.get('nameStudent')?.value;
+          student.Surname = this.studentForm.get('surnameStudent')?.value;
+          student.Email = this.studentForm.get('emailStudent')?.value;
+          student.Phone = this.studentForm.get('phoneStudent')?.value;
+          student.Birthday = this.studentForm.get('birthdayStudent')?.value;
+          student.DisabledPerson = this.studentForm.get(
+            'disabledPersonStudent'
+          )?.value;
+          student.DisabledPersonType = this.studentForm.get(
+            'disabledPersonTypeStudent'
+          )?.value;
+          student.CPF = this.studentForm.get('cpfStudent')?.value;
+          student.RG = this.studentForm.get('rgStudent')?.value;
+          student.Gender = this.studentForm.get('genderStudent')?.value;
+          student.LegalGuardian = legalGuardianId;
+
+          const body = {
+            data: student,
+          };
+
+          return this.http.post('http://localhost:1337/api/students', body);
+        }),
+        catchError((error) => this.handleError(error))
+      )
       .subscribe((response) => {
         console.log(response);
       });
@@ -96,6 +132,11 @@ export class StudentsRegisterComponent implements OnInit {
     if (div !== null) {
       div.scrollTop = 0;
     }
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    this.error = error.message;
+    return of();
   }
 
   sair() {
@@ -110,7 +151,7 @@ export class StudentsRegisterComponent implements OnInit {
 
   informacoesResp() {
     this.Resp = false;
-    this.location = true;
+    this.loc = true;
     this.scrollTop();
   }
 }

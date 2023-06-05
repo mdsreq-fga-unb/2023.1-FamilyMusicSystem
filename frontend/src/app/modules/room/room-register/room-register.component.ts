@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Rooms } from 'src/app/models/rooms';
+import { Room } from 'src/app/models/room';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-rooms-register',
-  templateUrl: './rooms-register.component.html',
-  styleUrls: ['./rooms-register.component.scss']
+  selector: 'app-room-register',
+  templateUrl: './room-register.component.html',
+  styleUrls: ['./room-register.component.scss'],
 })
-export class RoomsRegisterComponent implements OnInit {
-  public rooms: Rooms;
+export class RoomRegisterComponent implements OnInit {
+  public room: Room;
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;
   public classForm: FormGroup;
 
-  constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) { }
+  constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.classForm = this.fb.group({

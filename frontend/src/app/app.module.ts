@@ -21,9 +21,9 @@ import { StudentsViewComponent } from './modules/student/students-view/students-
 import { TeachersViewComponent } from './modules/teacher/teachers-view/teachers-view.component';
 import { StudentsFilterComponent } from './modules/student/students-filter/students-filter.component';
 import { TeachersFilterComponent } from './modules/teacher/teachers-filter/teachers-filter.component';
-import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
-import { RoomsRegisterComponent } from './modules/rooms/rooms-register/rooms-register.component';
-import { RoomsFilterComponent } from './modules/rooms/rooms-filter/rooms-filter.component';
+import { RoomListComponent } from './modules/room/room-list/room-list.component';
+import { RoomRegisterComponent } from './modules/room/room-register/room-register.component';
+import { RoomFilterComponent } from './modules/room/room-filter/room-filter.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PrivacyComponent } from './modules/settings/privacy/privacy.component';
 import { AboutComponent } from './modules/settings/about/about.component';
@@ -53,9 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     TeachersViewComponent,
     StudentsFilterComponent,
     TeachersFilterComponent,
-    RoomsListComponent,
-    RoomsRegisterComponent,
-    RoomsFilterComponent,
+    RoomListComponent,
+    RoomRegisterComponent,
+    RoomFilterComponent,
     PrivacyComponent,
     AboutComponent,
     ResourcesComponent,

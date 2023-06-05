@@ -39,6 +39,40 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "Surname": {
+      "type": "string",
+      "required": true
+    },
+    "Birthday": {
+      "type": "date",
+      "required": true
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Female",
+        "Male",
+        "Others"
+      ],
+      "required": true
+    },
+    "DisabledPerson": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ],
+      "required": true
+    },
+    "DisabledPersonType": {
+      "type": "string"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::student.student",
+      "mappedBy": "legalguardian"
     }
   }
 }

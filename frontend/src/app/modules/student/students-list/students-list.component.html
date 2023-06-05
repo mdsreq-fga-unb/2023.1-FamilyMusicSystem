@@ -77,7 +77,7 @@
               height: 36px;
               align-self: center;
             "
-            (click)="modalAlunos()"
+            (click)="modalNewAlunos()"
           >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
@@ -111,7 +111,7 @@
                   id="flexCheckDefault"
                 />
               </th>
-              <td class="button" (click)="modalViewAlunos(student)">
+              <td class="button" (click)="modalAlunos(student)">
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"
@@ -121,10 +121,12 @@
               </td>
               <td class="nomobile">{{ student.Email }}</td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
-              <td class="notablet">{{ student.phone }}</td>
+              <td class="notablet">{{ student.Phone }}</td>
               <td>
                 <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
+                <mat-icon (click)="deleteStudent(student)" class="delete"
+                  >restore_from_trash</mat-icon
+                >
               </td>
             </tr>
           </tbody>
