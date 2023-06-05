@@ -43,7 +43,7 @@
           <input
             type="text"
             name="nome"
-            formControlName="nomeStudent"
+            formControlName="nameStudent"
             class="form-control form-control-sm input"
           />
         </div>
@@ -106,8 +106,8 @@
             class="form-control form-control-sm input"
             formControlName="pcdStudent"
           >
-            <option value="N">não</option>
-            <option value="S">sim</option>
+            <option value="false">não</option>
+            <option value="true">sim</option>
           </select>
         </div>
 
@@ -129,9 +129,9 @@
             formControlName="genderStudent"
             class="form-control form-control-sm input"
           >
-            <option value="M">masculino</option>
-            <option value="F">feminino</option>
-            <option value="I">outro</option>
+            <option value="Male">masculino</option>
+            <option value="Female">feminino</option>
+            <option value="Others">outro</option>
           </select>
         </div>
 
@@ -194,8 +194,8 @@
             class="form-control form-control-sm input"
             formControlName="pcdStudentResp"
           >
-            <option value="N">não</option>
-            <option value="S">sim</option>
+            <option value="false">não</option>
+            <option value="true">sim</option>
           </select>
         </div>
 
@@ -339,8 +339,8 @@
           justify-content: center;
         "
         *ngIf="location"
-        (click)="addStudent()"
         (click)="sair()"
+        aria-label="Close"
       >
         salvar
       </button>
@@ -367,6 +367,7 @@
           align-items: center;
           justify-content: center;
         "
+        (click)="onSubmit()"
         (click)="informacoesResp()"
         *ngIf="Resp"
       >

@@ -3,7 +3,7 @@ export class Student {
   Name: string;
   LastName: string;
   Email: string;
-  phone: string;
+  Phone: string;
   Birthday: string;
   DisabledPerson: boolean;
   DisabledPersonType: string;

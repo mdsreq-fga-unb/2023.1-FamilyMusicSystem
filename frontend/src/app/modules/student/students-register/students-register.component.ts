@@ -39,7 +39,7 @@ export class StudentsRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentForm = this.fb.group({
-      nomeStudent: [null, Validators.required],
+      nameStudent: [null, Validators.required],
       sobreStudent: [null, Validators.required],
       emailStudent: [null, Validators.required],
       phoneStudent: [null, Validators.required],
@@ -70,22 +70,25 @@ export class StudentsRegisterComponent implements OnInit {
     });
   }
 
-  addStudent() {
+  onSubmit(): void {
+    const body = {
+      data: {
+        Name: this.studentForm.get('nameStudent')?.value,
+        LastName: this.studentForm.get('sobreStudent')?.value,
+        Email: this.studentForm.get('emailStudent')?.value,
+        Phone: this.studentForm.get('phoneStudent')?.value,
+        Birthday: this.studentForm.get('dateStudent')?.value,
+        DisabledPerson: this.studentForm.get('nomeStudent')?.value,
+        DisabledPersonType: this.studentForm.get('tipoPcdStudent')?.value,
+        CPF: this.studentForm.get('cpfStudent')?.value,
+        RG: this.studentForm.get('rgStudent')?.value,
+        Gender: this.studentForm.get('genderStudent')?.value,
+      },
+    };
+
     this.http
-      .post('http://localhost:1337/api/students', {
-        data: {
-          Name: this.studentForm.get('nomeStudent')?.value,
-          LastName: this.studentForm.get('sobreStudent')?.value,
-          Email: this.studentForm.get('emailStudent')?.value,
-          phone: this.studentForm.get('phoneStudent')?.value,
-          Birthday: this.studentForm.get('dateStudent')?.value,
-          DisabledPerson: this.studentForm.get('nomeStudent')?.value,
-          DisabledPersonType: this.studentForm.get('tipoPcdStudent')?.value,
-          CPF: this.studentForm.get('cpfStudent')?.value,
-          RG: this.studentForm.get('rgStudent')?.value,
-          Gender: this.studentForm.get('genderStudent')?.value,
-        },
-      })
+      .post('http://localhost:1337/api/students', body)
+      .pipe(catchError((error) => this.handleError(error)))
       .subscribe((response) => {
         console.log(response);
       });
@@ -96,6 +99,11 @@ export class StudentsRegisterComponent implements OnInit {
     if (div !== null) {
       div.scrollTop = 0;
     }
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    this.error = error.message;
+    return of();
   }
 
   sair() {

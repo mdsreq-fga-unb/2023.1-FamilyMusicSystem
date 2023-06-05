@@ -121,10 +121,12 @@
               </td>
               <td class="nomobile">{{ student.Email }}</td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
-              <td class="notablet">{{ student.phone }}</td>
+              <td class="notablet">{{ student.Phone }}</td>
               <td>
                 <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
+                <mat-icon (click)="deleteStudent(student)" class="delete"
+                  >restore_from_trash</mat-icon
+                >
               </td>
             </tr>
           </tbody>
