@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Room } from 'src/app/models/room';
-import { roomRegisterComponent } from '../room-register/room-register.component';
-import { roomFilterComponent } from '../room-filter/room-filter.component';
+import { RoomRegisterComponent } from '../room-register/room-register.component';
+import { RoomFilterComponent } from '../room-filter/room-filter.component';
 
 @Component({
   selector: 'app-room-list',
   templateUrl: './room-list.component.html',
   styleUrls: ['./room-list.component.scss'],
 })
-export class roomListComponent implements OnInit {
+export class RoomListComponent implements OnInit {
   checked: boolean = false;
   estilosDinamicos: any;
   public room: Room[];
@@ -30,7 +30,7 @@ export class roomListComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(
-      roomRegisterComponent,
+      RoomRegisterComponent,
       modalConfig
     );
     this.bsModalRef.content.onClose.subscribe(() => {});
@@ -43,7 +43,7 @@ export class roomListComponent implements OnInit {
       initialState: {},
       class: 'modal-md',
     };
-    this.bsModalRef = this.modalService.show(roomFilterComponent, modalConfig);
+    this.bsModalRef = this.modalService.show(RoomFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {});
   }
 

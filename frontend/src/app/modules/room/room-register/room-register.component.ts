@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
   templateUrl: './room-register.component.html',
   styleUrls: ['./room-register.component.scss'],
 })
-export class roomRegisterComponent implements OnInit {
+export class RoomRegisterComponent implements OnInit {
   public room: Room;
   public onClose: Subject<boolean>;
   public edicao = false;

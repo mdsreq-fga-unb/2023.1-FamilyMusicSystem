@@ -60,6 +60,7 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent();
+
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

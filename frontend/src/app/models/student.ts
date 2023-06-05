@@ -13,7 +13,7 @@ export class Student {
   CPF: string;
   RG: string;
   Gender: string;
-  LegalGuardin?: LegalGuardian;
+  LegalGuardian?: LegalGuardian;
   Location: Location;
   createdAt: string;
   updatedAt: string;

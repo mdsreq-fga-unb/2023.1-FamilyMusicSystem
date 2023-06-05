@@ -1,4 +1,5 @@
 export class LegalGuardian {
+  id: number;
   Name: string;
   Email: string;
   Phone: string;

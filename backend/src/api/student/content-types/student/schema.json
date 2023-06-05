@@ -67,7 +67,7 @@
       "type": "string",
       "required": true
     },
-    "LastName": {
+    "Surname": {
       "type": "string"
     },
     "DisabledPerson": {
@@ -78,6 +78,17 @@
       ],
       "default": "false",
       "required": true
+    },
+    "legalguardian": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::legal-guardian.legal-guardian",
+      "inversedBy": "student"
+    },
+    "Location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
     }
   }
 }

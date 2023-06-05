@@ -6,6 +6,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   templateUrl: './room-filter.component.html',
   styleUrls: ['./room-filter.component.scss']
 })
-export class roomFilterComponent {
+export class RoomFilterComponent {
   private bsModalRef : BsModalRef;
 }
