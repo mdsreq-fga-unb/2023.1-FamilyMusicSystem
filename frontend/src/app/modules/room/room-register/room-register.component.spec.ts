@@ -1,22 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RoomsRegisterComponent } from './rooms-register.component';
+import { roomRegisterComponent } from './room-register.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 
-describe('RoomsRegisterComponent', () => {
-  let component: RoomsRegisterComponent;
-  let fixture: ComponentFixture<RoomsRegisterComponent>;
+describe('roomRegisterComponent', () => {
+  let component: roomRegisterComponent;
+  let fixture: ComponentFixture<roomRegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoomsRegisterComponent ],
+      declarations: [roomRegisterComponent],
       providers: [BsModalService],
       imports: [MatIconModule, ReactiveFormsModule],
-    })
-    .compileComponents();
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(RoomsRegisterComponent);
+    fixture = TestBed.createComponent(roomRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

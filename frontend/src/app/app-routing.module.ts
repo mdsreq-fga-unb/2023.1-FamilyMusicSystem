@@ -7,7 +7,7 @@ import { TeachersListComponent } from 'src/app/modules/teacher/teachers-list/tea
 import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleListComponent } from 'src/app/modules/schedule/schedule-list/schedule-list.component';
-import { RoomsListComponent } from './modules/rooms/rooms-list/rooms-list.component';
+import { RoomsListComponent } from './modules/rooms/room-list/room-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

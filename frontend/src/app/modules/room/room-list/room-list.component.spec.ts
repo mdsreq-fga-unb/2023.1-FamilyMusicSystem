@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RoomsListComponent } from './rooms-list.component';
+import { roomListComponent } from './room-list.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { MatIconModule } from '@angular/material/icon';
 
-describe('RoomsListComponent', () => {
-  let component: RoomsListComponent;
-  let fixture: ComponentFixture<RoomsListComponent>;
+describe('roomListComponent', () => {
+  let component: roomListComponent;
+  let fixture: ComponentFixture<roomListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoomsListComponent ],
+      declarations: [roomListComponent],
       providers: [BsModalService],
       imports: [MatIconModule],
-    })
-    .compileComponents();
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(RoomsListComponent);
+    fixture = TestBed.createComponent(roomListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

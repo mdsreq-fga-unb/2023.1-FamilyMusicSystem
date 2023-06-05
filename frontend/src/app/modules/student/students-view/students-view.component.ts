@@ -37,7 +37,7 @@ export class StudentsViewComponent implements OnInit {
         Validators.required,
       ],
       sobreStudent: [
-        { value: this.student.LastName, disabled: true },
+        { value: this.student.Surname, disabled: true },
         Validators.required,
       ],
       emailStudent: [
