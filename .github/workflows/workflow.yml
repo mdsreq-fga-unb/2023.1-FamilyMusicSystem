@@ -28,9 +28,6 @@ jobs:
           npm run build 
           npm test
 
-      - name: Load environment variables
-        run: npm run load-env
-
       - name: run backend test
         run: |
           cd backend 

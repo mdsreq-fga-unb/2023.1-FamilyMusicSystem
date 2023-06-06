@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "CI=false && strapi build",
     "strapi": "strapi",
-    "test": "jest --forceExit --detectOpenHandles"
+    "test": "jest --forceExit --detectOpenHandles --coverage"
   },
   "devDependencies": {
     "jest": "^29.5.0",
