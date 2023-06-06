@@ -63,7 +63,7 @@ export class TeachersListComponent implements OnInit{
       ignoreBackdropClick: false,
       initialState: {
       },
-      class : 'modal-md'
+      class : 'modal-lg'
     };
     this.bsModalRef = this.modalService.show(TeachersFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe(() => {
