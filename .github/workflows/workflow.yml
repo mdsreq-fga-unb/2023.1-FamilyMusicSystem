@@ -30,7 +30,7 @@ jobs:
           envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
           envkey_DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
           envkey_JWT_SECRET: ${{ secrets.JWT_SECRET}}
-          directory: './backend'
+          directory: ./
           file_name: .env
           fail_on_empty: false
      
