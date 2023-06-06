@@ -25,17 +25,16 @@ jobs:
           directory: <backend>
           file_name: .env
           fail_on_empty: false
-      - name: run install dependecies frontend
-        run: |
-          cd frontend
-          npm install
-
-      
-          
+     
       - name: run backend test
         run: |
           cd backend 
           npm run test
+          
+      - name: run install dependecies frontend
+        run: |
+          cd frontend
+          npm install
 
       - name: run frontend test
         run: |
