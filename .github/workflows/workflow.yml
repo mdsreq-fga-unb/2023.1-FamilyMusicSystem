@@ -30,7 +30,7 @@ jobs:
 
       - name: Move envfile to desired directory
         run: |
-          mv /github/workspace/.env /backend/
+          mv github/workspace/.env backend/
         env:
           GITHUB_WORKSPACE: ${{ github.workspace }}
         
