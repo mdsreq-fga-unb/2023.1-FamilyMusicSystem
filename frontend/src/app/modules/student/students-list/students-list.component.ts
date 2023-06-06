@@ -60,7 +60,6 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent();
-
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -84,20 +83,23 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  modalAlunos(student: Student) {
+  modalAlunos(student: Student, edit: boolean) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
       class: 'modal-xl',
       initialState: {
         student: student,
+        edit,
       },
     };
     this.bsModalRef = this.modalService.show(
       StudentsViewComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {
+      this.getStudent();
+    });
   }
 
   modalFilterAlunos() {
@@ -111,7 +113,9 @@ export class StudentsListComponent implements OnInit {
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {
+      this.getStudent();
+    });
   }
 
   toggle() {

@@ -60,15 +60,9 @@
       ],
       "required": true
     },
-    "DisabledPersonType": {
-      "type": "string"
-    },
     "Phone": {
       "type": "string",
       "required": true
-    },
-    "Surname": {
-      "type": "string"
     },
     "DisabledPerson": {
       "type": "enumeration",
@@ -79,16 +73,27 @@
       "default": "false",
       "required": true
     },
-    "legalguardian": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::legal-guardian.legal-guardian",
-      "inversedBy": "student"
+    "Address": {
+      "type": "string",
+      "required": true
     },
-    "Location": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::location.location"
+    "LegalGuardianName": {
+      "type": "string"
+    },
+    "LegalGuardianCPF": {
+      "type": "string"
+    },
+    "LegalGuardianEmail": {
+      "type": "email"
+    },
+    "LegalGuardianRG": {
+      "type": "string"
+    },
+    "DisabledPersonType": {
+      "type": "string"
+    },
+    "LegalGuardianPhone": {
+      "type": "string"
     }
   }
 }

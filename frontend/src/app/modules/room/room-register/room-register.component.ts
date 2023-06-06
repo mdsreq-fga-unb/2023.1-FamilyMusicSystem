@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Room } from 'src/app/models/room';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
@@ -10,7 +9,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./room-register.component.scss'],
 })
 export class RoomRegisterComponent implements OnInit {
-  public room: Room;
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;

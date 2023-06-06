@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "CI=false && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --verbose",
     "test:watch": "jest --watch",

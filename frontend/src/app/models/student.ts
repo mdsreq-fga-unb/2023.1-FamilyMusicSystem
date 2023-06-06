@@ -1,10 +1,6 @@
-import { LegalGuardian } from 'src/app/models/legalguardian';
-import { Location } from 'src/app/models/location';
-
 export class Student {
   id: number;
   Name: string;
-  Surname: string;
   Email: string;
   Phone: string;
   Birthday: string;
@@ -13,8 +9,12 @@ export class Student {
   CPF: string;
   RG: string;
   Gender: string;
-  LegalGuardian?: LegalGuardian;
-  Location: Location;
+  LegalGuardianName: string;
+  LegalGuardianCPF: string;
+  LegalGuardianRG: string;
+  LegalGuardianPhone: string;
+  LegalGuardianEmail: string;
+  Address: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

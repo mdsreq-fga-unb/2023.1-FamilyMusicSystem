@@ -111,7 +111,7 @@
                   id="flexCheckDefault"
                 />
               </th>
-              <td class="button" (click)="modalAlunos(student)">
+              <td class="button" (click)="modalAlunos(student, false)">
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"
@@ -123,7 +123,9 @@
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
               <td class="notablet">{{ student.Phone }}</td>
               <td>
-                <mat-icon>edit</mat-icon>
+                <mat-icon (click)="modalAlunos(student, true)" class="delete"
+                  >edit</mat-icon
+                >
                 <mat-icon (click)="deleteStudent(student)" class="delete"
                   >restore_from_trash</mat-icon
                 >
