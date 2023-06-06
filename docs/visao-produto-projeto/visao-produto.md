@@ -5,6 +5,7 @@
 | 17/04/2023 |  0.1   | Criação e estruturação do documento | Luan Mateus |
 | 23/04/2023 |  0.2   | Inserção de todas as tecnologias e ferramentas que serão utilizadas  | Maykon Junio |
 | 11/05/2023 |  0.3   | Atualização dos Objetivos do Produto  | Luan Mateus |
+| 06/06/2023 |  0.4   | Atualização de Tecnologias Utilizadas  | Luan Mateus, <br> Luana Ribeiro, <br> Maykon Junio |
 
 
 ## Declaração Geral do Produto
@@ -32,12 +33,14 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 - Angular - Desenvolvimento do Frontend
 - Bootstrap - Desenvolvimento do Frontend
-- Javascript - Desenvolvimento do Frontend
+- TypeScript - Desenvolvimento do Frontend
 - Node - Desenvolvimento do Backend
 - Strapi - Desenvolvimento do Backend
-- PostgreSQL - Banco de dados
-- Git Actions - Testes
+- JavaScript - Desenvolvimento do Backend
+- SQLite - Banco de dados
+- Git Actions - Integração Contínua
 - Jest - Testes
+- Karma - Testes
 
 ## Ferramentas
 

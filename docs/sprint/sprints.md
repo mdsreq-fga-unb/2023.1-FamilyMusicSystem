@@ -3,7 +3,8 @@
 |    Data    | Versão |                              Descrição                              |              Autor(es)               |
 | :--------: | :----: | :-----------------------------------------------------------------: | :----------------------------------: |
 | 16/05/2023 |  0.1   | Criação e estruturação do primeiro registro de reuniões das sprints | Luana Ribeiro, </br>Guilherme Santos |
-|01/06/2023| 0.2 | Atualização de dailys da Sprint 3 e correções de ortografia | Luana Ribeiro |
+| 01/06/2023 | 0.2 | Atualização de dailys da Sprint 3 e correções de ortografia | Luana Ribeiro |
+
 ## Sprint 0 
 
 <p style="text-indent: 50px;text-align: justify;"> No decorrer da Sprint 0, a equipe não seguiu a risca os fundamentos do Scrum, por esse motivo o nome.
