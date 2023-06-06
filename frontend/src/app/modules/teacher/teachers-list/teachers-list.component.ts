@@ -55,8 +55,9 @@ export class TeachersListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {},
-      class: 'modal-md',
+      initialState: {
+      },
+      class : 'modal-lg'
     };
     this.bsModalRef = this.modalService.show(
       TeachersFilterComponent,
