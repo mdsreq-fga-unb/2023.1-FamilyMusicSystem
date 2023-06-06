@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FooterComponent } from '../../template/footer/footer.component';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   icon_now = 'brightness_2';
   icon = ['brightness_2', 'wb_sunny'];
-  
+
   toggle() {
     const theme = document.body.classList.toggle('darkTheme');
 

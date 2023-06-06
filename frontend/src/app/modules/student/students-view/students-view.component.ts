@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, Observable, of } from 'rxjs';
-import { Student } from 'src/app/models/student';
+import { Observable, of } from 'rxjs';
+import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ContractComponent } from 'src/app/modules/settings/contract/contract.component';
+import { ContractComponent } from '../../settings/contract/contract.component';
 
 @Component({
   selector: 'app-students-view',

@@ -1,12 +1,12 @@
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ContractComponent } from 'src/app/modules/settings/contract/contract.component';
-import { PrivacyComponent } from 'src/app/modules/settings/privacy/privacy.component';
-import { ResourcesComponent } from 'src/app/modules/settings/resources/resources.component';
-import { AboutComponent } from 'src/app/modules/settings/about/about.component';
-import { HelpComponent } from 'src/app/modules/settings/help/help.component';
+import { ContractComponent } from '../../modules/settings/contract/contract.component';
+import { PrivacyComponent } from '../../modules/settings/privacy/privacy.component';
+import { ResourcesComponent } from '../../modules/settings/resources/resources.component';
+import { AboutComponent } from '../../modules/settings/about/about.component';
+import { HelpComponent } from '../../modules/settings/help/help.component';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { StudentsViewComponent } from 'src/app/modules/student/students-view/students-view.component';
+import { StudentsViewComponent } from '../../modules/student/students-view/students-view.component';
 
 @Component({
   selector: 'app-header',

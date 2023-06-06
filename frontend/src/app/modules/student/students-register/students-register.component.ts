@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, switchMap, Observable, of } from 'rxjs';
-import { Student } from 'src/app/models/student';
+import { Observable, of } from 'rxjs';
+import { Student } from '../../../models/student';
 
 @Component({
   selector: 'app-students-register',

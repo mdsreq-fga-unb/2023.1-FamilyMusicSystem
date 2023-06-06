@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MainComponent } from './main.component';
-import { HeaderComponent } from 'src/app/template/header/header.component';
-import { AppModule } from 'src/app/app.module';
+import { HeaderComponent } from '../../template/header/header.component';
+import { AppModule } from '../../app.module';
+import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -9,10 +10,10 @@ describe('MainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainComponent, HeaderComponent ],
-      imports: [ AppModule ],
-    })
-    .compileComponents();
+      declarations: [MainComponent, HeaderComponent],
+      imports: [AppModule],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);
     component = fixture.componentInstance;

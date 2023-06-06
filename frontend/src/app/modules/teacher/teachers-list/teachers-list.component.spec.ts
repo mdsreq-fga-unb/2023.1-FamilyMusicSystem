@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TeachersListComponent } from './teachers-list.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { Teacher } from 'src/app/models/teacher';
 import { MatIconModule } from '@angular/material/icon';
 
 describe('TeachersListComponent', () => {
