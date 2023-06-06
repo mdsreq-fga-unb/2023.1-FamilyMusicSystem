@@ -33,8 +33,8 @@ jobs:
 
       - name: Move envfile to desired directory
         run: |
-          mkdir -p ./
-          mv .env ./
+          mkdir -p ./github/workspace/
+          mv .env ./backend/
         working-directory: ${{ github.workspace }}
         
       - name: run install dependecies backend
