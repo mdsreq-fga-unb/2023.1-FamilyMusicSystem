@@ -14,11 +14,18 @@ jobs:
           node-version: 18.x
           
       - name: Create env file
-        env: 
-          envfile: ${{secrets.ENV_FILE}}
         run: |
-          cd backend
-          echo $envfile > .env
+          echo "HOST=${{ secrets.HOST }}" > ./backend/.env
+          echo "PORT=${{ secrets.PORT }}" >> ./backend/.env
+          echo "APP_KEYS=${{ secrets.APP_KEYS }}" >> ./backend/.env
+          echo "API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}" >> ./backend/.env
+          echo "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" >> ./backend/.env
+          echo "TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}" >> ./backend/.env
+          echo "DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }}" >> ./backend/.env
+          echo "DATABASE_FILENAME=${{ secrets.DATABASE_FILENAME }}" >> ./backend/.env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> ./backend/.env
+          cat ./backend/.env
+          working-directory: ${{ github.workspace }}
         
       - name: run install dependecies backend
         run: |
