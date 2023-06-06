@@ -20,20 +20,20 @@ jobs:
       - name: run install dependecies backend
         run: |
           cd backend
-          npm ci
+          npm install
           
       - name: Generate .env
         run: |
           cd backend
-          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+          echo "${{ secrets.API_KEY }}" >> .env
           
+      - name: run backend test
+        run: |
+          cd backend 
+          npm run test
+
       - name: run frontend test
         run: |
           cd frontend
           npm run build 
           npm test
-
-      - name: run backend test
-        run: |
-          cd backend 
-          npm run test
