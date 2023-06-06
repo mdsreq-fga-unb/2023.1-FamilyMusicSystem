@@ -24,7 +24,7 @@ jobs:
         run: |
           cd frontend
           npm run build 
-          npm test
+          ng test
 
       - name: run backend test
         run: |
