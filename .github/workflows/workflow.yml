@@ -27,6 +27,14 @@ jobs:
           cd backend
           echo "${{ secrets.API_KEY }}" >> .env
           
+      - name: Commit .env
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add .
+          git commit -m "Update .env file"
+          git push
+          
       - name: run backend test
         run: |
           cd backend 
