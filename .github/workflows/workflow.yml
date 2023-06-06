@@ -2,22 +2,24 @@ name: Continuos Integration
 
 on: pull_request
 
-jobs: 
+jobs:
   continuos-integration:
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       - uses: actions/checkout@v2
       - name: Using Node.jobs
         uses: actions/setup-node@v2
-        with: 
+        with:
           node-version: 18.x
-      - name: run install dependecies
+      - name: run install dependecies frontend
         run: |
           cd frontend
           npm install
 
-          cd ../frontend
+      - name: run install dependecies backend
+        run: |
+          cd backend
           npm install
 
       - name: run frontend test
@@ -26,10 +28,11 @@ jobs:
           npm run build 
           npm test
 
+      - name: Load environment variables
+        run: npm run load-env
+
       - name: run backend test
         run: |
           cd backend 
           npm run build 
           npm test
-
-
