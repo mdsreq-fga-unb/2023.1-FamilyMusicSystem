@@ -20,7 +20,7 @@ jobs:
       - name: run install dependecies backend
         run: |
           cd backend
-          npm install
+          npm ci
 
       - name: run frontend test
         run: |
@@ -31,5 +31,4 @@ jobs:
       - name: run backend test
         run: |
           cd backend 
-          npm run build 
-          npm test
+          npm run test
