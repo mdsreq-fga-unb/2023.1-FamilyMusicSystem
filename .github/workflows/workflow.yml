@@ -13,10 +13,7 @@ jobs:
         with:
           node-version: 18.x
           
-      - name: run install dependecies backend
-        run: |
-          cd backend
-          npm install
+      
           
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
@@ -33,6 +30,17 @@ jobs:
           directory: ./
           file_name: .env
           fail_on_empty: false
+
+      - name: Move envfile to desired directory
+        run: |
+          mkdir -p ./
+          mv .env ./
+        working-directory: ${{ github.workspace }}
+        
+      - name: run install dependecies backend
+        run: |
+          cd backend
+          npm install
      
       - name: run backend test
         run: |
