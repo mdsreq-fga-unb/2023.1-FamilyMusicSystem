@@ -14,9 +14,11 @@ jobs:
           node-version: 18.x
           
       - name: Create env file
+        env: 
+          envfile: ${{secrets.ENV_FILE}}
         run: |
           cd backend
-          echo "${{secrets.ENV_FILE}}" > .env
+          echo $envfile > .env
         
       - name: run install dependecies backend
         run: |
