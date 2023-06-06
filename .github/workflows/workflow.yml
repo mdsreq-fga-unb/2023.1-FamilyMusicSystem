@@ -33,9 +33,10 @@ jobs:
 
       - name: Move envfile to desired directory
         run: |
-          mkdir -p ./github/workspace/
-          mv .env ./backend/
-        working-directory: ${{ github.workspace }}
+          mkdir -p ./backend/
+          mv ${GITHUB_WORKSPACE}/.env ./backend/
+        env:
+          GITHUB_WORKSPACE: ${{ github.workspace }}
         
       - name: run install dependecies backend
         run: |
