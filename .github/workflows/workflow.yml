@@ -25,7 +25,6 @@ jobs:
           echo "DATABASE_FILENAME=${{ secrets.DATABASE_FILENAME }}" >> ./backend/.env
           echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> ./backend/.env
           cat ./backend/.env
-          working-directory: ${{ github.workspace }}
         
       - name: run install dependecies backend
         run: |
