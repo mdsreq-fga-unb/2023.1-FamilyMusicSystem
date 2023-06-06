@@ -24,6 +24,7 @@ jobs:
           
       - name: Generate .env
         run: |
+          cd backend
           echo "API_KEY=${{ secrets.API_KEY }}" >> .env
           
       - name: run frontend test
