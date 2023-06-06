@@ -16,26 +16,7 @@ jobs:
       - name: Create env file
         run: |
           touch backend/.env
-          echo HOST=${HOST} >> .env
-          echo PORT=${PORT} >> .env
-          echo APP_KEYS=${APP_KEYS} >> .env
-          echo API_TOKEN_SALT=${API_TOKEN_SALT} >> .env
-          echo ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET} >> .env
-          echo TRANSFER_TOKEN_SALT=${TRANSFER_TOKEN_SALT} >> .env
-          echo DATABASE_CLIENT=${DATABASE_CLIENT} >> .env
-          echo DATABASE_FILENAME=${DATABASE_FILENAME} >> .env
-          echo JWT_SECRET=${JWT_SECRET} >> .env
-          cat .env
-        env: 
-          envkey_HOST: ${{ secrets.HOST }}
-          envkey_PORT: ${{ secrets.PORT }}
-          envkey_APP_KEYS: ${{ secrets.APP_KEYS }}
-          envkey_API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
-          envkey_ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
-          envkey_TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
-          envkey_DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-          envkey_DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
-          envkey_JWT_SECRET: ${{ secrets.JWT_SECRET}}
+          echo ${secrets.API_KEYS} >> .env
         
       - name: run install dependecies backend
         run: |
