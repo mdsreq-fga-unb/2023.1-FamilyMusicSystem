@@ -7,6 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 class Entry<T> {
   id: number;
@@ -25,32 +26,42 @@ class Response {
 export class StudentsListComponent implements OnInit {
   private bsModalRef: BsModalRef;
   checked: boolean = false;
+  public searchForm: FormGroup;
   estilosDinamicos: any;
-  prefixoUrlStudent = 'http://localhost:1337/api/students/';
+  prefixoUrlStudent = 'http://localhost:1337/api/students';
 
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
 
-  constructor(private modalService: BsModalService, private http: HttpClient) {}
+  constructor(
+    private modalService: BsModalService,
+    private http: HttpClient,
+    private fb: FormBuilder
+  ) {}
 
-  getStudent() {
+  getStudent(args?: string) {
     const opts = { params: { populate: '*' } };
-    this.students$ = this.http.get<Response>(this.prefixoUrlStudent, opts).pipe(
-      catchError((error) => this.handleError(error)),
-      tap((response: Response) => {
-        response.data.forEach((student) => {
-          student.attributes.id = student.id;
-        });
-      }),
-      map((response: Response) =>
-        response.data.map((student) => student.attributes)
+    this.students$ = this.http
+      .get<Response>(
+        args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
+        opts
       )
-    );
+      .pipe(
+        catchError((error) => this.handleError(error)),
+        tap((response: Response) => {
+          response.data.forEach((student) => {
+            student.attributes.id = student.id;
+          });
+        }),
+        map((response: Response) =>
+          response.data.map((student) => student.attributes)
+        )
+      );
   }
 
   deleteStudent(student: Student) {
     this.http
-      .delete(`${this.prefixoUrlStudent}${student.id}`)
+      .delete(`${this.prefixoUrlStudent}/${student.id}`)
       .pipe(catchError((error) => this.handleError(error)))
       .subscribe((response) => {
         console.log(response);
@@ -58,12 +69,25 @@ export class StudentsListComponent implements OnInit {
       });
   }
 
+  search() {
+    this.getStudent(
+      `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
+    );
+    this.searchForm = this.fb.group({
+      search: ['', Validators.required],
+    });
+  }
+
   ngOnInit(): void {
     this.getStudent();
+    this.searchForm = this.fb.group({
+      search: ['', Validators.required],
+    });
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     this.error = error;
+
     return of();
   }
 
