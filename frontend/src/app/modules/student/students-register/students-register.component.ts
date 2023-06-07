@@ -15,7 +15,7 @@ export class StudentsRegisterComponent implements OnInit {
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;
-  public Resp = false;
+  public guardian = false;
   public student: Student;
   public studentForm: FormGroup;
 
@@ -29,20 +29,47 @@ export class StudentsRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.studentForm = this.fb.group({
       nameStudent: [null, Validators.required],
-      surnameStudent: [null, Validators.required],
-      emailStudent: [null, Validators.required],
-      phoneStudent: [null, Validators.required],
-      cpfStudent: [null, Validators.required],
+      emailStudent: [null, [Validators.required, Validators.email]],
+      phoneStudent: [
+        null,
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
+      cpfStudent: [
+        null,
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
       rgStudent: [null, Validators.required],
       disabledPersonStudent: [null, Validators.required],
-      disabledPersonTypeStudent: [null, Validators.required],
+      disabledPersonTypeStudent: [null],
       genderStudent: [null, Validators.required],
       addressStudent: [null, Validators.required],
-      birthdayStudent: [null, Validators.required],
+      birthdayStudent: [null, [Validators.required]],
       nameLegalGuardian: [null, Validators.required],
-      emailLegalGuardian: [null, Validators.required],
-      phoneLegalGuardian: [null, Validators.required],
-      cpfLegalGuardian: [null, Validators.required],
+      emailLegalGuardian: [null, [Validators.required, Validators.email]],
+      phoneLegalGuardian: [
+        null,
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
+      cpfLegalGuardian: [
+        null,
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
       rgLegalGuardian: [null, Validators.required],
     });
   }
@@ -98,7 +125,18 @@ export class StudentsRegisterComponent implements OnInit {
     return of();
   }
 
+  Guardian() {
+    this.inicial = false;
+    this.guardian = true;
+  }
+  GuardianBack() {
+    this.inicial = true;
+    this.guardian = false;
+  }
+
   sair() {
     this.bsModalRef.hide();
   }
+
+  // regras de cadatro
 }

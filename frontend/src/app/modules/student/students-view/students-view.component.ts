@@ -20,6 +20,7 @@ export class StudentsViewComponent implements OnInit {
   public student: Student;
   public studentForm: FormGroup;
   public edit = false;
+  public guardian = false;
 
   constructor(
     private bsModalRef: BsModalRef,
@@ -29,133 +30,88 @@ export class StudentsViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.edit) {
-      this.studentForm = this.fb.group({
-        nameStudent: [
-          { value: this.student.Name, disabled: false },
+    this.studentForm = this.fb.group({
+      nameStudent: [
+        { value: this.student.Name, disabled: !this.edit },
+        Validators.required,
+      ],
+      emailStudent: [
+        { value: this.student.Email, disabled: !this.edit },
+        [Validators.required, Validators.email],
+      ],
+      phoneStudent: [
+        { value: this.student.Phone, disabled: !this.edit },
+        [
           Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
         ],
-        emailStudent: [
-          { value: this.student.Email, disabled: false },
+        ,
+      ],
+      cpfStudent: [
+        { value: this.student.CPF, disabled: !this.edit },
+        [
           Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
         ],
-        phoneStudent: [
-          { value: this.student.Phone, disabled: false },
+        ,
+      ],
+      rgStudent: [
+        { value: this.student.RG, disabled: !this.edit },
+        Validators.required,
+      ],
+      disabledPersonStudent: [
+        { value: this.student.DisabledPerson, disabled: !this.edit },
+        Validators.required,
+      ],
+      disabledPersonTypeStudent: [
+        { value: this.student.DisabledPersonType, disabled: !this.edit },
+        Validators.required,
+      ],
+      genderStudent: [
+        { value: this.student.Gender, disabled: !this.edit },
+        Validators.required,
+      ],
+      addressStudent: [
+        { value: this.student.Address, disabled: !this.edit },
+        Validators.required,
+      ],
+      birthdayStudent: [
+        { value: this.student.Birthday, disabled: !this.edit },
+        Validators.required,
+      ],
+      nameLegalGuardian: [
+        { value: this.student.LegalGuardianName, disabled: !this.edit },
+        Validators.required,
+      ],
+      emailLegalGuardian: [
+        { value: this.student.LegalGuardianEmail, disabled: !this.edit },
+        [Validators.required, Validators.email],
+      ],
+      phoneLegalGuardian: [
+        { value: this.student.LegalGuardianPhone, disabled: !this.edit },
+        [
           Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
         ],
-        cpfStudent: [
-          { value: this.student.CPF, disabled: false },
+        ,
+      ],
+      cpfLegalGuardian: [
+        { value: this.student.LegalGuardianCPF, disabled: !this.edit },
+        [
           Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
         ],
-        rgStudent: [
-          { value: this.student.RG, disabled: false },
-          Validators.required,
-        ],
-        disabledPersonStudent: [
-          { value: this.student.DisabledPerson, disabled: false },
-          Validators.required,
-        ],
-        disabledPersonTypeStudent: [
-          { value: this.student.DisabledPersonType, disabled: false },
-          Validators.required,
-        ],
-        genderStudent: [
-          { value: this.student.Gender, disabled: false },
-          Validators.required,
-        ],
-        addressStudent: [
-          { value: this.student.Address, disabled: false },
-          Validators.required,
-        ],
-        birthdayStudent: [
-          { value: this.student.Birthday, disabled: false },
-          Validators.required,
-        ],
-        nameLegalGuardian: [
-          { value: this.student.LegalGuardianName, disabled: false },
-          Validators.required,
-        ],
-        emailLegalGuardian: [
-          { value: this.student.LegalGuardianEmail, disabled: false },
-          Validators.required,
-        ],
-        phoneLegalGuardian: [
-          { value: this.student.LegalGuardianPhone, disabled: false },
-          Validators.required,
-        ],
-        cpfLegalGuardian: [
-          { value: this.student.LegalGuardianCPF, disabled: false },
-          Validators.required,
-        ],
-        rgLegalGuardian: [
-          { value: this.student.LegalGuardianRG, disabled: false },
-          Validators.required,
-        ],
-      });
-    } else {
-      this.studentForm = this.fb.group({
-        nameStudent: [
-          { value: this.student.Name, disabled: true },
-          Validators.required,
-        ],
-        emailStudent: [
-          { value: this.student.Email, disabled: true },
-          Validators.required,
-        ],
-        phoneStudent: [
-          { value: this.student.Phone, disabled: true },
-          Validators.required,
-        ],
-        cpfStudent: [
-          { value: this.student.CPF, disabled: true },
-          Validators.required,
-        ],
-        rgStudent: [
-          { value: this.student.RG, disabled: true },
-          Validators.required,
-        ],
-        disabledPersonStudent: [
-          { value: this.student.DisabledPerson, disabled: true },
-          Validators.required,
-        ],
-        disabledPersonTypeStudent: [
-          { value: this.student.DisabledPersonType, disabled: true },
-          Validators.required,
-        ],
-        genderStudent: [
-          { value: this.student.Gender, disabled: true },
-          Validators.required,
-        ],
-        addressStudent: [
-          { value: this.student.Address, disabled: true },
-          Validators.required,
-        ],
-        birthdayStudent: [
-          { value: this.student.Birthday, disabled: true },
-          Validators.required,
-        ],
-        nameLegalGuardian: [
-          { value: this.student.LegalGuardianName, disabled: true },
-          Validators.required,
-        ],
-        emailLegalGuardian: [
-          { value: this.student.LegalGuardianEmail, disabled: true },
-          Validators.required,
-        ],
-        phoneLegalGuardian: [
-          { value: this.student.LegalGuardianPhone, disabled: true },
-          Validators.required,
-        ],
-        cpfLegalGuardian: [
-          { value: this.student.LegalGuardianCPF, disabled: true },
-          Validators.required,
-        ],
-        rgLegalGuardian: [
-          { value: this.student.LegalGuardianRG, disabled: true },
-          Validators.required,
-        ],
-      });
-    }
+        ,
+      ],
+      rgLegalGuardian: [
+        { value: this.student.LegalGuardianRG, disabled: !this.edit },
+        Validators.required,
+      ],
+    });
   }
 
   onEdit(): void {
@@ -187,16 +143,19 @@ export class StudentsViewComponent implements OnInit {
       data: student,
     };
 
-    this.http
-      .put(`http://localhost:1337/api/students/${this.student.id}`, body)
-      .subscribe(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          this.handleError(error);
-        }
-      );
+    this.http.post('http://localhost:1337/api/students', body).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        this.handleError(error);
+      }
+    );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    this.error = error.message;
+    return of();
   }
 
   modalcontract() {
@@ -217,9 +176,13 @@ export class StudentsViewComponent implements OnInit {
     }
   }
 
-  private handleError(error: HttpErrorResponse): Observable<never> {
-    this.error = error.message;
-    return of();
+  Guardian() {
+    this.inicial = false;
+    this.guardian = true;
+  }
+  GuardianBack() {
+    this.inicial = true;
+    this.guardian = false;
   }
 
   sair() {
