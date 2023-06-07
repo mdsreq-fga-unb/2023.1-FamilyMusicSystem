@@ -1,0 +1,89 @@
+.fundo {
+  width: 100%;
+  min-height: 100%;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  background: var(--primary);
+  height: max-content;
+  width: max-content;
+  border-radius: 0 0 1rem 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.logo svg {
+  transform: scale(75%);
+}
+
+.rounded-pill {
+  border-radius: none;
+  background: var(--secondary);
+  color: var(--contrast);
+  border: none;
+}
+
+.btn-check:checked + label.btn {
+  background-color: var(--contrast);
+  color: var(--primary);
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--contrast);
+  transition: background-color 0.3s;
+  padding: 0.8rem 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.btn mat-icon {
+  color: var(--cyan);
+  margin-right: 2rem;
+  transform: scale(1.2);
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--contrast);
+}
+
+.button {
+  background: var(--contrast);
+  color: var(--primary);
+  width: 10rem;
+  margin-bottom: 1rem;
+}
+
+.button:hover {
+  background-color: var(--contrastSecondary);
+  color: var(--primary);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}

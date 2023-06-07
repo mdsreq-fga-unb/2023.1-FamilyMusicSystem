@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "Password": {
+      "type": "password"
+    },
+    "ProfilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "CPF": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "RG": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female",
+        "Others"
+      ],
+      "required": true
+    },
+    "Instruments": {
+      "type": "enumeration",
+      "enum": [
+        "Singing",
+        "Guitars",
+        "Piano",
+        "Child Musicalization"
+      ],
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "students": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student.student"
+    }
+  }
+}

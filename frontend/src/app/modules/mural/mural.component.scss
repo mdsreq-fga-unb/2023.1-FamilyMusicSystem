@@ -1,0 +1,113 @@
+.content-content {
+  background: var(--primary);
+  margin: 0.5rem;
+  height: calc(100vh - 5.9rem);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.text {
+  max-width: 40%;
+  margin: 0 1rem;
+  align-self: center;
+}
+.photo {
+  margin: 0 1rem;
+}
+
+.title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 10px;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 5rem;
+  color: var(--cyan);
+}
+
+.subtitle {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 50px;
+  text-align: center;
+  align-self: center;
+  margin: 0;
+  color: var(--contrast);
+}
+
+@media only screen and (max-width: 1300px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+  }
+  .title {
+    margin: 0;
+    font-size: 40px;
+    line-height: 10px;
+    height: max-content;
+  }
+  .subtitle {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  .text {
+    max-width: 80%;
+    height: max-content;
+    margin: 2rem;
+  }
+  .photo {
+    max-width: 90%;
+    max-height: 60%;
+    margin-bottom: 2rem;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+  }
+  .title {
+    margin: 0;
+    font-size: 32px;
+    line-height: 10px;
+    height: max-content;
+  }
+  .subtitle {
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  .text {
+    max-width: 80%;
+    height: max-content;
+    margin: 2rem;
+  }
+  .photo {
+    max-width: 90%;
+    max-height: 50%;
+  }
+}

@@ -1,0 +1,61 @@
+name: Continuos Integration
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  continuos-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Using Node.jobs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+
+      - name: Create env file
+        env:
+          HOST: ${ secrets.HOST }
+          PORT: ${ secrets.PORT }
+          APP_KEYS: ${ secrets.APP_KEYS }
+          API_TOKEN_SALT: ${ secrets.API_TOKEN_SALT }
+          ADMIN_JWT_SECRET: ${ secrets.ADMIN_JWT_SECRET }
+          TRANSFER_TOKEN_SALT: ${ secrets.TRANSFER_TOKEN_SALT }
+          DATABASE_CLIENT: ${ secrets.DATABASE_CLIENT }
+          DATABASE_FILENAME: ${ secrets.DATABASE_FILENAME }
+          JWT_SECRET: ${ secrets.JWT_SECRET }
+        run: |
+          cd backend
+          echo "HOST=${HOST}" > .env
+          echo "PORT=${PORT}" >> .env
+          echo "APP_KEYS=${APP_KEYS}" >> .env
+          echo "API_TOKEN_SALT=${API_TOKEN_SALT}" >> .env
+          echo "ADMIN_JWT_SECRET=${ADMIN_JWT_SECRET}" >> .env
+          echo "TRANSFER_TOKEN_SALT=${TRANSFER_TOKEN_SALT}" >> .env
+          echo "DATABASE_CLIENT=${DATABASE_CLIENT}" >> .env
+          echo "DATABASE_FILENAME=${DATABASE_FILENAME}" >> .env
+          echo "JWT_SECRET=${JWT_SECRET}" >> .env
+          cat .env
+
+      - name: run install dependecies backend
+        run: |
+          cd backend
+          npm install
+
+      - name: run backend test
+        run: |
+          cd backend 
+          npm run test
+
+      - name: run install dependecies frontend
+        run: |
+          cd frontend
+          npm install
+
+      - name: run frontend test
+        run: |
+          cd frontend
+          npm run build 
+          npm test

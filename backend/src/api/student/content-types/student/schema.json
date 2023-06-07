@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "Password": {
+      "type": "password",
+      "required": false
+    },
+    "Birthday": {
+      "type": "date",
+      "required": true,
+      "default": "2001-01-01"
+    },
+    "ProfilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "CPF": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "RG": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female",
+        "Others"
+      ],
+      "required": true
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "DisabledPerson": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ],
+      "default": "false",
+      "required": true
+    },
+    "Address": {
+      "type": "string",
+      "required": true
+    },
+    "LegalGuardianName": {
+      "type": "string"
+    },
+    "LegalGuardianCPF": {
+      "type": "string"
+    },
+    "LegalGuardianEmail": {
+      "type": "email"
+    },
+    "LegalGuardianRG": {
+      "type": "string"
+    },
+    "DisabledPersonType": {
+      "type": "string"
+    },
+    "LegalGuardianPhone": {
+      "type": "string"
+    }
+  }
+}

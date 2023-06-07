@@ -1,0 +1,23 @@
+<div class="master">
+  <div
+    [ngClass]="{
+      mainContainerComp: iscomp,
+      mainContainer: !iscomp
+    }"
+  >
+    <app-sidebar
+      [ngClass]="{
+        sidebarAppComp: iscomp,
+        'offcanvas offcanvas-start sidebarApp': !iscomp
+      }"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    ></app-sidebar>
+    <div class="container">
+      <app-header class="headerApp"></app-header>
+      <router-outlet class="content"></router-outlet>
+    </div>
+  </div>
+  <app-footer class="footerApp"></app-footer>
+</div>

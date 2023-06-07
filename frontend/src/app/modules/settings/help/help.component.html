@@ -1,0 +1,282 @@
+<div class="container">
+  <button type="button" class="btn-close text-reset" (click)="sair()" aria-label="Close" id="close"></button>
+  <div class="modal-header">
+    <h2 class="modal-title"><mat-icon class="icon">help</mat-icon>Ajuda</h2>
+  </div>
+
+  <div class="modal-body">
+    <!-- CONTEÚDO -->
+    <p>
+      Este manual foi desenvolvido para auxiliar o usuário na utilização do Sistema Family Music System. O objetivo é
+      levar ao leitor as bases para uma boa utilização do sistema, apresentando de forma gradativa e com uma linguagem
+      didática os diversos módulos do sistema.
+    </p>
+    <p>
+      Em virtude da evolução de processos internos, a implantação de um novo sistema gera a necessidade de readaptação
+      dos métodos de trabalho. É necessário ganhar produtividade e aproveitar as possibilidades e ferramentas da
+      computação. Nesse sentido, o manual permitirá que você descubra os métodos para trabalhar de forma mais rápida,
+      confiante e
+      eficiente, utilizando os vários recursos oferecidos pelo Sistema Music Family School.
+    </p>
+    <p>
+      Em cada módulo será abordado uma breve apresentação conceitual e com a utilização de exemplos cadastrados passo a
+      passo no próprio sistema. Além disso, serão apresentadas as imagens das telas que facilitarão a visualização e o
+      entendimento por parte do usuário.
+    </p>
+    <p>
+      Este é um material oferecido pela FMS ao usuário. Esperamos que você manipule o sistema de maneira eficiente e
+      tire amplo proveito de todas as facilidades que a automatização de procedimentos proporciona.
+    </p>
+    <p>
+      Bom proveito!
+    </p>
+
+    <br>
+
+    <h1 class="indexTitle">Índice:</h1>
+    <ul>
+      <li>1. Navegação
+        <ul>
+          <li>1.1 Acesso ao sistema</li>
+          <li>1.2 Acesso ao menu geral</li>
+          <li>1.3 Botões e funcionalidades</li>
+        </ul>
+      </li>
+      <li>2. Funcionalidades
+        <ul>
+          <li>2.1 cadastro</li>
+          <li>2.2 busca/filtro</li>
+          <li>2.3 edição</li>
+          <li>2.4 exclusão</li>
+        </ul>
+      </li>
+      <li>3. Configurações</li>
+    </ul>
+
+    <h1 class="indexTitle">1. Navegação:</h1>
+
+    <div class="componentClass">
+      <p>
+        A navegação visa proporcionar ao usuário um melhor entendimento dos procedimentos básicos encontrados no
+        sistema.
+        Podemos citar como tais procedimentos o acesso ao sistema, o acesso ao menu geral, e os botões utilizados nos
+        módulos, que serão apresentados a seguir:
+      </p>
+      <br>
+      <h3 class="subtitle">1.1 Acesso ao sistema</h3>
+      <img src="../../../../assets/image/loginpage.png" alt="Foto da Tela de Login" class="loginImage">
+      <p>
+        O acesso ao sistema é realizado através do CPF e senha disponibilizada pelo Administrador. Caso o usuário tenha
+        esquecido a senha basta clicar em recuperar senha e a tela de recuperação abrirá. Confira os passos para
+        recuperar
+        a senha.
+      </p>
+    </div>
+    <br>
+    <div class="componentClass">
+      <h3 class="subtitle">1.2 Acesso ao menu geral</h3>
+
+      <div class="sidebarImage">
+        <p>
+          O menu de navegação principal fica localizado à esquerda da tela para computadores.
+        </p>
+        <img src="../../../../assets/image/side-bar.png" alt="Foto da Sidebar" style="margin-top: 1rem;">
+      </div>
+
+      <div class="shortSidebarImage">
+        <p>
+          Caso o dispositivo seja móvel o menu irá ficar oculto e o botão MENU aparecerá no topo da tela para que seja
+          possível exibi-lo.
+        </p>
+        <img src="../../../../assets/image/shortSidebar.png" alt="Foto da Sidebar em Dispositivos Móveis"
+          style="margin-top: 1rem;">
+      </div>
+    </div>
+
+    <div class="componentClass">
+      <h3 class="subtitle">1.3 Botões e funcionalidades</h3>
+
+      <h4 class="subtitle2">1.3.1 Botão configurações</h4>
+      <p>Exibe configurações do sistema sendo: Funcionalidades fixas e Funcionalidades de listagens. Confira a seguir:
+      </p>
+      <br>
+
+      <h4 class="subtitle2">Funcionalidades Fixas</h4>
+      <div class="tableIcons">
+        <table>
+          <tr>
+            <th></th>
+            <th>Botão</th>
+            <th>Função</th>
+          </tr>
+          <tr style="text-align: center; font-weight: bold;">
+            <td colspan="3">Cabeçalho</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/settings.png" alt="" class="tableImage"></td>
+            <td>Abre as configurações e recursos do sistema.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/dark-mode.png" alt="" class="tableImage"></td>
+            <td>Troca do tema claro para o escuro.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/profile.png" alt="" class="tableImage"></td>
+            <td>Acesso para o perfil e para sair do sistema.</td>
+          </tr>
+          <tr style="text-align: center; font-weight: bold;">
+            <td colspan="3">Side Bar</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/side-bar.png" alt="" class="tableImage"></td>
+            <td>
+              <ol>
+                <li>Home: abre a tela principal da aplicação.</li>
+                <li>Alunos: abre a listagem de alunos.</li>
+                <li>Professores: abre a listagem de professores.</li>
+                <li>Salas: abre a listagem de salas de aula.</li>
+                <li>Agenda: abre a agenda de professores e alunos.</li>
+                <li>Mural: abre o mural de notícias.</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/icons.png" alt="" class="tableImage"></td>
+            <td>Botões para editar e excluir itens da tabela.</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+
+      <h4 class="subtitle2">Funcionalidades de Listagens</h4>
+      <div class="tableIcons">
+        <table>
+          <tr>
+            <th></th>
+            <th>Botão</th>
+            <th>Função</th>
+          </tr>
+          <tr style="text-align: center; font-weight: bold;">
+            <td colspan="3">Cabeçalho</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/new.png" alt="" class="tableImage"></td>
+            <td>Abre o modal de criação de novo (alunos, professores, salas e agenda).</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/filter.png" alt="" class="tableImage"></td>
+            <td>Abre o modal de filtragem de dados.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/search.png" alt="" class="tableImage"></td>
+            <td>Busca o argumento digitado na barra de pesquisa.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/inputSearch.png" alt="" class="tableImage"></td>
+            <td>Local onde um o argumento é digitado para ir para a busca.</td>
+          </tr>
+          <tr style="text-align: center; font-weight: bold;">
+            <td colspan="3">Tabela</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/checkbox.png" alt="" class="tableImage"></td>
+            <td>Utilizado para marcar diversas linhas da tela simultaneamente.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td style="display: flex; justify-content: center;"><img src="../../../../assets/image/icons.png" alt="" class="tableImage"></td>
+            <td>Botões para editar e excluir itens da tabela.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <h1 class="indexTitle">2. Funcionalidades:</h1>
+
+    <div class="componentClass">
+      <h3 class="subtitle">2.1 Cadastro</h3>
+      <p>
+        Para a realização do cadastro é necessário acrescentar as informações solicitadas nos campos a seguir e por fim
+        clicar em “salvar”:
+      </p>
+      <img src="../../../../assets/image/student.png" alt="" class="loginImage">
+      <br>
+      <img src="../../../../assets/image/parent.png" alt="" class="loginImage">
+      <br>
+      <img src="../../../../assets/image/local.png" alt="" class="loginImage">
+      <br>
+      <p>Para garantir que esse cadastro foi realizado, a seguinte mensagem aparecerá: </p>
+      <img src="../../../../assets/image/cadastro.png" alt="" class="loginImage">
+
+
+      <h3 class="subtitle">2.2 Busca/Filtro</h3>
+      <p>O filtro agrupa para o administrador os alunos ou professores cadastrados no sistema seguindo os parâmetros que
+        podem ser selecionados como: gênero, idade, período do cadastro e data de nascimento.
+        A busca garante o encontro do aluno desejado com agilidade, permitindo que o administrador veja suas informações
+        pessoais cadastradas anteriormente.
+      </p>
+      <img src="../../../../assets/image/filter (2).png" alt="" class="loginImage">
+      <img src="../../../../assets/image/informacoes.png" alt="" class="loginImage">
+
+      <h3 class="subtitle">2.3 Edição</h3>
+      <p>
+        A edição permite que o administrador altere informações referentes aos perfis de alunos e professores
+        cadastrados
+        no sistema. Dessa forma, aparecerá novamente o campo de alterações dos dados pessoais, como mostrado em 2.1, e a
+        seguir uma tela de confirmação de edição:
+      </p>
+      <img src="../../../../assets/image/aviso.png" alt="" class="loginImage">
+
+      <h3 class="subtitle">2.4 Exclusão</h3>
+      <p>
+        A exclusão de um usuário é realizada selecionando na listagem o usuário desejado e clicando no botão de excluir
+        usuário. Para que a operação seja finalizada, uma mensagem de confirmação como a de 2.3 será mostrada e a seguir
+        a
+        confirmação de exclusão.
+      </p>
+    </div>
+    <br>
+
+
+    <h1 class="indexTitle">3. Configurações:</h1>
+    <div class="componentClass">
+      <p>
+        A aba de configuração contém informações, ferramentas e recursos da aplicação, sendo mostrada da seguinte forma:
+      </p>
+      <div class="settingsHelp">
+        <img src="../../../../assets/image/dropdown.png" alt="" class="loginImage">
+        <ul>
+          <li><span class="first-word">Contrato:</span> exibe as informações de contrato;</li>
+          <li><span class="first-word">Privacidade:</span> exibe os termos de privacidade da aplicação;</li>
+          <li><span class="first-word">Recursos:</span> exibe os recursos do sistema;</li>
+          <li><span class="first-word">Ajuda:</span> exibe o manual do sistema;</li>
+          <li><span class="first-word">Sobre:</span> exibe as informações sobre o sistema;</li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+      height: min-content;
+      width: 6rem;
+      align-items: center;
+      justify-content: center;
+    " (click)="sair()">
+      sair
+    </button>
+  </div>
+</div>
