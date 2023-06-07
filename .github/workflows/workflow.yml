@@ -17,15 +17,15 @@ jobs:
 
       - name: Create env file
         env:
-          HOST: ${{ secrets.HOST }}
-          PORT: ${{ secrets.PORT }}
-          APP_KEYS: ${{ secrets.APP_KEYS }}
-          API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
-          ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
-          TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
-          DATABASE_CLIENT: ${{ secrets.DATABASE_CLIENT }}
-          DATABASE_FILENAME: ${{ secrets.DATABASE_FILENAME }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          HOST: ${ secrets.HOST }
+          PORT: ${ secrets.PORT }
+          APP_KEYS: ${ secrets.APP_KEYS }
+          API_TOKEN_SALT: ${ secrets.API_TOKEN_SALT }
+          ADMIN_JWT_SECRET: ${ secrets.ADMIN_JWT_SECRET }
+          TRANSFER_TOKEN_SALT: ${ secrets.TRANSFER_TOKEN_SALT }
+          DATABASE_CLIENT: ${ secrets.DATABASE_CLIENT }
+          DATABASE_FILENAME: ${ secrets.DATABASE_FILENAME }
+          JWT_SECRET: ${ secrets.JWT_SECRET }
         run: |
           cd backend
           echo "HOST=${HOST}" > .env
