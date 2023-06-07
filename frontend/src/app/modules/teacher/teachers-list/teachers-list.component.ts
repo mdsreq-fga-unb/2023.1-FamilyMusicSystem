@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import { Teacher } from 'src/app/models/teacher';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Teacher } from '../../../models/teacher';
 import { TeachersRegisterComponent } from '../teachers-register/teachers-register.component';
 import { TeachersViewComponent } from '../teachers-view/teachers-view.component';
 import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
@@ -8,42 +8,50 @@ import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.comp
 @Component({
   selector: 'app-teachers-list',
   templateUrl: './teachers-list.component.html',
-  styleUrls: ['./teachers-list.component.scss']
+  styleUrls: ['./teachers-list.component.scss'],
 })
-
-export class TeachersListComponent implements OnInit{
-  public teachers : Teacher[];
-  private bsModalRef : BsModalRef
-  checked : boolean = false;
+export class TeachersListComponent implements OnInit {
+  public teachers: Teacher[];
+  private bsModalRef: BsModalRef;
+  checked: boolean = false;
   estilosDinamicos: any;
 
-  constructor(
-    private modalService : BsModalService,
+  constructor(private modalService: BsModalService) {}
 
-  ){}
+  ngOnInit(): void {}
 
-
-  ngOnInit(): void {
-
-  }
-
-  modalProfessores(edicao:boolean,teacher:Teacher = new Teacher()){
+  modalProfessores(edicao: boolean, teacher: Teacher = new Teacher()) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {
         edicao,
-        teacher:teacher 
+        teacher: teacher,
       },
-      class : 'modal-lg'
+      class: 'modal-lg',
     };
-    this.bsModalRef = this.modalService.show(TeachersRegisterComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {
-
-    })
+    this.bsModalRef = this.modalService.show(
+      TeachersRegisterComponent,
+      modalConfig
+    );
+    this.bsModalRef.content.onClose.subscribe(() => {});
   }
 
-  modalViewProfessores(){
+  modalViewProfessores() {
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {},
+      class: 'modal-lg',
+    };
+    this.bsModalRef = this.modalService.show(
+      TeachersViewComponent,
+      modalConfig
+    );
+    this.bsModalRef.content.onClose.subscribe(() => {});
+  }
+
+  modalFilterProfessores() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -51,34 +59,20 @@ export class TeachersListComponent implements OnInit{
       },
       class : 'modal-lg'
     };
-    this.bsModalRef = this.modalService.show(TeachersViewComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {
-
-    })
+    this.bsModalRef = this.modalService.show(
+      TeachersFilterComponent,
+      modalConfig
+    );
+    this.bsModalRef.content.onClose.subscribe(() => {});
   }
 
-  modalFilterProfessores(){
-    const modalConfig = {
-      backdrop: true,
-      ignoreBackdropClick: false,
-      initialState: {
-      },
-      class : 'modal-lg'
-    };
-    this.bsModalRef = this.modalService.show(TeachersFilterComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {
-
-    })
-  }
-
-  toggle(){
+  toggle() {
     this.estilosDinamicos = {
-      'background' : this.calcularCorDeFundo()
+      background: this.calcularCorDeFundo(),
     };
   }
 
-  calcularCorDeFundo(){
+  calcularCorDeFundo() {
     return 'var(--selector)';
   }
-
 }

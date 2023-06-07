@@ -7,11 +7,12 @@
             <mat-icon class="personIcon">person</mat-icon>
             <p class="title">Alunos</p>
           </div>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" [formGroup]="searchForm">
             <div class="search-container">
               <input
                 class="form-control me-3"
                 id="researchStudents"
+                formControlName="search"
                 type="search"
                 aria-label="Search"
               />
@@ -19,8 +20,8 @@
             </div>
             <button
               type="button"
+              (click)="search()"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              routerLink=""
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -111,7 +112,7 @@
                   id="flexCheckDefault"
                 />
               </th>
-              <td class="button" (click)="modalAlunos(student)">
+              <td class="button" (click)="modalAlunos(student, false)">
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"
@@ -123,7 +124,9 @@
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
               <td class="notablet">{{ student.Phone }}</td>
               <td>
-                <mat-icon>edit</mat-icon>
+                <mat-icon (click)="modalAlunos(student, true)" class="delete"
+                  >edit</mat-icon
+                >
                 <mat-icon (click)="deleteStudent(student)" class="delete"
                   >restore_from_trash</mat-icon
                 >

@@ -1,5 +1,4 @@
 <div class="content-content">
-
   <body>
     <div class="container-fluid">
       <div class="container">
@@ -10,45 +9,68 @@
           </div>
           <form class="d-flex" role="search">
             <div class="search-container">
-              <input class="form-control me-3" id="researchClass" type="search" aria-label="Search" />
+              <input
+                class="form-control me-3"
+                id="researchClass"
+                type="search"
+                aria-label="Search"
+              />
               <i class="material-icons search-icon">search</i>
             </div>
-            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons" routerLink=""
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              routerLink=""
               style="
                 height: min-content;
                 margin-left: 0.5rem;
                 width: 5rem;
                 align-items: center;
                 justify-content: center;
-              ">
+              "
+            >
               <mat-icon class="mobile">search</mat-icon>
               <span class="button-text">buscar</span>
             </button>
-            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons" id="outline"
-              (click)="modalFilterSala()">
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              id="outline"
+              (click)="modalFilterSala()"
+            >
               <mat-icon class="mobile">filter_list</mat-icon>
               <span class="button-text">filtrar</span>
             </button>
           </form>
         </div>
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons" routerLink="" style="
+          <button
+            type="button"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            routerLink=""
+            style="
               background: var(--red) !important;
               border: none;
               width: 5rem;
               justify-content: center;
-            " *ngIf="checked">
+            "
+            *ngIf="checked"
+          >
             <span class="button-text">excluir</span>
           </button>
-          <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            (click)="modalSala(false)" style="
+          <button
+            type="button"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            (click)="modalSala()"
+            style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
               border: none;
               width: 6rem;
               justify-content: center;
               height: 38px;
-            ">
+            "
+          >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
           </button>
@@ -70,7 +92,12 @@
           <tbody>
             <tr class="selected">
               <th scope="row" id="select-all">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
               </th>
               <td class="button">Igreja</td>
               <td>489</td>
@@ -81,7 +108,12 @@
             </tr>
             <tr class="selected">
               <th scope="row" id="select-all">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
               </th>
               <td class="button">Igreja</td>
               <td>550</td>

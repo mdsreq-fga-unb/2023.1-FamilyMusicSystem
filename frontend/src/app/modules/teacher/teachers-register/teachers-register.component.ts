@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Teacher } from 'src/app/models/teacher';
+import { Teacher } from '../../../models/teacher';
 import { FormGroup , FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 

@@ -1,4 +1,4 @@
-import { Location } from 'src/app/models/location';
+
 
 export class Teacher {
   id: number;
@@ -12,7 +12,6 @@ export class Teacher {
   CPF: string;
   RG: string;
   Gender: string;
-  location: Location;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

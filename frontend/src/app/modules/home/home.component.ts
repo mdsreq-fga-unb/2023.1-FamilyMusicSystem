@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { AboutComponent } from 'src/app/modules/settings/about/about.component';
+import { AboutComponent } from '../settings/about/about.component';
 
 @Component({
   selector: 'app-home',
