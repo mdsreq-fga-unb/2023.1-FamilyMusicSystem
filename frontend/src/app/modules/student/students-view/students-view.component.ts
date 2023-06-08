@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
+import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 
 @Component({
   selector: 'app-students-view',
@@ -26,7 +27,7 @@ export class StudentsViewComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
-    private modalService: BsModalService
+    private modalService: BsModalService,
   ) {}
 
   ngOnInit(): void {
@@ -146,11 +147,21 @@ export class StudentsViewComponent implements OnInit {
     this.http.post('http://localhost:1337/api/students', body).subscribe(
       (response) => {
         console.log(response);
+        this.showAlertModal();
       },
       (error) => {
         this.handleError(error);
       }
     );
+  }
+
+  showAlertModal() {
+    const successModalRef = this.modalService.show(StudentsAlertComponent, {
+      initialState: {
+        title: 'Operação concluída com sucesso!',
+        message: 'A operação foi realizada com sucesso.',
+      },
+    });
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

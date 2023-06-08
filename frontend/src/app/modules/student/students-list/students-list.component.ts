@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
@@ -37,7 +38,7 @@ export class StudentsListComponent implements OnInit {
     private modalService: BsModalService,
     private http: HttpClient,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   getStudent(args?: string) {
     const opts = { params: { populate: '*' } };
@@ -66,6 +67,13 @@ export class StudentsListComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
         this.getStudent();
+        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
+          initialState: {
+            title: 'Exclusão concluída!',
+            message: 'O aluno foi deletado com sucesso.',
+          },
+        });
+        this.bsModalRef.content.showModal();
       });
   }
 
