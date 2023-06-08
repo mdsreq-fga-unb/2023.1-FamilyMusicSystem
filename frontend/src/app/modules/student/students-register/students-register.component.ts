@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
+import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 
 @Component({
   selector: 'app-students-register',
   templateUrl: './students-register.component.html',
   styleUrls: ['./students-register.component.scss'],
 })
+
 export class StudentsRegisterComponent implements OnInit {
   public onClose: Subject<boolean>;
   public edicao = false;
@@ -22,6 +24,7 @@ export class StudentsRegisterComponent implements OnInit {
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
+    private modalService: BsModalService,
     private fb: FormBuilder,
     private http: HttpClient
   ) {}
@@ -105,7 +108,13 @@ export class StudentsRegisterComponent implements OnInit {
 
     this.http.post('http://localhost:1337/api/students', body).subscribe(
       (response) => {
-        console.log(response);
+        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
+          initialState: {
+            title: 'Cadastro finalizado!',
+            message: 'O aluno foi cadastrado com sucesso.',
+          },
+        });
+        this.bsModalRef.content.showModal();
       },
       (error) => {
         this.handleError(error);

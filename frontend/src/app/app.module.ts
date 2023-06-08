@@ -35,6 +35,7 @@ import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { HttpClientModule } from '@angular/common/http';
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
+    StudentsAlertComponent,
   ],
   imports: [
     BrowserModule,
