@@ -2,9 +2,11 @@ const axios = require('axios');
 
 jest.mock('axios');
 
-describe('Teste API - GET', () => {
-  const url = 'http://127.0.0.1:1337/api/students';
+beforeEach(() => {
+  url = 'https://20231-familymusicsystem-production.up.railway.app/api/students';
+});
 
+describe('Teste API - GET', () => {
   test('Deve retornar uma lista de estudantes', async () => {
     const mockedResponse = {
       status: 200,
@@ -48,7 +50,6 @@ describe('Teste API - GET', () => {
 
 
 describe('Teste API - PUT', () => {
-  const url = 'http://127.0.0.1:1337/api/students';
   const studentId = 1;
   const updatedStudentData = {
     id: studentId,
@@ -90,19 +91,18 @@ describe('Teste API - PUT', () => {
 });
 
 describe('Teste API - DELETE', () => {
-    const url = 'http://127.0.0.1:1337/api/students';
-    const studentId = 1;
-    test('Deve excluir um estudante existente', async () => {
-      const mockedResponse = {
-        status: 200,
-        data: {
-          id: studentId,
-        },
-      };
+  const studentId = 1;
+  test('Deve excluir um estudante existente', async () => {
+    const mockedResponse = {
+      status: 200,
+      data: {
+        id: studentId,
+      },
+    };
 
-      axios.delete.mockResolvedValue(mockedResponse);
-      const response = await axios.delete(`${url}/${studentId}`);
-      expect(response.status).toBe(200);
-      expect(response.data).toHaveProperty('id', studentId);
-    });
+    axios.delete.mockResolvedValue(mockedResponse);
+    const response = await axios.delete(`${url}/${studentId}`);
+    expect(response.status).toBe(200);
+    expect(response.data).toHaveProperty('id', studentId);
   });
+});
