@@ -2,9 +2,9 @@
   <button
     type="button"
     class="btn-close text-reset"
-    (click)="sair()"
-    aria-label="Close"
     id="close"
+    aria-label="Close"
+    (click)="sair()"
   ></button>
   <div class="modal-header">
     <h3 class="modal-title">
@@ -20,84 +20,115 @@
         nopdf: !ispdf
       }"
     >
-      <header>
-        <h1><b>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</b></h1>
-        <h1>FAMILY MUSIC SCHOOL</h1>
+      <img
+        src="assets\image\family-music-school-png-colorido-logo-horizontal(2).png"
+        class="image"
+        *ngIf="ispdf"
+      />
+      <header
+        style="
+          border-bottom: 2px solid gray;
+          margin-bottom: 1rem;
+          min-width: 100% !important;
+          text-align: center;
+        "
+      >
+        <h1 style="text-indent: 0em !important">
+          <b>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</b>
+        </h1>
+        <h1
+          style="
+            padding-top: 0.5rem;
+            font-size: 16px !important;
+            text-indent: 0em !important;
+            color: gray;
+            font-weight: 1000;
+          "
+        >
+          FAMILY MUSIC SCHOOL
+        </h1>
         <p><br /></p>
       </header>
       <section>
         <p>
-          <b>CONTRATANTE:</b> ------------ brasileiro(a), portador(a) da
-          carteira de identidade RG de número ------------- , inscrito(a) no
-          CPF/MF sob o número ------------ , residente e domiciliado à
-          -------------- em Brasília DF.
+          <b>CONTRATANTE:</b>
+          <b> {{ student ? student.Name : "------------" }}</b>
+          brasileiro(a), portador(a) da carteira de identidade RG de número n.º
+          <b>{{ student ? student.RG : "------------" }}</b
+          >, inscrito(a) no CPF/MF sob o número n.º
+          <b>{{ student ? student.CPF : "------------" }}</b
+          >, residente e domiciliado à
+          <b>{{ student ? student.Address : "------------" }}</b> em Brasília
+          DF.
         </p>
         <p><br /></p>
       </section>
       <section>
         <p>
-          <b>CONTRATADO:</b> ---------------, pessoa jurídica de direito
-          privado, regularmente inscrita no CNPJ/MF sob o número -------------,
-          com sede à ------------ , ----------, CEP ------------- em Brasília;
-          neste ato, representado por seu administrador, ----------------,
-          brasileiro, empresário, portador da carteira de identidade RG de
-          número |, inscrito no CPF/MF sob o número ------------, residente e
-          domiciliado em Brasília - DF.
+          <b>CONTRATADA: Jennyfer Fernandes Soares</b>, pessoa jurídica de
+          direito privado, regularmente inscrita no CNPJ/MF sob o n.º
+          <b>44.079.497/0001-50</b>, com sede à
+          <b>SHA CONJUNTO 6 CHÁCARA 519</b>, número <b>01</b>, Arniqueiras, CEP
+          <b>71.994-503</b> em <b>Brasília</b>; neste ato, representado por seu
+          administrador, <b>Jennyfer Fernandes Soares</b>, brasileiro,
+          empresário, portador da carteira de identidade RG de n.º |,
+          <b>inscrito no CPF/MF sob o n.º 050.957.801-27</b>, residente e
+          domiciliado em <b>Brasília - DF</b>.
         </p>
         <p><br /></p>
       </section>
+      <p>
+        As partes acima qualificadas têm entre si, justo e contratado, o
+        presente contrato de prestação de serviços de ensino de música, o qual
+        se regerá pelas seguintes cláusulas e condições.
+      </p>
+      <p><br /></p>
       <section>
-        <h2><b>CLÁUSULA PRIMEIRA</b></h2>
-        <p><br /></p>
         <p>
-          O objeto do presente instrumento é a prestação, pela CONTRATADA, em
-          favor do(a) CONTRATANTE, dos serviços de ensino de música (CNAE
-          8592-9/03), por meio de aulas de música e prática de instrumentos na
-          modalidade CANTO E TÉCNICAS VOCAIS.
+          <b>CLÁUSULA PRIMEIRA</b> - O objeto do presente instrumento é a
+          prestação, pela CONTRATADA, em favor do(a) CONTRATANTE, dos serviços
+          de ensino de música (CNAE 8592-9/03), por meio de aulas de música e
+          prática de instrumentos na modalidade <b>CANTO E TÉCNICAS VOCAIS</b>.
         </p>
         <p><br /></p>
         <p>
           <b>Parágrafo 1°</b> - Pelo presente instrumento, o(a) CONTRATANTE opta
-          pela aquisição de um pacote de 12 (doze aulas), os quais serão
-          cumpridos ao longo de 3 (três meses).
+          pela aquisição de um pacote de <b>12 (doze aulas)</b>, os quais serão
+          cumpridos ao longo de <b>3 (três meses)</b>.
         </p>
         <p>
           <b>Páragrafo 2°</b> - As aulas são intransferíveis, individuais,
-          ministradas 01 (uma) vez por semana vez por semana, com duração de 50
-          (cinquenta minutos) e agendada conforme interesse do aluno e
+          ministradas <b>1 vez por semana</b>, com duração de
+          <b>50 (cinquenta minutos)</b> e agendada conforme interesse do aluno e
           disponibilidade de horário do Professor.
         </p>
         <p><br /></p>
       </section>
       <section>
-        <h2><b>CLÁUSULA SEGUNDA</b></h2>
-        <p><br /></p>
         <p>
-          É obrigação do(a) CONTRATANTE comunicar, com antecedência mínima de 2
-          (duas) horas, a impossibilidade de comparecer à aula previamente
-          agendada. Caso o(a) CONTRATANTE não compareça a aula e não comunique a
-          sua ausência ao Professor, computar-se-á a aula no pacote do(a)
-          CONTRATANTE, salvo nos casos de enfermidade ou internação hospitalar,
-          devidamente comprovadas por atestado médico.
+          <b>CLÁUSULA SEGUNDA</b> - É obrigação do(a) CONTRATANTE comunicar, com
+          antecedência mínima de 2 (duas) horas, a impossibilidade de comparecer
+          à aula previamente agendada. Caso o(a) CONTRATANTE não compareça a
+          aula e não comunique a sua ausência ao Professor, computar-se-á a aula
+          no pacote do(a) CONTRATANTE, salvo nos casos de enfermidade ou
+          internação hospitalar, devidamente comprovadas por atestado médico.
         </p>
         <p><br /></p>
         <p>
           <b>Páragrafo Único</b> - Pactua-se que a reposição ocorrerá de acordo
           com a disponibilidade da agenda do Professor. As faltas não
           comunicadas poderão ser repostas, sendo estipulado o valor de R$ 50,00
-          (cinquenta reais) por hora/aula.
+          (cinquenta reais ) por hora/aula.
         </p>
         <p><br /></p>
       </section>
       <section>
-        <h2><b>CLÁUSULA TERCEIRA</b></h2>
-        <p><br /></p>
         <p>
-          Em contrapartida aos serviços prestados, o(a) CONTRATANTE pagará em
-          favor da CONTRATADA o valor certo e ajusta de R$ 900,00 (novecentos
-          reais), os quais serão pagos em 3 (três parcelas) iguais e sucessivas
-          de R$ 300,00 (trezentos reais), sendo que a primeira vencerá no dia 11
-          de Maio de 2023.
+          <b>CLÁUSULA TERCEIRA</b> - Em contrapartida aos serviços prestados,
+          o(a) CONTRATANTE pagará em favor da CONTRATADA o valor certo e ajusta
+          de <b>R$ 900,00 (novecentos reais)</b>, os quais serão pagos em
+          <b>3 (três parcelas)</b> iguais e sucessivas de R$ 300,00 (trezentos
+          reais), sendo que a primeira vencerá no dia <b>11 de Maio de 2023</b>.
         </p>
         <p><br /></p>
         <p>
@@ -109,27 +140,24 @@
         <p>
           <b>Parágrafo 2°</b> No caso de inadimplência de 2 (duas) ou mais
           parcelas, o pacote do(a) CONTRATANTE será suspenso até a liquidação
-          das pendências financeiras.
+          das pendências financeiras
         </p>
         <p><br /></p>
       </section>
       <section>
-        <h2><b>CLÁUSULA QUARTA</b></h2>
-        <p><br /></p>
         <p>
-          Pelo presente instrumento, o(a) CONTRATANTE cede em favor da
-          CONTRATADA os direitos de utilização de sua imagem e voz em eventos da
-          escola.
+          <b>CLÁUSULA QUARTA</b> - Pelo presente instrumento, o(a) CONTRATANTE
+          cede em favor da CONTRATADA os direitos de utilização de sua imagem e
+          voz em eventos da escola.
         </p>
         <p><br /></p>
       </section>
       <section>
-        <h2><b>CLÁUSULA QUINTA</b></h2>
-        <p><br /></p>
         <p>
-          O(A) CONTRATANTE poderá optar pela resilição do presente contrato
-          antes do seu término, devendo, para tanto, comunicar tal intenção à
-          CONTRATADA com antecedência mínima de 30 (trinta) dias.
+          <b>CLÁUSULA QUINTA</b> - O(A) CONTRATANTE poderá optar pela resilição
+          do presente contrato antes do seu término, devendo, para tanto,
+          comunicar tal intenção à CONTRATADA com antecedência mínima de 30
+          (trinta) dias.
         </p>
         <p><br /></p>
         <p>
@@ -146,12 +174,12 @@
         <p><br /></p>
       </section>
       <section>
-        <h2><b>CLÁUSULA SEXTA</b></h2>
-        <p><br /></p>
         <p>
-          As partes elegem o Foro da Comarca Brasília, como o único competente
-          para dirimir toda e qualquer dúvida, controvérsia e litígio,
-          decorrente do exat
+          <b>CLÁUSULA SEXTA</b> - As partes elegem o Foro da Comarca
+          <b>Brasília</b>, como o único competente para dirimir toda e qualquer
+          dúvida, controvérsia e litígio, decorrente do exato cumprimento deste
+          contrato, com renúncia a qualquer outro, por mais privilegiado que
+          seja ou venha a ser.
         </p>
       </section>
       <section>
@@ -162,15 +190,66 @@
         </p>
         <p><br /></p>
       </section>
-      <footer>
-        <p>Este contrato entra em vigor na data de assinatura pelas partes.</p>
-        <p>Data: [Data de assinatura]</p>
+      <div class="center">
+        <div class="footer">
+          <p style="margin-bottom: 5rem !important">
+            <b>Brasília - DF, {{ formattedDate }}.</b>
+          </p>
+        </div>
         <br />
-        <p>_____________________________</p>
-        <p>[Nome do contratante]</p>
-        <br />
-        <p>_____________________________</p>
-        <p>[Nome do contratado]</p>
+        <div class="assinaturas">
+          <div class="assinatura">
+            <p
+              style="
+                border-top: 1px solid black;
+                padding-top: 0.5rem;
+                width: 15rem;
+                text-indent: 0em;
+                text-align: center;
+              "
+            >
+              <b>{{ student ? student.Name : "" }}</b>
+            </p>
+            <p style="text-indent: 0em"><b>CONTRATANTE</b></p>
+          </div>
+          <br />
+          <div class="assinatura">
+            <p
+              style="
+                border-top: 1px solid black;
+                padding-top: 0.5rem;
+                width: 15rem;
+                text-indent: 0em;
+                text-align: center;
+              "
+            >
+              <b>Family Music School</b>
+            </p>
+            <p style="text-indent: 0em"><b>CONTRATADA</b></p>
+          </div>
+        </div>
+      </div>
+      <p><br /></p>
+      <p><br /></p>
+      <footer
+        class="footer"
+        style="
+          border-top: 1px solid black;
+          padding-top: 0.5rem;
+          min-width: 100% !important;
+        "
+      >
+        <div>
+          <div>1ª via Cliente - 2ª via Family Music School</div>
+          <div>Contrato - Pág.1/1</div>
+        </div>
+        <div>
+          HA CONJUNTO 6 CHÁCARA 519, 01 - Ao lado do superpet - Arniqueiras -
+          Brasília - 71.994-503,
+        </div>
+        <div>
+          S - E-mail contato.familymusicschool@gmail.com Fones (61) 99833-2523
+        </div>
       </footer>
     </div>
   </div>
