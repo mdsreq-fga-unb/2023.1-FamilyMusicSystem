@@ -178,15 +178,17 @@ export class StudentsViewComponent implements OnInit {
     this.isFormValid = this.studentForm.valid;
   }
 
-  modalcontract() {
+  modalcontract(student: Student) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {},
+      initialState: {
+        student: student,
+      },
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
 
   scrollTop() {

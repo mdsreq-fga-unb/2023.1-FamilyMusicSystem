@@ -1,8 +1,10 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import { ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Student } from '../../../models/student';
+import { format } from 'date-fns';
+import { pt } from 'date-fns/locale';
 
 @Component({
   selector: 'app-contract',
@@ -10,11 +12,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./contract.component.scss'],
 })
 export class ContractComponent {
-  constructor(
-    private bsModalRef: BsModalRef,
-    private fb: FormBuilder,
-    private cdr: ChangeDetectorRef
-  ) {}
+  public student: Student;
+  formattedDate = format(new Date(), `dd 'de' MMMM 'de' yyyy`, {
+    locale: pt,
+  });
+
+  constructor(private bsModalRef: BsModalRef, private cdr: ChangeDetectorRef) {}
 
   @ViewChild('containerContract', { static: false }) el!: ElementRef;
 
@@ -30,7 +33,6 @@ export class ContractComponent {
   }
 
   saveContract() {
-    debugger;
     const pdf = new jsPDF({
       orientation: 'p',
       unit: 'px',
