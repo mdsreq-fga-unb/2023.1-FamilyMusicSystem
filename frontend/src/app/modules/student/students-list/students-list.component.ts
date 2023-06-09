@@ -29,7 +29,8 @@ export class StudentsListComponent implements OnInit {
   checked: boolean = false;
   public searchForm: FormGroup;
   estilosDinamicos: any;
-  prefixoUrlStudent = 'http://localhost:1337/api/students';
+  prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
@@ -38,7 +39,7 @@ export class StudentsListComponent implements OnInit {
     private modalService: BsModalService,
     private http: HttpClient,
     private fb: FormBuilder
-  ) { }
+  ) {}
 
   getStudent(args?: string) {
     const opts = { params: { populate: '*' } };
@@ -81,9 +82,6 @@ export class StudentsListComponent implements OnInit {
     this.getStudent(
       `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
     );
-    this.searchForm = this.fb.group({
-      search: ['', Validators.required],
-    });
   }
 
   ngOnInit(): void {
@@ -145,8 +143,8 @@ export class StudentsListComponent implements OnInit {
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.onHide?.subscribe(() => {
-      this.getStudent();
+    this.bsModalRef.content.onClose.subscribe((formValues: string) => {
+      this.getStudent(formValues);
     });
   }
 
