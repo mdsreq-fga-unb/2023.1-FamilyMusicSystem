@@ -17,10 +17,20 @@
               formControlName="createdAt"
               class="form-control form-control-sm input"
             >
-              <option value="?sort=createdAt:asc">mais recentes</option>
-              <option value="?sort=createdAt:desc">mais antigos</option>
+              <option value="desc">mais recentes</option>
+              <option value="asc">mais antigos</option>
             </select>
           </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="age">Por idade</label>
+          <input
+            type="text"
+            name="age"
+            formControlName="ageStudentFilter"
+            class="form-control form-control-sm input"
+          />
         </div>
 
         <div class="col-md-6">
@@ -31,43 +41,15 @@
               formControlName="genderStudentFilter"
               class="form-control form-control-sm input"
             >
-              <option value="?filters[Gender][$eq][1]=Male">masculino</option>
-              <option value="?filters[Gender][$eq][1]=Female">feminino</option>
-              <option value="?filters[Gender][$eq][1]=Others">outro</option>
+              <option value="Male">masculino</option>
+              <option value="Female">feminino</option>
+              <option value="Others">outro</option>
             </select>
           </div>
         </div>
-
-        <div class="col-md-6 formGroup2">
-          <label class="m-0 tittle-input" for="date1">Data de Nascimento</label>
-          <div class="dateClass">
-            <input
-              type="date"
-              name="date1"
-              formControlName="dateStudentFilter1"
-              class="form-control form-control-sm input"
-            />
-            <label class="m-0 text-label2" for="date2">a</label>
-            <input
-              type="date"
-              name="date2"
-              formControlName="dateStudentFilter2"
-              class="form-control form-control-sm input"
-            />
-          </div>
-        </div>
-
-        <div class="col-md-6 formGroup2">
-          <label class="m-0 tittle-input" for="age">Por idade</label>
-          <input
-            type="text"
-            name="age"
-            formControlName="ageStudentFilter"
-            class="form-control form-control-sm input"
-          />
-        </div>
       </form>
     </div>
+
     <div class="modal-footer">
       <button
         type="button"

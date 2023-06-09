@@ -80,7 +80,7 @@ export class StudentsListComponent implements OnInit {
 
   search() {
     this.getStudent(
-      `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
   }
 
@@ -137,14 +137,14 @@ export class StudentsListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: 'modal-lg',
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe((formValues: string) => {
-      this.getStudent(formValues);
+    this.bsModalRef.content.onClose.subscribe((url: string) => {
+      this.getStudent(url);
     });
   }
 
