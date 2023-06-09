@@ -2,20 +2,23 @@ const axios = require('axios');
 
 jest.mock('axios');
 
-beforeEach(() => {
-    url = 'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
-});
+describe('Teste API - teachers', () => {
+    let url;
+    const teacherId = 1;
 
-describe('Teste API - GET', () => {
+    beforeEach(() => {
+        url = 'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
+    });
+
     test('Deve retornar uma lista de professores', async () => {
         const mockedResponse = {
             status: 200,
             data: {
                 data: [
                     {
-                        id: 1,
+                        id: teacherId,
                         attributes: {
-                            id: 1,
+                            id: teacherId,
                             Name: 'Professor1',
                             Phone: '(61) 123456789',
                             CPF: '123456789',
@@ -38,26 +41,22 @@ describe('Teste API - GET', () => {
         expect(response.data).toHaveProperty('data');
         expect(Array.isArray(response.data.data)).toBe(true);
     });
-});
-
-
-describe('Teste API - PUT', () => {
-    const teacherId = 1;
-    const updatedTeacherData = {
-        id: teacherId,
-        Name: 'Novo Nome',
-        Phone: '(61) 987654321',
-        CPF: '987654321',
-        RG: '123456789',
-        Gender: 'female',
-        Instruments: 'Guitars',
-        Email: 'novoemail@example.com',
-        createdAt: '2023-01-01T00:00:00Z',
-        updatedAt: '2023-06-05T12:00:00Z',
-        publishedAt: '2023-01-01T00:00:00Z',
-    };
 
     test('Deve atualizar um professor existente', async () => {
+        const updatedTeacherData = {
+            id: teacherId,
+            Name: 'Novo Nome',
+            Phone: '(61) 987654321',
+            CPF: '987654321',
+            RG: '123456789',
+            Gender: 'female',
+            Instruments: 'Guitars',
+            Email: 'novoemail@example.com',
+            createdAt: '2023-01-01T00:00:00Z',
+            updatedAt: '2023-06-05T12:00:00Z',
+            publishedAt: '2023-01-01T00:00:00Z',
+        };
+
         const mockedResponse = {
             status: 200,
             data: {
@@ -72,10 +71,7 @@ describe('Teste API - PUT', () => {
         expect(response.data).toHaveProperty('id', teacherId);
         expect(response.data.attributes).toEqual(updatedTeacherData);
     });
-});
 
-describe('Teste API - DELETE', () => {
-    const teacherId = 1;
     test('Deve excluir um professor existente', async () => {
         const mockedResponse = {
             status: 200,

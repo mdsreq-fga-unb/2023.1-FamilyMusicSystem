@@ -2,20 +2,23 @@ const axios = require('axios');
 
 jest.mock('axios');
 
-beforeEach(() => {
-  url = 'https://20231-familymusicsystem-production.up.railway.app/api/students';
-});
+describe('Teste API - students', () => {
+  let url;
+  const studentId = 1;
 
-describe('Teste API - GET', () => {
+  beforeEach(() => {
+    url = 'https://20231-familymusicsystem-production.up.railway.app/api/students';
+  });
+
   test('Deve retornar uma lista de estudantes', async () => {
     const mockedResponse = {
       status: 200,
       data: {
         data: [
           {
-            id: 1,
+            id: studentId,
             attributes: {
-              id: 1,
+              id: studentId,
               Name: 'Aluno1',
               Email: 'aluno1@example.com',
               Phone: '(61) 123456789',
@@ -46,34 +49,30 @@ describe('Teste API - GET', () => {
     expect(response.data).toHaveProperty('data');
     expect(Array.isArray(response.data.data)).toBe(true);
   });
-});
-
-
-describe('Teste API - PUT', () => {
-  const studentId = 1;
-  const updatedStudentData = {
-    id: studentId,
-    Name: 'Novo Nome',
-    Email: 'novoemail@example.com',
-    Phone: '(61) 987654321',
-    Birthday: '1995-05-05',
-    DisabledPerson: false,
-    DisabledPersonType: 'N/A',
-    CPF: '987654321',
-    RG: '123456789',
-    Gender: 'female',
-    LegalGuardianName: 'Novo Tutor',
-    LegalGuardianCPF: '123456789',
-    LegalGuardianRG: '987654321',
-    LegalGuardianPhone: '(61) 987654321',
-    LegalGuardianEmail: 'novotutor@example.com',
-    Address: 'Rua B, 456',
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-06-05T12:00:00Z',
-    publishedAt: '2023-01-01T00:00:00Z',
-  };
 
   test('Deve atualizar um estudante existente', async () => {
+    const updatedStudentData = {
+      id: studentId,
+      Name: 'Novo Nome',
+      Email: 'novoemail@example.com',
+      Phone: '(61) 987654321',
+      Birthday: '1995-05-05',
+      DisabledPerson: false,
+      DisabledPersonType: 'N/A',
+      CPF: '987654321',
+      RG: '123456789',
+      Gender: 'female',
+      LegalGuardianName: 'Novo Tutor',
+      LegalGuardianCPF: '123456789',
+      LegalGuardianRG: '987654321',
+      LegalGuardianPhone: '(61) 987654321',
+      LegalGuardianEmail: 'novotutor@example.com',
+      Address: 'Rua B, 456',
+      createdAt: '2023-01-01T00:00:00Z',
+      updatedAt: '2023-06-05T12:00:00Z',
+      publishedAt: '2023-01-01T00:00:00Z',
+    };
+
     const mockedResponse = {
       status: 200,
       data: {
@@ -88,10 +87,7 @@ describe('Teste API - PUT', () => {
     expect(response.data).toHaveProperty('id', studentId);
     expect(response.data.attributes).toEqual(updatedStudentData);
   });
-});
 
-describe('Teste API - DELETE', () => {
-  const studentId = 1;
   test('Deve excluir um estudante existente', async () => {
     const mockedResponse = {
       status: 200,
