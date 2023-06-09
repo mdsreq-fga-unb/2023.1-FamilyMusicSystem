@@ -29,7 +29,8 @@ export class StudentsListComponent implements OnInit {
   checked: boolean = false;
   public searchForm: FormGroup;
   estilosDinamicos: any;
-  prefixoUrlStudent = 'http://localhost:1337/api/students';
+  prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
@@ -38,7 +39,7 @@ export class StudentsListComponent implements OnInit {
     private modalService: BsModalService,
     private http: HttpClient,
     private fb: FormBuilder
-  ) { }
+  ) {}
 
   getStudent(args?: string) {
     const opts = { params: { populate: '*' } };
@@ -79,11 +80,8 @@ export class StudentsListComponent implements OnInit {
 
   search() {
     this.getStudent(
-      `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
-    this.searchForm = this.fb.group({
-      search: ['', Validators.required],
-    });
   }
 
   ngOnInit(): void {
@@ -139,14 +137,14 @@ export class StudentsListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: 'modal-lg',
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.onHide?.subscribe(() => {
-      this.getStudent();
+    this.bsModalRef.content.onClose.subscribe((url: string) => {
+      this.getStudent(url);
     });
   }
 

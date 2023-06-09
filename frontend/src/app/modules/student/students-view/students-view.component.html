@@ -100,13 +100,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfStudent')?.errors &&
+              studentForm.get('cpfStudent')?.errors?.['required'] &&
               studentForm.get('cpfStudent')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfStudent')?.errors?.['iscpf'] &&
+              studentForm.get('cpfStudent')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -283,13 +292,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfLegalGuardian')?.errors &&
+              studentForm.get('cpfLegalGuardian')?.errors?.['required'] &&
               studentForm.get('cpfLegalGuardian')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfLegalGuardian')?.errors?.['iscpf'] &&
+              studentForm.get('cpfLegalGuardian')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -370,9 +388,9 @@
           align-items: center;
           justify-content: center;
         "
+        [disabled]="!isFormValid"
         *ngIf="guardian && edit"
         aria-label="Close"
-        [disabled]="!studentForm.valid"
         (click)="onEdit()"
         (click)="sair()"
       >
