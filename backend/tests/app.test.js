@@ -19,3 +19,4 @@ require('./user');
 require('./student');
 require('./teacher');
 require('./classroom');
+require('./lesson');
