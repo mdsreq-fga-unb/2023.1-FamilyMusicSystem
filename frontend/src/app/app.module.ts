@@ -37,6 +37,8 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
 import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     BsDropdownModule.forRoot(),
     HttpClientModule,
     AlertModule,
+    MatDialogModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

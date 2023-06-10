@@ -8,6 +8,9 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import * as moment from 'moment';
+import { AlertComponent } from 'ngx-bootstrap/alert';
+import { tap, timeout } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-students-register',
@@ -15,6 +18,7 @@ import * as moment from 'moment';
   styleUrls: ['./students-register.component.scss'],
 })
 export class StudentsRegisterComponent implements OnInit {
+  showAlert = false;
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;
@@ -25,12 +29,14 @@ export class StudentsRegisterComponent implements OnInit {
   public valid: boolean = false;
   dataAtual: string;
 
+
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialogRef: BsModalRef,
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
   }
@@ -79,7 +85,9 @@ export class StudentsRegisterComponent implements OnInit {
     });
   }
 
+
   onSubmit(): void {
+
     const student: Student = new Student();
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
@@ -115,13 +123,11 @@ export class StudentsRegisterComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O aluno foi cadastrado com sucesso.',
-            },
-          });
-          this.bsModalRef.content.showModal();
+          console.log(response);
+          this.showAlert = true;
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 3000);
         },
         (error) => {
           this.handleError(error);
@@ -273,5 +279,14 @@ export class StudentsRegisterComponent implements OnInit {
 
   sair() {
     this.bsModalRef.hide();
+  }
+
+  salvar() {
+    this.bsModalRef.hide();
+    this.onSubmit();
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
   }
 }

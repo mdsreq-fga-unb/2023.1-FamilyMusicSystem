@@ -7,8 +7,11 @@ import { StudentsAlertComponent } from '../students-alert/students-alert.compone
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, timeout } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 class Entry<T> {
   id: number;
@@ -25,6 +28,7 @@ class Response {
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
+  showAlert = false;
   private bsModalRef: BsModalRef;
   checked: boolean = false;
   public searchForm: FormGroup;
@@ -38,8 +42,10 @@ export class StudentsListComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
-    private fb: FormBuilder
-  ) {}
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private dialogRef: BsModalRef,
+  ) { }
 
   getStudent(args?: string) {
     const opts = { params: { populate: '*' } };
@@ -61,21 +67,34 @@ export class StudentsListComponent implements OnInit {
       );
   }
 
+
+
   deleteStudent(student: Student) {
-    this.http
-      .delete(`${this.prefixoUrlStudent}/${student.id}`)
-      .pipe(catchError((error) => this.handleError(error)))
-      .subscribe((response) => {
-        console.log(response);
-        this.getStudent();
-        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'O aluno foi deletado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
-      });
+    const dialogRef: MatDialogRef<StudentsAlertComponent> = this.dialog.open(StudentsAlertComponent, {
+      data: {
+        message: 'Você tem certeza que deseja excluir esse usuário?',
+        dialogRef: null
+      }
+    });
+
+    dialogRef.componentInstance.dialogRef = dialogRef;
+
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
+        this.http
+          .delete(`${this.prefixoUrlStudent}/${student.id}`)
+          .pipe(catchError((error) => this.handleError(error)))
+          .subscribe((response) => {
+            console.log(response);
+            dialogRef.close();
+            this.getStudent();
+            this.showAlert = true;
+            setTimeout(() => {
+              this.showAlert = false;
+            }, 3000);
+          });
+      }
+    });
   }
 
   search() {

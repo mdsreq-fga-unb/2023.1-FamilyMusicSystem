@@ -25,6 +25,7 @@ export class ContractComponent {
 
   sair() {
     this.bsModalRef.hide();
+    this.bsModalRef.hide();
   }
 
   updateElValue() {

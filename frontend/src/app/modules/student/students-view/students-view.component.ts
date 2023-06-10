@@ -9,6 +9,8 @@ import { ContractComponent } from '../../settings/contract/contract.component';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import { FormValidations } from '../students-register/form-validators';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-students-view',
@@ -16,6 +18,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./students-view.component.scss'],
 })
 export class StudentsViewComponent implements OnInit {
+  showAlert = false;
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
   public onClose: Subject<boolean>;
@@ -31,7 +34,9 @@ export class StudentsViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+        private dialog: MatDialog,
+    private dialogRef: BsModalRef,
   ) {}
 
   ngOnInit(): void {
@@ -116,6 +121,17 @@ export class StudentsViewComponent implements OnInit {
   }
 
   onEdit(): void {
+    const dialogRef: MatDialogRef<StudentsAlertComponent> = this.dialog.open(StudentsAlertComponent, {
+    data: {
+      message: 'Você tem certeza que deseja editar esse usuário?',
+      dialogRef: null
+    }
+  });
+
+  dialogRef.componentInstance.dialogRef = dialogRef;
+    
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
     const student: Student = new Student();
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
@@ -147,23 +163,17 @@ export class StudentsViewComponent implements OnInit {
     this.http.post('http://localhost:1337/api/students', body).subscribe(
       (response) => {
         console.log(response);
-        this.showAlertModal();
+        this.showAlert = true;
+        setTimeout(() => {
+          this.showAlert = false;
+        }, 3000);
       },
       (error) => {
         this.handleError(error);
       }
     );
+      }})
   }
-
-  showAlertModal() {
-    const successModalRef = this.modalService.show(StudentsAlertComponent, {
-      initialState: {
-        title: 'Operação concluída com sucesso!',
-        message: 'A operação foi realizada com sucesso.',
-      },
-    });
-  }
-
   private handleError(error: HttpErrorResponse): Observable<never> {
     this.error = error.message;
     return of();
