@@ -4,6 +4,7 @@ import { Teacher } from '../../../models/teacher';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment';
 import { FormValidations } from '../../../shared/form-validations';
 
 @Component({
@@ -12,17 +13,23 @@ import { FormValidations } from '../../../shared/form-validations';
   styleUrls: ['./teachers-register.component.scss'],
 })
 export class TeachersRegisterComponent implements OnInit {
+  public showAlert: boolean = false;
+  public edicao = false;
   public onClose: Subject<boolean>;
   public teacher: Teacher;
   public teacherForm: FormGroup;
-  error: any | undefined;
+  public dataAtual: string;
 
+  error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private dialogRef: BsModalRef
+  ) {
+    this.dataAtual = new Date().toISOString().split('T')[0];
+  }
 
   ngOnInit(): void {
     this.teacherForm = this.fb.group({
@@ -63,7 +70,8 @@ export class TeachersRegisterComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef.content.showModal();
+          console.log(response);
+          //this.bsModalRef.content.showModal();
         },
         (error) => {
           this.handleError(error);
@@ -85,5 +93,11 @@ export class TeachersRegisterComponent implements OnInit {
     if (div !== null) {
       div.scrollTop = 0;
     }
+  }
+
+  salvar() {
+    this.showAlert = true;
+    this.bsModalRef.hide();
+    this.onSubmit();
   }
 }

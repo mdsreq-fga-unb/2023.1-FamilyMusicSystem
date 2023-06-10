@@ -194,7 +194,7 @@
         "
         *ngIf="edit"
         aria-label="Close"
-        [disabled]="!teacherForm.valid"
+        [disabled]="!isFormValid"
         (click)="onEdit(teacher)"
         (click)="sair()"
       >

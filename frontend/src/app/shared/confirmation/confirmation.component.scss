@@ -2,15 +2,21 @@ p {
   margin: 0;
 }
 
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  background: red;
+}
+
 .corpo {
   background: var(--primary);
-  width: 10rem;
-  border-radius: 1rem;
+  width: 60%;
+  border-radius: 5rem;
+  display: contents;
 }
 
 .modal-header {
   display: flex;
   justify-content: center;
+  margin: 1rem;
 }
 
 .modal-footer {
@@ -18,13 +24,14 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin: 2rem
 }
 
 .modal-title {
   display: flex;
   color: var(--contrast);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 24px;
   line-height: 28px;
   margin: 0;
@@ -34,19 +41,13 @@ p {
   color: var(--contrast);
 }
 
-.subtittle {
-  margin-top: 0.2rem;
-  color: var(--contrast);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-}
-
 .modal-body {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .form-row {

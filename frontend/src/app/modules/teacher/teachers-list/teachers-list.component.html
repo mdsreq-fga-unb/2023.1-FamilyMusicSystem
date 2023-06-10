@@ -132,5 +132,26 @@
         </table>
       </div>
     </div>
+    <ngb-alert
+      *ngIf="showAlertDelete"
+      class="fixed-top my-warning-alert"
+      (close)="showAlertDelete = false"
+    >
+      <b>Exclusão Realizada!</b> O professor foi excluído com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertEdit"
+      class="fixed-top my-edit-alert"
+      (close)="showAlertEdit = false"
+    >
+      <b>Edição Realizada!</b> O perfil de professor foi atualizado com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertAdd"
+      class="fixed-top my-custom-alert"
+      (close)="showAlertAdd = false"
+    >
+      <b>Cadastro Realizado!</b> O professor foi cadastrado com sucesso!
+    </ngb-alert>
   </body>
 </div>
