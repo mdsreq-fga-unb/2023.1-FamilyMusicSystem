@@ -4,51 +4,62 @@
 | :--------: | :----: | :-----------------------------------------------------------------: | :----------------------------------: |
 | 16/05/2023 |  0.1   | Criação e estruturação do primeiro registro de reuniões das sprints | Luana Ribeiro, </br>Guilherme Santos |
 | 01/06/2023 | 0.2 | Atualização de dailys da Sprint 3 e correções de ortografia | Luana Ribeiro |
+| 09/06/2023 | 0.3 | Recriação da documentação das sprints no modelo correto | Luana Ribeiro | 
 
 ## Sprint 0 
 
-<p style="text-indent: 50px;text-align: justify;"> No decorrer da Sprint 0, a equipe não seguiu a risca os fundamentos do Scrum, por esse motivo o nome.
+<p style="text-indent: 50px;text-align: justify;">  Data: 28/03/2023 - 27/04/2023
+</p>
+<p style="text-indent: 50px;text-align: justify;"> No decorrer da Sprint 0, a equipe estava em fase de adaptação e compreensão dos fundamentos do Scrum, por isso nomeada como Sprint 0 e com um período maior.
 </p>
 
-| Data | Tipo de Reunião | Participantes | O que foi decidido | O que foi falado |
-| ---- | --------------- | ------------- | ------------------ | ---------------- |
-| <b>10/04/2023</b> | Primeira reunião do grupo | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | Pápeis de cada integrante do grupo no projeto. | - Apresentação das habilidades do grupo.<br>- Discussão sobre o tema do projeto. |  |
-| <b>24/04/2023</b> | Reunião de atualizacões da equipe | Davi Ranieri,<br>Guilherme Santos,<br> Luana Ribeiro. | - Decisões em relação ao vídeo de apresentacao. </br> - Atualizacão do Miro. | Discussão sobre o horário das dailys. |
-
+| Sprint | 0 | 
+| ---- | --------------- | 
+| <b>Decisões do grupo</b> | - Primeira reunião do grupo </br> - Foi decidido por alto as tecnologias que seriam utilizadas </br> - Foram decididos os papéis de cada integrante </br> - Decisão de utilizar o Miro para organização |
+| <b>Entregas<b> | - Definição do produto </br> - Definição do problema </br> - Início do GitPages </br> - Lista Inicial dos requisitos do produto </br> - Conclusão da ideia do produto </br> - Produção da Visão de Produto e Projeto </br> - Produção do Processo de Desenvolvimento de Software | 
+| <b>Sprint Retrospective<b> | Os tópicos propostos foram conversados e as entregas todas realizadas |
 
 ## Sprint 1
 
-![1](images/../../images/slides-unidade-1/Sprint1.jpeg)
+<p style="text-indent: 50px;text-align: justify;">  Data: 28/04/2023 - 12/05/2023
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 1, houve a continuidade da definição de pontos cruciais para a confecção do projeto
+</p>
 
-| Data | Tipo da reunião | Quem participou | O que foi decidido | O que foi falado |
-| ---- | --------------- | --------------- | ----------------- | --------------- |
-| <b>27/04/2023</b> | Sprint Planning | Guilherme Santos,<br> Luan Mateus,<br> Maykon Junio. | Decidido o que vamos entregar durante a sprint com referência nos slides de entrega da unidade 2 | Data de entrega de algumas atividades |
-| <b>03/05/2023</b> | Primeira Reunião com Cliente. | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | Foco do projeto em cadastro de alunos e professores, além de geração de contratos | Amostra dos requisitos e aprovacao do cliente |
-| <b>04/05/2023</b> | Reunião de Atualizacão do Grupo | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | - Dailys online sincronas: segunda e quarta </br> - Dailys assincronas terca e quinta </br> - Explicacão do Miro </br> - Tarefas do MVP1 e MVP2<br> - Partes do Backlog distribuidas para o grupo. | Alinhamento das entregas no grupo do WhatsApp|
-| <b>07/05/2023<b>  | Daily Assíncrona | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.  | Atualizações do que cada um fez | Saber o que cada integrante do grupo fez nos dias anteriores |
-| <b>08/05/2023<b>  | Daily Síncrona com Atualizações do Grupo | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.   | - Separação de papéis na apresentação </br> - Sanar algumas dúvidas com o professor </br> - Apresentar UI para o cliente </br> - Divisão de equipes | Discussão sobre o cliente e a plataforma |
-| <b>15/05/2023<b>  | Sprint Retrospective | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | - Definição de pessoas que apresentariam no dia seguinte </br> - Mudanca de papéis com a saída do Levi </br> - Foco no Miro | - Atualizacoes do Backlog. </br> - Relatório de Gamificacao. </br> - Pontos positivos, negativos e melhorias. </br> - Review do que foi realizado na Sprint com o grupo. |
+| Sprint | 1 | 
+| ---- | --------------- | 
+| <b>Sprint Planning</b> | Sprint Goal- Realizar as tarefas da Unidade 2 </br> - Reunião com o Cliente </br> - Redefinir as funções do grupo com a saída do integrante Levi |
+| <b>Backlog da Sprint<b> | - Backlog do Produto </br> - Arquitetura do Produto </br> - Padrões de UI </br> - Definição do MVP 1 e MVP 2 </br> - Workflow de Integração Contínua | 
+| <b>Sprint Review<b> | - Nessa Sprint, houve uma reunião com o Cliente Felipe que deixou definido o foco a ser entregue inicialmente </br> - Foco: Cadastro de alunos e professores, e a geração de contratos  |
+| <b>Sprint Retrospective<b> |  - Melhorar a comunicação </br> - Mais interação da equipe no Miro </br> - Ponto forte: Bom relacionamento da equipe e de atribuição de tarefas |
 
 ## Sprint 2
 
-![2](images/../../images/slides-unidade-1/Sprint2.jpeg)
+<p style="text-indent: 50px;text-align: justify;">  Data: 13/05/2023 - 27/05/2023
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 2, ocorreu a entrega da Unidade 2 e Início da confecção do projeto
+</p>
 
-| Data | Tipo da reunião | Quem participou | O que foi decidido | O que foi falado |
-| ---- | --------------- | --------------- | ----------------- | --------------- |
-| <b>15/05/2023</b> | Sprint Planning | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | Decidido o que vamos entregar durante a sprint com referência nos slides de entrega da unidade 2 e backlog. | Data de entrega de algumas atividades |
-| <b>16/05/2023</b> | Reunião de Atualizacão do Grupo / Daily Presencial| Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | Daily presencial com intuito de atualizar andamento de entrega. | atualização sobre andamento de entregas. |
-| <b>18/05/2023</b> | Reunião de Atualizacão do Grupo / Daily Presencial | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | Daily presencial com intuito de atualizar andamento de entrega. | atualização sobre andamento de entregas. |
-| <b>22/05/2023</b> | Reunião de Atualizacão do Grupo | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.| Separação de requisitos para inserção de novas issues no GitHub. | Atualização do grupo sobre feedback e andamnto de entregas |
-| <br>24/05/2023<br>  | Daily Online | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio.  | Atualizações do que cada um fez | Saber o que cada integrante do grupo fez nos dias anteriores |
-| <br>29/05/2023<br> | Sprint Retrospective | Davi Ranieri,<br>Guilherme Santos,<br> Luan Mateus,<br> Luana Ribeiro,<br>Maykon Junio. | - Feedbacks dos participantes sobre a Sprint 2. </br> Remanejamento das entregas da Sprint 3 </br> - Foco no Miro. </br> - Relatório de Gamificacao. </br> - Pontos positivos, negativos e melhorias. |
+| Sprint | 2 | 
+| ---- | --------------- | 
+| <b>Sprint Planning - Goal</b> | - Começar o MVP 1 </br> - Estudar funcionamento da Integração Contínua  |
+| <b>Backlog da Sprint<b> | -  Estudar Pipeline de Integração Contínua </br> - US01: Cadastro de Aluno  </br> - US02: Cadastro de Professor   </br> - US03: Atualização do Perfil de Professor  </br> - US04: Atualização do Perfil de Aluno </br> - US05: Remover cadastro de Aluno  </br> - US06: Remover cadastro de professor </br> - US17: Geração de Contrato de Prestação de Serviços | 
+| <b>Sprint Review<b> | - Nessa Sprint, não ocorreu reunião com o PO Felipe, pois o mesmo não encontrava-se disponível |
+| <b>US's não realizadas<b> | - US03, US04, US05, US06, US17 </br> - Justificativa: No período dessa sprint, as histórias de usuário ficaram em andamento, porém, não foram concluídas. O período de ambientação das ferramentas foi mais duradouro. Por isso, sua conclusão será realizada na Sprint 3 |
+| <b>Sprint Retrospective<b> |  - Pontos fortes: Todos deixaram claro suas dificuldades, a ajuda mútua ocorreu e as mudanças e adaptações necessárias durante a sprint ocorreram tranquilamente </br> - Pontos Fracos: Dificuldade em comunicação com o PO, algumas dificuldades de comunicação sobre o que cada um estava fazendo no momento </br> - Melhorias para a próxima Sprint: Todos deixarem sempre claro o que estão fazendo no momento, mais comunicação com o PO, mais preparação para mudanças inesperadas |
 
-![kanbam-sprint2](https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem/assets/89596623/9c985497-c4f0-49c3-ae3d-27fe52000aba)
 
 ## Sprint 3
 
-![kanbamsprint3](https://github.com/mdsreq-fga-unb/2023.1-FamilyMusicSystem/assets/89596623/77860dfc-36c9-46ea-8418-68c113503daf)
+<p style="text-indent: 50px;text-align: justify;">  Data: 28/05/2023 - 11/06/2023
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 3, ocorreu a finalização das US para o MVP1
+</p>
 
-| Data | Tipo da reunião | Quem participou | O que foi decidido | O que foi falado |
-| ---- | --------------- | --------------- | ----------------- | --------------- |
-| <b>29/05/2023</b> | Sprint Planning | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | - Criação de issues com base nos requisitos retirados do backlog. </br> - Inserção de tarefas da sprint 2 não concluídas para sprint 3. | - Reorganização da entrega da Sprint. </br> - Definição de workflow do GitHub. </br> - Padronização de Issues. |
-| <b>01/06/2023 </b> |Daily Assíncrona | Davi Ranieri,<br>  Guilherme Santos,<br> Luan Mateus,<br>  Luana Ribeiro<br> Maykon Junio. | - lembrete dos responsáveis por cada demanda da semana. </br> - Lembrete das práticas de Scrum (Ritmo Sustentável). | - Atualização do que cada um fez no dia anterior e atual, pedidos de ajuda para sanar dificuldades. | 
+| Sprint | 3 | 
+| ---- | --------------- | 
+| <b>Sprint Planning - Goal</b> | - Realizar o Workflow </br> - Finalizar as US não concluídas da Sprint anterior </br> - Finalizar as US restantes para o MVP1 </br> - Entregas da Unidade 3 |
+| <b>Backlog da Sprint<b> | -  Workflow de Integração Contínua </br> - US03: Atualização do Perfil de Professor  </br> - US04: Atualização do Perfil de Aluno </br> - US05: Remover cadastro de Aluno  </br> - US06: Remover cadastro de professor </br> - US07: Usuário acessar a plataforma </br> - US08: Usuário recuperar sua senha </br> - US11: Agenda de alunos </br> - US12: Adição de aulas na agenda do aluno </br> - US13: Agenda de Professor </br> - US14: Adição de aulas na agenda do professor </br> - US17: Geração de Contrato de Prestação de Serviços | 
+| <b>Sprint Review<b> | - Nessa Sprint, não ocorreu reunião com o PO Felipe, pois o mesmo não encontrava-se disponível |
+| <b>US's não realizadas<b> | - US </br> - Justificativa: No período dessa sprint, as histórias de usuário ficaram em andamento, porém, não foram concluídas. O período de ambientação das ferramentas foi mais duradouro. Por isso, sua conclusão será realizada na Sprint 3 |
+| <b>Sprint Retrospective<b> |  - Pontos fortes:  </br> - Pontos Fracos: Falta de Ritmo Sustentável, alguns membros mais sobrecarregados que outros </br> - Melhorias para a próxima Sprint:  |
