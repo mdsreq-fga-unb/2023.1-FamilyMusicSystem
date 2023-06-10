@@ -1,3 +1,4 @@
+import { FormValidations } from './../../../shared/form-validations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -6,7 +7,8 @@ import { Observable, of } from 'rxjs';
 import { Teacher } from '../../../models/teacher';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
-import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component'
+import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-teachers-view',
@@ -21,7 +23,10 @@ export class TeachersViewComponent implements OnInit {
   public teacher: Teacher;
   public teacherForm: FormGroup;
   public edit = false;
-  prefixoUrlTeacher = 'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
+  public isFormValid = false;
+
+  prefixoUrlTeacher =
+    'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
   public guardian = false;
 
   constructor(
@@ -29,6 +34,7 @@ export class TeachersViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -52,18 +58,14 @@ export class TeachersViewComponent implements OnInit {
       ],
       cpfTeacher: [
         { value: this.teacher.CPF, disabled: !this.edit },
-        [
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-        ],
+        [Validators.required, FormValidations.isValidCPF],
         ,
       ],
       rgTeacher: [
         { value: this.teacher.RG, disabled: !this.edit },
         Validators.required,
       ],
-      
+
       genderTeacher: [
         { value: this.teacher.Gender, disabled: !this.edit },
         Validators.required,
@@ -74,9 +76,14 @@ export class TeachersViewComponent implements OnInit {
         Validators.required,
       ],
     });
+    this.cdr.detectChanges();
+    this.teacherForm.updateValueAndValidity();
+    this.teacherForm.statusChanges.subscribe(() => {
+      this.isFormValid = this.teacherForm.valid;
+    });
   }
 
-  onEdit($teachers : Teacher): void {
+  onEdit($teachers: Teacher): void {
     const teacher: Teacher = new Teacher();
     teacher.Name = this.teacherForm.get('nameTeacher')?.value;
     teacher.Email = this.teacherForm.get('emailTeacher')?.value;
@@ -90,15 +97,20 @@ export class TeachersViewComponent implements OnInit {
       data: teacher,
     };
 
-    this.http.put(`https://20231-familymusicsystem-production.up.railway.app/api/teachers/${$teachers.id}`, body).subscribe(
-      (response) => {
-        console.log(response);
-        this.showAlertModal();
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
+    this.http
+      .put(
+        `https://20231-familymusicsystem-production.up.railway.app/api/teachers/${$teachers.id}`,
+        body
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.showAlertModal();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
   }
 
   showAlertModal() {

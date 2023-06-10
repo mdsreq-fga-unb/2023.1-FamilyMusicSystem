@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, of } from 'rxjs';
 import { Teacher } from '../../../models/teacher';
-import { FormGroup , FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component';
+import { FormValidations } from '../../../shared/form-validations';
 
 @Component({
   selector: 'app-teachers-register',
   templateUrl: './teachers-register.component.html',
-  styleUrls: ['./teachers-register.component.scss']
+  styleUrls: ['./teachers-register.component.scss'],
 })
 export class TeachersRegisterComponent implements OnInit {
-  public onClose : Subject<boolean>;
-  public teacher : Teacher;
-  public teacherForm : FormGroup;
+  public onClose: Subject<boolean>;
+  public teacher: Teacher;
+  public teacherForm: FormGroup;
   error: any | undefined;
 
   constructor(
@@ -26,29 +27,27 @@ export class TeachersRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.teacherForm = this.fb.group({
-      nameTeacher:[null , Validators.required],
-      emailTeacher:[null , Validators.required,Validators.email],
-      phoneTeacher:[
-        null ,
-        [
-        Validators.required,
-        Validators.maxLength(11),
-        Validators.minLength(11),
-        ]
-      ],
-      cpfTeacher:[
-        null ,
+      nameTeacher: [null, Validators.required],
+      emailTeacher: [null, Validators.required, Validators.email],
+      phoneTeacher: [
+        null,
         [
           Validators.required,
           Validators.maxLength(11),
           Validators.minLength(11),
-        ]
+        ],
       ],
-      rgTeacher:[null , Validators.required],
-      genderTeacher:[null , Validators.required],
-      instrumentTeacher:[null , Validators.required],
-      
-    })
+      cpfTeacher: [
+        null,
+        [
+          Validators.required,
+          FormValidations.isValidCPF
+        ],
+      ],
+      rgTeacher: [null, Validators.required],
+      genderTeacher: [null, Validators.required],
+      instrumentTeacher: [null, Validators.required],
+    });
   }
 
   onSubmit(): void {
@@ -64,23 +63,28 @@ export class TeachersRegisterComponent implements OnInit {
       data: teacher,
     };
 
-    this.http.post('https://20231-familymusicsystem-production.up.railway.app/api/teachers', body).subscribe(
-      (response) => {
-        this.bsModalRef = this.modalService.show(TeachersAlertComponent, {
-          initialState: {
-            title: 'Cadastro finalizado!',
-            message: 'O aluno foi cadastrado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
+    this.http
+      .post(
+        'https://20231-familymusicsystem-production.up.railway.app/api/teachers',
+        body
+      )
+      .subscribe(
+        (response) => {
+          this.bsModalRef = this.modalService.show(TeachersAlertComponent, {
+            initialState: {
+              title: 'Cadastro finalizado!',
+              message: 'O aluno foi cadastrado com sucesso.',
+            },
+          });
+          this.bsModalRef.content.showModal();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
   }
 
-  sair(){
+  sair() {
     this.bsModalRef.hide();
   }
 
@@ -95,6 +99,4 @@ export class TeachersRegisterComponent implements OnInit {
       div.scrollTop = 0;
     }
   }
-
-
 }
