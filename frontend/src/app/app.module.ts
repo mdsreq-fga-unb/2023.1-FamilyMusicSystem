@@ -38,7 +38,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
 
 @NgModule({
