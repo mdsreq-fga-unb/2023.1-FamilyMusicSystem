@@ -2,17 +2,15 @@ import { Component, EventEmitter, Output, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-students-alert',
-  templateUrl: './students-alert.component.html',
-  styleUrls: ['./students-alert.component.scss']
+  selector: 'app-confirmation',
+  templateUrl: './confirmation.component.html',
+  styleUrls: ['./confirmation.component.scss'],
 })
-export class StudentsAlertComponent {
+export class ConfirmationComponent {
   @Output() confirmed: EventEmitter<boolean> = new EventEmitter<boolean>();
-  dialogRef: MatDialogRef<StudentsAlertComponent>; // Adicione a declaração da referência do modal
+  dialogRef: MatDialogRef<ConfirmationComponent>;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
   cancel() {
     this.confirmed.emit(false);

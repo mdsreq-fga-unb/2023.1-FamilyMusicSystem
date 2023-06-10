@@ -14,9 +14,15 @@ describe('StudentsListComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [StudentsListComponent],
-      providers: [BsModalService, MatDialogModule, MatIconModule, MatDialog, { provide: MatDialogRef, useValue: {} },
-        { provide: MAT_DIALOG_DATA, useValue: {} }],
-      imports: [HttpClientTestingModule, MatDialogModule ],
+      providers: [
+        BsModalService,
+        MatDialogModule,
+        MatIconModule,
+        MatDialog,
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+      ],
+      imports: [HttpClientTestingModule, MatDialogModule],
     }).compileComponents();
   }));
 

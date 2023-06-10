@@ -6,11 +6,9 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
-import { StudentsAlertComponent } from '../students-alert/students-alert.component';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 
 @Component({
@@ -19,7 +17,6 @@ import * as moment from 'moment';
   styleUrls: ['./students-view.component.scss'],
 })
 export class StudentsViewComponent implements OnInit {
-  showAlert = false;
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
   public onClose: Subject<boolean>;
@@ -31,6 +28,7 @@ export class StudentsViewComponent implements OnInit {
   public edit = false;
   public guardian = false;
   public isFormValid = false;
+  public showAlert = false;
 
   verificarIdade(dataEscolhida: string): boolean {
     const hoje = moment();
@@ -44,9 +42,7 @@ export class StudentsViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
-    private cdr: ChangeDetectorRef,
-        private dialog: MatDialog,
-    private dialogRef: BsModalRef,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -130,7 +126,8 @@ export class StudentsViewComponent implements OnInit {
     });
   }
 
-  onEdit(student : Student): void {
+  onEdit($student: Student): void {
+    const student: Student = new Student();
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
     student.Phone = this.studentForm.get('phoneStudent')?.value;
@@ -160,12 +157,17 @@ export class StudentsViewComponent implements OnInit {
 
     this.http
       .put(
-        `https://20231-familymusicsystem-production.up.railway.app/api/students/${student.id}`,
+        `https://20231-familymusicsystem-production.up.railway.app/api/students/${$student.id}`,
         body
       )
       .subscribe(
         (response) => {
           console.log(response);
+          console.log(response);
+          this.showAlert = true;
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 3000);
         },
         (error) => {
           this.handleError(error);
