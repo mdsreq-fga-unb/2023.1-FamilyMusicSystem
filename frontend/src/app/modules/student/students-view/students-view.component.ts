@@ -130,8 +130,7 @@ export class StudentsViewComponent implements OnInit {
     });
   }
 
-  onEdit(): void {
-    const student: Student = new Student();
+  onEdit(student : Student): void {
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
     student.Phone = this.studentForm.get('phoneStudent')?.value;
