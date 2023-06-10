@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(HelpComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
   modalprofile() {
     const modalConfig = {
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
       StudentsViewComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
 
   modalcontract() {
@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
   modalprivacy() {
     const modalConfig = {
@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(PrivacyComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
   modalresources() {
     const modalConfig = {
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ResourcesComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
   modalabout() {
     const modalConfig = {
@@ -88,7 +88,7 @@ export class HeaderComponent implements OnInit {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(AboutComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
 
   toggle() {

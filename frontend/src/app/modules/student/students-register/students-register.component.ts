@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
+import { StudentsAlertComponent } from '../students-alert/students-alert.component';
+import * as moment from 'moment';
+import { FormValidations } from '../../../shared/form-validations';
 
 @Component({
   selector: 'app-students-register',
@@ -18,13 +21,26 @@ export class StudentsRegisterComponent implements OnInit {
   public guardian = false;
   public student: Student;
   public studentForm: FormGroup;
+  public hasGuardian: boolean = true;
+  public valid: boolean = false;
+  dataAtual: string;
 
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
+    private modalService: BsModalService,
     private fb: FormBuilder,
     private http: HttpClient
-  ) {}
+  ) {
+    this.dataAtual = new Date().toISOString().split('T')[0];
+  }
+
+  verificarIdade(dataEscolhida: string): boolean {
+    const hoje = moment();
+    const dataNascimento = moment(dataEscolhida);
+    const idade = hoje.diff(dataNascimento, 'years');
+    return idade >= 18;
+  }
 
   ngOnInit(): void {
     this.studentForm = this.fb.group({
@@ -38,14 +54,7 @@ export class StudentsRegisterComponent implements OnInit {
           Validators.minLength(11),
         ],
       ],
-      cpfStudent: [
-        null,
-        [
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-        ],
-      ],
+      cpfStudent: [null, [Validators.required, FormValidations.isValidCPF]],
       rgStudent: [null, Validators.required],
       disabledPersonStudent: [null, Validators.required],
       disabledPersonTypeStudent: [null],
@@ -56,11 +65,7 @@ export class StudentsRegisterComponent implements OnInit {
       emailLegalGuardian: [null, [Validators.required, Validators.email]],
       phoneLegalGuardian: [
         null,
-        [
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-        ],
+        [Validators.required, FormValidations.isValidCPF],
       ],
       cpfLegalGuardian: [
         null,
@@ -103,14 +108,25 @@ export class StudentsRegisterComponent implements OnInit {
       data: student,
     };
 
-    this.http.post('http://localhost:1337/api/students', body).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
+    this.http
+      .post(
+        'https://20231-familymusicsystem-production.up.railway.app/api/students',
+        body
+      )
+      .subscribe(
+        (response) => {
+          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
+            initialState: {
+              title: 'Cadastro finalizado!',
+              message: 'O aluno foi cadastrado com sucesso.',
+            },
+          });
+          this.bsModalRef.content.showModal();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
   }
 
   scrollTop() {
@@ -126,9 +142,130 @@ export class StudentsRegisterComponent implements OnInit {
   }
 
   Guardian() {
+    this.hasGuardian = this.verificarIdade(
+      this.studentForm.get('birthdayStudent')?.value
+    );
+    if (this.hasGuardian) {
+      this.studentForm = this.fb.group({
+        nameStudent: [
+          {
+            value: this.studentForm.get('nameStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        emailStudent: [
+          {
+            value: this.studentForm.get('emailStudent')?.value,
+            disabled: false,
+          },
+          [Validators.required, Validators.email],
+        ],
+        phoneStudent: [
+          {
+            value: this.studentForm.get('phoneStudent')?.value,
+            disabled: false,
+          },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        cpfStudent: [
+          {
+            value: this.studentForm.get('cpfStudent')?.value,
+            disabled: false,
+          },
+          [Validators.required, FormValidations.isValidCPF],
+          ,
+        ],
+        rgStudent: [
+          {
+            value: this.studentForm.get('rgStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        disabledPersonStudent: [
+          {
+            value: this.studentForm.get('disabledPersonStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        disabledPersonTypeStudent: [
+          {
+            value: this.studentForm.get('disabledPersonStudentType')?.value,
+            disabled: false,
+          },
+        ],
+        genderStudent: [
+          {
+            value: this.studentForm.get('genderStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        addressStudent: [
+          {
+            value: this.studentForm.get('addressStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        birthdayStudent: [
+          {
+            value: this.studentForm.get('birthdayStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        nameLegalGuardian: [
+          { value: this.studentForm.get('nameStudent')?.value, disabled: true },
+          Validators.required,
+        ],
+        emailLegalGuardian: [
+          {
+            value: this.studentForm.get('emailStudent')?.value,
+            disabled: true,
+          },
+          [Validators.required, Validators.email],
+        ],
+        phoneLegalGuardian: [
+          {
+            value: this.studentForm.get('phoneStudent')?.value,
+            disabled: true,
+          },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        cpfLegalGuardian: [
+          { value: this.studentForm.get('cpfStudent')?.value, disabled: true },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        rgLegalGuardian: [
+          { value: this.studentForm.get('rgStudent')?.value, disabled: true },
+          Validators.required,
+        ],
+      });
+    }
+    this.studentForm.updateValueAndValidity();
+    this.valid = this.studentForm.valid;
     this.inicial = false;
     this.guardian = true;
   }
+
   GuardianBack() {
     this.inicial = true;
     this.guardian = false;
@@ -137,6 +274,4 @@ export class StudentsRegisterComponent implements OnInit {
   sair() {
     this.bsModalRef.hide();
   }
-
-  // regras de cadatro
 }

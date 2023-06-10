@@ -13,5 +13,5 @@ import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
   ],
 })
 export class SidebarComponent {
-  
+
 }

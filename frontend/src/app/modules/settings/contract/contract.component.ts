@@ -1,8 +1,11 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import { ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Student } from '../../../models/student';
+import { format } from 'date-fns';
+import { pt } from 'date-fns/locale';
+import { StudentsViewComponent } from '../../student/students-view/students-view.component';
 
 @Component({
   selector: 'app-contract',
@@ -10,9 +13,14 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./contract.component.scss'],
 })
 export class ContractComponent {
+  public student: Student;
+  formattedDate = format(new Date(), `dd 'de' MMMM 'de' yyyy`, {
+    locale: pt,
+  });
+
   constructor(
-    private bsModalRef: BsModalRef,
-    private fb: FormBuilder,
+    private modal: BsModalRef,
+    private modalService: BsModalService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -21,7 +29,7 @@ export class ContractComponent {
   ispdf = false;
 
   sair() {
-    this.bsModalRef.hide();
+    this.modal.hide();
   }
 
   updateElValue() {
@@ -30,7 +38,6 @@ export class ContractComponent {
   }
 
   saveContract() {
-    debugger;
     const pdf = new jsPDF({
       orientation: 'p',
       unit: 'px',

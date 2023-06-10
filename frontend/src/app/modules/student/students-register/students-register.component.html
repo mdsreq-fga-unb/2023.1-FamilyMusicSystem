@@ -30,7 +30,7 @@
         <mat-icon class="icon">person</mat-icon>Informações do Aluno
       </h2>
       <h2 class="modal-title" *ngIf="guardian">
-        <mat-icon class="icon">person</mat-icon>Informações do resposável
+        <mat-icon class="icon">person</mat-icon>Informações do Resposável Legal
       </h2>
     </div>
     <div class="modal-body">
@@ -100,13 +100,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfStudent')?.errors &&
+              studentForm.get('cpfStudent')?.errors?.['required'] &&
               studentForm.get('cpfStudent')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfStudent')?.errors?.['iscpf'] &&
+              studentForm.get('cpfStudent')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -170,7 +179,7 @@
             <option value="Others">outro</option>
           </select>
           <div
-            *ngIf="studentForm.get('disabledPersonStudent')?.errors?.['required'] && studentForm.get('disabledPersonStudent')?.touched"
+            *ngIf="studentForm.get('genderStudent')?.errors?.['required'] && studentForm.get('genderStudent')?.touched"
             class="validators"
           >
             Seleção obrigatória
@@ -183,6 +192,7 @@
           >
           <input
             type="date"
+            [max]="dataAtual"
             formControlName="birthdayStudent"
             name="birthday"
             class="form-control form-control-sm input"
@@ -283,13 +293,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfLegalGuardian')?.errors &&
+              studentForm.get('cpfLegalGuardian')?.errors?.['required'] &&
               studentForm.get('cpfLegalGuardian')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfLegalGuardian')?.errors?.['iscpf'] &&
+              studentForm.get('cpfLegalGuardian')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -372,7 +391,6 @@
         "
         *ngIf="guardian"
         aria-label="Close"
-        [disabled]="!studentForm.valid"
         (click)="onSubmit()"
         (click)="sair()"
       >

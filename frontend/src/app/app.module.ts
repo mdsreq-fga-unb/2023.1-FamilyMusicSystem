@@ -35,6 +35,9 @@ import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,8 @@ import { HttpClientModule } from '@angular/common/http';
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
+    StudentsAlertComponent,
+    TeachersAlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     HttpClientModule,
+    AlertModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

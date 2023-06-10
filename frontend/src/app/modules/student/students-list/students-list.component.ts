@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
@@ -28,7 +29,8 @@ export class StudentsListComponent implements OnInit {
   checked: boolean = false;
   public searchForm: FormGroup;
   estilosDinamicos: any;
-  prefixoUrlStudent = 'http://localhost:1337/api/students';
+  prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
@@ -66,16 +68,20 @@ export class StudentsListComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
         this.getStudent();
+        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
+          initialState: {
+            title: 'Exclusão concluída!',
+            message: 'O aluno foi deletado com sucesso.',
+          },
+        });
+        this.bsModalRef.content.showModal();
       });
   }
 
   search() {
     this.getStudent(
-      `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
-    this.searchForm = this.fb.group({
-      search: ['', Validators.required],
-    });
   }
 
   ngOnInit(): void {
@@ -131,14 +137,14 @@ export class StudentsListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: 'modal-lg',
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.onHide?.subscribe(() => {
-      this.getStudent();
+    this.bsModalRef.content.onClose.subscribe((url: string) => {
+      this.getStudent(url);
     });
   }
 

@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classrooms",
+  "info": {
+    "singularName": "classroom",
+    "pluralName": "classrooms",
+    "displayName": "Classroom"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Capacity": {
+      "type": "integer"
+    }
+  }
+}
