@@ -7,8 +7,6 @@ import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.comp
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component';
-
 
 class Entry<T> {
   id: number;
@@ -29,17 +27,17 @@ export class TeachersListComponent implements OnInit {
   checked: boolean = false;
   public searchForm: FormGroup;
   estilosDinamicos: any;
-  prefixoUrlTeacher = 'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
+  prefixoUrlTeacher =
+    'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
 
   error: any | undefined;
   teachers$: Observable<Teacher[]> | undefined;
 
-
-
   constructor(
-  private modalService: BsModalService,
-  private http: HttpClient,
-  private fb: FormBuilder) {}
+    private modalService: BsModalService,
+    private http: HttpClient,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getTeacher();
@@ -81,12 +79,6 @@ export class TeachersListComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
         this.getTeacher();
-        this.bsModalRef = this.modalService.show(TeachersAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'O aluno foi deletado com sucesso.',
-          },
-        });
         this.bsModalRef.content.showModal();
       });
   }
@@ -152,9 +144,8 @@ export class TeachersListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {
-      },
-      class : 'modal-lg'
+      initialState: {},
+      class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(
       TeachersFilterComponent,

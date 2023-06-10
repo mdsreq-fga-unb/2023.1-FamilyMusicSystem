@@ -1,204 +1,205 @@
 <body class="corpo">
-    <div class="photo">
+  <div class="photo">
+    <button
+      type="button"
+      class="btn-close text-reset"
+      (click)="sair()"
+      aria-label="Close"
+      id="close"
+    ></button>
+    <img src="\assets\image\foto-upload.png" />
+    <h3 class="subtittle">Insira uma imagem do <b>Professor</b></h3>
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      routerLink=""
+      style="
+        height: min-content;
+        width: 10rem;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+      "
+    >
+      carregar imagem
+    </button>
+  </div>
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <mat-icon class="icon">person</mat-icon>Informações do Professor
+      </h2>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="teacherForm" class="form-row">
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="name"
+            >Nome completo<b>*</b></label
+          >
+          <input
+            type="text"
+            name="name"
+            formControlName="nameTeacher"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="teacherForm.get('nameTeacher')?.errors?.['required'] && teacherForm.get('nameTeacher')?.touched"
+            class="validators"
+          >
+            Nome obrigatório
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="email">Email<b>*</b></label>
+          <input
+            type="text"
+            name="email"
+            formControlName="emailTeacher"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="
+              teacherForm.get('emailTeacher')?.errors &&
+              teacherForm.get('emailTeacher')?.touched
+            "
+            class="validators"
+          >
+            Email obrigatório
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
+          <input
+            type="text"
+            name="phone"
+            formControlName="phoneTeacher"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="
+              teacherForm.get('phoneTeacher')?.errors &&
+              teacherForm.get('phoneTeacher')?.touched
+            "
+            class="validators"
+          >
+            Insira um formato de telefone válido. Ex.: 61944028922
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
+          <input
+            type="text"
+            name="cpf"
+            formControlName="cpfTeacher"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="
+              teacherForm.get('cpfTeacher')?.errors &&
+              teacherForm.get('cpfTeacher')?.touched
+            "
+            class="validators"
+          >
+            CPF obrigatório
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="rg">RG<b>*</b></label>
+          <input
+            type="text"
+            name="rg"
+            formControlName="rgTeacher"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="teacherForm.get('rgTeacher')?.errors?.['required'] && teacherForm.get('rgTeacher')?.touched"
+            class="validators"
+          >
+            RG obrigatório
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="gender">Gênero<b>*</b></label>
+          <select
+            name="gender"
+            formControlName="genderTeacher"
+            class="form-control form-control-sm input"
+          >
+            <option value="Male">masculino</option>
+            <option value="Female">feminino</option>
+            <option value="Others">outro</option>
+          </select>
+          <div
+            *ngIf="teacherForm.get('genderTeacher')?.errors?.['required'] && teacherForm.get('genderTeacher')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="gender"
+            >Instrumento<b>*</b></label
+          >
+          <select
+            name="instrument"
+            formControlName="instrumentTeacher"
+            class="form-control form-control-sm input"
+          >
+            <option value="Singing">Canto</option>
+            <option value="Guitars">Guitarra/Violão</option>
+            <option value="Piano">Piano</option>
+            <option value="Child Musicalization">
+              Ensino de música infantil
+            </option>
+          </select>
+          <div
+            *ngIf="teacherForm.get('instrumentTeacher')?.errors?.['required'] && teacherForm.get('instrumentTeacher')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
       <button
         type="button"
-        class="btn-close text-reset"
+        id="outline"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
         (click)="sair()"
-        aria-label="Close"
-        id="close"
-      ></button>
-      <img src="\assets\image\foto-upload.png" />
-      <h3 class="subtittle">Insira uma imagem do <b>Professor</b></h3>
+      >
+        sair
+      </button>
+
       <button
         type="button"
         class="btn btn-dark d-flex align-items-center rounded-pill"
-        routerLink=""
         style="
           height: min-content;
-          width: 10rem;
+          width: 6rem;
           align-items: center;
           justify-content: center;
-          margin-bottom: 0.5rem;
         "
+        *ngIf="edit"
+        aria-label="Close"
+        [disabled]="!teacherForm.valid"
+        (click)="onEdit(teacher)"
+        (click)="sair()"
       >
-        carregar imagem
+        salvar
       </button>
     </div>
-    <div class="content" id="scroll">
-      <div class="modal-header">
-        <h2 class="modal-title" >
-          <mat-icon class="icon">person</mat-icon>Informações do Professor
-        </h2>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="teacherForm" class="form-row">
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="name"
-              >Nome completo<b>*</b></label
-            >
-            <input
-              type="text"
-              name="name"
-              formControlName="nameTeacher"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="teacherForm.get('nameTeacher')?.errors?.['required'] && teacherForm.get('nameTeacher')?.touched"
-              class="validators"
-            >
-              Nome obrigatório
-            </div>
-          </div>
-  
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="email">Email<b>*</b></label>
-            <input
-              type="text"
-              name="email"
-              formControlName="emailTeacher"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="
-                teacherForm.get('emailTeacher')?.errors &&
-                teacherForm.get('emailTeacher')?.touched
-              "
-              class="validators"
-            >
-              Email obrigatório
-            </div>
-          </div>
-  
-          <div class="col-md-6">
-            <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
-            <input
-              type="text"
-              name="phone"
-              formControlName="phoneTeacher"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="
-                teacherForm.get('phoneTeacher')?.errors &&
-                teacherForm.get('phoneTeacher')?.touched
-              "
-              class="validators"
-            >
-              Insira um formato de telefone válido. Ex.: 61944028922
-            </div>
-          </div>
-  
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
-            <input
-              type="text"
-              name="cpf"
-              formControlName="cpfTeacher"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="
-                teacherForm.get('cpfTeacher')?.errors &&
-                teacherForm.get('cpfTeacher')?.touched
-              "
-              class="validators"
-            >
-              CPF obrigatório
-            </div>
-          </div>
-  
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="rg">RG<b>*</b></label>
-            <input
-              type="text"
-              name="rg"
-              formControlName="rgTeacher"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="teacherForm.get('rgTeacher')?.errors?.['required'] && teacherForm.get('rgTeacher')?.touched"
-              class="validators"
-            >
-              RG obrigatório
-            </div>
-          </div>
-  
-  
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="gender">Gênero<b>*</b></label>
-            <select
-              name="gender"
-              formControlName="genderTeacher"
-              class="form-control form-control-sm input"
-            >
-              <option value="Male">masculino</option>
-              <option value="Female">feminino</option>
-              <option value="Others">outro</option>
-            </select>
-            <div
-              *ngIf="teacherForm.get('genderTeacher')?.errors?.['required'] && teacherForm.get('genderTeacher')?.touched"
-              class="validators"
-            >
-              Seleção obrigatória
-            </div>
-          </div>
-
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="gender">Instrumento<b>*</b></label>
-            <select
-              name="instrument"
-              formControlName="instrumentTeacher"
-              class="form-control form-control-sm input"
-            >
-              <option value="Singing">Canto</option>
-              <option value="Guitars">Guitarra/Violão</option>
-              <option value="Piano">Piano</option>
-              <option value="Child Musicalization">Ensino de música infantil</option>
-            </select>
-            <div
-              *ngIf="teacherForm.get('instrumentTeacher')?.errors?.['required'] && teacherForm.get('instrumentTeacher')?.touched"
-              class="validators"
-            >
-              Seleção obrigatória
-            </div>
-          </div>
-  
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          id="outline"
-          class="btn btn-dark d-flex align-items-center rounded-pill"
-          style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          "
-          (click)="sair()"
-        >
-          sair
-        </button>
-  
-        <button
-          type="button"
-          class="btn btn-dark d-flex align-items-center rounded-pill"
-          style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          "
-          *ngIf="edit"
-          aria-label="Close"
-          [disabled]="!teacherForm.valid"
-          (click)="onEdit(teacher)"
-          (click)="sair()"
-        >
-          salvar
-        </button>
-      </div>
-    </div>
-  </body>
-  
+  </div>
+</body>

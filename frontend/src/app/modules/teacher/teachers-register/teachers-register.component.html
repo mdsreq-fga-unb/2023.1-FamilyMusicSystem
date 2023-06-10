@@ -26,7 +26,7 @@
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">
-      <h2 class="modal-title" >
+      <h2 class="modal-title">
         <mat-icon class="icon">person</mat-icon>Informações do Professor
       </h2>
     </div>
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div class="col-md-6" >
+        <div class="col-md-6">
           <label class="m-0 tittle-input" for="email">Email<b>*</b></label>
           <input
             type="text"
@@ -123,7 +123,6 @@
           </div>
         </div>
 
-
         <div class="col-md-6">
           <label class="m-0 tittle-input" for="gender">Gênero<b>*</b></label>
           <select
@@ -143,8 +142,10 @@
           </div>
         </div>
 
-        <div class="col-md-6" >
-          <label class="m-0 tittle-input" for="gender">Instrumento<b>*</b></label>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="gender"
+            >Instrumento<b>*</b></label
+          >
           <select
             name="instrument"
             formControlName="instrumentTeacher"
@@ -153,7 +154,9 @@
             <option value="Singing">Canto</option>
             <option value="Guitars">Guitarra/Violão</option>
             <option value="Piano">Piano</option>
-            <option value="Child Musicalization">Ensino de música infantil</option>
+            <option value="Child Musicalization">
+              Ensino de música infantil
+            </option>
           </select>
           <div
             *ngIf="teacherForm.get('instrumentTeacher')?.errors?.['required'] && teacherForm.get('instrumentTeacher')?.touched"
@@ -189,7 +192,6 @@
           align-items: center;
           justify-content: center;
         "
-        
         aria-label="Close"
         [disabled]="!teacherForm.valid"
         (click)="onSubmit()"

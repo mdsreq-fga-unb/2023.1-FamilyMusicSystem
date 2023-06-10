@@ -8,10 +8,9 @@ describe('TeachersFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeachersFilterComponent ],
-      imports: [ ReactiveFormsModule ],
-    })
-    .compileComponents();
+      declarations: [TeachersFilterComponent],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TeachersFilterComponent);
     component = fixture.componentInstance;
