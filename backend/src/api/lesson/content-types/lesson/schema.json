@@ -17,20 +17,26 @@
       "required": true,
       "default": "2023-01-01T15:00:00.000Z"
     },
-    "students": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::student.student"
+    "Teacher": {
+      "type": "enumeration",
+      "enum": [
+        "teacher"
+      ],
+      "required": true
     },
-    "teacher": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::teacher.teacher"
+    "Student": {
+      "type": "enumeration",
+      "enum": [
+        "student"
+      ],
+      "required": true
     },
-    "classroom": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::classroom.classroom"
+    "Room": {
+      "type": "enumeration",
+      "enum": [
+        "room"
+      ],
+      "required": true
     }
   }
 }
