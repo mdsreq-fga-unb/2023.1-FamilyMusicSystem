@@ -8,6 +8,9 @@ import { Teacher } from '../../../models/teacher';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { ChangeDetectorRef } from '@angular/core';
+import * as moment from 'moment';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
+
 
 @Component({
   selector: 'app-teachers-view',
@@ -23,6 +26,7 @@ export class TeachersViewComponent implements OnInit {
   public teacherForm: FormGroup;
   public edit = false;
   public isFormValid = false;
+  public showAlert = false;
 
   prefixoUrlTeacher =
     'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
@@ -104,6 +108,11 @@ export class TeachersViewComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
+          console.log(response);
+          this.showAlert = true;
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 3000);
         },
         (error) => {
           this.handleError(error);
@@ -120,7 +129,9 @@ export class TeachersViewComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {},
+      initialState: {
+        
+      },
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);

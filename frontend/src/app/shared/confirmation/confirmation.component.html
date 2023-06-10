@@ -1,4 +1,4 @@
-<body class="corpo">
+<body class="corpo" style="background-color: var(--primary);">
   <div class="modal-header">
     <h2 class="modal-title">
       <p class="title">Atenção!</p>
@@ -14,28 +14,27 @@
       class="btn btn-dark d-flex align-items-center rounded-pill"
       style="
         height: min-content;
-        width: 11rem;
+        width: 8rem;
         align-items: center;
         justify-content: center;
       "
-      id="outline"
       (click)="confirm()"
     >
-      confirmar
+      sim
     </button>
     <button
       type="button"
       class="btn btn-dark d-flex align-items-center rounded-pill"
       style="
         height: min-content;
-        width: 11rem;
+        width: 8rem;
         align-items: center;
         justify-content: center;
       "
       id="outline"
       (click)="cancel()"
     >
-      fechar
+      não
     </button>
   </div>
 </body>

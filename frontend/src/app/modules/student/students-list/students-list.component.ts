@@ -73,7 +73,7 @@ export class StudentsListComponent implements OnInit {
       ConfirmationComponent,
       {
         data: {
-          message: 'Esta é a mensagem personalizada.',
+          message: 'Deseja realmente excluir esse perfil?',
           dialogRef: null,
         },
       }
