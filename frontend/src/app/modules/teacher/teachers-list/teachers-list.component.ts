@@ -136,7 +136,9 @@ export class TeachersListComponent implements OnInit {
       TeachersViewComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {
+      this.getTeacher();
+    });
   }
 
   search() {
