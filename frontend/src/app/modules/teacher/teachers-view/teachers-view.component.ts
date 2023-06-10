@@ -7,7 +7,6 @@ import { Observable, of } from 'rxjs';
 import { Teacher } from '../../../models/teacher';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
-import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -105,21 +104,11 @@ export class TeachersViewComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          this.showAlertModal();
         },
         (error) => {
           this.handleError(error);
         }
       );
-  }
-
-  showAlertModal() {
-    const successModalRef = this.modalService.show(TeachersAlertComponent, {
-      initialState: {
-        title: 'Operação concluída com sucesso!',
-        message: 'A operação foi realizada com sucesso.',
-      },
-    });
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

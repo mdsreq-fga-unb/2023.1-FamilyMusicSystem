@@ -8,9 +8,8 @@ describe('MuralComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MuralComponent ]
-    })
-    .compileComponents();
+      declarations: [MuralComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MuralComponent);
     component = fixture.componentInstance;

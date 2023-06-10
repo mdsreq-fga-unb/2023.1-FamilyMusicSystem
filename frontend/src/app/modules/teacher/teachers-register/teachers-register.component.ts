@@ -4,7 +4,6 @@ import { Teacher } from '../../../models/teacher';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { TeachersAlertComponent } from '../teachers-alert/teachers-alert.component';
 import { FormValidations } from '../../../shared/form-validations';
 
 @Component({
@@ -37,13 +36,7 @@ export class TeachersRegisterComponent implements OnInit {
           Validators.minLength(11),
         ],
       ],
-      cpfTeacher: [
-        null,
-        [
-          Validators.required,
-          FormValidations.isValidCPF
-        ],
-      ],
+      cpfTeacher: [null, [Validators.required, FormValidations.isValidCPF]],
       rgTeacher: [null, Validators.required],
       genderTeacher: [null, Validators.required],
       instrumentTeacher: [null, Validators.required],
@@ -70,12 +63,6 @@ export class TeachersRegisterComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(TeachersAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O aluno foi cadastrado com sucesso.',
-            },
-          });
           this.bsModalRef.content.showModal();
         },
         (error) => {

@@ -37,7 +37,6 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
 import { HttpClientModule } from '@angular/common/http';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 
 @NgModule({
@@ -70,7 +69,6 @@ import { ConfirmationComponent } from './shared/confirmation/confirmation.compon
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
-    TeachersAlertComponent,
     ConfirmationComponent,
   ],
   imports: [
