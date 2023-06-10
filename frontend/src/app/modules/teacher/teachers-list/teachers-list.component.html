@@ -7,11 +7,12 @@
             <mat-icon class="personIcon">class</mat-icon>
             <p class="title">Prof(s)</p>
           </div>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" [formGroup]="searchForm">
             <div class="search-container">
               <input
                 class="form-control me-3"
                 id="researchTeachers"
+                formControlName="search"
                 type="search"
                 aria-label="Search"
               />
@@ -19,8 +20,8 @@
             </div>
             <button
               type="button"
+              (click)="search()"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              routerLink=""
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -68,7 +69,7 @@
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            (click)="modalProfessores(false)"
+            (click)="modalNewProfessores()"
             style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
@@ -89,9 +90,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">
-                <input class="form-check-input" type="checkbox" value="" />
-              </th>
+              <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
               <th scope="col" class="notablet">Plano</th>
@@ -99,380 +98,30 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="selected">
-              <th scope="row" id="select-all">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td class="button" (click)="modalViewProfessores()">
+          <tbody *ngIf="teachers$ | async as teachers">
+            <tr class="selected" *ngFor="let teacher of teachers; let i = index">
+                <th scope="row" id="select-all" class="num">
+                  {{ i + 1 }}
+                </th>
+              <td class="button" (click)="modalProfessores(teacher, false)">
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"
                   class="miniProfile"
                 />
-                Luiz peidao
+                {{ teacher.Name }}
               </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet" class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
+              <td class="nomobile">{{ teacher.Email }}</td>
+              <td class="notablet" class="notablet">{{ teacher.CPF }}</td>
+              <td class="notablet">{{ teacher.Phone }}</td>
               <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
-              <td>
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                Luiz Felipe
-              </td>
-              <td class="nomobile">luizdofrifa@gmail.com</td>
-              <td class="notablet">Básico</td>
-              <td class="notablet">(61) 94402-8922</td>
-              <td>
-                <mat-icon>edit</mat-icon>
-                <mat-icon>restore_from_trash</mat-icon>
+                <mat-icon (click)="modalProfessores(teacher, true)" class="delete"
+                  >edit</mat-icon
+                >
+                <mat-icon  (click)="deleteTeacher(teacher)" class="delete"
+                  >restore_from_trash</mat-icon
+                  
+                >
               </td>
             </tr>
           </tbody>

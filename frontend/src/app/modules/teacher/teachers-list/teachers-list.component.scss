@@ -145,10 +145,6 @@ tr:nth-child(even) {
   margin-right: 8px;
 }
 
-.selected {
-  background: var(--selector);
-}
-
 .miniProfile {
   width: 33px;
   border-radius: 24px;
@@ -261,8 +257,8 @@ tr:nth-child(even) {
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 1.25rem;
-    margin-right: 0.3rem;
-    margin-left: 0.15rem;
+    margin-right: 0.5rem;
+    margin-left: 0.25rem;
   }
   .personIcon {
     transform: scale(1);
@@ -292,4 +288,13 @@ tr:nth-child(even) {
     justify-content: center;
     align-items: center;
   }
+}
+
+.delete {
+  cursor: pointer;
+}
+
+.num {
+  padding-left: 1.2rem;
+  color: var(--contrast);
 }
