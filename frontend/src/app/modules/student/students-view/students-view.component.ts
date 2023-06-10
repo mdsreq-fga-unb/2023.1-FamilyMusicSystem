@@ -7,6 +7,8 @@ import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
+import { FormValidations } from '../students-register/form-validators';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-students-view',
@@ -22,12 +24,14 @@ export class StudentsViewComponent implements OnInit {
   public studentForm: FormGroup;
   public edit = false;
   public guardian = false;
+  public isFormValid = false;
 
   constructor(
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -51,11 +55,7 @@ export class StudentsViewComponent implements OnInit {
       ],
       cpfStudent: [
         { value: this.student.CPF, disabled: !this.edit },
-        [
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-        ],
+        [Validators.required, FormValidations.isValidCPF],
         ,
       ],
       rgStudent: [
@@ -68,7 +68,6 @@ export class StudentsViewComponent implements OnInit {
       ],
       disabledPersonTypeStudent: [
         { value: this.student.DisabledPersonType, disabled: !this.edit },
-        Validators.required,
       ],
       genderStudent: [
         { value: this.student.Gender, disabled: !this.edit },
@@ -101,11 +100,7 @@ export class StudentsViewComponent implements OnInit {
       ],
       cpfLegalGuardian: [
         { value: this.student.LegalGuardianCPF, disabled: !this.edit },
-        [
-          Validators.required,
-          Validators.maxLength(11),
-          Validators.minLength(11),
-        ],
+        [Validators.required, FormValidations.isValidCPF],
         ,
       ],
       rgLegalGuardian: [
@@ -113,9 +108,14 @@ export class StudentsViewComponent implements OnInit {
         Validators.required,
       ],
     });
+    this.cdr.detectChanges();
+    this.studentForm.updateValueAndValidity();
+    this.studentForm.statusChanges.subscribe(() => {
+      this.isFormValid = this.studentForm.valid;
+    });
   }
 
-  onEdit(): void {
+  onEdit($student: Student): void {
     const student: Student = new Student();
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
@@ -144,15 +144,20 @@ export class StudentsViewComponent implements OnInit {
       data: student,
     };
 
-    this.http.post('http://localhost:1337/api/students', body).subscribe(
-      (response) => {
-        console.log(response);
-        this.showAlertModal();
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
+    this.http
+      .put(
+        `https://20231-familymusicsystem-production.up.railway.app/api/students/${$student.id}`,
+        body
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.showAlertModal();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
   }
 
   showAlertModal() {
@@ -169,15 +174,26 @@ export class StudentsViewComponent implements OnInit {
     return of();
   }
 
-  modalcontract() {
+  validateForm(): void {
+    for (const controlName in this.studentForm.controls) {
+      const control = this.studentForm.controls[controlName];
+      control.markAsDirty();
+      control.updateValueAndValidity();
+    }
+    this.isFormValid = this.studentForm.valid;
+  }
+
+  modalcontract(student: Student) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {},
+      initialState: {
+        student: student,
+      },
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {});
   }
 
   scrollTop() {
@@ -190,6 +206,11 @@ export class StudentsViewComponent implements OnInit {
   Guardian() {
     this.inicial = false;
     this.guardian = true;
+    this.cdr.detectChanges();
+    this.studentForm.updateValueAndValidity();
+    this.studentForm.statusChanges.subscribe(() => {
+      this.isFormValid = this.studentForm.valid;
+    });
   }
   GuardianBack() {
     this.inicial = true;
