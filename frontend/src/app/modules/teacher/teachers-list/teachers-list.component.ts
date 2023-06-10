@@ -4,7 +4,7 @@ import { Teacher } from '../../../models/teacher';
 import { TeachersRegisterComponent } from '../teachers-register/teachers-register.component';
 import { TeachersViewComponent } from '../teachers-view/teachers-view.component';
 import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
-import { ConfirmationComponent } from 'src/app/shared/confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
