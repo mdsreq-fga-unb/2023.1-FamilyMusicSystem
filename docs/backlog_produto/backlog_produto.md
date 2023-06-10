@@ -8,6 +8,7 @@
 | 12/05/2023 |  0.3   | Alteração no Backlog do Produto e Inserção das Histórias de Usuário no MVP1 e MVP2 |                              Davi Ranieri, </br>Guilherme Santos                               |
 | 15/05/2023 |  0.4   |    Inserção de Valorização no Backlog e critérios de aceitação. Edição de MVP2.    | Davi Ranieri,</br> Guilherme Santos, </br>Luan Mateus, </br> Luana Ribeiro, </br> Maykon Júnio |
 | 16/05/2023 | 0.5  | Edição da tabela de critérios de aceitação | Luana Ribeiro |
+| 10/06/2023 | 0.6 | Adição de Requisitos não-funcionais | Luana Ribeiro |
 
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
@@ -56,7 +57,7 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[TE01]</b> | <b>[EP01]</b> | <b id="us03">[US03]</b> | - Campos obrigatórios precisam estar preenchidos para alteração de dados do professor  (Nome, Sobrenome, Data de Nascimento , CPF, RG, PCD, Tipo de deficiência e Gênero);<br/>- O sistema deve verificar se não há outro professor com o mesmo CPF, RG e e-mail;                                 |
 | <b>[TE01]</b> | <b>[EP01]</b> | <b id="us04">[US04]</b> | - Campos obrigatórios precisam estar preenchidos para alteração de dados do aluno  (Nome, Sobrenome, Data de Nascimento , CPF, RG, PCD, Tipo de deficiência e Gênero);<br> - O sistema deve verificar se não há outro aluno com o mesmo CPF, RG e e-mail;                                     |
 | <b>[TE01]</b> | <b>[EP01]</b> | <b id="us05">[US05]</b> | - O professor, com seus respectivos dados, devem ser excluídos da base de dados;<br> - Deve haver uma confirmação com o nome do professor para o administrador conferir se está removendo o cadastro do professor correto |
-| <b>[TE01]</b> | <b>[EP01]</b> | <b id="us06">[US06]</b> | - Deve haver uma confirmação com o nome do professor para o administrador conferir se está removendo o cadastro do aluno correto<br>- O administrador removerá o aluno, mas suas aulas e presenças continuarão presentes na base de dados;                                                                                                                             |
+| <b>[TE01]</b> | <b>[EP01]</b> | <b id="us06">[US06]</b> | - Deve haver uma confirmação com o nome do aluno para o administrador conferir se está removendo o cadastro do aluno correto<br>- O administrador removerá o aluno, mas suas aulas e presenças continuarão presentes na base de dados;                                                                                                                             |
 | <b>[TE01]</b> | <b>[EP02]</b> | <b id="us07">[US07]</b> | - O usuário deverá ter um CPF e senha registrados para conseguir acessar o sistema.<br>- O usuário deverá receber uma confirmação de acesso, caso suas credenciais estejam corretas.                                                                                                   |
 | <b>[TE01]</b> | <b>[EP02]</b> | <b id="us08">[US08]</b> | - O usuário deverá fornecer seu e-mail, CPF e data de nascimento para que uma nova senha seja enviada via correio eletrônico;<br>- O usuário deverá trocar a senha temporária após entrar na aplicação;<br>- O usuário terá o tempo mínimo de 30 minutos entre uma recuperação de senha e outra; |
 | <b>[TE02]</b> | <b>[EP03]</b> | <b id="us09">[US09]</b> | - O administrador deverá informar as características da sala: nome da sala, descrição da sala e capacidade de alunos;<br>- O administrador não poderá hospedar uma aula numa sala que não foi criada;<br> - Não poderão haver salas com o mesmo número;                                          |
@@ -76,9 +77,11 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | Interface       | <b>[RNF03]</b> A aplicação deve conter estilização das páginas com cores, fontes e icones padronizados.                                                      |
 | Usabilidade     | <b>[RNF04]</b> A aplicação deve ser responsiva, podendo ser acessada por diferentes tamanhos de telas.                                                       |
 | Usabilidade     | <b>[RNF05]</b> A aplicação deve possuir um manual de ajuda para instruir novos usuários na plataforma.                                                       |
-| Suportabilidade | <b>[RNF06]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.            |
-| Confiabilidade  | <b>[RNF07]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).         |
-| Confiabilidade  | <b>[RNF08]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele. |
+| Usabilidade     | <b>[RNF06]</b> A aplicação deve possuir uma aba intitulada "Sobre" contendo uma breve explicação a respeito da aplicação.                                           |
+| Suportabilidade | <b>[RNF07]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.            |
+| Confiabilidade  | <b>[RNF08]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).         |
+| Confiabilidade  | <b>[RNF09]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele. |
+| Confiabilidade | <b>[RNF10]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente |  
 
 ## MVP 1
 
