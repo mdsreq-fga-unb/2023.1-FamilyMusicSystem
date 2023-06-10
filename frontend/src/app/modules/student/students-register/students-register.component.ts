@@ -1,4 +1,3 @@
-import { FormValidations } from './form-validators';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -8,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import * as moment from 'moment';
+import { FormValidations } from '../../../shared/form-validations';
 
 @Component({
   selector: 'app-students-register',

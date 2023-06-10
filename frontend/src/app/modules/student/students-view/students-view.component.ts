@@ -7,8 +7,9 @@ import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
-import { FormValidations } from '../students-register/form-validators';
+import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-students-view',
@@ -22,9 +23,18 @@ export class StudentsViewComponent implements OnInit {
   public inicial = true;
   public student: Student;
   public studentForm: FormGroup;
+  public hasGuardian: boolean = true;
+  public valid: boolean = false;
   public edit = false;
   public guardian = false;
   public isFormValid = false;
+
+  verificarIdade(dataEscolhida: string): boolean {
+    const hoje = moment();
+    const dataNascimento = moment(dataEscolhida);
+    const idade = hoje.diff(dataNascimento, 'years');
+    return idade >= 18;
+  }
 
   constructor(
     private bsModalRef: BsModalRef,
@@ -174,15 +184,6 @@ export class StudentsViewComponent implements OnInit {
     return of();
   }
 
-  validateForm(): void {
-    for (const controlName in this.studentForm.controls) {
-      const control = this.studentForm.controls[controlName];
-      control.markAsDirty();
-      control.updateValueAndValidity();
-    }
-    this.isFormValid = this.studentForm.valid;
-  }
-
   modalcontract(student: Student) {
     const modalConfig = {
       backdrop: true,
@@ -204,6 +205,124 @@ export class StudentsViewComponent implements OnInit {
   }
 
   Guardian() {
+    this.hasGuardian = this.verificarIdade(
+      this.studentForm.get('birthdayStudent')?.value
+    );
+    if (this.hasGuardian) {
+      this.studentForm = this.fb.group({
+        nameStudent: [
+          {
+            value: this.studentForm.get('nameStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        emailStudent: [
+          {
+            value: this.studentForm.get('emailStudent')?.value,
+            disabled: false,
+          },
+          [Validators.required, Validators.email],
+        ],
+        phoneStudent: [
+          {
+            value: this.studentForm.get('phoneStudent')?.value,
+            disabled: false,
+          },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        cpfStudent: [
+          {
+            value: this.studentForm.get('cpfStudent')?.value,
+            disabled: false,
+          },
+          [Validators.required, FormValidations.isValidCPF],
+          ,
+        ],
+        rgStudent: [
+          {
+            value: this.studentForm.get('rgStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        disabledPersonStudent: [
+          {
+            value: this.studentForm.get('disabledPersonStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        disabledPersonTypeStudent: [
+          {
+            value: this.studentForm.get('disabledPersonStudentType')?.value,
+            disabled: false,
+          },
+        ],
+        genderStudent: [
+          {
+            value: this.studentForm.get('genderStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        addressStudent: [
+          {
+            value: this.studentForm.get('addressStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        birthdayStudent: [
+          {
+            value: this.studentForm.get('birthdayStudent')?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
+        nameLegalGuardian: [
+          { value: this.studentForm.get('nameStudent')?.value, disabled: true },
+          Validators.required,
+        ],
+        emailLegalGuardian: [
+          {
+            value: this.studentForm.get('emailStudent')?.value,
+            disabled: true,
+          },
+          [Validators.required, Validators.email],
+        ],
+        phoneLegalGuardian: [
+          {
+            value: this.studentForm.get('phoneStudent')?.value,
+            disabled: true,
+          },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        cpfLegalGuardian: [
+          { value: this.studentForm.get('cpfStudent')?.value, disabled: true },
+          [
+            Validators.required,
+            Validators.maxLength(11),
+            Validators.minLength(11),
+          ],
+          ,
+        ],
+        rgLegalGuardian: [
+          { value: this.studentForm.get('rgStudent')?.value, disabled: true },
+          Validators.required,
+        ],
+      });
+    }
     this.inicial = false;
     this.guardian = true;
     this.cdr.detectChanges();
