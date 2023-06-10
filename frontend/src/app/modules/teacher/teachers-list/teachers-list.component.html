@@ -7,11 +7,12 @@
             <mat-icon class="personIcon">class</mat-icon>
             <p class="title">Prof(s)</p>
           </div>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" [formGroup]="searchForm">
             <div class="search-container">
               <input
                 class="form-control me-3"
                 id="researchTeachers"
+                formControlName="search"
                 type="search"
                 aria-label="Search"
               />
@@ -19,8 +20,8 @@
             </div>
             <button
               type="button"
+              (click)="search()"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              routerLink=""
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -89,9 +90,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">
-                <input class="form-check-input" type="checkbox" value="" />
-              </th>
+              <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
               <th scope="col" class="notablet">Plano</th>
@@ -100,15 +99,10 @@
             </tr>
           </thead>
           <tbody *ngIf="teachers$ | async as teachers">
-            <tr class="selected" *ngFor="let teacher of teachers">
-              <th scope="row" id="select-all">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-              </th>
+            <tr class="selected" *ngFor="let teacher of teachers; let i = index">
+                <th scope="row" id="select-all" class="num">
+                  {{ i + 1 }}
+                </th>
               <td class="button" (click)="modalProfessores(teacher, false)">
                 <img
                   src="../../../../assets/image/foto perfil.png"

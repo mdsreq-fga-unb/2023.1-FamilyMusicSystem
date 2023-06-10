@@ -139,6 +139,12 @@ export class TeachersListComponent implements OnInit {
     this.bsModalRef.content.onClose.subscribe(() => {});
   }
 
+  search() {
+    this.getTeacher(
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
+    );
+  }
+
   modalFilterProfessores() {
     const modalConfig = {
       backdrop: true,
@@ -151,7 +157,9 @@ export class TeachersListComponent implements OnInit {
       TeachersFilterComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.content.onClose.subscribe((url: string) => {
+      this.getTeacher(url);
+    });
   }
 
   toggle() {
