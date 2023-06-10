@@ -39,6 +39,7 @@ import { StudentsAlertComponent } from './modules/student/students-alert/student
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ScheduleFilterComponent,
     HomeComponent,
     StudentsAlertComponent,
+    TeachersAlertComponent,
   ],
   imports: [
     BrowserModule,

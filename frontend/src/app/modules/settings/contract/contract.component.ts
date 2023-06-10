@@ -1,10 +1,11 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import { ElementRef, ViewChild } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Student } from '../../../models/student';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
+import { StudentsViewComponent } from '../../student/students-view/students-view.component';
 
 @Component({
   selector: 'app-contract',
@@ -17,15 +18,18 @@ export class ContractComponent {
     locale: pt,
   });
 
-  constructor(private bsModalRef: BsModalRef, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private modal: BsModalRef,
+    private modalService: BsModalService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   @ViewChild('containerContract', { static: false }) el!: ElementRef;
 
   ispdf = false;
 
   sair() {
-    this.bsModalRef.hide();
-    this.bsModalRef.hide();
+    this.modal.hide();
   }
 
   updateElValue() {

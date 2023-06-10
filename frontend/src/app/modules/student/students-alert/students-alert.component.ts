@@ -21,6 +21,6 @@ export class StudentsAlertComponent {
 
   confirm() {
     this.confirmed.emit(true);
-    this.dialogRef.close();
+    this.dialogRef.close(); // Fechar o modal usando a referência
   }
 }

@@ -244,7 +244,13 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        " [disabled]="!isFormValid" *ngIf="guardian && edit" aria-label="Close" (click)="onEdit()" (click)="sair()">
+        "
+        [disabled]="!isFormValid"
+        *ngIf="guardian && edit"
+        aria-label="Close"
+        (click)="onEdit(student)"
+        (click)="sair()"
+      >
         salvar
       </button>
     </div>

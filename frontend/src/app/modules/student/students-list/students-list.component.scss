@@ -127,6 +127,7 @@ tr:nth-child(even) {
 }
 
 #researchStudents {
+  color: var(--contrast);
   border: none;
 }
 
@@ -299,4 +300,22 @@ tr:nth-child(even) {
 
 .delete {
   cursor: pointer;
+}
+
+.button {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--secondary);
+}
+
+tr:nth-child(even) .button:hover {
+  background-color: var(--primary);
+}
+
+.num {
+  padding-left: 1.2rem;
+  color: var(--contrast);
 }

@@ -70,32 +70,28 @@ export class StudentsListComponent implements OnInit {
 
 
   deleteStudent(student: Student) {
-    const dialogRef: MatDialogRef<StudentsAlertComponent> = this.dialog.open(StudentsAlertComponent, {
-      data: {
-        message: 'Você tem certeza que deseja excluir esse usuário?',
-        dialogRef: null
-      }
-    });
+  const dialogRef: MatDialogRef<StudentsAlertComponent> = this.dialog.open(StudentsAlertComponent, {
+    data: {
+      message: 'Esta é a mensagem personalizada.',
+      dialogRef: null 
+    }
+  });
 
-    dialogRef.componentInstance.dialogRef = dialogRef;
+  dialogRef.componentInstance.dialogRef = dialogRef;
 
-    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
-      if (result) {
-        this.http
-          .delete(`${this.prefixoUrlStudent}/${student.id}`)
-          .pipe(catchError((error) => this.handleError(error)))
-          .subscribe((response) => {
-            console.log(response);
-            dialogRef.close();
-            this.getStudent();
-            this.showAlert = true;
-            setTimeout(() => {
-              this.showAlert = false;
-            }, 3000);
-          });
-      }
-    });
-  }
+  dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+    if (result) {
+      this.http
+        .delete(`${this.prefixoUrlStudent}/${student.id}`)
+        .pipe(catchError((error) => this.handleError(error)))
+        .subscribe((response) => {
+          console.log(response);
+          dialogRef.close();
+          this.getStudent();
+        });
+    }
+  });
+}
 
   search() {
     this.getStudent(
