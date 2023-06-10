@@ -115,7 +115,7 @@ export class StudentsViewComponent implements OnInit {
     });
   }
 
-  onEdit(): void {
+  onEdit($student: Student): void {
     const student: Student = new Student();
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
@@ -144,15 +144,20 @@ export class StudentsViewComponent implements OnInit {
       data: student,
     };
 
-    this.http.post('http://localhost:1337/api/students', body).subscribe(
-      (response) => {
-        console.log(response);
-        this.showAlertModal();
-      },
-      (error) => {
-        this.handleError(error);
-      }
-    );
+    this.http
+      .put(
+        `https://20231-familymusicsystem-production.up.railway.app/api/students/${$student.id}`,
+        body
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.showAlertModal();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
   }
 
   showAlertModal() {
