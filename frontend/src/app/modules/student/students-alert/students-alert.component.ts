@@ -1,18 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Component, EventEmitter, Output, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-students-alert',
   templateUrl: './students-alert.component.html',
-  styleUrls: ['./students-alert.component.scss'],
+  styleUrls: ['./students-alert.component.scss']
 })
 export class StudentsAlertComponent {
-  @Input() title: string;
-  @Input() message: string;
+  @Output() confirmed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  dialogRef: MatDialogRef<StudentsAlertComponent>; // Adicione a declaração da referência do modal
 
-  constructor(public bsModalRef: BsModalRef) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
-  sair() {
-    this.bsModalRef.hide();
+  cancel() {
+    this.confirmed.emit(false);
+    this.dialogRef.close();
+  }
+
+  confirm() {
+    this.confirmed.emit(true);
+    this.dialogRef.close();
   }
 }

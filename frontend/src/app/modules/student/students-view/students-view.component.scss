@@ -116,6 +116,13 @@
   font-size: 12px;
 }
 
+.my-edit-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fdf626;
+  color: #fffdf0;
+}
+
 @media only screen and (max-width: 1200px) {
   .form-row {
     display: grid;

@@ -131,6 +131,13 @@
   margin: 1rem;
 }
 
+.my-custom-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--selector);
+  color: #fffdf0;
+}
+
 @media only screen and (max-width: 995px) {
   img {
     max-width: 30%;

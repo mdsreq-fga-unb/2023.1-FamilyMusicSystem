@@ -233,6 +233,13 @@ tr:nth-child(even) {
   display: none;
 }
 
+.my-warning-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--red);
+  color: var(--contrast);
+}
+
 /* Ajuste para telas médias */
 @media only screen and (max-width: 1035px) {
   .notablet {
