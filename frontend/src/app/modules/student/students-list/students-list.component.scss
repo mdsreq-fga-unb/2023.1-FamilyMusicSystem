@@ -233,13 +233,6 @@ tr:nth-child(even) {
   display: none;
 }
 
-.my-warning-alert {
-  padding: 10px;
-  font-size: 16px;
-  background-color: var(--red);
-  color: var(--contrast);
-}
-
 /* Ajuste para telas médias */
 @media only screen and (max-width: 1035px) {
   .notablet {
@@ -317,5 +310,25 @@ tr:nth-child(even) .button:hover {
 
 .num {
   padding-left: 1.2rem;
+  color: var(--contrast);
+}
+
+.my-edit-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--orange);
+  color: var(--contrast);
+}
+.my-custom-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--selector);
+  color: var(--contrast);
+}
+
+.my-warning-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--red);
   color: var(--contrast);
 }
