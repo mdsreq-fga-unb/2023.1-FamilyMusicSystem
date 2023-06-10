@@ -1,3 +1,7 @@
+<ngb-alert *ngIf="showAlert" class="fixed-top my-custom-alert" (close)="showAlert = false">
+  <strong>Cadastro Realizado!</strong> O aluno foi cadastrado com sucesso!
+</ngb-alert>
+
 <body class="corpo">
   <div class="photo">
     <button
@@ -391,11 +395,11 @@
         "
         *ngIf="guardian"
         aria-label="Close"
-        (click)="onSubmit()"
-        (click)="sair()"
+        (click)="salvar()"
       >
         salvar
       </button>
+
     </div>
   </div>
 </body>

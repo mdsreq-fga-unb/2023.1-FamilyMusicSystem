@@ -9,6 +9,8 @@ import { ContractComponent } from '../../settings/contract/contract.component';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 
 @Component({
@@ -17,6 +19,7 @@ import * as moment from 'moment';
   styleUrls: ['./students-view.component.scss'],
 })
 export class StudentsViewComponent implements OnInit {
+  showAlert = false;
   error: any | undefined;
   students$: Observable<Student[]> | undefined;
   public onClose: Subject<boolean>;
@@ -41,7 +44,9 @@ export class StudentsViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+        private dialog: MatDialog,
+    private dialogRef: BsModalRef,
   ) {}
 
   ngOnInit(): void {
@@ -125,8 +130,7 @@ export class StudentsViewComponent implements OnInit {
     });
   }
 
-  onEdit($student: Student): void {
-    const student: Student = new Student();
+  onEdit(student : Student): void {
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
     student.Phone = this.studentForm.get('phoneStudent')?.value;
@@ -156,27 +160,17 @@ export class StudentsViewComponent implements OnInit {
 
     this.http
       .put(
-        `https://20231-familymusicsystem-production.up.railway.app/api/students/${$student.id}`,
+        `https://20231-familymusicsystem-production.up.railway.app/api/students/${student.id}`,
         body
       )
       .subscribe(
         (response) => {
           console.log(response);
-          this.showAlertModal();
         },
         (error) => {
           this.handleError(error);
         }
       );
-  }
-
-  showAlertModal() {
-    const successModalRef = this.modalService.show(StudentsAlertComponent, {
-      initialState: {
-        title: 'Operação concluída com sucesso!',
-        message: 'A operação foi realizada com sucesso.',
-      },
-    });
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
