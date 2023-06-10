@@ -7,7 +7,7 @@ import { subYears, format } from 'date-fns';
 @Component({
   selector: 'app-teachers-filter',
   templateUrl: './teachers-filter.component.html',
-  styleUrls: ['./teachers-filter.component.scss']
+  styleUrls: ['./teachers-filter.component.scss'],
 })
 export class TeachersFilterComponent {
   public onClose: Subject<any> = new Subject<any>();
