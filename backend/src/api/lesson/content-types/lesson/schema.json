@@ -18,24 +18,15 @@
       "default": "2023-01-01T15:00:00.000Z"
     },
     "Teacher": {
-      "type": "enumeration",
-      "enum": [
-        "teacher"
-      ],
+      "type": "string",
       "required": true
     },
     "Student": {
-      "type": "enumeration",
-      "enum": [
-        "student"
-      ],
+      "type": "string",
       "required": true
     },
-    "Room": {
-      "type": "enumeration",
-      "enum": [
-        "room"
-      ],
+    "Classroom": {
+      "type": "string",
       "required": true
     }
   }
