@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
+import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teacher
     HomeComponent,
     StudentsAlertComponent,
     TeachersAlertComponent,
+    RoomViewComponent,
   ],
   imports: [
     BrowserModule,

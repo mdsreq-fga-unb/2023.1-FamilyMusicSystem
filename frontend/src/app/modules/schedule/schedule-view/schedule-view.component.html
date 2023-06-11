@@ -1,1 +1,122 @@
-<p>schedule-view works!</p>
+<body class="corpo">
+    <div class="content" id="scroll">
+      <div class="modal-header">
+        <h2 class="modal-title">
+          <mat-icon class="icon">person</mat-icon>Informações da Aula
+        </h2>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="lessonForm" class="form-row">
+            <div class="col-md-6" >
+              <label class="m-0 tittle-input" for="name"
+                >Numero da Sala<b>*</b></label
+              >
+              <input
+                type="text"
+                name="name"
+                formControlName="nameRoom"
+                class="form-control form-control-sm input"
+              />
+              <div
+                *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
+                class="validators"
+              >
+                Numero obrigatório
+              </div>
+            </div>
+  
+            <div class="col-md-6" >
+              <label class="m-0 tittle-input" for="name"
+                >Data da Aula<b>*</b></label
+              >
+              <input
+                type="date"
+                name="name"
+                formControlName="date"
+                class="form-control form-control-sm input"
+              />
+              <div
+                *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
+                class="validators"
+              >
+                Data obrigatória
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <label class="m-0 tittle-input" for="disabledPerson"
+                >Professor<b>*</b></label
+              >
+              <select
+                name="disabledPerson"
+                formControlName="nameTeacher"
+                class="form-control form-control-sm input"
+                *ngIf="teachers$ | async as teachers"
+              >
+                  <option *ngFor="let teacher of teachers" [value]="teacher.Name">{{ teacher.Name }}</option>
+              </select>
+              <div
+                *ngIf="lessonForm.get('nameTeacher')?.errors?.['required'] && lessonForm.get('nameTeacher')?.touched"
+                class="validators"
+              >
+                Seleção obrigatória
+              </div>
+            </div>
+  
+            <div class="col-md-6" >
+              <label class="m-0 tittle-input" for="gender">Estudante<b>*</b></label>
+              <select
+              name="disabledPerson"
+              formControlName="nameStudent"
+              class="form-control form-control-sm input"
+              *ngIf="students$ | async as students"
+            >
+                <option *ngFor="let student of students" [value]="student.Name">{{ student.Name }}</option>
+            </select>
+              <div
+                *ngIf="lessonForm.get('nameStudent')?.errors?.['required'] && lessonForm.get('nameStudent')?.touched"
+                class="validators"
+              >
+                Seleção obrigatória
+              </div>
+            </div>
+    
+            
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="outline"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          "
+          (click)="sair()"
+        >
+          sair
+        </button>
+  
+  
+        <button
+          type="button"
+          class="btn btn-dark d-flex align-items-center rounded-pill"
+          style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          "
+          aria-label="Close"
+          (click)="onEdit(lesson)"
+          (click)="sair()"
+        >
+          salvar
+        </button>
+      </div>
+    </div>
+  </body>
+  

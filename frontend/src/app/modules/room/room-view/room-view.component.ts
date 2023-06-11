@@ -4,16 +4,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Classroom } from 'src/app/models/classroom';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component';
+import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component'
 
 @Component({
-  selector: 'app-room-register',
-  templateUrl: './room-register.component.html',
-  styleUrls: ['./room-register.component.scss'],
+  selector: 'app-room-view',
+  templateUrl: './room-view.component.html',
+  styleUrls: ['./room-view.component.scss']
 })
-export class RoomRegisterComponent implements OnInit {
+export class RoomViewComponent {
+
+
   public onClose: Subject<boolean>;
-  public edicao = false;
+  public edit = false;
+  public room : Classroom;
   public inicial = true;
   public classForm: FormGroup;
   error: any | undefined;
@@ -25,7 +28,7 @@ export class RoomRegisterComponent implements OnInit {
     private http: HttpClient
   ) {}
 
-  onSubmit(): void {
+  onEdit($classRoom: Classroom): void {
     const classRoom: Classroom = new Classroom();
     classRoom.Name= this.classForm.get('classNumber')?.value;
     classRoom.Capacity = this.classForm.get('classCapacity')?.value;
@@ -34,8 +37,8 @@ export class RoomRegisterComponent implements OnInit {
     };
 
     this.http
-      .post(
-        'https://20231-familymusicsystem-production.up.railway.app/api/classrooms',
+      .put(
+        `https://20231-familymusicsystem-production.up.railway.app/api/lessons/${$classRoom.id}`,
         body
       )
       .subscribe(
@@ -54,6 +57,8 @@ export class RoomRegisterComponent implements OnInit {
       );
   }
 
+
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     this.error = error.message;
     return of();
@@ -61,8 +66,8 @@ export class RoomRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.classForm = this.fb.group({
-      classCapacity: [null, Validators.required],
-      classNumber: [null, Validators.required],
+      classCapacity: [{ value: this.room.Capacity, disabled: !this.edit }, Validators.required],
+      classNumber: [{ value: this.room.Name, disabled: !this.edit }, Validators.required],
     });
   }
 
