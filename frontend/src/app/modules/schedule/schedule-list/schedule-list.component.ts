@@ -24,7 +24,7 @@ class Response {
 @Component({
   selector: 'app-schedule-list',
   templateUrl: './schedule-list.component.html',
-  styleUrls: ['./schedule-list.component.scss']
+  styleUrls: ['./schedule-list.component.scss'],
 })
 export class ScheduleListComponent {
   private bsModalRef: BsModalRef;

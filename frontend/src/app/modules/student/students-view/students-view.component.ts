@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
-import { StudentsAlertComponent } from '../students-alert/students-alert.component';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
 import * as moment from 'moment';
@@ -28,6 +28,7 @@ export class StudentsViewComponent implements OnInit {
   public edit = false;
   public guardian = false;
   public isFormValid = false;
+  public showAlert = false;
 
   verificarIdade(dataEscolhida: string): boolean {
     const hoje = moment();
@@ -162,21 +163,16 @@ export class StudentsViewComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          this.showAlertModal();
+          console.log(response);
+          this.showAlert = true;
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 3000);
         },
         (error) => {
           this.handleError(error);
         }
       );
-  }
-
-  showAlertModal() {
-    const successModalRef = this.modalService.show(StudentsAlertComponent, {
-      initialState: {
-        title: 'Operação concluída com sucesso!',
-        message: 'A operação foi realizada com sucesso.',
-      },
-    });
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

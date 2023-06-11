@@ -35,9 +35,9 @@ import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { TeachersAlertComponent } from './modules/teacher/teachers-alert/teachers-alert.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 
 @NgModule({
@@ -72,7 +72,6 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
     HomeComponent,
     StudentsAlertComponent,
     TeachersAlertComponent,
-    RoomViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +83,7 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
     BsDropdownModule.forRoot(),
     HttpClientModule,
     AlertModule,
+    MatDialogModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

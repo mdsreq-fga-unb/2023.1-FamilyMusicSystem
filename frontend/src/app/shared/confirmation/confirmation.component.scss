@@ -1,0 +1,93 @@
+p {
+  margin: 0;
+}
+
+.mat-mdc-dialog-surface.mdc-dialog__surface {
+  background: red;
+}
+
+.corpo {
+  background: var(--primary);
+  width: 60%;
+  border-radius: 5rem;
+  display: contents;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.modal-footer {
+  border: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 2rem
+}
+
+.modal-title {
+  display: flex;
+  color: var(--contrast);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.title {
+  color: var(--contrast);
+}
+
+.modal-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0;
+}
+
+.col-md-6 {
+  min-width: 100%;
+  margin-top: 1rem;
+}
+
+.rounded-pill {
+  background: var(--contrast);
+  color: var(--primary);
+}
+
+.rounded-pill:hover {
+  background-color: var(--contrastSecondary);
+}
+
+#outline {
+  height: min-content;
+  margin-left: 0.5rem;
+  background: none;
+  color: var(--contrast);
+  box-shadow: inset 0 0 0 0.1rem var(--contrast);
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#outline:hover {
+  background-color: var(--secondary);
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+}

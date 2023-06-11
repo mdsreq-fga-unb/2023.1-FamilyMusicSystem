@@ -12,7 +12,6 @@
     <button
       type="button"
       class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
       style="
         height: min-content;
         width: 10rem;
@@ -391,8 +390,7 @@
         "
         *ngIf="guardian"
         aria-label="Close"
-        (click)="onSubmit()"
-        (click)="sair()"
+        (click)="salvar()"
       >
         salvar
       </button>

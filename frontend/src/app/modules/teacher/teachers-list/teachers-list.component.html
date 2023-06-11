@@ -99,10 +99,13 @@
             </tr>
           </thead>
           <tbody *ngIf="teachers$ | async as teachers">
-            <tr class="selected" *ngFor="let teacher of teachers; let i = index">
-                <th scope="row" id="select-all" class="num">
-                  {{ i + 1 }}
-                </th>
+            <tr
+              class="selected"
+              *ngFor="let teacher of teachers; let i = index"
+            >
+              <th scope="row" id="select-all" class="num">
+                {{ i + 1 }}
+              </th>
               <td class="button" (click)="modalProfessores(teacher, false)">
                 <img
                   src="../../../../assets/image/foto perfil.png"
@@ -115,12 +118,13 @@
               <td class="notablet" class="notablet">{{ teacher.CPF }}</td>
               <td class="notablet">{{ teacher.Phone }}</td>
               <td>
-                <mat-icon (click)="modalProfessores(teacher, true)" class="delete"
+                <mat-icon
+                  (click)="modalProfessores(teacher, true)"
+                  class="delete"
                   >edit</mat-icon
                 >
-                <mat-icon  (click)="deleteTeacher(teacher)" class="delete"
+                <mat-icon (click)="deleteTeacher(teacher)" class="delete"
                   >restore_from_trash</mat-icon
-
                 >
               </td>
             </tr>
@@ -128,5 +132,26 @@
         </table>
       </div>
     </div>
+    <ngb-alert
+      *ngIf="showAlertDelete"
+      class="fixed-top my-warning-alert"
+      (close)="showAlertDelete = false"
+    >
+      <b>Exclusão Realizada!</b> O professor foi excluído com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertEdit"
+      class="fixed-top my-edit-alert"
+      (close)="showAlertEdit = false"
+    >
+      <b>Edição Realizada!</b> O perfil de professor foi atualizado com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertAdd"
+      class="fixed-top my-custom-alert"
+      (close)="showAlertAdd = false"
+    >
+      <b>Cadastro Realizado!</b> O professor foi cadastrado com sucesso!
+    </ngb-alert>
   </body>
 </div>

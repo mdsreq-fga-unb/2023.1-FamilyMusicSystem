@@ -1,0 +1,40 @@
+<body class="corpo" style="background-color: var(--primary);">
+  <div class="modal-header">
+    <h2 class="modal-title">
+      <p class="title">Atenção!</p>
+    </h2>
+  </div>
+
+  <div class="modal-body">
+    <p class="title">{{ data.message }}</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      style="
+        height: min-content;
+        width: 8rem;
+        align-items: center;
+        justify-content: center;
+      "
+      (click)="confirm()"
+    >
+      sim
+    </button>
+    <button
+      type="button"
+      class="btn btn-dark d-flex align-items-center rounded-pill"
+      style="
+        height: min-content;
+        width: 8rem;
+        align-items: center;
+        justify-content: center;
+      "
+      id="outline"
+      (click)="cancel()"
+    >
+      não
+    </button>
+  </div>
+</body>

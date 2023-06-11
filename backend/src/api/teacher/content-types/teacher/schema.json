@@ -67,11 +67,6 @@
       "type": "email",
       "required": true,
       "unique": true
-    },
-    "students": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::student.student"
     }
   }
 }

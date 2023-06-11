@@ -312,3 +312,23 @@ tr:nth-child(even) .button:hover {
   padding-left: 1.2rem;
   color: var(--contrast);
 }
+
+.my-edit-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--orange);
+  color: var(--contrast);
+}
+.my-custom-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--selector);
+  color: var(--contrast);
+}
+
+.my-warning-alert {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--red);
+  color: var(--contrast);
+}

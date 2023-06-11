@@ -3,12 +3,14 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
-import { StudentsAlertComponent } from '../students-alert/students-alert.component';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, timeout } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 class Entry<T> {
   id: number;
@@ -25,20 +27,25 @@ class Response {
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
+  public showAlertEdit = false;
+  public showAlertDelete = false;
+  public showAlertAdd = false;
   private bsModalRef: BsModalRef;
-  checked: boolean = false;
+  public checked: boolean = false;
   public searchForm: FormGroup;
-  estilosDinamicos: any;
-  prefixoUrlStudent =
+  public estilosDinamicos: any;
+  public prefixoUrlStudent =
     'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
-  error: any | undefined;
-  students$: Observable<Student[]> | undefined;
+  public error: any | undefined;
+  public students$: Observable<Student[]> | undefined;
 
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private dialogRef: BsModalRef
   ) {}
 
   getStudent(args?: string) {
@@ -62,20 +69,34 @@ export class StudentsListComponent implements OnInit {
   }
 
   deleteStudent(student: Student) {
-    this.http
-      .delete(`${this.prefixoUrlStudent}/${student.id}`)
-      .pipe(catchError((error) => this.handleError(error)))
-      .subscribe((response) => {
-        console.log(response);
-        this.getStudent();
-        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'O aluno foi deletado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
-      });
+    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
+      ConfirmationComponent,
+      {
+        data: {
+          message: 'Deseja realmente excluir esse perfil?',
+          dialogRef: null,
+        },
+      }
+    );
+
+    dialogRef.componentInstance.dialogRef = dialogRef;
+
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
+        this.http
+          .delete(`${this.prefixoUrlStudent}/${student.id}`)
+          .pipe(catchError((error) => this.handleError(error)))
+          .subscribe((response) => {
+            console.log(response);
+            dialogRef.close();
+            this.getStudent();
+            this.showAlertDelete = true;
+            setTimeout(() => {
+              this.showAlertDelete = false;
+            }, 3000);
+          });
+      }
+    });
   }
 
   search() {
@@ -110,6 +131,10 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
+      this.showAlertAdd = true;
+      setTimeout(() => {
+        this.showAlertAdd = false;
+      }, 3000);
     });
   }
 
@@ -129,6 +154,10 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
+      this.showAlertEdit = true;
+      setTimeout(() => {
+        this.showAlertEdit = false;
+      }, 3000);
     });
   }
 

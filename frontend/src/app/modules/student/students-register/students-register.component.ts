@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
-import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import * as moment from 'moment';
 import { FormValidations } from '../../../shared/form-validations';
 
@@ -15,6 +14,7 @@ import { FormValidations } from '../../../shared/form-validations';
   styleUrls: ['./students-register.component.scss'],
 })
 export class StudentsRegisterComponent implements OnInit {
+  public showAlert: boolean = false;
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;
@@ -23,14 +23,15 @@ export class StudentsRegisterComponent implements OnInit {
   public studentForm: FormGroup;
   public hasGuardian: boolean = true;
   public valid: boolean = false;
-  dataAtual: string;
+  public dataAtual: string;
 
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialogRef: BsModalRef
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
   }
@@ -115,13 +116,7 @@ export class StudentsRegisterComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O aluno foi cadastrado com sucesso.',
-            },
-          });
-          this.bsModalRef.content.showModal();
+          console.log(response);
         },
         (error) => {
           this.handleError(error);
@@ -273,5 +268,11 @@ export class StudentsRegisterComponent implements OnInit {
 
   sair() {
     this.bsModalRef.hide();
+  }
+
+  salvar() {
+    this.showAlert = true;
+    this.bsModalRef.hide();
+    this.onSubmit();
   }
 }
