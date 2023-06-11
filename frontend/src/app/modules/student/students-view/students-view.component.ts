@@ -163,11 +163,7 @@ export class StudentsViewComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
-          console.log(response);
-          this.showAlert = true;
-          setTimeout(() => {
-            this.showAlert = false;
-          }, 3000);
+          this.bsModalRef.hide();
         },
         (error) => {
           this.handleError(error);
