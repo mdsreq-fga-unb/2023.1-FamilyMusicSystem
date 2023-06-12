@@ -37,6 +37,10 @@ import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/sche
 import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { CookieService } from './services/cookie.service';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,8 @@ import { CookieService } from './services/cookie.service';
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
-    StudentsAlertComponent,
+    RoomViewComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +84,8 @@ import { CookieService } from './services/cookie.service';
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     HttpClientModule,
+    AlertModule,
+    MatDialogModule,
   ],
   providers: [BsModalService, CookieService],
   bootstrap: [AppComponent],

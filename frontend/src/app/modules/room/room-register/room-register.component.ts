@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Classroom } from '../../../models/classroom';
 
 @Component({
   selector: 'app-room-register',
@@ -13,16 +15,47 @@ export class RoomRegisterComponent implements OnInit {
   public edicao = false;
   public inicial = true;
   public classForm: FormGroup;
+  error: any | undefined;
 
-  constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) {}
+  constructor(
+    private bsModalRef: BsModalRef,
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private http: HttpClient
+  ) {}
+
+  onSubmit(): void {
+    const classRoom: Classroom = new Classroom();
+    classRoom.Name = this.classForm.get('classNumber')?.value;
+    classRoom.Capacity = this.classForm.get('classCapacity')?.value;
+    const body = {
+      data: classRoom,
+    };
+
+    this.http
+      .post(
+        'https://20231-familymusicsystem-production.up.railway.app/api/classrooms',
+        body
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    this.error = error.message;
+    return of();
+  }
 
   ngOnInit(): void {
     this.classForm = this.fb.group({
-      className: [null, Validators.required],
-      classDescription: [null, Validators.required],
       classCapacity: [null, Validators.required],
       classNumber: [null, Validators.required],
-      classLocal: [null, Validators.required],
     });
   }
 

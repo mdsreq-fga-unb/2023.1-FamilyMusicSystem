@@ -126,3 +126,71 @@ footer {
   justify-content: center;
   flex-direction: column;
 }
+
+p,
+div,
+h1,
+h2,
+h4,
+h5,
+h6 {
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1.15 !important;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.assinaturas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.assinatura {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-indent: 0em;
+}
+
+.center {
+  width: 100% !important;
+  text-indent: 0em;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-indent: 0em;
+}
+
+.footer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-indent: 0em;
+}
+
+.footer p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-indent: 0em;
+}
+
+b {
+  font-weight: 700 !important;
+}

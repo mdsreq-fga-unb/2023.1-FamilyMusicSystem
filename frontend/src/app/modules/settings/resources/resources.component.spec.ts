@@ -9,11 +9,10 @@ describe('ResourcesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResourcesComponent ],
+      declarations: [ResourcesComponent],
       providers: [BsModalService],
       imports: [MatIconModule],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ResourcesComponent);
     component = fixture.componentInstance;

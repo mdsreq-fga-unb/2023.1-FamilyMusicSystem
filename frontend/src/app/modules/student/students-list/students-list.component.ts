@@ -10,6 +10,14 @@ import { StudentsViewComponent } from '../students-view/students-view.component'
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
 import { StudentsAlertComponent } from '../students-alert/students-alert.component';
 import { CookieService } from 'src/app/services/cookie.service';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
+import { tap, timeout } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 class Entry<T> {
   id: number;
@@ -26,21 +34,26 @@ class Response {
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
+  public showAlertEdit = false;
+  public showAlertDelete = false;
+  public showAlertAdd = false;
   private bsModalRef: BsModalRef;
-  checked: boolean = false;
+  public checked: boolean = false;
   public searchForm: FormGroup;
-  estilosDinamicos: any;
-  prefixoUrlStudent = 'http://localhost:1337/api/students';
-
-  error: any | undefined;
-  students$: Observable<Student[]> | undefined;
+  public estilosDinamicos: any;
+  public prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
+  public error: any | undefined;
+  public students$: Observable<Student[]> | undefined;
 
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
     private cookieService: CookieService,
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private dialogRef: BsModalRef
+  ) {}
 
   getStudent(args?: string) {
     const jwt = this.cookieService.getCookie('jwt');
@@ -66,36 +79,10 @@ export class StudentsListComponent implements OnInit {
       );
   }
 
-  deleteStudent(student: Student) {
-    const jwt = this.cookieService.getCookie('jwt');
-    let headers = new HttpHeaders();
-    headers = headers.append('Authorization', `Bearer ${jwt}`);
-
-    const opts = { headers: headers };
-    this.http
-      .delete(`${this.prefixoUrlStudent}/${student.id}`, opts)
-      .pipe(catchError((error) => this.handleError(error)))
-      .subscribe((response) => {
-        console.log(response);
-        this.getStudent();
-        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'O aluno foi deletado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
-      });
-  }
-
-
   search() {
     this.getStudent(
-      `?filters[name][$startsWithi]=${this.searchForm.get('search')?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
-    this.searchForm = this.fb.group({
-      search: ['', Validators.required],
-    });
   }
 
   ngOnInit(): void {
@@ -126,6 +113,10 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
+      this.showAlertAdd = true;
+      setTimeout(() => {
+        this.showAlertAdd = false;
+      }, 3000);
     });
   }
 
@@ -145,6 +136,41 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
+      this.showAlertEdit = true;
+      setTimeout(() => {
+        this.showAlertEdit = false;
+      }, 3000);
+    });
+  }
+
+  deleteStudent(student: Student) {
+    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
+      ConfirmationComponent,
+      {
+        data: {
+          message: 'Deseja realmente excluir esse perfil?',
+          dialogRef: null,
+        },
+      }
+    );
+
+    dialogRef.componentInstance.dialogRef = dialogRef;
+
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
+        this.http
+          .delete(`${this.prefixoUrlStudent}/${student.id}`)
+          .pipe(catchError((error) => this.handleError(error)))
+          .subscribe((response) => {
+            console.log(response);
+            dialogRef.close();
+            this.getStudent();
+            this.showAlertDelete = true;
+            setTimeout(() => {
+              this.showAlertDelete = false;
+            }, 3000);
+          });
+      }
     });
   }
 
@@ -153,14 +179,14 @@ export class StudentsListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: 'modal-lg',
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       StudentsFilterComponent,
       modalConfig
     );
-    this.bsModalRef.onHide?.subscribe(() => {
-      this.getStudent();
+    this.bsModalRef.content.onClose.subscribe((url: string) => {
+      this.getStudent(url);
     });
   }
 

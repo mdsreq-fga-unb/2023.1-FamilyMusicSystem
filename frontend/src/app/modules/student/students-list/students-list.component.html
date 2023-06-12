@@ -92,27 +92,27 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">
-                <input class="form-check-input" type="checkbox" value="" />
-              </th>
+              <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
               <th scope="col" class="notablet">CPF</th>
               <th scope="col" class="notablet">Telefone</th>
-              <th></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody *ngIf="students$ | async as students">
-            <tr class="selected" *ngFor="let student of students">
-              <th scope="row" id="select-all">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
+            <tr
+              class="selected"
+              *ngFor="let student of students; let i = index"
+            >
+              <th scope="row" id="select-all" class="num">
+                {{ i + 1 }}
               </th>
-              <td class="button" (click)="modalAlunos(student, false)">
+              <td
+                class="button"
+                (click)="modalAlunos(student, false)"
+                cursor="pointer"
+              >
                 <img
                   src="../../../../assets/image/foto perfil.png"
                   alt="Foto Aluno"
@@ -127,7 +127,7 @@
                 <mat-icon (click)="modalAlunos(student, true)" class="delete"
                   >edit</mat-icon
                 >
-                <mat-icon (click)="deleteStudent(student)"  class="delete"
+                <mat-icon (click)="deleteStudent(student)" class="delete"
                   >restore_from_trash</mat-icon
                 >
               </td>
@@ -136,5 +136,26 @@
         </table>
       </div>
     </div>
+    <ngb-alert
+      *ngIf="showAlertDelete"
+      class="fixed-top my-warning-alert"
+      (close)="showAlertDelete = false"
+    >
+      <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertEdit"
+      class="fixed-top my-edit-alert"
+      (close)="showAlertEdit = false"
+    >
+      <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertAdd"
+      class="fixed-top my-custom-alert"
+      (close)="showAlertAdd = false"
+    >
+      <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
+    </ngb-alert>
   </body>
 </div>

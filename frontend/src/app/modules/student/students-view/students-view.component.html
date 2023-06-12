@@ -100,13 +100,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfStudent')?.errors &&
+              studentForm.get('cpfStudent')?.errors?.['required'] &&
               studentForm.get('cpfStudent')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfStudent')?.errors?.['iscpf'] &&
+              studentForm.get('cpfStudent')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -283,13 +292,22 @@
             class="form-control form-control-sm input"
           />
           <div
+            class="validators"
             *ngIf="
-              studentForm.get('cpfLegalGuardian')?.errors &&
+              studentForm.get('cpfLegalGuardian')?.errors?.['required'] &&
               studentForm.get('cpfLegalGuardian')?.touched
             "
-            class="validators"
           >
             CPF obrigatório
+          </div>
+          <div
+            class="validators"
+            *ngIf="
+              studentForm.get('cpfLegalGuardian')?.errors?.['iscpf'] &&
+              studentForm.get('cpfLegalGuardian')?.touched
+            "
+          >
+            Insira um CPF válido
           </div>
         </div>
 
@@ -314,6 +332,20 @@
       </form>
     </div>
     <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="modalcontract(student)"
+        *ngIf="!edit"
+      >
+        contrato
+      </button>
       <button
         type="button"
         id="outline"
@@ -370,11 +402,10 @@
           align-items: center;
           justify-content: center;
         "
+        [disabled]="!isFormValid"
         *ngIf="guardian && edit"
         aria-label="Close"
-        [disabled]="!studentForm.valid"
-        (click)="onEdit()"
-        (click)="sair()"
+        (click)="onEdit(student)"
       >
         salvar
       </button>

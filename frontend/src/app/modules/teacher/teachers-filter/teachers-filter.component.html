@@ -10,74 +10,64 @@
       <form [formGroup]="teacherFilterForm" class="form-row">
         <div class="col-md-6">
           <label class="m-0 tittle-input" for="radioGroup">Por Cadastro</label>
-          <div class="radioGroup" id="radioGroup">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
-            <label class="form-check-label text-label" for="flexRadioDefault1">
-              Mais recentes
-            </label>
 
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault">
-            <label class="form-check-label text-label" for="flexRadioDefault1">
-              Mais antigos
-            </label>
+          <div class="col-md-6">
+            <select
+              name="createdAt"
+              formControlName="createdAt"
+              class="form-control form-control-sm input"
+            >
+              <option value="desc">mais recentes</option>
+              <option value="asc">mais antigos</option>
+            </select>
           </div>
         </div>
 
         <div class="col-md-6">
           <label class="m-0 tittle-input" for="radioGroup">Por Gênero</label>
-          <div class="radioGroup" id="radioGroup">
-            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-            <label class="form-check-label text-label" for="flexRadioDefault1">
-              Feminino
-            </label>
-
-            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-            <label class="form-check-label text-label" for="flexRadioDefault1">
-              Masculino
-            </label>
-
-            <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
-            <label class="form-check-label text-label" for="flexRadioDefault1">
-              Outro
-            </label>
+          <div class="col-md-6">
+            <select
+              name="genderTeacherFilter"
+              formControlName="genderteacherFilter"
+              class="form-control form-control-sm input"
+            >
+              <option value="Male">masculino</option>
+              <option value="Female">feminino</option>
+              <option value="Others">outro</option>
+            </select>
           </div>
         </div>
-
-        <div class="col-md-6 formGroup2">
-          <label class="m-0 tittle-input" for="date1">Data de Nascimento</label>
-          <div class="dateClass">
-          <input type="date" name="date1" formControlName="dateTeacherFilter1"
-            class="form-control form-control-sm input">
-          <label class="m-0 text-label2" for="date2">a</label>
-          <input type="date" name="date2" formControlName="dateTeacherFilter2"
-            class="form-control form-control-sm input">
-        </div>
+      </form>
     </div>
 
-    <div class="col-md-6 formGroup2">
-      <label class="m-0 tittle-input" for="age">Por idade</label>
-      <input type="text" name="age" formControlName="ageTeacherFilter" class="form-control form-control-sm input">
-    </div>
-
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          " (click)="sair()">
-                cancelar
-            </button>
-            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="outline"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
           height: min-content;
           width: 6rem;
           align-items: center;
           justify-content: center;
-        " (click)="sair()">
-                filtrar
-            </button>
-  </div>
+        "
+        (click)="exit()"
+      >
+        cancelar
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="filter()"
+      >
+        filtrar
+      </button>
+    </div>
   </div>
 </body>

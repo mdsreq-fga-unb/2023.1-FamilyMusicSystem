@@ -8,12 +8,6 @@
         <div class="modal-body">
             <form [formGroup]="classForm" class="form-row">
                 <div class="col-md-6" *ngIf="inicial">
-                    <label class="m-0 tittle-input" for="className">Nome da Sala</label>
-                    <input type="text" name="className" formControlName="className"
-                        class="form-control form-control-sm input" />
-                </div>
-
-                <div class="col-md-6" *ngIf="inicial">
                     <label class="m-0 tittle-input" for="classNumber">Número</label>
                     <input type="text" name="classNumber" formControlName="classNumber"
                         class="form-control form-control-sm input" />
@@ -22,18 +16,6 @@
                 <div class="col-md-6" *ngIf="inicial">
                     <label class="m-0 tittle-input" for="classCapacity">Capacidade</label>
                     <input type="text" name="classCapacity" formControlName="classCapacity"
-                        class="form-control form-control-sm input" />
-                </div>
-
-                <div class="col-md-6" *ngIf="inicial">
-                    <label class="m-0 tittle-input" for="classLocal">Local</label>
-                    <input type="text" name="classLocal" formControlName="classLocal"
-                        class="form-control form-control-sm input" />
-                </div>
-
-                <div class="col-md-6" *ngIf="inicial">
-                    <label class="m-0 tittle-input" for="classDescription">Descrição</label>
-                    <input type="text" name="classDescription" formControlName="classDescription"
                         class="form-control form-control-sm input" />
                 </div>
             </form>
@@ -52,7 +34,10 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        ">
+        "
+        (click)="onSubmit()"
+        (click)="sair()"
+        >
                 salvar
             </button>
         </div>

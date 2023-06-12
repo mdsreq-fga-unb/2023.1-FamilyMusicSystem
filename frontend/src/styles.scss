@@ -1,10 +1,5 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-@font-face {
-  font-family: "Visby";
-  src: url(../src/assets/fonts/VisbyMedium.woff);
-}
-
 :root {
   --background: #b7cd96;
   --selector: #b5dc79;
@@ -50,6 +45,13 @@ body {
 
 .modal-dialog {
   margin-top: 2rem;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 1rem !important;
+  background-color: var(--primary) !important;
+  color: var(--contrast) !important;
+  padding: 0rem 2rem !important;
 }
 
 @media (min-width: 576px) {

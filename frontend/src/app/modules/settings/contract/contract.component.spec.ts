@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContractComponent } from './contract.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 describe('ContractComponent', () => {
   let component: ContractComponent;
@@ -8,9 +8,9 @@ describe('ContractComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContractComponent ]
-    })
-    .compileComponents();
+      declarations: [ContractComponent],
+      providers: [BsModalService],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ContractComponent);
     component = fixture.componentInstance;
