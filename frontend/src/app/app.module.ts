@@ -70,6 +70,8 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
+    RoomViewComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
