@@ -4,6 +4,7 @@
 | :--------: | :----: | :---------------------------------: | :----------------------------------------------------------------------: |
 | 20/04/2023 |  0.1   | Criação e estruturação do documento |Luan Mateus, </br> Maykon Junio |
 | 16/05/2023 |  0.2   | Inserção de Lições Aprendidas na Unidade 2 |Luan Mateus |
+| 16/05/2023 |  0.3   | Inserção de Lições Aprendidas na Unidade 3 |Luan Mateus |
 
 ## Unidade 1
 
@@ -20,4 +21,12 @@ No decorrer da Unidade 2, a equipe desenvolveu conhecimentos nunca vistos antes.
 Ademais, o time teve contato mais aprofundado em relação a novos conceitos do eXtreme Programming, como é o exemplo da Integração Contínua, sendo uma das entregas da unidade, e, também, as vastas maneiras de escolher a Arquitetura e Design do produto a ser desenvolvido.<br><br>
 
 Além disso, conceitos já vistos antes, foram aprimorados, como é o exemplo do Git Pages, que durante todo o semestre vai ser utilizado, permitindo, assim, a oportunidade para todos os integrantes do grupo de terem contato com a ferramenta. De igual modo, a equipe vem aprendendo, de forma constante, a como estar cada vez mais receptivo em relação aos feedbacks, visto que o instrutor recomenda bastante essa prática.
+ </p>
+
+## Unidade 3
+
+<p style="text-indent: 50px;text-align: justify;">
+No decorrer da Unidade 3, a equipe finalmente iniciou a execução do sistema que havia sido proposto desde o início da disciplina. Com isso, o grupo dividiu as tarefas para entrega das histórias de usuário que foram negociadas para o MVP1. Dessa forma, a equipe contou com algumas dificuldades devido a vários motivos, como por exemplo: linguagem de programação, testes unitários e integração contínua, além do convívio uns com os outros. Porém, o grupo lembrou de um dos pilares do scrum e buscou ser o mais transparente possível, respeitando sempre cada integrante, absorvendo assim, aprendizados e conhecimento com toda a situação.<br><br>
+
+Trazendo o foco para o que foi trabalhado na parte teórica da disciplina, conceitos importantes foram apresentados, como a integração contínua, que foi um tema já apresentado para a turma desde o início do semestre, mas que nunca foi tão aprofundado em sala de aula pelo professor. Porém, durante a Unidade 3, foi apresentado aos alunos esse tema tão importante para verificação constante do funcionamento do código. Além disso, outros temas foram abordados como: Banco de Dados e Estratégias de Construção de Software.
  </p>
