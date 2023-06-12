@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RoomViewComponent } from './room-view.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('RoomViewComponent', () => {
@@ -11,6 +12,7 @@ describe('RoomViewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [RoomViewComponent],
       providers: [BsModalService, HttpClient, HttpHandler],
+      imports: [MatIconModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RoomViewComponent);
