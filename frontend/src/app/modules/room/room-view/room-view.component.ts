@@ -1,9 +1,11 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Classroom } from '../../../models/classroom';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-room-view',
@@ -22,8 +24,17 @@ export class RoomViewComponent {
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   onEdit($classRoom: Classroom): void {
     const classRoom: Classroom = new Classroom();
@@ -36,7 +47,8 @@ export class RoomViewComponent {
     this.http
       .put(
         `https://20231-familymusicsystem-production.up.railway.app/api/lessons/${$classRoom.id}`,
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {

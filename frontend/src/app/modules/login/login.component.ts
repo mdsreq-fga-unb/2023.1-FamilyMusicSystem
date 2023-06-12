@@ -53,10 +53,13 @@ export class LoginComponent implements OnInit {
     );
 
     this.http
-      .post<any>('http://localhost:1337/api/auth/local', {
-        identifier: this.user.Username,
-        password: this.user.Password,
-      })
+      .post<any>(
+        'https://20231-familymusicsystem-production.up.railway.app/api/auth/local',
+        {
+          identifier: this.user.Username,
+          password: this.user.Password,
+        }
+      )
       .subscribe(
         (response) => {
           console.log('User Profile', response.user);

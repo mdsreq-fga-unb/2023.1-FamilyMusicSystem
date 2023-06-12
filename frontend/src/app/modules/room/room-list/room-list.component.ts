@@ -1,3 +1,4 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RoomRegisterComponent } from '../room-register/room-register.component';
@@ -7,6 +8,7 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { RoomViewComponent } from '../room-view/room-view.component';
+import { HttpHeaders } from '@angular/common/http';
 
 class Entry<T> {
   id: number;
@@ -34,19 +36,27 @@ export class RoomListComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   ngOnInit(): void {
     this.getRoom();
   }
 
   getRoom(args?: string) {
-    const opts = { params: { populate: '*' } };
     this.Rooms$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlRoom}${args}` : this.prefixoUrlRoom,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -63,7 +73,7 @@ export class RoomListComponent implements OnInit {
 
   deleteRoom(room: Classroom) {
     this.http
-      .delete(`${this.prefixoUrlRoom}/${room.id}`)
+      .delete(`${this.prefixoUrlRoom}/${room.id}`, this.headers())
       .pipe(catchError((error) => this.handleError(error)))
       .subscribe((response) => {
         console.log(response);

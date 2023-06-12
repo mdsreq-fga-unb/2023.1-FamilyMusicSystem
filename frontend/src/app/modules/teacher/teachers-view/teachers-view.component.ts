@@ -1,3 +1,4 @@
+import { CookieService } from './../../../services/cookie.service';
 import { FormValidations } from './../../../shared/form-validations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,9 +9,7 @@ import { Teacher } from '../../../models/teacher';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { ChangeDetectorRef } from '@angular/core';
-import * as moment from 'moment';
-import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
-
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-teachers-view',
@@ -37,8 +36,17 @@ export class TeachersViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   ngOnInit(): void {
     this.teacherForm = this.fb.group({
@@ -103,11 +111,11 @@ export class TeachersViewComponent implements OnInit {
     this.http
       .put(
         `https://20231-familymusicsystem-production.up.railway.app/api/teachers/${$teachers.id}`,
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {
-          console.log(response);
           console.log(response);
           this.showAlert = true;
           setTimeout(() => {
@@ -129,9 +137,7 @@ export class TeachersViewComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      initialState: {
-        
-      },
+      initialState: {},
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);

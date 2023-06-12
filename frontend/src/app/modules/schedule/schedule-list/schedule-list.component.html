@@ -1,136 +1,132 @@
 <div class="content-content">
-    <body>
-      <div class="container-fluid">
-        <div class="container">
-          <div class="right">
-            <div class="lessonsTitle">
-              <mat-icon class="personIcon">person</mat-icon>
-              <p class="title">Agendas</p>
+  <body>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="right">
+          <div class="lessonsTitle">
+            <mat-icon class="personIcon">person</mat-icon>
+            <p class="title">Agendas</p>
+          </div>
+          <form class="d-flex" role="search" [formGroup]="searchForm">
+            <div class="search-container">
+              <input
+                class="form-control me-3"
+                id="researchLessons"
+                formControlName="search"
+                type="search"
+                aria-label="Search"
+              />
+              <i class="material-icons search-icon">search</i>
             </div>
-            <form class="d-flex" role="search" [formGroup]="searchForm">
-              <div class="search-container">
-                <input
-                  class="form-control me-3"
-                  id="researchLessons"
-                  formControlName="search"
-                  type="search"
-                  aria-label="Search"
-                />
-                <i class="material-icons search-icon">search</i>
-              </div>
-              <button
-                type="button"
-                (click)="search()"
-                class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-                style="
-                  height: min-content;
-                  margin-left: 0.5rem;
-                  border: none;
-                  width: 5rem;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                <mat-icon class="mobile">search</mat-icon>
-                <span class="button-text">buscar</span>
-              </button>
-              <button
-                type="button"
-                class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-                (click)="modalFilterLessons()"
-                id="outline"
-              >
-                <mat-icon class="mobile">filter_list</mat-icon>
-                <span class="button-text">filtrar</span>
-              </button>
-            </form>
-          </div>
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="Basic example"
-            style="height: max-content; align-items: center"
-          >
             <button
               type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              routerLink=""
-              style="
-                background: var(--red) !important;
-                border: none;
-                width: 5rem;
-                justify-content: center;
-              "
-              *ngIf="checked"
-            >
-              <span class="button-text">excluir</span>
-            </button>
-  
-            <button
-              type="button"
+              (click)="search()"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
+                height: min-content;
                 margin-left: 0.5rem;
-                background: var(--orange) !important;
                 border: none;
                 width: 5rem;
+                align-items: center;
                 justify-content: center;
-                height: 36px;
-                align-self: center;
               "
-              (click)="modalNewLesson()"
             >
-              <mat-icon class="mobile">add</mat-icon>
-              <span class="button-text">novo</span>
+              <mat-icon class="mobile">search</mat-icon>
+              <span class="button-text">buscar</span>
             </button>
-          </div>
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              (click)="modalFilterLessons()"
+              id="outline"
+            >
+              <mat-icon class="mobile">filter_list</mat-icon>
+              <span class="button-text">filtrar</span>
+            </button>
+          </form>
         </div>
-  
-        <div *ngIf="error">{{ error }}</div>
-  
-        <div class="scrool">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col" class="nomobile">Sala</th>
-                <th scope="col" class="notablet">Professor</th>
-                <th scope="col" class="notablet">Aluno</th>
-                <th scope="col" class="notablet">Data</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody *ngIf="lessonss$ | async as lessons">
-              <tr
-                class="selected"
-                *ngFor="let lesson of lessons; let i = index"
-              >
-                <th scope="row" id="select-all" class="num">
-                  {{ i + 1 }}
-                </th>
-                <td
-                  class="button"
-                  (click)="modalLesson(lesson, false)"
-                  cursor="pointer"
-                >
-                  {{ lesson.Classroom }}
-                </td>
-                <td class="notablet" class="notablet">{{ lesson.Teacher }}</td>
-                <td class="notablet">{{ lesson.Student }}</td>
-                <td class="notablet">{{ lesson.Horary }}</td>
-                <td>
-                  <mat-icon (click)="modalLesson(lesson, true)" class="delete"
-                    >edit</mat-icon
-                  >
-                  <mat-icon (click)="deleteLesson(lesson)" class="delete"
-                    >restore_from_trash</mat-icon
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic example"
+          style="height: max-content; align-items: center"
+        >
+          <button
+            type="button"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            routerLink=""
+            style="
+              background: var(--red) !important;
+              border: none;
+              width: 5rem;
+              justify-content: center;
+            "
+            *ngIf="checked"
+          >
+            <span class="button-text">excluir</span>
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            style="
+              margin-left: 0.5rem;
+              background: var(--orange) !important;
+              border: none;
+              width: 5rem;
+              justify-content: center;
+              height: 36px;
+              align-self: center;
+            "
+            (click)="modalNewLesson()"
+          >
+            <mat-icon class="mobile">add</mat-icon>
+            <span class="button-text">novo</span>
+          </button>
         </div>
       </div>
-    </body>
-  </div>
-  
+
+      <div *ngIf="error">{{ error }}</div>
+
+      <div class="scrool">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" class="nomobile">Sala</th>
+              <th scope="col" class="notablet">Professor</th>
+              <th scope="col" class="notablet">Aluno</th>
+              <th scope="col" class="notablet">Data</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngIf="lessonss$ | async as lessons">
+            <tr class="selected" *ngFor="let lesson of lessons; let i = index">
+              <th scope="row" id="select-all" class="num">
+                {{ i + 1 }}
+              </th>
+              <td
+                class="button"
+                (click)="modalLesson(lesson, false)"
+                cursor="pointer"
+              >
+                {{ lesson.Classroom }}
+              </td>
+              <td class="notablet" class="notablet">{{ lesson.Teacher }}</td>
+              <td class="notablet">{{ lesson.Student }}</td>
+              <td class="notablet">{{ date(lesson.Horary) }}</td>
+              <td>
+                <mat-icon (click)="modalLesson(lesson, true)" class="delete"
+                  >edit</mat-icon
+                >
+                <mat-icon (click)="deleteLesson(lesson)" class="delete"
+                  >restore_from_trash</mat-icon
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</div>
