@@ -1,3 +1,4 @@
+import { CookieService } from './../../service/cookie.service';
 import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AboutComponent } from '../settings/about/about.component';
@@ -10,7 +11,15 @@ import { AboutComponent } from '../settings/about/about.component';
 export class HomeComponent {
   private bsModalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {}
+  cookieValue: string | undefined;
+
+  constructor(
+    private modalService: BsModalService,
+    private cookieService: CookieService
+  ) {
+    this.cookieValue = this.cookieService.getCookie('key');
+  }
+
   modalabout() {
     const modalConfig = {
       backdrop: true,

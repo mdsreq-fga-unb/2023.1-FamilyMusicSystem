@@ -36,6 +36,7 @@ import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
+import { CookieService } from './service/cookie.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,7 @@ import { StudentsAlertComponent } from './modules/student/students-alert/student
     BsDropdownModule.forRoot(),
     HttpClientModule,
   ],
-  providers: [BsModalService],
+  providers: [BsModalService, CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
