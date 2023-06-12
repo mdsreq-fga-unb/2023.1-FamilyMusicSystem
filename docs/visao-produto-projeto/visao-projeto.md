@@ -6,6 +6,7 @@
 | 13/05/2023 |  0.2   | Modificação na Organização do Projeto, Planejamento das Fases e Critérios de Replanejamento | Luan Mateus |
 | 16/05/2023 | 0.3 | Edição dos papéis | Luana Ribeiro |
 | 10/06/2023 | 0.4 | Edição do Planejamento de Fases: Sprints | Luana Ribeiro |
+| 12/06/2023 | 0.5 | Adição de US faltantes na sprint | Luana Ribeiro |
 
 ## Organização do projeto
 
@@ -26,7 +27,7 @@
 |   0    | Conclusão da ideia do produto;<br>Produção da Visão do Produto e Projeto;<br>Produção do Processo de Desenvolvimento de Software. | 12/04/2023  | 27/04/2023 |
 |   1    | Criação da Versão Inicial do Backlog do Produto; <br> Definição da Arquitetura a Ser Utiliada no Projeto; <br> Definição dos Padrões de UI. <br>  | 28/04/2023  | 12/05/2023 |
 |   2    | Workflow de Integração Contínua;<br>TE01-EP01-US01;<br>TE01-EP01-US02;<br>TE01-EP01-US03: Não concluído ;<br>TE01-EP01-US04: Não concluído;<br>TE01-EP01-US05: Não concluído;<br>TE01-EP01-US06: Não concluído;<br>TE03-EP07-US17: Não concluído.<br>| 13/05/2023  | 27/05/2023 |
-|   3    | MVP 1</br>TE01-EP01-US03;</br>TE01-EP01-US04;</br>TE01-EP01-US05;</br>TE01-EP01-US06;</br>TE01-EP02-US07;</br>TE01-EP02-US08;</br>TE02-EP04-US11;</br>TE02-EP04-US12;</br>TE02-EP04-US13;</br>TE02-EP04-US14;</br>TE03-EP07-US17. | 28/05/2023  | 11/06/2023 |
+|   3    | MVP 1</br>TE01-EP01-US03;</br>TE01-EP01-US04;</br>TE01-EP01-US05;</br>TE01-EP01-US06;</br>TE01-EP02-US07;</br>TE01-EP02-US08;</br>TE02-EP04-US11;</br>TE02-EP04-US12;</br>TE02-EP04-US13;</br>TE02-EP04-US14;</br>TE03-EP07-US17;</br>T03-EP07-US18. | 28/05/2023  | 11/06/2023 |
 |   4    | Produto (Entrega - Sprint)                                                                                                 | 12/06/2023  | 26/06/2023 |
 |   5    | Produto (Entrega - Sprint) - MVP2                                                                                                | 27/06/2023  | 11/07/2023 |
 

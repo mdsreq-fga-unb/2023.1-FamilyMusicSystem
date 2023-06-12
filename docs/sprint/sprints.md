@@ -6,6 +6,7 @@
 | 01/06/2023 | 0.2 | Atualização de dailys da Sprint 3 e correções de ortografia | Luana Ribeiro |
 | 09/06/2023 | 0.3 | Recriação da documentação das sprints no modelo correto | Luana Ribeiro | 
 | 10/06/2023 | 0.4 | Adição da tabela de pair programming e update da sprint | Luana Ribeiro |
+| 12/06/2023 | 0.5 | Adição de US faltante na sprint | Luana Ribeiro |
 
 ## Sprint 0 
 
@@ -60,7 +61,7 @@
 | Sprint | 3 | 
 | ---- | --------------- | 
 | <b>Sprint Planning - Goal</b> | - Realizar o Workflow </br> - Finalizar as US não concluídas da Sprint anterior </br> - Finalizar as US restantes para o MVP1 </br> - Entregas da Unidade 3 |
-| <b>Backlog da Sprint<b> | -  Workflow de Integração Contínua </br> - US03: Atualização do Perfil de Professor  </br> - US04: Atualização do Perfil de Aluno </br> - US05: Remover cadastro de Aluno  </br> - US06: Remover cadastro de professor </br> - US07: Usuário acessar a plataforma </br> - US08: Usuário recuperar sua senha </br> - US11: Agenda de alunos </br> - US12: Adição de aulas na agenda do aluno </br> - US13: Agenda de Professor </br> - US14: Adição de aulas na agenda do professor </br> - US17: Geração de Contrato de Prestação de Serviços </br></br> - RNF02: Modo alto contraste </br> - RNF04: Responsividade da aplicação</br>- RNF05: Manual de funcionalidade</br>- RNF06: Aba de "Sobre" | 
+| <b>Backlog da Sprint<b> | -  Workflow de Integração Contínua </br> - US03: Atualização do Perfil de Professor  </br> - US04: Atualização do Perfil de Aluno </br> - US05: Remover cadastro de Aluno  </br> - US06: Remover cadastro de professor </br> - US07: Usuário acessar a plataforma </br> - US08: Usuário recuperar sua senha </br> - US11: Agenda de alunos </br> - US12: Adição de aulas na agenda do aluno </br> - US13: Agenda de Professor </br> - US14: Adição de aulas na agenda do professor </br> - US17: Geração de Contrato de Prestação de Serviços</br> - US18: Acesso ao contrato do aluno </br></br> - RNF02: Modo alto contraste </br> - RNF04: Responsividade da aplicação</br>- RNF05: Manual de funcionalidade</br>- RNF06: Aba de "Sobre" | 
 | <b>Sprint Review<b> | - Nessa Sprint, não ocorreu reunião com o PO Felipe, pois o mesmo não encontrava-se disponível |
 | <b>US's não realizadas<b> | - US </br> - Justificativa: No período dessa sprint, as histórias de usuário ficaram em andamento, porém, não foram concluídas. O período de ambientação das ferramentas foi mais duradouro. Por isso, sua conclusão será realizada na Sprint 3 |
 | <b>Sprint Retrospective<b> |  - Pontos fortes:  </br> - Pontos Fracos: Falta de Ritmo Sustentável, alguns membros mais sobrecarregados que outros </br> - Melhorias para a próxima Sprint:  |
