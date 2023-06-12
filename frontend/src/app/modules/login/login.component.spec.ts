@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from '../../template/footer/footer.component';
 import { AppModule } from '../../app.module';
+import { CookieService } from '../../services/cookie.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -12,7 +13,7 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginComponent, FooterComponent],
-      providers: [BsModalService],
+      providers: [BsModalService, CookieService],
       imports: [MatIconModule, AppModule],
     }).compileComponents();
 

@@ -35,7 +35,6 @@ import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
 import { CookieService } from './services/cookie.service';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';

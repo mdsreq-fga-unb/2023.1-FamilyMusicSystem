@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -8,14 +12,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
-import { StudentsAlertComponent } from '../students-alert/students-alert.component';
-import { CookieService } from 'src/app/services/cookie.service';
+import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
-import { tap, timeout } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -87,7 +85,7 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit(): void {
     const jwt = this.cookieService.getCookie('jwt');
-    console.log("jwt:" + jwt);
+    console.log('jwt:' + jwt);
     this.getStudent();
     this.searchForm = this.fb.group({
       search: ['', Validators.required],

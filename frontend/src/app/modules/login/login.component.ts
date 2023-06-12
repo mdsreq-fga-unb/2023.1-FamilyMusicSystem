@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/models/user';
-import { CookieService } from 'src/app/services/cookie.service';
+import { User } from '../../models/user';
+import { CookieService } from '../../services/cookie.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService,
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) {}
 
   public saveCookie(key: string, values: string) {
     this.cookieService.setCookie(key, values);
@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
     this.user.Username = this.loginForm.get('username')?.value;
     this.user.Password = this.loginForm.get('password')?.value;
 
-    console.log("Username: " + this.user.Username + " Password: " + this.user.Password);
+    console.log(
+      'Username: ' + this.user.Username + ' Password: ' + this.user.Password
+    );
 
     this.http
       .post<any>('http://localhost:1337/api/auth/local', {

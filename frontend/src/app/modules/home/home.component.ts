@@ -1,7 +1,6 @@
-
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AboutComponent } from '../settings/about/about.component';
-import { CookieService } from 'src/app/services/cookie.service';
+import { CookieService } from '../../services/cookie.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,10 +12,13 @@ export class HomeComponent {
   private bsModalRef: BsModalRef;
   public jwt: any;
 
-  constructor(private modalService: BsModalService, private cookieService: CookieService) { }
+  constructor(
+    private modalService: BsModalService,
+    private cookieService: CookieService
+  ) {}
 
   ngOnInit(): void {
-    this.jwt = this.cookieService.getCookie("jwt");
+    this.jwt = this.cookieService.getCookie('jwt');
   }
 
   modalabout() {
@@ -27,6 +29,6 @@ export class HomeComponent {
       class: 'modal-lg',
     };
     this.bsModalRef = this.modalService.show(AboutComponent, modalConfig);
-    this.bsModalRef.content.onClose.subscribe(() => { });
+    this.bsModalRef.content.onClose.subscribe(() => {});
   }
 }
