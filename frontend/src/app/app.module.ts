@@ -38,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ConfirmationComponent } from './shared/confirmation/confirmation.compon
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
+    RoomViewComponent,
     ConfirmationComponent,
   ],
   imports: [

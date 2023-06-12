@@ -3,6 +3,7 @@ import { RoomRegisterComponent } from './room-register.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('RoomRegisterComponent', () => {
   let component: RoomRegisterComponent;
@@ -11,7 +12,7 @@ describe('RoomRegisterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RoomRegisterComponent],
-      providers: [BsModalService],
+      providers: [BsModalService, HttpClient, HttpHandler],
       imports: [MatIconModule, ReactiveFormsModule],
     }).compileComponents();
 
