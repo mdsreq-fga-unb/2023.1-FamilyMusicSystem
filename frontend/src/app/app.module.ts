@@ -36,7 +36,11 @@ import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentsAlertComponent } from './modules/student/students-alert/students-alert.component';
+<<<<<<< HEAD
 import { CookieService } from './services/cookie.service';
+=======
+import { CookieService } from './service/cookie.service';
+>>>>>>> 3afbcba9357208606e81330b315a00a6e56a62b9
 
 @NgModule({
   declarations: [

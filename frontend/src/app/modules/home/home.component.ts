@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
+=======
+import { CookieService } from './../../service/cookie.service';
+import { Component } from '@angular/core';
+>>>>>>> 3afbcba9357208606e81330b315a00a6e56a62b9
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AboutComponent } from '../settings/about/about.component';
 import { CookieService } from 'src/app/services/cookie.service';
@@ -19,6 +24,18 @@ export class HomeComponent {
     console.log("teste:" + this.jwt)
   }
 
+<<<<<<< HEAD
+=======
+  cookieValue: string | undefined;
+
+  constructor(
+    private modalService: BsModalService,
+    private cookieService: CookieService
+  ) {
+    this.cookieValue = this.cookieService.getCookie('key');
+  }
+
+>>>>>>> 3afbcba9357208606e81330b315a00a6e56a62b9
   modalabout() {
     const modalConfig = {
       backdrop: true,
