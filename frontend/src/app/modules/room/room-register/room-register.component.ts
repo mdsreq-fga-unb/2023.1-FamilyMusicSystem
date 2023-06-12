@@ -3,8 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Classroom } from 'src/app/models/classroom';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component';
+import { Classroom } from '../../../models/classroom';
 
 @Component({
   selector: 'app-room-register',
@@ -27,7 +26,7 @@ export class RoomRegisterComponent implements OnInit {
 
   onSubmit(): void {
     const classRoom: Classroom = new Classroom();
-    classRoom.Name= this.classForm.get('classNumber')?.value;
+    classRoom.Name = this.classForm.get('classNumber')?.value;
     classRoom.Capacity = this.classForm.get('classCapacity')?.value;
     const body = {
       data: classRoom,
@@ -40,13 +39,7 @@ export class RoomRegisterComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O compromisso foi cadastrado com sucesso.',
-            },
-          });
-          this.bsModalRef.content.showModal();
+          console.log(response);
         },
         (error) => {
           this.handleError(error);

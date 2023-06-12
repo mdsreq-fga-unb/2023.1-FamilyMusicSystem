@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
-import { subYears, format } from 'date-fns';
 
 @Component({
   selector: 'app-schedule-filter',
@@ -10,8 +9,6 @@ import { subYears, format } from 'date-fns';
   styleUrls: ['./schedule-filter.component.scss'],
 })
 export class ScheduleFilterComponent {
-
-
   public onClose: Subject<any> = new Subject<any>();
   public Resp = false;
   public numreq = 0;
@@ -53,7 +50,4 @@ export class ScheduleFilterComponent {
     this.onClose.next(url);
     this.bsModalRef.hide();
   }
-
-
-
 }

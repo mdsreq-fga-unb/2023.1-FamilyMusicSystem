@@ -8,12 +8,12 @@
       <div class="modal-body">
         <form [formGroup]="lessonForm" class="form-row">
             <div class="col-md-6" >
-              <label class="m-0 tittle-input" for="name"
+              <label class="m-0 tittle-input" for="nameRoom"
                 >Numero da Sala<b>*</b></label
               >
               <input
                 type="text"
-                name="name"
+                name="nameRoom"
                 formControlName="nameRoom"
                 class="form-control form-control-sm input"
               />
@@ -21,10 +21,10 @@
                 *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
                 class="validators"
               >
-                Numero obrigatório
+                Número obrigatório
               </div>
             </div>
-  
+
             <div class="col-md-6" >
               <label class="m-0 tittle-input" for="name"
                 >Data da Aula<b>*</b></label
@@ -42,7 +42,7 @@
                 Data obrigatória
               </div>
             </div>
-  
+
             <div class="col-md-6">
               <label class="m-0 tittle-input" for="disabledPerson"
                 >Professor<b>*</b></label
@@ -62,7 +62,7 @@
                 Seleção obrigatória
               </div>
             </div>
-  
+
             <div class="col-md-6" >
               <label class="m-0 tittle-input" for="gender">Estudante<b>*</b></label>
               <select
@@ -80,8 +80,8 @@
                 Seleção obrigatória
               </div>
             </div>
-    
-            
+
+
           </form>
       </div>
       <div class="modal-footer">
@@ -99,8 +99,8 @@
         >
           sair
         </button>
-  
-  
+
+
         <button
           type="button"
           class="btn btn-dark d-flex align-items-center rounded-pill"
@@ -119,4 +119,3 @@
       </div>
     </div>
   </body>
-  

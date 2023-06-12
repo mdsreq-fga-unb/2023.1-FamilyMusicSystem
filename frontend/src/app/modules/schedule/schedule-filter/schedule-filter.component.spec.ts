@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { ScheduleFilterComponent } from './schedule-filter.component';
 
 describe('ScheduleFilterComponent', () => {
@@ -9,6 +9,7 @@ describe('ScheduleFilterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ScheduleFilterComponent],
+      imports: [ReactiveFormsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ScheduleFilterComponent);

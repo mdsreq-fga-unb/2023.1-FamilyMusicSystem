@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RoomRegisterComponent } from '../room-register/room-register.component';
 import { RoomFilterComponent } from '../room-filter/room-filter.component';
-import { Classroom } from 'src/app/models/classroom';
+import { Classroom } from '../../../models/classroom';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component';
 import { RoomViewComponent } from '../room-view/room-view.component';
 
 class Entry<T> {
@@ -69,13 +68,6 @@ export class RoomListComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
         this.getRoom();
-        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'A sala foi deletado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
       });
   }
 
@@ -93,7 +85,6 @@ export class RoomListComponent implements OnInit {
     this.bsModalRef.onHide?.subscribe(() => {
       this.getRoom();
     });
-    
   }
 
   modalRoom(room: Classroom, edit: boolean) {
@@ -106,10 +97,7 @@ export class RoomListComponent implements OnInit {
         edit,
       },
     };
-    this.bsModalRef = this.modalService.show(
-      RoomViewComponent,
-      modalConfig
-    );
+    this.bsModalRef = this.modalService.show(RoomViewComponent, modalConfig);
     this.bsModalRef.onHide?.subscribe(() => {
       this.getRoom();
     });

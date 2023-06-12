@@ -1,4 +1,4 @@
-import { Lesson } from 'src/app/models/lesson';
+import { Lesson } from '../../../models/lesson';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScheduleRegisterComponent } from '../schedule-register/schedule-register.component';
 import { ScheduleFilterComponent } from '../schedule-filter/schedule-filter.component';
 import { ScheduleViewComponent } from '../schedule-view/schedule-view.component';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component';
 
 class Entry<T> {
   id: number;
@@ -18,8 +17,6 @@ class Entry<T> {
 class Response {
   data: Entry<Lesson>[];
 }
-
-
 
 @Component({
   selector: 'app-schedule-list',
@@ -34,8 +31,6 @@ export class ScheduleListComponent {
 
   prefixoUrlLesson =
     'https://20231-familymusicsystem-production.up.railway.app/api/lessons';
-
-  
 
   error: any | undefined;
   lessonss$: Observable<Lesson[]> | undefined;
@@ -73,13 +68,6 @@ export class ScheduleListComponent {
       .subscribe((response) => {
         console.log(response);
         this.getLesson();
-        this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-          initialState: {
-            title: 'Exclusão concluída!',
-            message: 'O aluno foi deletado com sucesso.',
-          },
-        });
-        this.bsModalRef.content.showModal();
       });
   }
 
@@ -147,7 +135,6 @@ export class ScheduleListComponent {
     });
   }
 
-
   toggle() {
     this.estilosDinamicos = {
       background: this.calcularCorDeFundo(),
@@ -158,13 +145,9 @@ export class ScheduleListComponent {
     return 'var(--selector)';
   }
 
-
-
-
   private handleError(error: HttpErrorResponse): Observable<never> {
     this.error = error;
 
     return of();
   }
-
 }

@@ -3,20 +3,17 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Classroom } from 'src/app/models/classroom';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component'
+import { Classroom } from '../../../models/classroom';
 
 @Component({
   selector: 'app-room-view',
   templateUrl: './room-view.component.html',
-  styleUrls: ['./room-view.component.scss']
+  styleUrls: ['./room-view.component.scss'],
 })
 export class RoomViewComponent {
-
-
   public onClose: Subject<boolean>;
   public edit = false;
-  public room : Classroom;
+  public room: Classroom = new Classroom();
   public inicial = true;
   public classForm: FormGroup;
   error: any | undefined;
@@ -30,7 +27,7 @@ export class RoomViewComponent {
 
   onEdit($classRoom: Classroom): void {
     const classRoom: Classroom = new Classroom();
-    classRoom.Name= this.classForm.get('classNumber')?.value;
+    classRoom.Name = this.classForm.get('classNumber')?.value;
     classRoom.Capacity = this.classForm.get('classCapacity')?.value;
     const body = {
       data: classRoom,
@@ -43,21 +40,13 @@ export class RoomViewComponent {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O compromisso foi cadastrado com sucesso.',
-            },
-          });
-          this.bsModalRef.content.showModal();
+          console.log(response);
         },
         (error) => {
           this.handleError(error);
         }
       );
   }
-
-
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     this.error = error.message;
@@ -66,8 +55,14 @@ export class RoomViewComponent {
 
   ngOnInit(): void {
     this.classForm = this.fb.group({
-      classCapacity: [{ value: this.room.Capacity, disabled: !this.edit }, Validators.required],
-      classNumber: [{ value: this.room.Name, disabled: !this.edit }, Validators.required],
+      classCapacity: [
+        { value: this.room.Capacity, disabled: !this.edit },
+        Validators.required,
+      ],
+      classNumber: [
+        { value: this.room.Name, disabled: !this.edit },
+        Validators.required,
+      ],
     });
   }
 

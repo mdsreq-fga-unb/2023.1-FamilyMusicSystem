@@ -70,8 +70,6 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
-    StudentsAlertComponent,
-    TeachersAlertComponent,
   ],
   imports: [
     BrowserModule,

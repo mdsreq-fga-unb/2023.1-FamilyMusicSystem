@@ -4,13 +4,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject, catchError, map, tap } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Lesson } from 'src/app/models/lesson';
-import { StudentsAlertComponent } from '../../student/students-alert/students-alert.component';
-import * as moment from 'moment';
-import { FormValidations } from '../../../shared/form-validations';
-import { Classroom } from 'src/app/models/classroom';
-import { Student } from 'src/app/models/student';
-import { Teacher } from 'src/app/models/teacher';
+import { Lesson } from '../../../models/lesson';
+import { Classroom } from '../../../models/classroom';
+import { Teacher } from '../../../models/teacher';
+import { Student } from '../../../models/student';
 
 class Entry<T> {
   id: number;
@@ -34,8 +31,7 @@ class Response3 {
   templateUrl: './schedule-view.component.html',
   styleUrls: ['./schedule-view.component.scss'],
 })
-export class  ScheduleViewComponent implements OnInit {
-
+export class ScheduleViewComponent implements OnInit {
   prefixoUrlRoom =
     'https://20231-familymusicsystem-production.up.railway.app/api/rooms';
 
@@ -45,7 +41,7 @@ export class  ScheduleViewComponent implements OnInit {
   prefixoUrlTeacher =
     'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
   public onClose: Subject<boolean>;
-  public lesson: Lesson;
+  public lesson: Lesson = new Lesson();
   public lessonForm: FormGroup;
   public valid: boolean = false;
   public edit = false;
@@ -80,13 +76,7 @@ export class  ScheduleViewComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          this.bsModalRef = this.modalService.show(StudentsAlertComponent, {
-            initialState: {
-              title: 'Cadastro finalizado!',
-              message: 'O compromisso foi cadastrado com sucesso.',
-            },
-          });
-          this.bsModalRef.content.showModal();
+          console.log(response);
         },
         (error) => {
           this.handleError(error);
@@ -94,13 +84,24 @@ export class  ScheduleViewComponent implements OnInit {
       );
   }
 
-
   ngOnInit(): void {
     this.lessonForm = this.fb.group({
-      nameRoom: [{ value: this.lesson.Classroom, disabled: !this.edit }, Validators.required],
-      nameTeacher: [{ value: this.lesson.Teacher, disabled: !this.edit }, Validators.required],
-      date: [{ value: this.lesson.Horary, disabled: !this.edit }, [Validators.required]],
-      nameStudent: [{ value: this.lesson.Student, disabled: !this.edit }, Validators.required],
+      nameRoom: [
+        { value: this.lesson.Classroom, disabled: !this.edit },
+        Validators.required,
+      ],
+      nameTeacher: [
+        { value: this.lesson.Teacher, disabled: !this.edit },
+        Validators.required,
+      ],
+      date: [
+        { value: this.lesson.Horary, disabled: !this.edit },
+        [Validators.required],
+      ],
+      nameStudent: [
+        { value: this.lesson.Student, disabled: !this.edit },
+        Validators.required,
+      ],
     });
 
     this.getStudent();
