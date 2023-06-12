@@ -36,7 +36,6 @@ export class StudentsListComponent implements OnInit {
   public estilosDinamicos: any;
   public prefixoUrlStudent =
     'https://20231-familymusicsystem-production.up.railway.app/api/students';
-
   public error: any | undefined;
   public students$: Observable<Student[]> | undefined;
 
@@ -66,37 +65,6 @@ export class StudentsListComponent implements OnInit {
           response.data.map((student) => student.attributes)
         )
       );
-  }
-
-  deleteStudent(student: Student) {
-    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
-      ConfirmationComponent,
-      {
-        data: {
-          message: 'Deseja realmente excluir esse perfil?',
-          dialogRef: null,
-        },
-      }
-    );
-
-    dialogRef.componentInstance.dialogRef = dialogRef;
-
-    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
-      if (result) {
-        this.http
-          .delete(`${this.prefixoUrlStudent}/${student.id}`)
-          .pipe(catchError((error) => this.handleError(error)))
-          .subscribe((response) => {
-            console.log(response);
-            dialogRef.close();
-            this.getStudent();
-            this.showAlertDelete = true;
-            setTimeout(() => {
-              this.showAlertDelete = false;
-            }, 3000);
-          });
-      }
-    });
   }
 
   search() {
@@ -158,6 +126,37 @@ export class StudentsListComponent implements OnInit {
       setTimeout(() => {
         this.showAlertEdit = false;
       }, 3000);
+    });
+  }
+
+  deleteStudent(student: Student) {
+    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
+      ConfirmationComponent,
+      {
+        data: {
+          message: 'Deseja realmente excluir esse perfil?',
+          dialogRef: null,
+        },
+      }
+    );
+
+    dialogRef.componentInstance.dialogRef = dialogRef;
+
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
+        this.http
+          .delete(`${this.prefixoUrlStudent}/${student.id}`)
+          .pipe(catchError((error) => this.handleError(error)))
+          .subscribe((response) => {
+            console.log(response);
+            dialogRef.close();
+            this.getStudent();
+            this.showAlertDelete = true;
+            setTimeout(() => {
+              this.showAlertDelete = false;
+            }, 3000);
+          });
+      }
     });
   }
 

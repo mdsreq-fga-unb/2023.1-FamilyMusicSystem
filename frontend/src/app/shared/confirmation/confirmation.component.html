@@ -1,4 +1,4 @@
-<body class="corpo" style="background-color: var(--primary);">
+<body class="corpo" style="background-color: var(--primary)">
   <div class="modal-header">
     <h2 class="modal-title">
       <p class="title">Atenção!</p>
@@ -6,7 +6,9 @@
   </div>
 
   <div class="modal-body">
-    <p class="title">{{ data.message }}</p>
+    <p class="title" style="padding: 0 1rem; text-align: center">
+      {{ data.message }}
+    </p>
   </div>
   <div class="modal-footer">
     <button
@@ -14,7 +16,7 @@
       class="btn btn-dark d-flex align-items-center rounded-pill"
       style="
         height: min-content;
-        width: 8rem;
+        width: 5rem;
         align-items: center;
         justify-content: center;
       "
@@ -27,7 +29,7 @@
       class="btn btn-dark d-flex align-items-center rounded-pill"
       style="
         height: min-content;
-        width: 8rem;
+        width: 5rem;
         align-items: center;
         justify-content: center;
       "

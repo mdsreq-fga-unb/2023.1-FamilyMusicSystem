@@ -47,6 +47,13 @@ body {
   margin-top: 2rem;
 }
 
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 1rem !important;
+  background-color: var(--primary) !important;
+  color: var(--contrast) !important;
+  padding: 0rem 2rem !important;
+}
+
 @media (min-width: 576px) {
   .modal {
     --bs-modal-margin: 0;
