@@ -791,6 +791,12 @@
 <td align="center">Edição da tabela de critérios de aceitação</td>
 <td align="center">Luana Ribeiro</td>
 </tr>
+<tr>
+<td align="center">10/06/2023</td>
+<td align="center">0.6</td>
+<td align="center">Adição de Requisitos não-funcionais e Atualização do MVP1 e MVP2</td>
+<td align="center">Luana Ribeiro</td>
+</tr>
 </tbody>
 </table>
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
@@ -1031,13 +1037,13 @@
 <td><b>[TE01]</b></td>
 <td><b>[EP01]</b></td>
 <td><b id="us05">[US05]</b></td>
-<td>- O professor, com seus respectivos dados, devem ser excluídos da base de dados;<br> - Deve haver uma confirmação com o nome do professor para o administrador conferir se está removendo o cadastro do professor correto</td>
+<td>- O professor, com seus respectivos dados, devem ser excluídos da base de dados;<br> - Deve haver uma confirmação para o administrador conferir se realmente deseja excluir o perfil do professor</td>
 </tr>
 <tr>
 <td><b>[TE01]</b></td>
 <td><b>[EP01]</b></td>
 <td><b id="us06">[US06]</b></td>
-<td>- Deve haver uma confirmação com o nome do professor para o administrador conferir se está removendo o cadastro do aluno correto<br>- O administrador removerá o aluno, mas suas aulas e presenças continuarão presentes na base de dados;</td>
+<td>- Deve haver uma confirmação para o administrador conferir se realmente deseja excluir o perfil do aluno<br>- O administrador removerá o aluno, mas suas aulas e presenças continuarão presentes na base de dados;</td>
 </tr>
 <tr>
 <td><b>[TE01]</b></td>
@@ -1119,16 +1125,24 @@
 <td><b>[RNF05]</b> A aplicação deve possuir um manual de ajuda para instruir novos usuários na plataforma.</td>
 </tr>
 <tr>
+<td>Usabilidade</td>
+<td><b>[RNF06]</b> A aplicação deve possuir uma aba intitulada "Sobre" contendo uma breve explicação a respeito da aplicação.</td>
+</tr>
+<tr>
 <td>Suportabilidade</td>
-<td><b>[RNF06]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
+<td><b>[RNF07]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF07]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).</td>
+<td><b>[RNF08]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF08]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
+<td><b>[RNF09]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
+</tr>
+<tr>
+<td>Confiabilidade</td>
+<td><b>[RNF10]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente</td>
 </tr>
 </tbody>
 </table>
@@ -1157,6 +1171,10 @@
 <td><b>[US17]</b> Gerar contrato</td>
 <td>O administrador deve ser capaz de gerar um contrato personalizado para novos alunos através da plataforma.</td>
 </tr>
+<tr>
+<td><b>[US18]</b>  Administrador acessar o contrato</td>
+<td>O administrador deve ser capaz de verificar a situação de cada aluno em relação ao cumprimento e descumprimento do contrato.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="mvp-2">MVP 2</h2>
@@ -1179,10 +1197,6 @@
 <tr>
 <td><b>[US16]</b> Administrador registrar pagamento dos alunos</td>
 <td>O administrador deve conseguir registrar o pagamento de mensalidade de cada aluno.</td>
-</tr>
-<tr>
-<td><b>[US17]</b>  Administrador acessar o contrato</td>
-<td>O administrador deve ser capaz de verificar a situação de cada aluno em relação ao cumprimento e descumprimento do contrato.</td>
 </tr>
 <tr>
 <td><b>[US19]</b> Administrador escrever comunicados</td>
