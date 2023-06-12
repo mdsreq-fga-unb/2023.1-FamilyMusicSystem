@@ -1,14 +1,19 @@
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from './../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
-import { tap, timeout } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -42,13 +47,18 @@ export class StudentsListComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
+    private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog,
     private dialogRef: BsModalRef
   ) {}
 
   getStudent(args?: string) {
-    const opts = { params: { populate: '*' } };
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+
+    const opts = { headers: headers, params: { populate: '*' } };
     this.students$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
@@ -74,6 +84,8 @@ export class StudentsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const jwt = this.cookieService.getCookie('jwt');
+    console.log('jwt:' + jwt);
     this.getStudent();
     this.searchForm = this.fb.group({
       search: ['', Validators.required],

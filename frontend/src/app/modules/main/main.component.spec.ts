@@ -3,6 +3,7 @@ import { MainComponent } from './main.component';
 import { HeaderComponent } from '../../template/header/header.component';
 import { AppModule } from '../../app.module';
 import { ComponentFixtureAutoDetect } from '@angular/core/testing';
+import { CookieService } from '../../services/cookie.service';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -12,7 +13,10 @@ describe('MainComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [MainComponent, HeaderComponent],
       imports: [AppModule],
-      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
+      providers: [
+        { provide: ComponentFixtureAutoDetect, useValue: true },
+        CookieService,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainComponent);

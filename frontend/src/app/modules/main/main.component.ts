@@ -1,7 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { HeaderComponent } from '../../template/header/header.component';
-import { FooterComponent } from '../../template/footer/footer.component';
-import { SidebarComponent } from '../../template/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main',
