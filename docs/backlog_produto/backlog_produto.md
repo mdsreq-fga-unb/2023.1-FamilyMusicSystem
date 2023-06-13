@@ -91,7 +91,6 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[US07]</b> Usuário acessar a plataforma </br> <b>[US08]</b> Usuário recuperar a senha </br> | O usuário deverá ser capaz de acessar a plataforma com CPF e senha, podendo recuperar seu acesso caso o perca. |
 | <b>[US11]</b> Administrador ter agenda dos alunos </br> <b>[US12]</b> Administrador adicionar aulas nas agendas dos alunos </br> <b>[US13]</b> Administrador ter agenda dos professors </br> <b>[US14]</b> professor atualizar sua agenda</br> | Os professores devem atualizar suas agendas constantemente, enquanto o administrador deve ter acesso ao registro dessas agendas para marcar novas aulas.|
 | <b>[US17]</b> Gerar contrato| O administrador deve ser capaz de gerar um contrato personalizado para novos alunos através da plataforma. |
-| <b>[US18]</b>  Administrador acessar o contrato     | O administrador deve ser capaz de verificar a situação de cada aluno em relação ao cumprimento e descumprimento do contrato. |
 
 ## MVP 2
 
@@ -100,4 +99,5 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[US09]</b> Administrador cadastrar salas de aula </br><b>[US10]</b> Administrador gerenciar salas de aula | O administrador deve ser capaz de gerenciar as salas de aula da escola.                                                      |
 | <b>[US15]</b> Professor ter acesso a frequência dos alunos     | O administrador deve ter o controle de frequência dos alunos nas aulas.                                                      |
 | <b>[US16]</b> Administrador registrar pagamento dos alunos    | O administrador deve conseguir registrar o pagamento de mensalidade de cada aluno.                                           |
+| <b>[US18]</b>  Administrador acessar o contrato     | O administrador deve ser capaz de verificar a situação de cada aluno em relação ao cumprimento e descumprimento do contrato. |
 | <b>[US19]</b> Administrador escrever comunicados      | O administrador deve ser capaz de se comunicar com cada aluno e ou responsável por meio de um mural de avisos.               |
