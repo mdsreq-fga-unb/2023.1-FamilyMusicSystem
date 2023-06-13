@@ -1,7 +1,23 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RoomRegisterComponent } from '../room-register/room-register.component';
 import { RoomFilterComponent } from '../room-filter/room-filter.component';
+import { Classroom } from '../../../models/classroom';
+import { Observable, catchError, map, of, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
+import { RoomViewComponent } from '../room-view/room-view.component';
+import { HttpHeaders } from '@angular/common/http';
+
+class Entry<T> {
+  id: number;
+  attributes: T;
+}
+
+class Response {
+  data: Entry<Classroom>[];
+}
 
 @Component({
   selector: 'app-room-list',
@@ -10,14 +26,62 @@ import { RoomFilterComponent } from '../room-filter/room-filter.component';
 })
 export class RoomListComponent implements OnInit {
   checked: boolean = false;
+  error: any | undefined;
   estilosDinamicos: any;
-  private bsModalRef: BsModalRef;
+  Rooms$: Observable<Classroom[]> | undefined;
+  prefixoUrlRoom =
+    'https://20231-familymusicsystem-production.up.railway.app/api/classrooms';
 
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private bsModalRef: BsModalRef,
+    private modalService: BsModalService,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private cookieService: CookieService
+  ) {}
 
-  ngOnInit(): void {}
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
-  modalSala() {
+  ngOnInit(): void {
+    this.getRoom();
+  }
+
+  getRoom(args?: string) {
+    this.Rooms$ = this.http
+      .get<Response>(
+        args ? `${this.prefixoUrlRoom}${args}` : this.prefixoUrlRoom,
+        this.headers()
+      )
+      .pipe(
+        catchError((error) => this.handleError(error)),
+        tap((response: Response) => {
+          response.data.forEach((room) => {
+            room.attributes.id = room.id;
+          });
+        }),
+        map((response: Response) =>
+          response.data.map((room) => room.attributes)
+        )
+      );
+  }
+
+  deleteRoom(room: Classroom) {
+    this.http
+      .delete(`${this.prefixoUrlRoom}/${room.id}`, this.headers())
+      .pipe(catchError((error) => this.handleError(error)))
+      .subscribe((response) => {
+        console.log(response);
+        this.getRoom();
+      });
+  }
+
+  modalNewSala() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -28,7 +92,25 @@ export class RoomListComponent implements OnInit {
       RoomRegisterComponent,
       modalConfig
     );
-    this.bsModalRef.content.onClose.subscribe(() => {});
+    this.bsModalRef.onHide?.subscribe(() => {
+      this.getRoom();
+    });
+  }
+
+  modalRoom(room: Classroom, edit: boolean) {
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      class: 'modal-xl',
+      initialState: {
+        room: room,
+        edit,
+      },
+    };
+    this.bsModalRef = this.modalService.show(RoomViewComponent, modalConfig);
+    this.bsModalRef.onHide?.subscribe(() => {
+      this.getRoom();
+    });
   }
 
   modalFilterSala() {
@@ -46,6 +128,11 @@ export class RoomListComponent implements OnInit {
     this.estilosDinamicos = {
       background: this.calcularCorDeFundo(),
     };
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    this.error = error.message;
+    return of();
   }
 
   calcularCorDeFundo() {

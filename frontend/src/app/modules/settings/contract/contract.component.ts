@@ -5,7 +5,6 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Student } from '../../../models/student';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import { StudentsViewComponent } from '../../student/students-view/students-view.component';
 
 @Component({
   selector: 'app-contract',

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AboutComponent } from '../settings/about/about.component';
+import { CookieService } from '../../services/cookie.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,17 @@ import { AboutComponent } from '../settings/about/about.component';
 })
 export class HomeComponent {
   private bsModalRef: BsModalRef;
+  public jwt: any;
 
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    private cookieService: CookieService
+  ) {}
+
+  ngOnInit(): void {
+    this.jwt = this.cookieService.getCookie('jwt');
+  }
+
   modalabout() {
     const modalConfig = {
       backdrop: true,

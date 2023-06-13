@@ -1,19 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ScheduleViewComponent } from './schedule-view.component';
+import { RoomViewComponent } from './room-view.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
-describe('ScheduleViewComponent', () => {
-  let component: ScheduleViewComponent;
-  let fixture: ComponentFixture<ScheduleViewComponent>;
+describe('RoomViewComponent', () => {
+  let component: RoomViewComponent;
+  let fixture: ComponentFixture<RoomViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ScheduleViewComponent],
+      declarations: [RoomViewComponent],
       providers: [BsModalService, HttpClient, HttpHandler],
+      imports: [MatIconModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ScheduleViewComponent);
+    fixture = TestBed.createComponent(RoomViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

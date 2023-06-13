@@ -35,9 +35,11 @@ import { ScheduleRegisterComponent } from './modules/schedule/schedule-register/
 import { ScheduleViewComponent } from './modules/schedule/schedule-view/schedule-view.component';
 import { ScheduleFilterComponent } from './modules/schedule/schedule-filter/schedule-filter.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from './services/cookie.service';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,7 @@ import { ConfirmationComponent } from './shared/confirmation/confirmation.compon
     ScheduleViewComponent,
     ScheduleFilterComponent,
     HomeComponent,
+    RoomViewComponent,
     ConfirmationComponent,
   ],
   imports: [
@@ -83,8 +86,8 @@ import { ConfirmationComponent } from './shared/confirmation/confirmation.compon
     AlertModule,
     MatDialogModule,
   ],
-  providers: [BsModalService],
+  providers: [BsModalService, CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

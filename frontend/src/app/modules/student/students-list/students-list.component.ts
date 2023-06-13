@@ -1,14 +1,19 @@
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Student } from './../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { StudentsRegisterComponent } from '../students-register/students-register.component';
 import { StudentsViewComponent } from '../students-view/students-view.component';
 import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
-import { tap, timeout } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -34,26 +39,32 @@ export class StudentsListComponent implements OnInit {
   public checked: boolean = false;
   public searchForm: FormGroup;
   public estilosDinamicos: any;
-  public prefixoUrlStudent =
-    'https://20231-familymusicsystem-production.up.railway.app/api/students';
-
   public error: any | undefined;
   public students$: Observable<Student[]> | undefined;
+  public prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
+    private cookieService: CookieService,
     private fb: FormBuilder,
-    private dialog: MatDialog,
-    private dialogRef: BsModalRef
+    private dialog: MatDialog
   ) {}
 
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
+
   getStudent(args?: string) {
-    const opts = { params: { populate: '*' } };
     this.students$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -68,37 +79,6 @@ export class StudentsListComponent implements OnInit {
       );
   }
 
-  deleteStudent(student: Student) {
-    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
-      ConfirmationComponent,
-      {
-        data: {
-          message: 'Deseja realmente excluir esse perfil?',
-          dialogRef: null,
-        },
-      }
-    );
-
-    dialogRef.componentInstance.dialogRef = dialogRef;
-
-    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
-      if (result) {
-        this.http
-          .delete(`${this.prefixoUrlStudent}/${student.id}`)
-          .pipe(catchError((error) => this.handleError(error)))
-          .subscribe((response) => {
-            console.log(response);
-            dialogRef.close();
-            this.getStudent();
-            this.showAlertDelete = true;
-            setTimeout(() => {
-              this.showAlertDelete = false;
-            }, 3000);
-          });
-      }
-    });
-  }
-
   search() {
     this.getStudent(
       `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
@@ -106,6 +86,8 @@ export class StudentsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const jwt = this.cookieService.getCookie('jwt');
+    console.log('jwt:' + jwt);
     this.getStudent();
     this.searchForm = this.fb.group({
       search: ['', Validators.required],
@@ -158,6 +140,37 @@ export class StudentsListComponent implements OnInit {
       setTimeout(() => {
         this.showAlertEdit = false;
       }, 3000);
+    });
+  }
+
+  deleteStudent(student: Student) {
+    const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
+      ConfirmationComponent,
+      {
+        data: {
+          message: 'Deseja realmente excluir esse perfil?',
+          dialogRef: null,
+        },
+      }
+    );
+
+    dialogRef.componentInstance.dialogRef = dialogRef;
+
+    dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
+      if (result) {
+        this.http
+          .delete(`${this.prefixoUrlStudent}/${student.id}`, this.headers())
+          .pipe(catchError((error) => this.handleError(error)))
+          .subscribe((response) => {
+            console.log(response);
+            dialogRef.close();
+            this.getStudent();
+            this.showAlertDelete = true;
+            setTimeout(() => {
+              this.showAlertDelete = false;
+            }, 3000);
+          });
+      }
     });
   }
 

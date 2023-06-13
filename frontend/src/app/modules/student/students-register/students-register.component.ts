@@ -1,8 +1,9 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import * as moment from 'moment';
@@ -28,10 +29,9 @@ export class StudentsRegisterComponent implements OnInit {
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
-    private modalService: BsModalService,
     private fb: FormBuilder,
     private http: HttpClient,
-    private dialogRef: BsModalRef
+    private cookieService: CookieService
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
   }
@@ -41,6 +41,12 @@ export class StudentsRegisterComponent implements OnInit {
     const dataNascimento = moment(dataEscolhida);
     const idade = hoje.diff(dataNascimento, 'years');
     return idade >= 18;
+  }
+
+  getHeaders(): HttpHeaders {
+    const jwt = this.cookieService.getCookie('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+    return headers;
   }
 
   ngOnInit(): void {
@@ -109,10 +115,14 @@ export class StudentsRegisterComponent implements OnInit {
       data: student,
     };
 
+    const headers = this.getHeaders();
+    const requestOptions = { headers };
+
     this.http
       .post(
         'https://20231-familymusicsystem-production.up.railway.app/api/students',
-        body
+        body,
+        requestOptions
       )
       .subscribe(
         (response) => {
@@ -166,7 +176,6 @@ export class StudentsRegisterComponent implements OnInit {
             Validators.maxLength(11),
             Validators.minLength(11),
           ],
-          ,
         ],
         cpfStudent: [
           {
@@ -174,7 +183,6 @@ export class StudentsRegisterComponent implements OnInit {
             disabled: false,
           },
           [Validators.required, FormValidations.isValidCPF],
-          ,
         ],
         rgStudent: [
           {
@@ -238,7 +246,6 @@ export class StudentsRegisterComponent implements OnInit {
             Validators.maxLength(11),
             Validators.minLength(11),
           ],
-          ,
         ],
         cpfLegalGuardian: [
           { value: this.studentForm.get('cpfStudent')?.value, disabled: true },
@@ -247,7 +254,6 @@ export class StudentsRegisterComponent implements OnInit {
             Validators.maxLength(11),
             Validators.minLength(11),
           ],
-          ,
         ],
         rgLegalGuardian: [
           { value: this.studentForm.get('rgStudent')?.value, disabled: true },

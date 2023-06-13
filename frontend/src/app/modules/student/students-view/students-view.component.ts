@@ -1,3 +1,4 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -6,10 +7,10 @@ import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
-import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
 import * as moment from 'moment';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-students-view',
@@ -42,8 +43,17 @@ export class StudentsViewComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private modalService: BsModalService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   ngOnInit(): void {
     this.studentForm = this.fb.group({
@@ -158,16 +168,13 @@ export class StudentsViewComponent implements OnInit {
     this.http
       .put(
         `https://20231-familymusicsystem-production.up.railway.app/api/students/${$student.id}`,
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {
           console.log(response);
-          console.log(response);
-          this.showAlert = true;
-          setTimeout(() => {
-            this.showAlert = false;
-          }, 3000);
+          this.bsModalRef.hide();
         },
         (error) => {
           this.handleError(error);
