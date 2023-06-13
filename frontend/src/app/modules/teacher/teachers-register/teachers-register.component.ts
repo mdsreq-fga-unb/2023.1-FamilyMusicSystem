@@ -1,11 +1,12 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, of } from 'rxjs';
 import { Teacher } from '../../../models/teacher';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import * as moment from 'moment';
 import { FormValidations } from '../../../shared/form-validations';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-teachers-register',
@@ -23,12 +24,19 @@ export class TeachersRegisterComponent implements OnInit {
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
-    private modalService: BsModalService,
     private fb: FormBuilder,
     private http: HttpClient,
-    private dialogRef: BsModalRef
+    private cookieService: CookieService
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
+  }
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
   }
 
   ngOnInit(): void {
@@ -66,7 +74,8 @@ export class TeachersRegisterComponent implements OnInit {
     this.http
       .post(
         'https://20231-familymusicsystem-production.up.railway.app/api/teachers',
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {

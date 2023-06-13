@@ -1,3 +1,4 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Teacher } from '../../../models/teacher';
@@ -6,7 +7,11 @@ import { TeachersViewComponent } from '../teachers-view/teachers-view.component'
 import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -44,8 +49,16 @@ export class TeachersListComponent implements OnInit {
     private http: HttpClient,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dialogRef: BsModalRef
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   ngOnInit(): void {
     this.getTeacher();
@@ -61,11 +74,10 @@ export class TeachersListComponent implements OnInit {
   }
 
   getTeacher(args?: string) {
-    const opts = { params: { populate: '*' } };
     this.teachers$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlTeacher}${args}` : this.prefixoUrlTeacher,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -81,7 +93,6 @@ export class TeachersListComponent implements OnInit {
   }
 
   deleteTeacher(teacher: Teacher) {
-
     const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
       ConfirmationComponent,
       {
@@ -97,7 +108,7 @@ export class TeachersListComponent implements OnInit {
     dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
       if (result) {
         this.http
-          .delete(`${this.prefixoUrlTeacher}/${teacher.id}`)
+          .delete(`${this.prefixoUrlTeacher}/${teacher.id}`, this.headers())
           .pipe(catchError((error) => this.handleError(error)))
           .subscribe((response) => {
             console.log(response);
@@ -113,7 +124,6 @@ export class TeachersListComponent implements OnInit {
   }
 
   modalProfessores(teacher: Teacher, edit: boolean) {
-
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,

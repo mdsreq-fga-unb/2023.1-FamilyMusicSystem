@@ -1,3 +1,4 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Lesson } from '../../../models/lesson';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -8,6 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScheduleRegisterComponent } from '../schedule-register/schedule-register.component';
 import { ScheduleFilterComponent } from '../schedule-filter/schedule-filter.component';
 import { ScheduleViewComponent } from '../schedule-view/schedule-view.component';
+import { HttpHeaders } from '@angular/common/http';
+import format from 'date-fns/format';
+import { pt } from 'date-fns/locale';
 
 class Entry<T> {
   id: number;
@@ -38,15 +42,23 @@ export class ScheduleListComponent {
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private cookieService: CookieService
   ) {}
 
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
+
   getLesson(args?: string) {
-    const opts = { params: { populate: '*' } };
     this.lessonss$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlLesson}${args}` : this.prefixoUrlLesson,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -63,7 +75,7 @@ export class ScheduleListComponent {
 
   deleteLesson(lesson: Lesson) {
     this.http
-      .delete(`${this.prefixoUrlLesson}/${lesson.id}`)
+      .delete(`${this.prefixoUrlLesson}/${lesson.id}`, this.headers())
       .pipe(catchError((error) => this.handleError(error)))
       .subscribe((response) => {
         console.log(response);
@@ -139,6 +151,13 @@ export class ScheduleListComponent {
     this.estilosDinamicos = {
       background: this.calcularCorDeFundo(),
     };
+  }
+
+  date(date: string) {
+    const formattedDate = format(Date.parse(date), `HH':'mm '-' dd'/'MM`, {
+      locale: pt,
+    });
+    return formattedDate;
   }
 
   calcularCorDeFundo() {

@@ -39,30 +39,32 @@ export class StudentsListComponent implements OnInit {
   public checked: boolean = false;
   public searchForm: FormGroup;
   public estilosDinamicos: any;
-  public prefixoUrlStudent =
-    'https://20231-familymusicsystem-production.up.railway.app/api/students';
   public error: any | undefined;
   public students$: Observable<Student[]> | undefined;
+  public prefixoUrlStudent =
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   constructor(
     private modalService: BsModalService,
     private http: HttpClient,
     private cookieService: CookieService,
     private fb: FormBuilder,
-    private dialog: MatDialog,
-    private dialogRef: BsModalRef
+    private dialog: MatDialog
   ) {}
 
-  getStudent(args?: string) {
+  headers() {
     const jwt = this.cookieService.getCookie('jwt');
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', `Bearer ${jwt}`);
-
     const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
+
+  getStudent(args?: string) {
     this.students$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -157,7 +159,7 @@ export class StudentsListComponent implements OnInit {
     dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
       if (result) {
         this.http
-          .delete(`${this.prefixoUrlStudent}/${student.id}`)
+          .delete(`${this.prefixoUrlStudent}/${student.id}`, this.headers())
           .pipe(catchError((error) => this.handleError(error)))
           .subscribe((response) => {
             console.log(response);

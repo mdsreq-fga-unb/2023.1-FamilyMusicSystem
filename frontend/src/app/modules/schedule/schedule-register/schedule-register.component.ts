@@ -1,8 +1,13 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject, catchError, map, tap } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Lesson } from '../../../models/lesson';
 import { Classroom } from '../../../models/classroom';
@@ -54,10 +59,18 @@ export class ScheduleRegisterComponent implements OnInit {
   error: any | undefined;
   constructor(
     private bsModalRef: BsModalRef,
-    private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   ngOnInit(): void {
     this.lessonForm = this.fb.group({
@@ -85,7 +98,8 @@ export class ScheduleRegisterComponent implements OnInit {
     this.http
       .post(
         'https://20231-familymusicsystem-production.up.railway.app/api/lessons',
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {
@@ -98,12 +112,10 @@ export class ScheduleRegisterComponent implements OnInit {
   }
 
   getRoom(args?: string) {
-    debugger;
-    const opts = { params: { populate: '*' } };
     this.Rooms$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlRoom}${args}` : this.prefixoUrlRoom,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -119,12 +131,10 @@ export class ScheduleRegisterComponent implements OnInit {
   }
 
   getStudent(args?: string) {
-    debugger;
-    const opts = { params: { populate: '*' } };
     this.students$ = this.http
       .get<Response2>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
@@ -140,11 +150,10 @@ export class ScheduleRegisterComponent implements OnInit {
   }
 
   getTeacher(args?: string) {
-    const opts = { params: { populate: '*' } };
     this.teachers$ = this.http
       .get<Response3>(
         args ? `${this.prefixoUrlTeacher}${args}` : this.prefixoUrlTeacher,
-        opts
+        this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),

@@ -1,8 +1,13 @@
+import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject, of } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Classroom } from '../../../models/classroom';
 
 @Component({
@@ -21,8 +26,17 @@ export class RoomRegisterComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private modalService: BsModalService,
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService: CookieService
   ) {}
+
+  headers() {
+    const jwt = this.cookieService.getCookie('jwt');
+    let headers = new HttpHeaders();
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
+    return opts;
+  }
 
   onSubmit(): void {
     const classRoom: Classroom = new Classroom();
@@ -35,7 +49,8 @@ export class RoomRegisterComponent implements OnInit {
     this.http
       .post(
         'https://20231-familymusicsystem-production.up.railway.app/api/classrooms',
-        body
+        body,
+        this.headers()
       )
       .subscribe(
         (response) => {
