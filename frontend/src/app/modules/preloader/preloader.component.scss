@@ -1,0 +1,128 @@
+.content-content {
+    background: var(--primary);
+    margin: 0.5rem;
+    height: calc(100vh - 5.9rem);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--contrast);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .preloader {
+    transform: translate(-50%, -50%);
+  }
+  
+  #top {
+    animation: animateOne 1s linear 1s infinite alternate;
+  }
+  
+  #black-body {
+    animation: animateTwo 1s linear 1s infinite alternate;
+  }
+  
+  #black-dot {
+    animation: animateSeven 1s linear 1s infinite alternate;
+  }
+  
+  #yellow-body {
+    animation: animateThree 1s linear 1s infinite alternate;
+  }
+  
+  #yellow-dot {
+    animation: animateFive 1s linear 1s infinite alternate;
+  }
+  
+  #orange-body {
+    animation: animateFour 1s linear 1s infinite alternate;
+  }
+  
+  #orange-dot {
+    animation: animateSix 1s linear 1s infinite alternate;
+  }
+  
+  @keyframes animateOne {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #222222;
+    }
+  }
+  
+  @keyframes animateTwo {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #222222;
+    }
+  }
+  
+  @keyframes animateThree {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #F9DE6A;
+    }
+  }
+  
+  @keyframes animateFour {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #F1910B;
+    }
+  }
+  
+  @keyframes animateFive {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #F9DE6A;
+    }
+  }
+  
+  @keyframes animateSix {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #F1910B;
+    }
+  }
+  
+  @keyframes animateSeven {
+    0% {
+      opacity: 0;
+      fill: #fff;
+    }
+    100% {
+      opacity: 1;
+      fill: #222222;
+    }
+  }
+  
