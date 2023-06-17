@@ -22,8 +22,10 @@ export class StudentsRegisterComponent implements OnInit {
   public guardian = false;
   public student: Student;
   public studentForm: FormGroup;
+  public guardianForm: FormGroup;
   public hasGuardian: boolean = true;
-  public valid: boolean = false;
+  public studentValid: boolean = false;
+  public guardianValid: boolean = false;
   public dataAtual: string;
 
   error: any | undefined;
@@ -68,6 +70,8 @@ export class StudentsRegisterComponent implements OnInit {
       genderStudent: [null, Validators.required],
       addressStudent: [null, Validators.required],
       birthdayStudent: [null, [Validators.required]],
+    });
+    this.guardianForm = this.fb.group({
       nameLegalGuardian: [null, Validators.required],
       emailLegalGuardian: [null, [Validators.required, Validators.email]],
       phoneLegalGuardian: [
@@ -260,9 +264,9 @@ export class StudentsRegisterComponent implements OnInit {
           Validators.required,
         ],
       });
+      this.studentForm.updateValueAndValidity();
+      this.studentValid = this.studentForm.valid;
     }
-    this.studentForm.updateValueAndValidity();
-    this.valid = this.studentForm.valid;
     this.inicial = false;
     this.guardian = true;
   }

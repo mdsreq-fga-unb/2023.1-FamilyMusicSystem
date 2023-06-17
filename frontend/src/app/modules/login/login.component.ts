@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService,
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) { }
 
   public saveCookie(key: string, values: string) {
     this.cookieService.setCookie(key, values);
@@ -47,10 +47,6 @@ export class LoginComponent implements OnInit {
     this.user = new User();
     this.user.Username = this.loginForm.get('username')?.value;
     this.user.Password = this.loginForm.get('password')?.value;
-
-    console.log(
-      'Username: ' + this.user.Username + ' Password: ' + this.user.Password
-    );
 
     this.http
       .post<any>(
