@@ -159,7 +159,7 @@
               studentForm.get('emailLegalGuardian')?.errors?.['email'] &&
               studentForm.get('emailLegalGuardian')?.touched
             " class="validators">
-            Email obrigatótio
+            Email obrigatório
           </div>
         </div>
 
@@ -234,7 +234,7 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        " *ngIf="guardian" aria-label="Close" (click)="salvar()">
+        " *ngIf="guardian" aria-label="Close" (keydown.event)="salvar()" (click)="salvar()">
         salvar
       </button>
     </div>
