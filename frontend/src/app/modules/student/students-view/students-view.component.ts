@@ -1,16 +1,17 @@
+import { Student } from './../../../models/student';
 import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Student } from '../../../models/student';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { FormValidations } from '../../../shared/form-validations';
 import { ChangeDetectorRef } from '@angular/core';
 import * as moment from 'moment';
 import { HttpHeaders } from '@angular/common/http';
+import { DataSharingService } from '../../../services/data-sharing.service';
 
 @Component({
   selector: 'app-students-view',
@@ -29,7 +30,7 @@ export class StudentsViewComponent implements OnInit {
   public edit = false;
   public guardian = false;
   public isFormValid = false;
-  public showAlert = false;
+  public showAlert: boolean;
 
   verificarIdade(dataEscolhida: string): boolean {
     const hoje = moment();
@@ -44,7 +45,8 @@ export class StudentsViewComponent implements OnInit {
     private http: HttpClient,
     private modalService: BsModalService,
     private cdr: ChangeDetectorRef,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private dataSharingService: DataSharingService
   ) {}
 
   headers() {
@@ -174,6 +176,7 @@ export class StudentsViewComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
+          this.dataSharingService.ifshowAlertEdit = true;
           this.bsModalRef.hide();
         },
         (error) => {
@@ -198,6 +201,13 @@ export class StudentsViewComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
     this.bsModalRef.onHide?.subscribe(() => {});
+  }
+
+  viewcontract(student: Student) {
+    setTimeout(() => {
+      this.modalcontract(student);
+    }, 300);
+    this.bsModalRef.hide();
   }
 
   scrollTop() {
