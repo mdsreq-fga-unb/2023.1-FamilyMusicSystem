@@ -51,9 +51,17 @@ export class StudentsFilterComponent implements OnInit {
 
     if (formValues.ageStudentFilter !== null) {
       const currentDate = new Date();
-      const birthDate = subYears(currentDate, formValues.ageStudentFilter);
-      const formattedDate = format(birthDate, 'yyyy-MM-dd');
-      filters.push(`filters[Birthday][$gt][${this.numreq}]=${formattedDate}`);
+      let filtersOperator = "";
+      let ageLimit = 18;
+    
+      if (formValues.ageStudentFilter === "under18") {
+        filtersOperator = "$gte";
+      } else if (formValues.ageStudentFilter === "over18") {
+        filtersOperator = "$lte";
+      }
+    
+      const formattedDate = format(subYears(currentDate, ageLimit), 'yyyy-MM-dd');
+      filters.push(`filters[Birthday][${filtersOperator}][${this.numreq}]=${formattedDate}`);
       this.numreq++;
     }
 
