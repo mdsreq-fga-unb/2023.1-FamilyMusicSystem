@@ -7,7 +7,12 @@
             <mat-icon class="personIcon">person</mat-icon>
             <p class="title">Alunos</p>
           </div>
-          <form class="d-flex" role="search" [formGroup]="searchForm">
+          <form
+            class="d-flex"
+            role="search"
+            [formGroup]="searchForm"
+            (ngSubmit)="search()"
+          >
             <div class="search-container">
               <i class="material-icons search-icon">search</i>
               <input
@@ -21,6 +26,7 @@
             <button
               type="button"
               (click)="search()"
+              (keydown.enter)="search()"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
                 height: min-content;

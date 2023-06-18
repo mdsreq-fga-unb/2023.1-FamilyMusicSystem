@@ -25,7 +25,7 @@ export class StudentsFilterComponent implements OnInit {
       createdAt: null,
       genderStudentFilter: null,
       ageStudentFilter: null,
-    });
+    });  
   }
 
   exit() {
@@ -51,17 +51,22 @@ export class StudentsFilterComponent implements OnInit {
 
     if (formValues.ageStudentFilter !== null) {
       const currentDate = new Date();
-      let filtersOperator = "";
+      let filtersOperator = '';
       let ageLimit = 18;
-    
-      if (formValues.ageStudentFilter === "under18") {
-        filtersOperator = "$gte";
-      } else if (formValues.ageStudentFilter === "over18") {
-        filtersOperator = "$lte";
+
+      if (formValues.ageStudentFilter === 'under18') {
+        filtersOperator = '$gte';
+      } else if (formValues.ageStudentFilter === 'over18') {
+        filtersOperator = '$lte';
       }
-    
-      const formattedDate = format(subYears(currentDate, ageLimit), 'yyyy-MM-dd');
-      filters.push(`filters[Birthday][${filtersOperator}][${this.numreq}]=${formattedDate}`);
+
+      const formattedDate = format(
+        subYears(currentDate, ageLimit),
+        'yyyy-MM-dd'
+      );
+      filters.push(
+        `filters[Birthday][${filtersOperator}][${this.numreq}]=${formattedDate}`
+      );
       this.numreq++;
     }
 
