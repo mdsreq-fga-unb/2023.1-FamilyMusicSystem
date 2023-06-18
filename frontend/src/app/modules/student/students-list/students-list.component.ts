@@ -16,6 +16,7 @@ import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DataSharingService } from '../../../services/data-sharing.service';
 
 class Entry<T> {
   id: number;
@@ -49,7 +50,8 @@ export class StudentsListComponent implements OnInit {
     private http: HttpClient,
     private cookieService: CookieService,
     private fb: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dataSharingService: DataSharingService
   ) {}
 
   headers() {
@@ -100,7 +102,7 @@ export class StudentsListComponent implements OnInit {
     return of();
   }
 
-  modalNewAlunos() {
+  modalAddAlunos() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -113,14 +115,18 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
-      this.showAlertAdd = true;
-      setTimeout(() => {
-        this.showAlertAdd = false;
-      }, 3000);
+      console.log(this.dataSharingService.ifshowAlertAdd);
+      if (this.dataSharingService.ifshowAlertAdd) {
+        this.showAlertAdd = true;
+        setTimeout(() => {
+          this.showAlertAdd = false;
+          this.dataSharingService.ifshowAlertAdd = false;
+        }, 3000);
+      }
     });
   }
 
-  modalAlunos(student: Student, edit: boolean) {
+  modalEditAlunos(student: Student, edit: boolean) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -136,10 +142,13 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
-      this.showAlertEdit = true;
-      setTimeout(() => {
-        this.showAlertEdit = false;
-      }, 3000);
+      if (this.dataSharingService.ifshowAlertEdit) {
+        this.showAlertEdit = true;
+        setTimeout(() => {
+          this.showAlertEdit = false;
+          this.dataSharingService.ifshowAlertEdit = false;
+        }, 3000);
+      }
     });
   }
 
