@@ -1,13 +1,18 @@
 import { CookieService } from './../../../services/cookie.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Student } from '../../../models/student';
 import * as moment from 'moment';
 import { FormValidations } from '../../../shared/form-validations';
+import { DataSharingService } from '../../../services/data-sharing.service';
 
 @Component({
   selector: 'app-students-register',
@@ -32,7 +37,8 @@ export class StudentsRegisterComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private dataSharingService: DataSharingService
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
   }
@@ -126,14 +132,11 @@ export class StudentsRegisterComponent implements OnInit {
     student.LegalGuardianRG = this.studentForm.get('rgLegalGuardian')?.value;
     student.LegalGuardianPhone =
       this.studentForm.get('phoneLegalGuardian')?.value;
-
     const body = {
       data: student,
     };
-
     const headers = this.getHeaders();
     const requestOptions = { headers };
-
     this.http
       .post(
         'https://20231-familymusicsystem-production.up.railway.app/api/students',
@@ -143,6 +146,9 @@ export class StudentsRegisterComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log(response);
+          this.dataSharingService.ifshowAlertAdd = true;
+          this.showAlert = true;
+          this.bsModalRef.hide();
         },
         (error) => {
           this.handleError(error);
@@ -299,11 +305,5 @@ export class StudentsRegisterComponent implements OnInit {
 
   sair() {
     this.bsModalRef.hide();
-  }
-
-  salvar() {
-    this.showAlert = true;
-    this.bsModalRef.hide();
-    this.onSubmit();
   }
 }
