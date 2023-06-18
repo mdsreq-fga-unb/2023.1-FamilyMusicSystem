@@ -39,8 +39,10 @@
             >Nome completo<b>*</b></label
           >
           <input
+            #myInput
             type="text"
             name="name"
+            (input)="transformFirstLetterToUppercase(myInput)"
             formControlName="nameStudent"
             class="form-control form-control-sm input"
           />
@@ -164,6 +166,15 @@
             formControlName="disabledPersonTypeStudent"
             class="form-control form-control-sm input"
           />
+          <div
+          class="validators"
+          *ngIf="
+            studentForm.get('disabledPersonTypeStudent')?.errors?.['required'] &&
+            studentForm.get('disabledPersonTypeStudent')?.touched
+          "
+        >
+          tipo de deficiência obrigatório
+        </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">

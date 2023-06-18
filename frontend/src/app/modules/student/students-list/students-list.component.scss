@@ -36,6 +36,15 @@ td {
   vertical-align: middle;
 }
 
+.selected{
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selected:hover {
+  background-color: var(--selector);
+}
+
 th {
   padding: 0;
   vertical-align: middle;
@@ -293,19 +302,6 @@ tr:nth-child(even) {
 
 .delete {
   cursor: pointer;
-}
-
-.button {
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: var(--secondary);
-}
-
-tr:nth-child(even) .button:hover {
-  background-color: var(--primary);
 }
 
 .num {

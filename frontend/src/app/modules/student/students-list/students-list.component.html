@@ -118,11 +118,11 @@
                   alt="Foto Aluno"
                   class="miniProfile"
                 />
-                {{ student.Name }}
+                {{ getPrimeiroESegundoNome(student.Name) }}
               </td>
-              <td class="nomobile">{{ student.Email }}</td>
-              <td class="notablet" class="notablet">{{ student.CPF }}</td>
-              <td class="notablet">{{ student.Phone }}</td>
+              <td class="nomobile" (click)="modalAlunos(student, false)">{{ student.Email }}</td>
+              <td class="notablet" class="notablet" (click)="modalAlunos(student, false)">{{ student.CPF }}</td>
+              <td class="notablet" (click)="modalAlunos(student, false)">{{ student.Phone }}</td>
               <td>
                 <mat-icon (click)="modalAlunos(student, true)" class="delete"
                   >edit</mat-icon

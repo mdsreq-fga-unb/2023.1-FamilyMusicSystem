@@ -35,6 +35,7 @@ export class StudentsListComponent implements OnInit {
   public showAlertEdit = false;
   public showAlertDelete = false;
   public showAlertAdd = false;
+  public students : Student[];
   private bsModalRef: BsModalRef;
   public checked: boolean = false;
   public searchForm: FormGroup;
@@ -98,6 +99,11 @@ export class StudentsListComponent implements OnInit {
     this.error = error;
 
     return of();
+  }
+
+  getPrimeiroESegundoNome(nomeCompleto: string): string {
+    const nomes = nomeCompleto.split(' ');
+    return `${nomes[0]} ${nomes[1]}`;
   }
 
   modalNewAlunos() {
@@ -190,11 +196,20 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
+  obterPrimeiroESegundoNome(nomeCompleto: string): string[] {
+    const nomesSeparados = nomeCompleto.split(' ');
+    const primeiroNome = nomesSeparados[0];
+    const segundoNome = nomesSeparados[1];
+    return [primeiroNome, segundoNome];
+  }
+
+
   toggle() {
     this.estilosDinamicos = {
       background: this.calcularCorDeFundo(),
     };
   }
+
 
   calcularCorDeFundo() {
     return 'var(--selector)';
