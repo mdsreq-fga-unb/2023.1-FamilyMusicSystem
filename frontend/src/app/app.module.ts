@@ -40,6 +40,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
 import { RoomViewComponent } from './modules/room/room-view/room-view.component';
+import { PreloaderComponent } from './modules/preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
     HomeComponent,
     RoomViewComponent,
     ConfirmationComponent,
+    PreloaderComponent,
   ],
   imports: [
     BrowserModule,
