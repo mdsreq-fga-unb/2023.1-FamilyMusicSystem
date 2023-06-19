@@ -13,9 +13,20 @@
           </div>
           <form class="d-flex" role="search" [formGroup]="searchForm">
             <div class="search-container">
+<<<<<<< HEAD
               <input class="form-control me-3" id="researchStudents" formControlName="search" type="search"
                 aria-label="Search" />
               <i class="material-icons search-icon">search</i>
+=======
+              <i class="material-icons search-icon">search</i>
+              <input
+                class="form-control me-3"
+                id="researchStudents"
+                formControlName="search"
+                type="search"
+                aria-label="Search"
+              />
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
             </div>
             <button type="button" (click)="search()" class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
@@ -54,7 +65,13 @@
               justify-content: center;
               height: 36px;
               align-self: center;
+<<<<<<< HEAD
             " (click)="modalNewAlunos()">
+=======
+            "
+            (click)="modalAddAlunos()"
+          >
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
           </button>
@@ -80,22 +97,50 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
+<<<<<<< HEAD
               <td class="button" (click)="modalAlunos(student, false)" cursor="pointer">
                 <img src="../../../../assets/image/foto perfil.png" alt="Foto Aluno" class="miniProfile" />
+=======
+              <td
+                class="button"
+                style="text-align: left; padding-left: 2rem"
+                (click)="modalEditAlunos(student, false)"
+                cursor="pointer"
+              >
+                <img
+                  src="../../../../assets/image/foto perfil.png"
+                  alt="Foto Aluno"
+                  class="miniProfile"
+                />
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
                 {{ student.Name }}
               </td>
-              <td class="nomobile">{{ student.Email }}</td>
+              <td class="nomobile" style="text-align: left; padding-left: 2rem">
+                {{ student.Email }}
+              </td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
               <td class="notablet">{{ student.Phone }}</td>
               <td>
+<<<<<<< HEAD
                 <mat-icon (click)="modalAlunos(student, true)" class="delete">edit</mat-icon>
                 <mat-icon (click)="deleteStudent(student)" class="delete">restore_from_trash</mat-icon>
+=======
+                <mat-icon
+                  (click)="modalEditAlunos(student, true)"
+                  class="delete"
+                  >edit</mat-icon
+                >
+                <mat-icon (click)="deleteStudent(student)" class="delete"
+                  >restore_from_trash</mat-icon
+                >
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+<<<<<<< HEAD
     <ngb-alert *ngIf="showAlertDelete" class="fixed-top my-warning-alert" (close)="showAlertDelete = false">
       <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
     </ngb-alert>
@@ -104,6 +149,28 @@
     </ngb-alert>
     <ngb-alert *ngIf="showAlertAdd" class="fixed-top my-custom-alert" (close)="showAlertAdd = false">
       <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
+=======
+    <ngb-alert
+      *ngIf="showAlertAdd"
+      class="fixed-top alert-success"
+      (close)="showAlertAdd = false"
+    >
+      <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertEdit"
+      class="fixed-top alert-warning"
+      (close)="showAlertEdit = false"
+    >
+      <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertDelete"
+      class="fixed-top alert-danger"
+      (close)="showAlertDelete = false"
+    >
+      <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
     </ngb-alert>
   </body>
 </div>

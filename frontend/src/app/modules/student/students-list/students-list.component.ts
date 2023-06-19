@@ -16,7 +16,11 @@ import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+<<<<<<< HEAD
 import { PreloaderComponent } from '../../preloader/preloader.component';
+=======
+import { DataSharingService } from '../../../services/data-sharing.service';
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
 
 class Entry<T> {
   id: number;
@@ -51,8 +55,14 @@ export class StudentsListComponent implements OnInit {
     private http: HttpClient,
     private cookieService: CookieService,
     private fb: FormBuilder,
+<<<<<<< HEAD
     private dialog: MatDialog
   ) { }
+=======
+    private dialog: MatDialog,
+    private dataSharingService: DataSharingService
+  ) {}
+>>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
 
   headers() {
     const jwt = this.cookieService.getCookie('jwt');
@@ -114,7 +124,7 @@ export class StudentsListComponent implements OnInit {
     return of();
   }
 
-  modalNewAlunos() {
+  modalAddAlunos() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -127,14 +137,18 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
-      this.showAlertAdd = true;
-      setTimeout(() => {
-        this.showAlertAdd = false;
-      }, 3000);
+      console.log(this.dataSharingService.ifshowAlertAdd);
+      if (this.dataSharingService.ifshowAlertAdd) {
+        this.showAlertAdd = true;
+        setTimeout(() => {
+          this.showAlertAdd = false;
+          this.dataSharingService.ifshowAlertAdd = false;
+        }, 3000);
+      }
     });
   }
 
-  modalAlunos(student: Student, edit: boolean) {
+  modalEditAlunos(student: Student, edit: boolean) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -150,10 +164,13 @@ export class StudentsListComponent implements OnInit {
     );
     this.bsModalRef.onHide?.subscribe(() => {
       this.getStudent();
-      this.showAlertEdit = true;
-      setTimeout(() => {
-        this.showAlertEdit = false;
-      }, 3000);
+      if (this.dataSharingService.ifshowAlertEdit) {
+        this.showAlertEdit = true;
+        setTimeout(() => {
+          this.showAlertEdit = false;
+          this.dataSharingService.ifshowAlertEdit = false;
+        }, 3000);
+      }
     });
   }
 

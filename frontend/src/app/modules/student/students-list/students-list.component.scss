@@ -124,6 +124,7 @@ tr:nth-child(even) {
 .search-container {
   position: relative;
   width: 80%;
+  display: inline-block;
 }
 
 #researchStudents {
@@ -135,7 +136,7 @@ tr:nth-child(even) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 10px;
+  padding-left: 1px;
   font-size: 24px;
   align-self: center;
   color: var(--shadow);
@@ -166,13 +167,14 @@ tr:nth-child(even) {
 }
 
 #researchStudents {
+  padding-left: 2.2rem;
   background: var(--secondary);
   border-radius: 2rem;
   height: 36px !important;
   margin: 0 !important;
   margin-left: 2rem !important;
   width: 16rem;
-  text-indent: 2.5rem;
+  text-indent: 0.2rem;
 }
 
 .search-container {
@@ -313,22 +315,18 @@ tr:nth-child(even) .button:hover {
   color: var(--contrast);
 }
 
-.my-edit-alert {
+
+.alert-success {
   padding: 10px;
   font-size: 16px;
-  background-color: var(--orange);
-  color: var(--contrast);
-}
-.my-custom-alert {
-  padding: 10px;
-  font-size: 16px;
-  background-color: var(--selector);
-  color: var(--contrast);
 }
 
-.my-warning-alert {
+.alert-warning {
   padding: 10px;
   font-size: 16px;
-  background-color: var(--red);
-  color: var(--contrast);
+}
+
+.alert-danger {
+  padding: 10px;
+  font-size: 16px;
 }

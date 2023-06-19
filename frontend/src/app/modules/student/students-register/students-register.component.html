@@ -234,7 +234,11 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        " *ngIf="guardian" aria-label="Close" (keydown.event)="salvar()" (click)="salvar()">
+        "
+        *ngIf="guardian"
+        aria-label="Close"
+        (click)="onSubmit()"
+      >
         salvar
       </button>
     </div>
