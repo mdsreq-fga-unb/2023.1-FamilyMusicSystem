@@ -16,11 +16,7 @@ import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
-<<<<<<< HEAD
 import { PreloaderComponent } from '../../preloader/preloader.component';
-=======
-import { DataSharingService } from '../../../services/data-sharing.service';
->>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
 
 class Entry<T> {
   id: number;
