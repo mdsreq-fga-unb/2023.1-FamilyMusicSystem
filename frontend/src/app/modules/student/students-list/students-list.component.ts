@@ -16,6 +16,7 @@ import { CookieService } from '../../../services/cookie.service';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { PreloaderComponent } from '../../preloader/preloader.component';
 
 class Entry<T> {
   id: number;
@@ -32,6 +33,7 @@ class Response {
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
+  public loading = true;
   public showAlertEdit = false;
   public showAlertDelete = false;
   public showAlertAdd = false;
@@ -50,7 +52,7 @@ export class StudentsListComponent implements OnInit {
     private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   headers() {
     const jwt = this.cookieService.getCookie('jwt');
@@ -61,6 +63,8 @@ export class StudentsListComponent implements OnInit {
   }
 
   getStudent(args?: string) {
+    this.loading = true; // Define o estado de loading como true antes de fazer a requisição
+
     this.students$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
@@ -77,7 +81,17 @@ export class StudentsListComponent implements OnInit {
           response.data.map((student) => student.attributes)
         )
       );
+
+    this.students$.subscribe(
+      () => {
+        this.loading = false;
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
+
 
   search() {
     this.getStudent(
