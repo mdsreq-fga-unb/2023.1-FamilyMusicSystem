@@ -46,7 +46,8 @@
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
-          <input type="text" name="phone" formControlName="phoneStudent" class="form-control form-control-sm input" />
+          <input type="text" kzMask="(99) 9 9999-9999" name="phone" formControlName="phoneStudent"
+            class="form-control form-control-sm input" />
           <div *ngIf="
               studentForm.get('phoneStudent')?.errors &&
               studentForm.get('phoneStudent')?.touched
@@ -57,7 +58,8 @@
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
-          <input type="text" name="cpf" formControlName="cpfStudent" class="form-control form-control-sm input" />
+          <input type="text" kzMask="999.999.999-99" name="cpf" formControlName="cpfStudent"
+            class="form-control form-control-sm input" />
           <div class="validators" *ngIf="
               studentForm.get('cpfStudent')?.errors?.['required'] &&
               studentForm.get('cpfStudent')?.touched
@@ -165,19 +167,20 @@
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
-          <input type="text" name="phone" formControlName="phoneLegalGuardian"
+          <input type="text" name="phone" kzMask="(99) 9 9999-9999" formControlName="phoneLegalGuardian"
             class="form-control form-control-sm input" />
           <div *ngIf="
               studentForm.get('phoneLegalGuardian')?.errors &&
               studentForm.get('phoneLegalGuardian')?.touched
             " class="validators">
-            Insira um formato de telefone válido. Ex.: 61944028922
+            Insira um formato de telefone válido. Ex.: (99) 9 9999-9999
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
-          <input type="text" name="cpf" formControlName="cpfLegalGuardian" class="form-control form-control-sm input" />
+          <input type="text" name="cpf" kzMask="999.999.999-99" formControlName="cpfLegalGuardian"
+            class="form-control form-control-sm input" />
           <div class="validators" *ngIf="
               studentForm.get('cpfLegalGuardian')?.errors?.['required'] &&
               studentForm.get('cpfLegalGuardian')?.touched
@@ -234,11 +237,7 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        "
-        *ngIf="guardian"
-        aria-label="Close"
-        (click)="onSubmit()"
-      >
+        " *ngIf="guardian" aria-label="Close" (click)="onSubmit()">
         salvar
       </button>
     </div>
