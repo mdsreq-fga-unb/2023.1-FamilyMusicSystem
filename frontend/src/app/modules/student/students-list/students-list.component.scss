@@ -238,6 +238,11 @@ tr:nth-child(even) {
 
 /* Ajuste para telas médias */
 @media only screen and (max-width: 1035px) {
+  .container {
+    padding: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+  }
   .notablet {
     display: none;
   }
