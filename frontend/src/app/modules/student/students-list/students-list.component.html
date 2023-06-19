@@ -1,3 +1,6 @@
+<div *ngIf="loading">
+  <app-preloader />
+</div>
 <div class="content-content">
 
   <body>
@@ -81,9 +84,7 @@
                 <img src="../../../../assets/image/foto perfil.png" alt="Foto Aluno" class="miniProfile" />
                 {{ student.Name }}
               </td>
-              <td class="nomobile" style="text-align: left; padding-left: 2rem">
-                {{ student.Email }}
-              </td>
+              <td class="nomobile">{{ student.Email }}</td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
               <td class="notablet">{{ student.Phone }}</td>
               <td>
@@ -103,14 +104,6 @@
     </ngb-alert>
     <ngb-alert *ngIf="showAlertAdd" class="fixed-top my-custom-alert" (close)="showAlertAdd = false">
       <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
-      <ngb-alert *ngIf="showAlertAdd" class="fixed-top alert-success" (close)="showAlertAdd = false">
-        <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
-      </ngb-alert>
-      <ngb-alert *ngIf="showAlertEdit" class="fixed-top alert-warning" (close)="showAlertEdit = false">
-        <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
-      </ngb-alert>
-      <ngb-alert *ngIf="showAlertDelete" class="fixed-top alert-danger" (close)="showAlertDelete = false">
-        <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
-      </ngb-alert>
+    </ngb-alert>
   </body>
 </div>
