@@ -1,4 +1,4 @@
-<div class="content-content">
+<div class="shadow-sm content-content">
   <body>
     <div class="container-fluid">
       <div class="container">
@@ -16,7 +16,7 @@
             <div class="search-container">
               <i class="material-icons search-icon">search</i>
               <input
-                class="form-control me-3"
+                class="shadow-sm form-control me-3"
                 id="researchStudents"
                 formControlName="search"
                 type="search"
@@ -27,7 +27,7 @@
               type="button"
               (click)="search()"
               (keydown.enter)="search()"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -74,7 +74,7 @@
 
           <button
             type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
             style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
@@ -95,7 +95,7 @@
       <div *ngIf="error">{{ error }}</div>
 
       <div class="scrool">
-        <table class="table">
+        <table class="shadow-sm table">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -149,21 +149,21 @@
     </div>
     <ngb-alert
       *ngIf="showAlertAdd"
-      class="fixed-top alert-success"
+      class="shadow-sm fixed-top alert-success"
       (close)="showAlertAdd = false"
     >
       <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertEdit"
-      class="fixed-top alert-warning"
+      class="shadow-sm fixed-top alert-warning"
       (close)="showAlertEdit = false"
     >
       <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertDelete"
-      class="fixed-top alert-danger"
+      class="shadow-sm fixed-top alert-danger"
       (close)="showAlertDelete = false"
     >
       <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
