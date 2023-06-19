@@ -92,8 +92,6 @@
         </div>
       </div>
 
-      <div *ngIf="error">{{ error }}</div>
-
       <div class="scrool">
         <table class="shadow-sm table">
           <thead>
@@ -111,6 +109,7 @@
               class="selected"
               *ngFor="let student of students; let i = index"
             >
+              <div *ngIf="error">Não foi possível carregar os dados.</div>
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>

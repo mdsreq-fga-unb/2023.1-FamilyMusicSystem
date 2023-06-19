@@ -94,7 +94,8 @@ tr:nth-child(even) {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0;
+  padding-bottom: 0.3rem;
   align-items: center;
 }
 
