@@ -8,12 +8,14 @@ import { HomeComponent } from './modules/home/home.component';
 import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule-list.component';
 import { RoomListComponent } from './modules/room/room-list/room-list.component';
+import { AuthGuard } from './modules/login/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'students', component: StudentsListComponent },
