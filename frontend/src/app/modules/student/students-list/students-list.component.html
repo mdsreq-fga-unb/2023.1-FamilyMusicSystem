@@ -1,6 +1,3 @@
-<div *ngIf="loading">
-  <app-preloader />
-</div>
 <div class="content-content">
 
   <body>
@@ -13,9 +10,9 @@
           </div>
           <form class="d-flex" role="search" [formGroup]="searchForm">
             <div class="search-container">
-              <i class="material-icons search-icon">search</i>
               <input class="form-control me-3" id="researchStudents" formControlName="search" type="search"
                 aria-label="Search" />
+              <i class="material-icons search-icon">search</i>
             </div>
             <button type="button" (click)="search()" class="btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
@@ -54,7 +51,7 @@
               justify-content: center;
               height: 36px;
               align-self: center;
-            " (click)="modalAddAlunos()">
+            " (click)="modalNewAlunos()">
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
           </button>
@@ -82,9 +79,6 @@
               </th>
               <td class="button" (click)="modalAlunos(student, false)" cursor="pointer">
                 <img src="../../../../assets/image/foto perfil.png" alt="Foto Aluno" class="miniProfile" />
-              <td class="button" style="text-align: left; padding-left: 2rem" (click)="modalEditAlunos(student, false)"
-                cursor="pointer">
-                <img src="../../../../assets/image/foto perfil.png" alt="Foto Aluno" class="miniProfile" />
                 {{ student.Name }}
               </td>
               <td class="nomobile" style="text-align: left; padding-left: 2rem">
@@ -94,8 +88,6 @@
               <td class="notablet">{{ student.Phone }}</td>
               <td>
                 <mat-icon (click)="modalAlunos(student, true)" class="delete">edit</mat-icon>
-                <mat-icon (click)="deleteStudent(student)" class="delete">restore_from_trash</mat-icon>
-                <mat-icon (click)="modalEditAlunos(student, true)" class="delete">edit</mat-icon>
                 <mat-icon (click)="deleteStudent(student)" class="delete">restore_from_trash</mat-icon>
               </td>
             </tr>
