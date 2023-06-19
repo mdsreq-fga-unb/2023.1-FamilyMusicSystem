@@ -94,7 +94,8 @@ tr:nth-child(even) {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0;
+  padding-bottom: 0.3rem;
   align-items: center;
 }
 
@@ -237,6 +238,11 @@ tr:nth-child(even) {
 
 /* Ajuste para telas médias */
 @media only screen and (max-width: 1035px) {
+  .container {
+    padding: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+  }
   .notablet {
     display: none;
   }
@@ -320,16 +326,16 @@ tr:nth-child(even) .button:hover {
 }
 
 .alert-success {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }
 
 .alert-warning {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }
 
 .alert-danger {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }
