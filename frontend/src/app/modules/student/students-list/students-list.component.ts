@@ -17,6 +17,7 @@ import { ConfirmationComponent } from '../../../shared/confirmation/confirmation
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { PreloaderComponent } from '../../preloader/preloader.component';
+import { DataSharingService } from '../../../services/data-sharing.service';
 
 class Entry<T> {
   id: number;
@@ -51,14 +52,9 @@ export class StudentsListComponent implements OnInit {
     private http: HttpClient,
     private cookieService: CookieService,
     private fb: FormBuilder,
-<<<<<<< HEAD
-    private dialog: MatDialog
-  ) { }
-=======
     private dialog: MatDialog,
     private dataSharingService: DataSharingService
-  ) {}
->>>>>>> 28f0d73f8c69c3422d996b85c99acaf2ae9738c6
+  ) { }
 
   headers() {
     const jwt = this.cookieService.getCookie('jwt');
