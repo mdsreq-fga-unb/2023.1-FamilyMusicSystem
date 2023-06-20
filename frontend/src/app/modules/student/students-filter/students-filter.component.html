@@ -9,7 +9,7 @@
     <div class="modal-body">
       <form [formGroup]="studentFilterForm" class="form-row">
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="radioGroup">Por Cadastro</label>
+          <label class="m-0 tittle-input" for="radioGroup">Data de Cadastro</label>
 
           <div class="col-md-6">
             <select
@@ -17,14 +17,14 @@
               formControlName="createdAt"
               class="form-control form-control-sm input"
             >
-              <option value="desc">mais recentes</option>
-              <option value="asc">mais antigos</option>
+              <option value="desc">Mais recentes</option>
+              <option value="asc">Mais antigos</option>
             </select>
           </div>
         </div>
 
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="age">Por idade</label>
+          <label class="m-0 tittle-input" for="age">Idade</label>
           <select
             name="age"
             formControlName="ageStudentFilter"
@@ -36,16 +36,16 @@
         </div>
 
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="radioGroup">Por Gênero</label>
+          <label class="m-0 tittle-input" for="radioGroup">Gênero</label>
           <div class="col-md-6">
             <select
               name="genderStudentFilter"
               formControlName="genderStudentFilter"
               class="form-control form-control-sm input"
             >
-              <option value="Male">masculino</option>
-              <option value="Female">feminino</option>
-              <option value="Others">outro</option>
+              <option value="Male">Masculino</option>
+              <option value="Female">Feminino</option>
+              <option value="Others">Outro</option>
             </select>
           </div>
         </div>
