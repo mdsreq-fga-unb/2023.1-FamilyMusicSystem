@@ -200,13 +200,13 @@ ul ul li {
 table {
   color: var(--contrast);
   border-collapse: collapse;
-  border: 2px solid black;
+  border: 2px solid var(--contrast);
 }
 
 th,
 td {
   color: var(--contrast);
-  border: 1px solid black;
+  border: 1px solid var(--contrast);
   padding: 8px;
 }
 

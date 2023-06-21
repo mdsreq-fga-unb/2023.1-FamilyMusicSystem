@@ -11,7 +11,7 @@
     <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
     <button
       type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
+      class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill"
       style="
         height: min-content;
         width: 10rem;
@@ -44,7 +44,7 @@
             name="name"
             (input)="transformFirstLetterToUppercase(myInput)"
             formControlName="nameStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="studentForm.get('nameStudent')?.errors?.['required'] && studentForm.get('nameStudent')?.touched"
@@ -60,7 +60,7 @@
             type="text"
             name="email"
             formControlName="emailStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -79,7 +79,7 @@
             type="text"
             name="phone"
             formControlName="phoneStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -98,7 +98,7 @@
             type="text"
             name="cpf"
             formControlName="cpfStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             class="validators"
@@ -126,7 +126,7 @@
             type="text"
             name="rg"
             formControlName="rgStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="studentForm.get('rgStudent')?.errors?.['required'] && studentForm.get('rgStudent')?.touched"
@@ -143,7 +143,7 @@
           <select
             name="disabledPerson"
             formControlName="disabledPersonStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           >
             <option value="false">não</option>
             <option value="true">sim</option>
@@ -164,7 +164,7 @@
             type="text"
             name="disabledPersonType"
             formControlName="disabledPersonTypeStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
           class="validators"
@@ -182,7 +182,7 @@
           <select
             name="gender"
             formControlName="genderStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           >
             <option value="Male">masculino</option>
             <option value="Female">feminino</option>
@@ -205,7 +205,7 @@
             [max]="dataAtual"
             formControlName="birthdayStudent"
             name="birthday"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -224,7 +224,7 @@
             type="text"
             formControlName="addressStudent"
             name="address"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -243,7 +243,7 @@
             type="text"
             name="name"
             formControlName="nameLegalGuardian"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -262,7 +262,7 @@
             type="text"
             name="email"
             formControlName="emailLegalGuardian"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -281,7 +281,7 @@
             type="text"
             name="phone"
             formControlName="phoneLegalGuardian"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
@@ -300,7 +300,7 @@
             type="text"
             name="cpf"
             formControlName="cpfLegalGuardian"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             class="validators"
@@ -328,7 +328,7 @@
             type="text"
             name="rg"
             formControlName="rgLegalGuardian"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="
