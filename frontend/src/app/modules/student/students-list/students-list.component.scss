@@ -94,7 +94,8 @@ tr:nth-child(even) {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0;
+  padding-bottom: 0.3rem;
   align-items: center;
 }
 
@@ -174,7 +175,7 @@ tr:nth-child(even) {
   margin: 0 !important;
   margin-left: 2rem !important;
   width: 16rem;
-  text-indent: 0.2rem;
+  text-indent: 1rem;
 }
 
 .search-container {
@@ -237,6 +238,11 @@ tr:nth-child(even) {
 
 /* Ajuste para telas médias */
 @media only screen and (max-width: 1035px) {
+  .container {
+    padding: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+  }
   .notablet {
     display: none;
   }
@@ -315,18 +321,21 @@ tr:nth-child(even) .button:hover {
   color: var(--contrast);
 }
 
+.ng-invalid {
+  align-self: center !important;
+}
 
 .alert-success {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }
 
 .alert-warning {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }
 
 .alert-danger {
-  padding: 10px;
+  padding: 12px 10px;
   font-size: 16px;
 }

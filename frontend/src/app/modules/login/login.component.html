@@ -6,11 +6,11 @@
 
   <main role="main" class="container">
     <div class="row">
-      <div class="sidePhoto">
+      <div class="shadow-sm sidePhoto">
         <img style="object-fit: cover" class="img-fluid" src="../../../assets/image/foto-exemplo.png" alt="" />
       </div>
 
-      <div class="myCard">
+      <div class="shadow-sm myCard">
         <div class="formulario">
           <svg width="150" height="159" viewBox="0 0 193 159" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -95,15 +95,19 @@
               <p id="title">Bem-vindo</p>
               <p id="logintext">Faça seu login</p>
             </div>
-            <form [formGroup]="loginForm" action="" style="text-align: center">
-              <input type="username" class="form-control loginid" placeholder="usuário" formControlName="username" />
-              <input type="password" class="form-control loginid" placeholder="senha" formControlName="password" />
+            <form [formGroup]="loginForm" action="" style="text-align: center" (keydown.enter)="login()">
+              <input type="text" class="shadow-sm form-control loginid" placeholder="usuário"
+                formControlName="username" />
+              <input type="password" class="shadow-sm form-control loginid" placeholder="senha"
+                formControlName="password" />
 
               <p id="forgettext">Esqueceu sua senha?</p>
               <p><a id="forgettext" href="">Clique aqui</a></p>
 
               <div class="d-grid gap-2 col-12 mx-auto">
-                <button type="button" class="btn" id="loginbutton" (click)="login()">entrar</button>
+                <button type="submit" class="shadow-sm btn" id="loginbutton">
+                  entrar
+                </button>
               </div>
             </form>
           </div>

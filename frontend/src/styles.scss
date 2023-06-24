@@ -41,7 +41,11 @@ body {
   --bs-modal-border-radius: 1rem;
   --bs-modal-border: none;
   --bs-modal-border-width: 0;
-  
+  --bs-modal-border-color: none;
+}
+
+body {
+  background-color: var(--primary);
 }
 
 .modal-dialog {

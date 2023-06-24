@@ -73,7 +73,13 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log('An error occurred:', error);
+          console.log('error');
         }
       );
+  }
+
+  public onSubmit(event: Event): void {
+    event.preventDefault();
+    this.login();
   }
 }

@@ -11,14 +11,16 @@
             <mat-icon class="personIcon">person</mat-icon>
             <p class="title">Alunos</p>
           </div>
-          <form class="d-flex" role="search" [formGroup]="searchForm">
+          <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="search()">
             <div class="search-container">
               <input class="form-control me-3" id="researchStudents" formControlName="search" type="search"
                 aria-label="Search" />
               <i class="material-icons search-icon">search</i>
+              <input class="shadow-sm form-control me-3" id="researchStudents" formControlName="search" type="search"
+                aria-label="Search" />
             </div>
-            <button type="button" (click)="search()" class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              style="
+            <button type="button" (click)="search()" (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons" style="
                 height: min-content;
                 margin-left: 0.5rem;
                 border: none;
@@ -61,10 +63,8 @@
         </div>
       </div>
 
-      <div *ngIf="error">{{ error }}</div>
-
       <div class="scrool">
-        <table class="table">
+        <table class="shadow-sm table">
           <thead>
             <tr>
               <th scope="col"></th>

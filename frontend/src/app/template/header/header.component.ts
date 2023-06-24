@@ -7,6 +7,8 @@ import { HelpComponent } from '../../modules/settings/help/help.component';
 import { BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { StudentsViewComponent } from '../../modules/student/students-view/students-view.component';
+import { CookieService } from '../../services/cookie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +26,11 @@ export class HeaderComponent implements OnInit {
   icon_now = 'brightness_2';
   private bsModalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {}
+  constructor(
+    private modalService: BsModalService,
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   modalhelp() {
     const modalConfig = {
@@ -122,5 +128,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.iscomp = false;
     }
+  }
+
+  logout(): void {
+    this.cookieService.deleteCookie('jwt');
+    this.router.navigate(['/']);
   }
 }
