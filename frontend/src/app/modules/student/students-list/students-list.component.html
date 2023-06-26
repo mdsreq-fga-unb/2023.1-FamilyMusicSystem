@@ -126,11 +126,11 @@
                 />
                 {{ getPrimeiroESegundoNome(student.Name) }}
               </td>
-              <td class="nomobile" (click)="modalAlunos(student, false)" style="text-align: left; padding-left: 2rem">
+              <td class="nomobile" (click)="modalAddAlunos(student, false)" style="text-align: left; padding-left: 2rem">
                 {{ student.Email }}
               </td>
-              <td class="notablet" class="notablet" (click)="modalAlunos(student, false)">{{ student.CPF }}</td>
-              <td class="notablet" (click)="modalAlunos(student, false)">{{ student.Phone }}</td>
+              <td class="notablet" class="notablet" (click)="modalAddAlunos(student, false)">{{ student.CPF }}</td>
+              <td class="notablet" (click)="modalAddAlunos(student, false)">{{ student.Phone }}</td>
               <td>
                 <mat-icon
                   (click)="modalEditAlunos(student, true)"
