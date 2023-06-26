@@ -124,13 +124,13 @@
                   alt="Foto Aluno"
                   class="miniProfile"
                 />
-                {{ student.Name }}
+                {{ getPrimeiroESegundoNome(student.Name) }}
               </td>
-              <td class="nomobile" style="text-align: left; padding-left: 2rem">
+              <td class="nomobile" (click)="modalAddAlunos()" style="text-align: left; padding-left: 2rem">
                 {{ student.Email }}
               </td>
-              <td class="notablet" class="notablet">{{ student.CPF }}</td>
-              <td class="notablet">{{ student.Phone }}</td>
+              <td class="notablet" class="notablet" (click)="modalAddAlunos()">{{ student.CPF }}</td>
+              <td class="notablet" (click)="modalAddAlunos()">{{ student.Phone }}</td>
               <td>
                 <mat-icon
                   (click)="modalEditAlunos(student, true)"

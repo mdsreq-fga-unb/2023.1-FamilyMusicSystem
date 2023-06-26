@@ -131,6 +131,21 @@ export class StudentsViewComponent implements OnInit {
         Validators.required,
       ],
     });
+    this.studentForm.get('disabledPersonStudent')?.valueChanges.subscribe((pcdValue: string) => {
+      debugger;
+      
+      if(this.studentForm.get('disabledPersonTypeStudent') != null){
+        if (pcdValue == "true") {
+          this.studentForm.get('disabledPersonTypeStudent')?.setValidators(Validators.required);
+        } else {
+          this.studentForm.get('disabledPersonTypeStudent')?.clearValidators();
+        }
+
+        this.studentForm.get('disabledPersonTypeStudent')?.updateValueAndValidity();
+        this.studentForm.updateValueAndValidity();
+      }
+       
+    });
     this.cdr.detectChanges();
     this.studentForm.updateValueAndValidity();
     this.studentForm.statusChanges.subscribe(() => {
@@ -214,6 +229,14 @@ export class StudentsViewComponent implements OnInit {
     const div = document.getElementById('scroll');
     if (div !== null) {
       div.scrollTop = 0;
+    }
+  }
+
+  transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
+    const value = inputElement.value;
+    if (value.length > 0) {
+      const firstLetter = value.charAt(0).toUpperCase();
+      inputElement.value = firstLetter + value.slice(1);
     }
   }
 

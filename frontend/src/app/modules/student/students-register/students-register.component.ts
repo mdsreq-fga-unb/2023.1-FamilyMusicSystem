@@ -23,6 +23,7 @@ export class StudentsRegisterComponent implements OnInit {
   public showAlert: boolean = false;
   public onClose: Subject<boolean>;
   public edicao = false;
+  public nome : string;
   public inicial = true;
   public guardian = false;
   public student: Student;
@@ -90,6 +91,21 @@ export class StudentsRegisterComponent implements OnInit {
       ],
       rgLegalGuardian: [null, Validators.required],
     });
+    this.studentForm.get('disabledPersonStudent')?.valueChanges.subscribe((pcdValue: string) => {
+      debugger;
+      
+      if(this.studentForm.get('disabledPersonTypeStudent') != null){
+        if (pcdValue == "true") {
+          this.studentForm.get('disabledPersonTypeStudent')?.setValidators(Validators.required);
+        } else {
+          this.studentForm.get('disabledPersonTypeStudent')?.clearValidators();
+        }
+
+        this.studentForm.get('disabledPersonTypeStudent')?.updateValueAndValidity();
+        this.studentForm.updateValueAndValidity();
+      }
+       
+    });
   }
 
   onSubmit(): void {
@@ -151,6 +167,15 @@ export class StudentsRegisterComponent implements OnInit {
     this.error = error.message;
     return of();
   }
+
+  transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
+    const value = inputElement.value;
+    if (value.length > 0) {
+      const firstLetter = value.charAt(0).toUpperCase();
+      inputElement.value = firstLetter + value.slice(1);
+    }
+  }
+
 
   Guardian() {
     this.hasGuardian = this.verificarIdade(
