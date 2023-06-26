@@ -3,15 +3,14 @@
     <button type="button" class="btn-close text-reset" (click)="sair()" aria-label="Close" id="close"></button>
     <img src="\assets\image\foto-upload.png" />
     <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
-    <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
-        height: min-content;
-        width: 10rem;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      ">
-      carregar imagem
-    </button>
+    <input type="file" (change)="onImageSelected($event)" accept="image/*" style="
+    height: min-content;
+    width: 10rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  " />
+    carregar imagem
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">

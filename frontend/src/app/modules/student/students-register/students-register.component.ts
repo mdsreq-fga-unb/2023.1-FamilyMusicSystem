@@ -32,6 +32,7 @@ export class StudentsRegisterComponent implements OnInit {
   public studentValid: boolean = false;
   public guardianValid: boolean = false;
   public dataAtual: string;
+  public file: File;
 
   error: any | undefined;
   constructor(
@@ -96,8 +97,14 @@ export class StudentsRegisterComponent implements OnInit {
     });
   }
 
+  onImageSelected(event: any) {
+    this.file = event.target.files[0];
+  }
+
+
   onSubmit(): void {
     const student: Student = new Student();
+    student.selectedImage = this.file;
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
     student.Phone = this.studentForm.get('phoneStudent')?.value;

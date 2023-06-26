@@ -18,4 +18,5 @@ export class Student {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  selectedImage: File | null = null;
 }
