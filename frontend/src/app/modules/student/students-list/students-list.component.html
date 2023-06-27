@@ -81,7 +81,8 @@
                 {{ i + 1 }}
               </th>
               <td class="button" (click)="modalAlunos(student, false)" cursor="pointer">
-                <img src="../../../../assets/image/foto perfil.png" alt="Foto Aluno" class="miniProfile" />
+                <img [src]="baseUrl + student.ProfilePicture.data?.attributes.formats.thumbnail.url" alt="Foto Aluno"
+                  class="miniProfile" />
                 {{ student.Name }}
               </td>
               <td class="nomobile">{{ student.Email }}</td>

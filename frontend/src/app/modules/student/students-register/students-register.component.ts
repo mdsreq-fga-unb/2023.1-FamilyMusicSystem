@@ -19,6 +19,7 @@ import { DataSharingService } from '../../../services/data-sharing.service';
   templateUrl: './students-register.component.html',
   styleUrls: ['./students-register.component.scss'],
 })
+
 export class StudentsRegisterComponent implements OnInit {
   public showAlert: boolean = false;
   public onClose: Subject<boolean>;
@@ -78,6 +79,7 @@ export class StudentsRegisterComponent implements OnInit {
       addressStudent: [null, Validators.required],
       birthdayStudent: [null, [Validators.required]],
     });
+
     this.guardianForm = this.fb.group({
       nameLegalGuardian: [null, Validators.required],
       emailLegalGuardian: [null, [Validators.required, Validators.email]],
@@ -101,10 +103,15 @@ export class StudentsRegisterComponent implements OnInit {
     this.file = event.target.files[0];
   }
 
-
   onSubmit(): void {
+    const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
+    const getFieldsFromImageSelected = new FormData();
+    const headers = this.getHeaders();
+    const requestOptions = { headers };
     const student: Student = new Student();
-    student.selectedImage = this.file;
+
+    getFieldsFromImageSelected.append('files', this.file);
+    student.ProfilePicture = getFieldsFromImageSelected;
     student.Name = this.studentForm.get('nameStudent')?.value;
     student.Email = this.studentForm.get('emailStudent')?.value;
     student.Phone = this.studentForm.get('phoneStudent')?.value;
@@ -127,23 +134,30 @@ export class StudentsRegisterComponent implements OnInit {
     student.LegalGuardianRG = this.studentForm.get('rgLegalGuardian')?.value;
     student.LegalGuardianPhone =
       this.studentForm.get('phoneLegalGuardian')?.value;
-    const body = {
-      data: student,
-    };
-    const headers = this.getHeaders();
-    const requestOptions = { headers };
+
     this.http
-      .post(
-        'https://20231-familymusicsystem-production.up.railway.app/api/students',
-        body,
-        requestOptions
-      )
+      .post(`${baseUrl}/api/upload/`, getFieldsFromImageSelected)
       .subscribe(
-        (response) => {
-          console.log(response);
-          this.dataSharingService.ifshowAlertAdd = true;
-          this.showAlert = true;
-          this.bsModalRef.hide();
+        (response: any) => {
+          const image = response[0];
+          student.ProfilePicture = image || '/';
+
+          const body = {
+            data: student,
+          };
+
+          this.http
+            .post(`${baseUrl}/api/students/`, body, requestOptions)
+            .subscribe(
+              () => {
+                this.dataSharingService.ifshowAlertAdd = true;
+                this.showAlert = true;
+                this.bsModalRef.hide();
+              },
+              (error) => {
+                this.handleError(error);
+              }
+            );
         },
         (error) => {
           this.handleError(error);

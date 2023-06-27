@@ -43,6 +43,7 @@ export class StudentsListComponent implements OnInit {
   public estilosDinamicos: any;
   public error: any | undefined;
   public students$: Observable<Student[]> | undefined;
+  public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlStudent =
     'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
