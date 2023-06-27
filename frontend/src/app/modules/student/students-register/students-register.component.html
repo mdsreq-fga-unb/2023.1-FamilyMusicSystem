@@ -25,7 +25,8 @@
       <form [formGroup]="studentForm" class="form-row">
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="name">Nome completo<b>*</b></label>
-          <input type="text" name="name" formControlName="nameStudent" class="form-control form-control-sm input" />
+          <input #myInput type="text" name="name" (input)="transformFirstLetterToUppercase(myInput)"
+            formControlName="nameStudent" class="shadow-sm form-control form-control-sm input" />
           <div *ngIf="studentForm.get('nameStudent')?.errors?.['required'] && studentForm.get('nameStudent')?.touched"
             class="validators">
             Nome obrigatório
@@ -99,7 +100,13 @@
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="disabledPersonType">Se sim, qual tipo</label>
           <input type="text" name="disabledPersonType" formControlName="disabledPersonTypeStudent"
-            class="form-control form-control-sm input" />
+            class="shadow-sm form-control form-control-sm input" />
+          <div class="validators" *ngIf="
+            studentForm.get('disabledPersonTypeStudent')?.errors?.['required'] &&
+            studentForm.get('disabledPersonTypeStudent')?.touched
+          ">
+            tipo de deficiência obrigatório
+          </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
