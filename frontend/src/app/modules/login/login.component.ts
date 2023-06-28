@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  host: {
+    '(window:keydown)': 'handleKeyDown($event)'
+  }
 })
 export class LoginComponent implements OnInit {
   public user: User;
@@ -20,8 +23,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cookieService: CookieService,
     private http: HttpClient,
-    private router: Router
-  ) {}
+    private router: Router,
+    private elementRef: ElementRef
+  ) { }
 
   public saveCookie(key: string, values: string) {
     this.cookieService.setCookie(key, values);
@@ -43,14 +47,16 @@ export class LoginComponent implements OnInit {
     return (this.icon_now = this.icon[0]);
   }
 
+  handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.login();
+    }
+  }
+
   public login(): void {
     this.user = new User();
     this.user.Username = this.loginForm.get('username')?.value;
     this.user.Password = this.loginForm.get('password')?.value;
-
-    console.log(
-      'Username: ' + this.user.Username + ' Password: ' + this.user.Password
-    );
 
     this.http
       .post<any>(
@@ -62,8 +68,6 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          console.log('User Profile', response.user);
-          console.log('User Token', response.jwt);
           this.saveCookie('jwt', response.jwt);
           this.router.navigate(['/main/home']);
         },
