@@ -11,7 +11,7 @@
     "test": "jest --forceExit --detectOpenHandles"
   },
   "devDependencies": {
-    "jest": "^26.6.3",
+    "jest": "^29.5.0",
     "sqlite3": "^5.1.6",
     "supertest": "^6.3.3"
   },
