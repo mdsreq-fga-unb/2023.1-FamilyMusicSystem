@@ -34,7 +34,23 @@
   margin: 0;
 }
 
-.subtittle {
+input[type="file"] {
+  display: none;
+}
+
+.upload-image {
+  padding: 20px 10px;
+  width: 200px;
+  background-color: var(--contrast);
+  color: var(--primary);
+  border-radius: 2.5rem;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.subtitle {
   margin-top: 0.2rem;
   color: var(--contrast);
   font-style: normal;

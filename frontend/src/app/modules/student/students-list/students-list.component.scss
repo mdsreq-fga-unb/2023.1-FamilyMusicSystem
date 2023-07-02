@@ -61,16 +61,15 @@ tr:nth-child(even) {
 }
 
 .content-content {
-  background: var(--primary);
-  margin: 0.5rem;
-
-  height: calc(100vh - 5.9rem);
-  border-radius: 1rem;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  background: var(--primary);
+  border-radius: 1rem;
   color: var(--contrast);
+  display: flex;
   flex-direction: column;
+  height: calc(100vh - 5.9rem);
+  justify-content: center;
+  margin: 0.5rem;
   padding: 0.5rem;
 }
 
@@ -137,6 +136,25 @@ tr:nth-child(even) {
   display: inline-block;
 }
 
+.avatar-container {
+  display: flex;
+  position: relative;
+  border-radius: 50%;
+  // justify-content: center;
+  // align-items: center;
+  left: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  overflow: hidden;
+}
+
+.avatar-container > img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+
 #researchStudents {
   color: var(--contrast);
   border: none;
@@ -150,6 +168,8 @@ tr:nth-child(even) {
   font-size: 24px;
   align-self: center;
   color: var(--shadow);
+  align-self: center !important;
+  right: 13.5rem;
 }
 
 .add-icon {
@@ -194,11 +214,6 @@ tr:nth-child(even) {
   display: flex;
   align-items: center;
   justify-content: right;
-}
-
-.search-icon {
-  align-self: center !important;
-  right: 13.5rem;
 }
 
 .form-check-input {

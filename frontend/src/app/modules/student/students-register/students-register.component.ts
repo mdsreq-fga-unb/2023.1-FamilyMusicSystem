@@ -24,7 +24,7 @@ export class StudentsRegisterComponent implements OnInit {
   public showAlert: boolean = false;
   public onClose: Subject<boolean>;
   public edicao = false;
-  public nome : string;
+  public nome: string;
   public inicial = true;
   public guardian = false;
   public student: Student;
@@ -79,6 +79,7 @@ export class StudentsRegisterComponent implements OnInit {
       genderStudent: [null, Validators.required],
       addressStudent: [null, Validators.required],
       birthdayStudent: [null, [Validators.required]],
+      profilePicture: [null]
     });
 
     this.guardianForm = this.fb.group({
@@ -100,8 +101,8 @@ export class StudentsRegisterComponent implements OnInit {
     });
     this.studentForm.get('disabledPersonStudent')?.valueChanges.subscribe((pcdValue: string) => {
       debugger;
-      
-      if(this.studentForm.get('disabledPersonTypeStudent') != null){
+
+      if (this.studentForm.get('disabledPersonTypeStudent') != null) {
         if (pcdValue == "true") {
           this.studentForm.get('disabledPersonTypeStudent')?.setValidators(Validators.required);
         } else {
@@ -111,7 +112,7 @@ export class StudentsRegisterComponent implements OnInit {
         this.studentForm.get('disabledPersonTypeStudent')?.updateValueAndValidity();
         this.studentForm.updateValueAndValidity();
       }
-       
+
     });
   }
 
@@ -151,34 +152,52 @@ export class StudentsRegisterComponent implements OnInit {
     student.LegalGuardianPhone =
       this.studentForm.get('phoneLegalGuardian')?.value;
 
-    this.http
-      .post(`${baseUrl}/api/upload/`, getFieldsFromImageSelected)
-      .subscribe(
-        (response: any) => {
-          const image = response[0];
-          student.ProfilePicture = image || '/';
+    if (this.file) {
+      this.http
+        .post(`${baseUrl}/api/upload/`, getFieldsFromImageSelected)
+        .subscribe(
+          (response: any) => {
+            const image = response[0];
+            student.ProfilePicture = image || '/';
+            const body = {
+              data: student,
+            };
 
-          const body = {
-            data: student,
-          };
-
-          this.http
-            .post(`${baseUrl}/api/students/`, body, requestOptions)
-            .subscribe(
-              () => {
-                this.dataSharingService.ifshowAlertAdd = true;
-                this.showAlert = true;
-                this.bsModalRef.hide();
-              },
-              (error) => {
-                this.handleError(error);
-              }
-            );
-        },
-        (error) => {
-          this.handleError(error);
-        }
-      );
+            this.http
+              .post(`${baseUrl}/api/students/`, body, requestOptions)
+              .subscribe(
+                () => {
+                  this.dataSharingService.ifshowAlertAdd = true;
+                  this.showAlert = true;
+                  this.bsModalRef.hide();
+                },
+                (error) => {
+                  this.handleError(error);
+                }
+              );
+          },
+          (error) => {
+            this.handleError(error);
+          }
+        );
+    } else {
+      student.ProfilePicture = null;
+      const body = {
+        data: student,
+      }
+      this.http
+        .post(`${baseUrl}/api/students/`, body, requestOptions)
+        .subscribe(
+          () => {
+            this.dataSharingService.ifshowAlertAdd = true;
+            this.showAlert = true;
+            this.bsModalRef.hide();
+          },
+          (error) => {
+            this.handleError(error);
+          }
+        );
+    }
   }
 
   scrollTop() {

@@ -103,7 +103,6 @@ export class StudentsListComponent implements OnInit {
 
   ngOnInit(): void {
     const jwt = this.cookieService.getCookie('jwt');
-    console.log('jwt:' + jwt);
     this.getStudent();
     this.searchForm = this.fb.group({
       search: ['', Validators.required],
@@ -210,7 +209,8 @@ export class StudentsListComponent implements OnInit {
     const nomesSeparados = nomeCompleto.split(' ');
     const primeiroNome = nomesSeparados[0];
     const segundoNome = nomesSeparados[1];
-    return [primeiroNome, segundoNome];
+    const completeName = primeiroNome + " " + segundoNome;
+    return [completeName];
   }
 
 
