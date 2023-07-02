@@ -4,6 +4,22 @@
   border-radius: 1rem;
 }
 
+.avatar {
+  display: flex;
+  border-radius: 50%;
+  height: 14rem;
+  width: 14rem;
+  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+}
+
+.avatar > img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
 .photo {
   display: flex;
   flex-direction: column;

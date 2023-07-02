@@ -1,7 +1,9 @@
 <body class="corpo">
   <div class="photo">
     <button type="button" class="btn-close text-reset" (click)="sair()" aria-label="Close" id="close"></button>
-    <img src="\assets\image\foto-upload.png" />
+    <div class="avatar">
+      <img id="preview-image" src="\assets\image\foto-upload.png" />
+    </div>
     <h3 class="subtitle">Insira uma imagem do <b>aluno</b></h3>
     <div class="upload-avatar">
       <input type="file" id="avatar" (change)="onImageSelected($event)" accept="image/*" class="input-img" />

@@ -118,6 +118,9 @@ export class StudentsRegisterComponent implements OnInit {
 
   onImageSelected(event: any) {
     this.file = event.target.files[0];
+    const previewImage = document.getElementById('preview-image');
+    const imageUrl = URL.createObjectURL(this.file);
+    previewImage?.setAttribute('src', imageUrl);
   }
 
   onSubmit(): void {
