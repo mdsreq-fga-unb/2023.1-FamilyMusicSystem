@@ -16,8 +16,6 @@
               <input class="form-control me-3" id="researchStudents" formControlName="search" type="search"
                 aria-label="Search" />
               <i class="material-icons search-icon">search</i>
-              <input class="shadow-sm form-control me-3" id="researchStudents" formControlName="search" type="search"
-                aria-label="Search" />
             </div>
             <button type="button" (click)="search()" (keydown.enter)="search()"
               class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons" style="
@@ -68,6 +66,7 @@
           <thead>
             <tr>
               <th scope="col"></th>
+              <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
               <th scope="col" class="notablet">CPF</th>
@@ -80,10 +79,19 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
+              <td class="nomobile">
+                <div class="avatar-container">
+                  <img *ngIf="student.ProfilePicture && student.ProfilePicture.data?.attributes.formats.thumbnail.url"
+                    [src]="baseUrl + student.ProfilePicture.data.attributes.formats.thumbnail.url"
+                    class="miniProfile" />
+
+                  <img *ngIf="!student.ProfilePicture || !student.ProfilePicture.data?.attributes.formats.thumbnail.url"
+                    src="../../../../assets/image/foto perfil.png" alt="Avatar Alternativo" class="miniProfile" />
+
+                </div>
+              </td>
               <td class="button" (click)="modalAlunos(student, false)" cursor="pointer">
-                <img [src]="baseUrl + student.ProfilePicture.data?.attributes.formats.thumbnail.url" alt="Foto Aluno"
-                  class="miniProfile" />
-                {{ student.Name }}
+                {{obterPrimeiroESegundoNome(student.Name) }}
               </td>
               <td class="nomobile">{{ student.Email }}</td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
