@@ -7,7 +7,7 @@
 | 16/05/2023 | 0.3 | Edição dos papéis | Luana Ribeiro |
 | 10/06/2023 | 0.4 | Edição do Planejamento de Fases: Sprints | Luana Ribeiro |
 | 12/06/2023 | 0.5 | Adição de US faltantes na sprint | Luana Ribeiro |
-
+| 03/07/2023 | 0.6 | Adição de conteúdo Sprints 4 e 5 | Luana Ribeiro |
 ## Organização do projeto
 
 | Papel                      | Atribuições                                                                                                                                              | Responsável                              | Participantes                                                                                      |
@@ -22,13 +22,13 @@
 ## Planejamento das Fases e/ou Iterações do Projeto
 
 | Sprint | Produto (Entrega)                                                                                                                | Data Início | Data fim   |
-| :----: | -------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------- |
+| :----: | ----------------------------------------------------------------------------------- | ----------- | ---------- |
 |   0    | Definição do produto;<br>Definição do Problema;<br>Início do GitPages;<br>Lista Inicial dos requisitos do produto .               | 28/03/2023  | 11/04/2023 |
 |   0    | Conclusão da ideia do produto;<br>Produção da Visão do Produto e Projeto;<br>Produção do Processo de Desenvolvimento de Software. | 12/04/2023  | 27/04/2023 |
 |   1    | Criação da Versão Inicial do Backlog do Produto; <br> Definição da Arquitetura a Ser Utiliada no Projeto; <br> Definição dos Padrões de UI. <br>  | 28/04/2023  | 12/05/2023 |
 |   2    | Workflow de Integração Contínua;<br>TE01-EP01-US01;<br>TE01-EP01-US02;<br>TE01-EP01-US03: Não concluído ;<br>TE01-EP01-US04: Não concluído;<br>TE01-EP01-US05: Não concluído;<br>TE01-EP01-US06: Não concluído;<br>TE03-EP07-US17: Não concluído.<br>| 13/05/2023  | 27/05/2023 |
 |   3    | MVP 1</br>TE01-EP01-US03;</br>TE01-EP01-US04;</br>TE01-EP01-US05;</br>TE01-EP01-US06;</br>TE01-EP02-US07;</br>TE01-EP02-US08;</br>TE02-EP04-US11;</br>TE02-EP04-US12;</br>TE02-EP04-US13;</br>TE02-EP04-US14;</br>TE03-EP07-US17. | 28/05/2023  | 11/06/2023 |
-|   4    | Produto (Entrega - Sprint)                                                                                                 | 12/06/2023  | 26/06/2023 |
+|   4    | Correções de bugs MVP1: </br> - Bugs de Interface no contexto de aluno; </br> - Problemas relacionados ao login de usuários e loader; </br> - Bugs de componentes gerais, como itens de cabeçalho, side menu, ou que aparecem em vários componentes. | 12/06/2023  | 26/06/2023 |
 |   5    | Produto (Entrega - Sprint) - MVP2                                                                                                | 27/06/2023  | 11/07/2023 |
 
 ## Matriz de Comunicação

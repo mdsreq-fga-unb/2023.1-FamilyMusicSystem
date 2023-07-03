@@ -7,6 +7,7 @@
 | 09/06/2023 | 0.3 | Recriação da documentação das sprints no modelo correto | Luana Ribeiro | 
 | 10/06/2023 | 0.4 | Adição da tabela de pair programming e update da sprint | Luana Ribeiro |
 | 12/06/2023 | 0.5 | Edição da sprint | Luana Ribeiro |
+| 03/07/2023 | 0.6 | Adição de Sprint 4 e 5 | Luana Ribeiro |
 
 ## Sprint 0 
 
@@ -78,3 +79,33 @@
 | Luan/Maykon | - Modais de alerts | 10/06/2023 |
 | Guilherme/Luan | - Hospedagem e configurações | 12/06/2023 |
 | Maykon/Davi | - Solução de problemas de testes de integração | 12/06/2023|
+
+##Sprint 4 
+
+<p style="text-indent: 50px;text-align: justify;">  Data: 12/06/2023 - 26/06/2023 
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 4, ocorreu a correção de bugs das US para o MVP1.  
+</p>
+
+| Sprint | 4 | 
+| ---- | --------------- | 
+| <b>Sprint Planning - Goal<b> | - Correção de bugs do MVP 1 </br> - Adicionar novas US: editar e excluir itens da agenda e envio de contrato via email para o cliente |
+| <b>Backlog da Sprint<b> | -  Adição de US's : 12,13 e 20; </br> - Botão perfil header - Botão "perfil” no dropdown de usuário não leva ao perfil do usuário que está acessando a conta, e sim ao contrato;  </br> - Tela recuperar senha - tela recuperar senha não funciona; </br> -  Ajustar os itens do modal drop menu de configurações por Pascal Case;  </br> - Botão enter entrar no sistema - colocar enter também para entrar no sistema quando é acionado; </br> - Impedir que possam acessar o resto do sistema sem sair da tela de login - outras telas estão disponíveis mesmo sem que o usuário faça autenticação; </br> - Criar um componente preloader; </br> - Implementar um loading no sistema - quando uma requisição estiver ocorrendo colocar uma animação de loading; </br> - O nome do aluno poderia ser limitado a mostrar só o nome e o sobrenome do aluno, para não onerar o componente; </br> - O nome dos alunos deveria ser apresentado com a primeira letra de cada nome maiúscula; </br> - O ‘hover’ do componente precisa ser totalmente implementado, tanto o background quanto o cursor; </br> - O cadastro de pessoas PCD deve verificar a resposta do campo e tornar obrigatório a especificação de deficiência; </br> - Máscaras em inputs - todos os campos de cadastros precisam ter uma máscara para que todos sigam o mesmo padrão, ou seja, sejam no formato do CPF por exemplo “000.000.000-00”, do telefone “(00) 0 0000-0000”; </br> -Botão carregar imagem - botão carregar não carrega imagem;</br>- O botão de sair em cadastro não é necessário se já temos a opção de fechar o modal com o ‘X’; </br>- Botão continuar desbloqueado sem nenhum dado de aluno - botão continuar da tela de cadastro fica desbloqueado mesmo sem completar todos os dados da tela de informações de alunos. | 
+| <b>Sprint Review<b> | - Como essa sprint teve como foco a correção de bugs, não houve reunião com o cliente. |
+| <b>Débitos técnicos<b> | - Tela recuperar senha.... . </br> - Justificativa: ainda em construção  |
+| <b>Sprint Retrospective<b> |  - Pontos fortes: Todos conseguiram participar das correções.  </br> - Pontos Fracos: A comunicação decaiu um pouco, ritmo se perdeu e a interação entre o grupo diminuiu. </br> - Melhorias para a próxima Sprint: Voltar a ter uma comunicação melhor como na última sprint, falar mais abertamente sobre qualquer desentendimento ou dificuldade  |
+
+##Sprint 5 
+
+<p style="text-indent: 50px;text-align: justify;">  Data: 27/06/2023 - 11/07/2023 
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 5, ocorreu a correção de bugs que ficaram como débitos técnicos e início do desenvolvimento do MVP 2.
+</p>
+
+| Sprint | 5 | 
+| ---- | --------------- | 
+| <b>Sprint Planning - Goal<b> | - Correção de bugs restantes </br> - Início do desenvolvimento do MVP2 |
+| <b>Backlog da Sprint<b> | -  Fazer as correções que fizemos em alunos nas telas de professores e salas também; </br> - Botão perfil header - Botão "perfil” no dropdown de usuário não leva ao perfil do usuário que está acessando a conta, e sim ao contrato;  </br> - Tela recuperar senha - tela recuperar senha não funciona; </br> -  Ajustar os itens do modal drop menu de configurações por Pascal Case;  </br> - Botão enter entrar no sistema - colocar enter também para entrar no sistema quando é acionado; </br> - Impedir que possam acessar o resto do sistema sem sair da tela de login - outras telas estão disponíveis mesmo sem que o usuário faça autenticação; </br> - Criar um componente preloader; </br> - Implementar um loading no sistema - quando uma requisição estiver ocorrendo colocar uma animação de loading; </br> - O nome do aluno poderia ser limitado a mostrar só o nome e o sobrenome do aluno, para não onerar o componente; </br> - O nome dos alunos deveria ser apresentado com a primeira letra de cada nome maiúscula; </br> - O ‘hover’ do componente precisa ser totalmente implementado, tanto o background quanto o cursor; </br> - O cadastro de pessoas PCD deve verificar a resposta do campo e tornar obrigatório a especificação de deficiência; </br> - Máscaras em inputs - todos os campos de cadastros precisam ter uma máscara para que todos sigam o mesmo padrão, ou seja, sejam no formato do CPF por exemplo “000.000.000-00”, do telefone “(00) 0 0000-0000”; </br> -Botão carregar imagem - botão carregar não carrega imagem;</br>- O botão de sair em cadastro não é necessário se já temos a opção de fechar o modal com o ‘X’; </br>- Botão continuar desbloqueado sem nenhum dado de aluno - botão continuar da tela de cadastro fica desbloqueado mesmo sem completar todos os dados da tela de informações de alunos. | 
+| <b>Sprint Review<b> | - Ainda em desenvolvimento |
+| <b>Débitos técnicos<b> | - Ainda em desenvolvimento  |
+| <b>Sprint Retrospective<b> |  - Ainda em desenvolvimento  |

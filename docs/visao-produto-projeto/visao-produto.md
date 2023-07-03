@@ -7,6 +7,7 @@
 | 11/05/2023 |  0.3   |                Atualização dos Objetivos do Produto                 |                    Luan Mateus                     |
 | 06/06/2023 |  0.4   |                Atualização de Tecnologias Utilizadas                | Luan Mateus, <br> Luana Ribeiro, <br> Maykon Junio |
 | 26/06/2023 |  0.5   |      Inserção de Estratégia de Testes Referentes aos dois MVPs      |           Luan Mateus,<br>Luana Ribeiro            |
+| 03/07/2023 | 0.6 | Edição da Estratégia de Testes Referentes ao dois MVPs | Luana Ribeiro |
 
 
 ## Declaração Geral do Produto
@@ -45,10 +46,22 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 ## Estratégia de Testes
 
-| MVP           | Tipos de Teste                     | Níveis de Teste | Técnicas de Testes                                                                                   |
-| -------------------- | --------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
-| 1      | Funcional, <br> Usabilidade. | Unitário, <br> Integração, <br> Aceitação. | TDD, <br> Manual, <br> Automática. |
-| 2       | Funcional, <br> Usabilidade, <br> Confiabilidade, <br> Suportabilidade. | Unitário, <br> Integração, <br> Sistema, <br> Aceitação.     | Caixa Preta,<br>Manual, <br> Automática. |
+####MVP1 
+
+| Tipos de Teste | Níveis de Teste | Técnicas de Testes |
+| -------------------------- | ------------- | ------------------------------------------ |
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração | - Caixa Preta; </br> - Manual; </br> - Automático. |
+| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | 
+
+####MVP2
+
+| Tipos de Teste | Níveis de Teste | Técnicas de Testes |
+| -------------------------- | ------------- | ------------------------------------------ |
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Caixa Preta; </br> - Manual; </br> - Automático. |
+| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | 
+| Confiabilidade | - Unitário; </br> - Integração; </br> - Aceitação. | - Manual;</br> - Automático; </br> - Caixa Branca. |
+| Suportabilidade | - Integração; </br> - Sistema; </br> - Aceitação. | - Manual; </br> - Automática. | 
+
 
 ## Ferramentas
 
