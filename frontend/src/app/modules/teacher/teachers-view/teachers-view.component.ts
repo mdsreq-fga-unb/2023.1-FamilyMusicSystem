@@ -163,4 +163,12 @@ export class TeachersViewComponent implements OnInit {
   sair() {
     this.bsModalRef.hide();
   }
+
+  transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
+    const value = inputElement.value;
+    if (value.length > 0) {
+      const firstLetter = value.charAt(0).toUpperCase();
+      inputElement.value = firstLetter + value.slice(1);
+    }
+  }
 }

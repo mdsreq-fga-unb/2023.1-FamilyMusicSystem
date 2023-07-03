@@ -80,14 +80,14 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
-              <td class="button" (click)="modalAlunos(student, false)" cursor="pointer">
+              <td class="button" cursor="pointer" (click)="modalAlunos(student, false)">
                 <img [src]="baseUrl + student.ProfilePicture.data?.attributes.formats.thumbnail.url" alt="Foto Aluno"
                   class="miniProfile" />
                 {{ student.Name }}
               </td>
-              <td class="nomobile">{{ student.Email }}</td>
-              <td class="notablet" class="notablet">{{ student.CPF }}</td>
-              <td class="notablet">{{ student.Phone }}</td>
+              <td class="nomobile" (click)="modalAlunos(student, false)">{{ student.Email }}</td>
+              <td class="notablet" class="notablet" (click)="modalAlunos(student, false)">{{ student.CPF }}</td>
+              <td class="notablet" (click)="modalAlunos(student, false)">{{ student.Phone }}</td>
               <td>
                 <mat-icon (click)="modalAlunos(student, true)" class="delete">edit</mat-icon>
                 <mat-icon (click)="deleteStudent(student)" class="delete">restore_from_trash</mat-icon>

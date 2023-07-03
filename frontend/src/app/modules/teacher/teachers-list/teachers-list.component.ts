@@ -7,6 +7,7 @@ import { TeachersViewComponent } from '../teachers-view/teachers-view.component'
 import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
+import { PreloaderComponent } from '../../preloader/preloader.component';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -32,12 +33,15 @@ class Response {
 })
 export class TeachersListComponent implements OnInit {
   public showAlertEdit = false;
+  public loading = true;
   public showAlertDelete = false;
   public showAlertAdd = false;
   private bsModalRef: BsModalRef;
+  public teachers : Teacher[];
   public checked: boolean = false;
   public searchForm: FormGroup;
   public estilosDinamicos: any;
+  public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlTeacher =
     'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
 
@@ -74,6 +78,7 @@ export class TeachersListComponent implements OnInit {
   }
 
   getTeacher(args?: string) {
+    this.loading = true; // Define o estado de loading como true antes de fazer a requisição
     this.teachers$ = this.http
       .get<Response>(
         args ? `${this.prefixoUrlTeacher}${args}` : this.prefixoUrlTeacher,
@@ -89,6 +94,15 @@ export class TeachersListComponent implements OnInit {
         map((response: Response) =>
           response.data.map((student) => student.attributes)
         )
+      );
+
+      this.teachers$.subscribe(
+        () => {
+          this.loading = false;
+        },
+        () => {
+          this.loading = false;
+        }
       );
   }
 
@@ -212,5 +226,14 @@ export class TeachersListComponent implements OnInit {
 
   calcularCorDeFundo() {
     return 'var(--selector)';
+  }
+
+
+  obterPrimeiroESegundoNome(nomeCompleto: string): string[] {
+    const nomesSeparados = nomeCompleto.split(' ');
+    const primeiroNome = nomesSeparados[0];
+    const segundoNome = nomesSeparados[1];
+    const completeName = primeiroNome+" "+segundoNome;
+    return [completeName];
   }
 }

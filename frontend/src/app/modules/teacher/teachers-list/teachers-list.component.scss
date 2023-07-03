@@ -36,6 +36,15 @@ td {
   vertical-align: middle;
 }
 
+.selected{
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selected:hover {
+  background-color: var(--selector);
+}
+
 th {
   padding: 0;
   vertical-align: middle;

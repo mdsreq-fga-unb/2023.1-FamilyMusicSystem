@@ -1,3 +1,7 @@
+<div *ngIf="loading">
+  <app-preloader />
+</div>
+
 <div class="content-content">
   <body>
     <div class="container-fluid">
@@ -108,15 +112,15 @@
               </th>
               <td class="button" (click)="modalProfessores(teacher, false)">
                 <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
+                  [src]="baseUrl + teacher.ProfilePicture.data?.attributes.formats.thumbnail.url" 
+                  alt="Foto Professor"
                   class="miniProfile"
                 />
-                {{ teacher.Name }}
+                {{ obterPrimeiroESegundoNome(teacher.Name) }}
               </td>
-              <td class="nomobile">{{ teacher.Email }}</td>
-              <td class="notablet" class="notablet">{{ teacher.CPF }}</td>
-              <td class="notablet">{{ teacher.Phone }}</td>
+              <td class="nomobile" (click)="modalProfessores(teacher, false)">{{ teacher.Email }}</td>
+              <td class="notablet" class="notablet" (click)="modalProfessores(teacher, false)">{{ teacher.CPF }}</td>
+              <td class="notablet" (click)="modalProfessores(teacher, false)">{{ teacher.Phone }}</td>
               <td>
                 <mat-icon
                   (click)="modalProfessores(teacher, true)"

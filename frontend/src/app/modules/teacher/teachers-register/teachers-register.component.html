@@ -37,7 +37,9 @@
             >Nome completo<b>*</b></label
           >
           <input
+            #myInput
             type="text"
+            (input)="transformFirstLetterToUppercase(myInput)"
             name="name"
             formControlName="nameTeacher"
             class="form-control form-control-sm input"

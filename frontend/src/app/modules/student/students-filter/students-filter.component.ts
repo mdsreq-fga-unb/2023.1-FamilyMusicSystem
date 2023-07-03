@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { subYears, format } from 'date-fns';
+import { Teacher } from 'src/app/models/teacher';
 
 @Component({
   selector: 'app-students-filter',

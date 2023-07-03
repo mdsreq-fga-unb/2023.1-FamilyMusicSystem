@@ -7,6 +7,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormValidations } from '../../../shared/form-validations';
 import { HttpHeaders } from '@angular/common/http';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
 
 @Component({
   selector: 'app-teachers-register',
@@ -18,6 +19,8 @@ export class TeachersRegisterComponent implements OnInit {
   public edicao = false;
   public onClose: Subject<boolean>;
   public teacher: Teacher;
+  public nome : string;
+  public file: File;
   public teacherForm: FormGroup;
   public dataAtual: string;
 
@@ -26,6 +29,7 @@ export class TeachersRegisterComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
+    private dataSharingService: DataSharingService,
     private cookieService: CookieService
   ) {
     this.dataAtual = new Date().toISOString().split('T')[0];
@@ -37,6 +41,12 @@ export class TeachersRegisterComponent implements OnInit {
     headers = headers.append('Authorization', `Bearer ${jwt}`);
     const opts = { headers: headers, params: { populate: '*' } };
     return opts;
+  }
+
+  getHeaders(): HttpHeaders {
+    const jwt = this.cookieService.getCookie('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+    return headers;
   }
 
   ngOnInit(): void {
@@ -58,8 +68,19 @@ export class TeachersRegisterComponent implements OnInit {
     });
   }
 
+  onImageSelected(event: any) {
+    this.file = event.target.files[0];
+  }
+
   onSubmit(): void {
+    const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
+    const getFieldsFromImageSelected = new FormData();
+    const headers = this.getHeaders();
+    const requestOptions = { headers };
+
     const teacher: Teacher = new Teacher();
+    getFieldsFromImageSelected.append('files', this.file);
+    teacher.ProfilePicture = getFieldsFromImageSelected;
     teacher.Name = this.teacherForm.get('nameTeacher')?.value;
     teacher.Email = this.teacherForm.get('emailTeacher')?.value;
     teacher.Phone = this.teacherForm.get('phoneTeacher')?.value;
@@ -78,9 +99,26 @@ export class TeachersRegisterComponent implements OnInit {
         this.headers()
       )
       .subscribe(
-        (response) => {
-          console.log(response);
-          //this.bsModalRef.content.showModal();
+        (response: any) => {
+          const image = response[0];
+          teacher.ProfilePicture = image || '/';
+
+          const body = {
+            data: teacher,
+          };
+
+          this.http
+            .post(`${baseUrl}/api/students/`, body, requestOptions)
+            .subscribe(
+              () => {
+                this.dataSharingService.ifshowAlertAdd = true;
+                this.showAlert = true;
+                this.bsModalRef.hide();
+              },
+              (error) => {
+                this.handleError(error);
+              }
+            );
         },
         (error) => {
           this.handleError(error);
@@ -108,5 +146,13 @@ export class TeachersRegisterComponent implements OnInit {
     this.showAlert = true;
     this.bsModalRef.hide();
     this.onSubmit();
+  }
+
+  transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
+    const value = inputElement.value;
+    if (value.length > 0) {
+      const firstLetter = value.charAt(0).toUpperCase();
+      inputElement.value = firstLetter + value.slice(1);
+    }
   }
 }
