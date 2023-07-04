@@ -7,7 +7,7 @@ import { TeachersViewComponent } from '../teachers-view/teachers-view.component'
 import { TeachersFilterComponent } from '../teachers-filter/teachers-filter.component';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 import { Observable, catchError, map, of, tap, timeout } from 'rxjs';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
+
 
 import { PreloaderComponent } from '../../preloader/preloader.component';
 import {
