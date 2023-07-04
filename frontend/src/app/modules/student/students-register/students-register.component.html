@@ -377,7 +377,12 @@
         [disabled]="!studentForm.valid"
         aria-label="Close"
       >
-        Enviar
+        <span *ngIf="!loading">enviar</span>
+        <div
+          class="spinner-border spinner-border-sm"
+          role="status"
+          *ngIf="loading"
+        ></div>
       </button>
 
       <button
@@ -393,7 +398,7 @@
         aria-label="Close"
         (click)="onSubmit()"
       >
-        salvar
+        enviar
       </button>
     </div>
   </div>

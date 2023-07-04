@@ -39,6 +39,7 @@ import { CookieService } from './services/cookie.service';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { AlertComponent } from './shared/alert/alert.component';
 import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 import { PreloaderComponent } from './modules/preloader/preloader.component';
 import { KzMaskDirective } from './kz-mask.directive';
@@ -48,6 +49,7 @@ import { KzMaskDirective } from './kz-mask.directive';
     AboutComponent,
     AppComponent,
     ConfirmationComponent,
+    AlertComponent,
     ContractComponent,
     FooterComponent,
     HeaderComponent,
