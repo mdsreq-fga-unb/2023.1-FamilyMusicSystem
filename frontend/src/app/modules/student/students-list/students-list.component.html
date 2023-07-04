@@ -1,4 +1,7 @@
-<div class="content-content">
+<div *ngIf="loading">
+  <app-preloader />
+</div>
+<div class="content-content" *ngIf="!loading">
   <body>
     <div class="container-fluid">
       <div class="container">
@@ -7,7 +10,12 @@
             <mat-icon class="personIcon">person</mat-icon>
             <p class="title">Alunos</p>
           </div>
-          <form class="d-flex" role="search" [formGroup]="searchForm">
+          <form
+            class="d-flex"
+            role="search"
+            [formGroup]="searchForm"
+            (ngSubmit)="search()"
+          >
             <div class="search-container">
               <input
                 class="form-control me-3"
@@ -21,7 +29,8 @@
             <button
               type="button"
               (click)="search()"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -78,7 +87,7 @@
               height: 36px;
               align-self: center;
             "
-            (click)="modalNewAlunos()"
+            (click)="modalAddAlunos()"
           >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
@@ -86,12 +95,11 @@
         </div>
       </div>
 
-      <div *ngIf="error">{{ error }}</div>
-
       <div class="scrool">
-        <table class="table">
+        <table class="shadow-sm table">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
@@ -108,23 +116,49 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
+              <td class="nomobile">
+                <div class="avatar-container">
+                  <img
+                    *ngIf="
+                      student.ProfilePicture &&
+                      student.ProfilePicture.data?.attributes.formats.thumbnail
+                        .url
+                    "
+                    [src]="
+                      baseUrl +
+                      student.ProfilePicture.data.attributes.formats.thumbnail
+                        .url
+                    "
+                    class="miniProfile"
+                  />
+
+                  <img
+                    *ngIf="
+                      !student.ProfilePicture ||
+                      !student.ProfilePicture.data?.attributes.formats.thumbnail
+                        .url
+                    "
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Avatar Alternativo"
+                    class="miniProfile"
+                  />
+                </div>
+              </td>
               <td
                 class="button"
-                (click)="modalAlunos(student, false)"
+                (click)="modalEditAlunos(student, false)"
                 cursor="pointer"
+                class="selectedProfile"
               >
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                {{ student.Name }}
+                {{ obterPrimeiroESegundoNome(student.Name) }}
               </td>
               <td class="nomobile">{{ student.Email }}</td>
               <td class="notablet" class="notablet">{{ student.CPF }}</td>
               <td class="notablet">{{ student.Phone }}</td>
               <td>
-                <mat-icon (click)="modalAlunos(student, true)" class="delete"
+                <mat-icon
+                  (click)="modalEditAlunos(student, true)"
+                  class="delete"
                   >edit</mat-icon
                 >
                 <mat-icon (click)="deleteStudent(student)" class="delete"
@@ -137,25 +171,25 @@
       </div>
     </div>
     <ngb-alert
-      *ngIf="showAlertDelete"
-      class="fixed-top my-warning-alert"
-      (close)="showAlertDelete = false"
+      *ngIf="showAlertAdd"
+      class="fixed-top alert-success"
+      (close)="showAlertAdd = false"
     >
-      <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
+      <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertEdit"
-      class="fixed-top my-edit-alert"
+      class="fixed-top alert-warning"
       (close)="showAlertEdit = false"
     >
       <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
     </ngb-alert>
     <ngb-alert
-      *ngIf="showAlertAdd"
-      class="fixed-top my-custom-alert"
-      (close)="showAlertAdd = false"
+      *ngIf="showAlertDelete"
+      class="fixed-top alert-danger"
+      (close)="showAlertDelete = false"
     >
-      <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
+      <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
     </ngb-alert>
   </body>
 </div>

@@ -7,21 +7,20 @@
       aria-label="Close"
       id="close"
     ></button>
-    <img src="\assets\image\foto-upload.png" />
-    <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      style="
-        height: min-content;
-        width: 10rem;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      "
-    >
-      carregar imagem
-    </button>
+    <div class="avatar">
+      <img id="preview-image" src="\assets\image\foto-upload.png" />
+    </div>
+    <h3 class="subtitle">Insira uma imagem do <b>aluno</b></h3>
+    <div class="upload-avatar">
+      <input
+        type="file"
+        id="avatar"
+        (change)="onImageSelected($event)"
+        accept="image/*"
+        class="input-img"
+      />
+      <label class="upload-image" for="avatar">carregar imagem</label>
+    </div>
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">
@@ -39,10 +38,12 @@
             >Nome completo<b>*</b></label
           >
           <input
+            #myInput
             type="text"
             name="name"
+            (input)="transformFirstLetterToUppercase(myInput)"
             formControlName="nameStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
           <div
             *ngIf="studentForm.get('nameStudent')?.errors?.['required'] && studentForm.get('nameStudent')?.touched"
@@ -75,6 +76,7 @@
           <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
           <input
             type="text"
+            kzMask="(99) 9 9999-9999"
             name="phone"
             formControlName="phoneStudent"
             class="form-control form-control-sm input"
@@ -94,6 +96,7 @@
           <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
           <input
             type="text"
+            kzMask="999.999.999-99"
             name="cpf"
             formControlName="cpfStudent"
             class="form-control form-control-sm input"
@@ -162,8 +165,17 @@
             type="text"
             name="disabledPersonType"
             formControlName="disabledPersonTypeStudent"
-            class="form-control form-control-sm input"
+            class="shadow-sm form-control form-control-sm input"
           />
+          <div
+            class="validators"
+            *ngIf="
+            studentForm.get('disabledPersonTypeStudent')?.errors?.['required'] &&
+            studentForm.get('disabledPersonTypeStudent')?.touched
+          "
+          >
+            tipo de deficiência obrigatório
+          </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
@@ -222,7 +234,7 @@
             "
             class="validators"
           >
-            Endereço obrigatótio
+            Endereço obrigatório
           </div>
         </div>
 
@@ -241,7 +253,7 @@
             "
             class="validators"
           >
-            Nome obrigatótio
+            Nome obrigatório
           </div>
         </div>
 
@@ -260,7 +272,7 @@
             "
             class="validators"
           >
-            Email obrigatótio
+            Email obrigatório
           </div>
         </div>
 
@@ -271,6 +283,7 @@
             name="phone"
             formControlName="phoneLegalGuardian"
             class="form-control form-control-sm input"
+            kzMask="(99) 9 9999-9999"
           />
           <div
             *ngIf="
@@ -279,7 +292,7 @@
             "
             class="validators"
           >
-            Insira um formato de telefone válido. Ex.: 61944028922
+            Telefone Inválido Ex.: (99) 9 9999-9999
           </div>
         </div>
 
@@ -288,6 +301,7 @@
           <input
             type="text"
             name="cpf"
+            kzMask="999.999.999-99"
             formControlName="cpfLegalGuardian"
             class="form-control form-control-sm input"
           />
@@ -334,20 +348,6 @@
     <div class="modal-footer">
       <button
         type="button"
-        id="outline"
-        class="btn btn-dark d-flex align-items-center rounded-pill"
-        style="
-          height: min-content;
-          width: 6rem;
-          align-items: center;
-          justify-content: center;
-        "
-        (click)="sair()"
-      >
-        sair
-      </button>
-      <button
-        type="button"
         class="btn btn-dark d-flex align-items-center rounded-pill"
         id="outline"
         style="
@@ -374,9 +374,10 @@
         "
         *ngIf="inicial"
         (click)="Guardian()"
+        [disabled]="!studentForm.valid"
         aria-label="Close"
       >
-        continuar
+        Enviar
       </button>
 
       <button
@@ -390,7 +391,7 @@
         "
         *ngIf="guardian"
         aria-label="Close"
-        (click)="salvar()"
+        (click)="onSubmit()"
       >
         salvar
       </button>

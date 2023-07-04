@@ -1,7 +1,7 @@
 <header class="header">
   <div class="left">
     <button
-      class="btn btn btn-dark d-flex align-items-center rounded-pill"
+      class="shadow-sm btn btn btn-dark d-flex align-items-center rounded-pill"
       id="sidebar-button"
       type="button"
       data-bs-toggle="offcanvas"
@@ -21,7 +21,7 @@
         id="button-animated"
         dropdownToggle
         type="button"
-        class="btn btn btn-dark d-flex align-items-center rounded-pill dropdown-toggle"
+        class="shadow-sm btn btn btn-dark d-flex align-items-center rounded-pill dropdown-toggle"
         aria-controls="dropdown-animated"
         id="ajuda"
         style="height: 38px"
@@ -32,24 +32,24 @@
       <ul
         id="dropdown-animated"
         *dropdownMenu
-        class="dropdown-menu dropdown-menu-right"
+        class="shadow-sm dropdown-menu dropdown-menu-right"
         role="menu"
         aria-labelledby="button-animated"
       >
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalcontract()">contrato</a>
+          <a class="dropdown-item" (click)="modalcontract()">Contrato</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalprivacy()">privacidade</a>
+          <a class="dropdown-item" (click)="modalprivacy()">Privacidade</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalresources()">recusos</a>
+          <a class="dropdown-item" (click)="modalresources()">Recursos</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalhelp()">ajuda</a>
+          <a class="dropdown-item" (click)="modalhelp()">Ajuda</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalabout()">sobre</a>
+          <a class="dropdown-item" (click)="modalabout()">Sobre</a>
         </li>
       </ul>
     </div>
@@ -60,7 +60,7 @@
         id="button-animated"
         dropdownToggle
         type="button"
-        class="btn btn btn-custom d-flex align-items-center rounded-pill dropdown-toggle perfil"
+        class="shadow-sm btn btn btn-custom d-flex align-items-center rounded-pill dropdown-toggle perfil"
         aria-controls="dropdown-animated"
         id="ajuda"
         style="height: 38px"
@@ -74,16 +74,16 @@
       </button>
       <ul
         id="dropdown-animated"
-        class="dropdown-menu dropdown-menu-right"
+        class="shadow-sm dropdown-menu dropdown-menu-right"
         role="menu"
         aria-labelledby="button-animated"
         *dropdownMenu
       >
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" (click)="modalcontract()">perfil</a>
+          <a class="dropdown-item" (click)="modalcontract()">Perfil</a>
         </li>
         <li role="menuitem" id="hover">
-          <a class="dropdown-item" routerLink="">sair</a>
+          <a class="dropdown-item" (click)="logout()">Sair</a>
         </li>
       </ul>
     </div>

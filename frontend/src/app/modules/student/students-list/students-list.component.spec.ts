@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { StudentsListComponent } from './students-list.component';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatDialog } from '@angular/material/dialog';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { StudentsListComponent } from "./students-list.component";
+import { BsModalService } from "ngx-bootstrap/modal";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { MatDialog } from "@angular/material/dialog";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
-describe('StudentsListComponent', () => {
+describe("StudentsListComponent", () => {
   let component: StudentsListComponent;
   let fixture: ComponentFixture<StudentsListComponent>;
 
@@ -32,7 +32,7 @@ describe('StudentsListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     fixture.whenStable().then(() => {
       expect(component).toBeTruthy();
     });
