@@ -54,7 +54,11 @@ export class StudentsViewComponent implements OnInit {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie('jwt');
+    const jwt = this.cookieService.getCookie('jwt') || '';
+    const isTokenValid = this.cookieService.isTokenValid(jwt);
+    if (!isTokenValid) {
+      console.log('erro');
+    }
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', `Bearer ${jwt}`);
     const opts = { headers: headers, params: { populate: '*' } };

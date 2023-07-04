@@ -5,7 +5,7 @@ import { CookieService as NgxCookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class CookieService {
-  constructor(private ngxCookieService: NgxCookieService) { }
+  constructor(private ngxCookieService: NgxCookieService) {}
 
   public setCookie(key: string, value: string, expires?: number): void {
     this.ngxCookieService.set(key, value, expires);
@@ -17,5 +17,12 @@ export class CookieService {
 
   public deleteCookie(key: string): void {
     this.ngxCookieService.delete(key);
+  }
+  public isTokenValid(key: string): boolean {
+    const token = this.getCookie(key);
+    if (token == '') {
+      return false;
+    }
+    return true;
   }
 }
