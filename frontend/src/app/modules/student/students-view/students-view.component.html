@@ -7,22 +7,46 @@
       aria-label="Close"
       id="close"
     ></button>
-    <img src="\assets\image\foto-upload.png" />
-    <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
-      style="
-        height: min-content;
-        width: 10rem;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
+
+    <img
+      *ngIf="
+        student.ProfilePicture &&
+        student.ProfilePicture.data?.attributes.formats.thumbnail.url
       "
-    >
-      carregar imagem
-    </button>
+      [src]="
+        baseUrl + student.ProfilePicture.data.attributes.formats.thumbnail.url
+      "
+      class="photoProfile"
+      id="preview-image"
+    />
+
+    <img
+      *ngIf="
+        !student.ProfilePicture ||
+        !student.ProfilePicture.data?.attributes.formats.thumbnail.url
+      "
+      src="../../../../assets/image/foto perfil.png"
+      alt="Avatar Alternativo"
+      class="miniProfile"
+      id="preview-image"
+    />
+
+    <h3 class="subtittle" *ngIf="this.edit">
+      Insira uma nova imagem do <b>aluno</b>
+    </h3>
+    <div class="upload-avatar">
+      <input
+        type="file"
+        id="avatar"
+        (change)="onImageSelected($event)"
+        accept="image/*"
+        class="input-img"
+        *ngIf="this.edit"
+      />
+      <label class="upload-image" for="avatar" *ngIf="this.edit"
+        >carregar imagem</label
+      >
+    </div>
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">
@@ -168,14 +192,14 @@
             class="form-control form-control-sm input"
           />
           <div
-          class="validators"
-          *ngIf="
+            class="validators"
+            *ngIf="
             studentForm.get('disabledPersonTypeStudent')?.errors?.['required'] &&
             studentForm.get('disabledPersonTypeStudent')?.touched
           "
-        >
-          tipo de deficiência obrigatório
-        </div>
+          >
+            tipo de deficiência obrigatório
+          </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">

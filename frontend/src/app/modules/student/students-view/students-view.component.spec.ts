@@ -1,16 +1,16 @@
-import { Student } from '../../../models/student';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material/icon';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { Student } from "../../../models/student";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatIconModule } from "@angular/material/icon";
+import { BsModalService } from "ngx-bootstrap/modal";
 import {
   MatDialogModule,
   MAT_DIALOG_DATA,
   MatDialogRef,
-} from '@angular/material/dialog';
-import { StudentsViewComponent } from './students-view.component';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+} from "@angular/material/dialog";
+import { StudentsViewComponent } from "./students-view.component";
+import { HttpClient, HttpHandler } from "@angular/common/http";
 
-describe('StudentsViewComponent', () => {
+describe("StudentsViewComponent", () => {
   let component: StudentsViewComponent;
   let fixture: ComponentFixture<StudentsViewComponent>;
 
@@ -34,7 +34,7 @@ describe('StudentsViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

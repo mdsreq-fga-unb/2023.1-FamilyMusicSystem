@@ -7,19 +7,17 @@
 .avatar {
   display: flex;
   border-radius: 50%;
-  height: 14rem;
-  width: 14rem;
   overflow: hidden;
   justify-content: center;
   align-content: center;
 }
 
-.avatar > img {
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
+#preview-image {
+  width: 15rem !important;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 15rem;
 }
-
 .photo {
   display: flex;
   flex-direction: column;
@@ -55,8 +53,7 @@ input[type="file"] {
 }
 
 .upload-image {
-  padding: 20px 10px;
-  width: 200px;
+  padding: 0.5rem 1.5rem;
   background-color: var(--contrast);
   color: var(--primary);
   border-radius: 2.5rem;
@@ -164,10 +161,6 @@ input[type="file"] {
 }
 
 @media only screen and (max-width: 995px) {
-  img {
-    max-width: 30%;
-    margin-bottom: 0.5rem;
-  }
   .corpo {
     display: contents;
     border-radius: 1rem;
