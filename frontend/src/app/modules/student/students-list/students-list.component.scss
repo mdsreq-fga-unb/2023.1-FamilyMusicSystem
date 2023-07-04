@@ -36,13 +36,16 @@ td {
   vertical-align: middle;
 }
 
-.selected{
-  cursor: pointer;
+.selected {
   transition: background-color 0.3s ease;
 }
 
 .selected:hover {
   background-color: var(--selector);
+}
+
+.selectedProfile {
+  cursor: pointer;
 }
 
 th {
@@ -153,7 +156,6 @@ tr:nth-child(even) {
   object-position: center;
   border-radius: 50%;
 }
-
 
 #researchStudents {
   color: var(--contrast);
