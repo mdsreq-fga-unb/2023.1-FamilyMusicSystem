@@ -7,22 +7,20 @@
       aria-label="Close"
       id="close"
     ></button>
-    <img src="\assets\image\foto-upload.png" />
-    <h3 class="subtittle">Insira uma imagem do <b>aluno</b></h3>
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
-      style="
-        height: min-content;
-        width: 10rem;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      "
-    >
-      carregar imagem
-    </button>
+    <div class="avatar">
+      <img id="preview-image" src="\assets\image\foto-upload.png" />
+    </div>
+    <h3 class="subtitle">Insira uma imagem do <b>professor</b></h3>
+    <div class="upload-avatar">
+      <input
+        type="file"
+        id="avatar"
+        (change)="onImageSelected($event)"
+        accept="image/*"
+        class="input-img"
+      />
+      <label class="upload-image" for="avatar">carregar imagem</label>
+    </div>
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">
@@ -37,9 +35,11 @@
             >Nome completo<b>*</b></label
           >
           <input
+            #myInput
             type="text"
             name="name"
             formControlName="nameTeacher"
+            (input)="transformFirstLetterToUppercase(myInput)"
             class="form-control form-control-sm input"
           />
           <div
@@ -74,6 +74,7 @@
           <input
             type="text"
             name="phone"
+            kzMask="(99) 9 9999-9999"
             formControlName="phoneTeacher"
             class="form-control form-control-sm input"
           />
@@ -93,6 +94,7 @@
           <input
             type="text"
             name="cpf"
+            kzMask="999.999.999-99"
             formControlName="cpfTeacher"
             class="form-control form-control-sm input"
           />
@@ -154,7 +156,7 @@
             <option value="Singing">Canto</option>
             <option value="Guitars">Guitarra/Violão</option>
             <option value="Piano">Piano</option>
-            <option value="Child Musicalization">
+            <option value="ChildMusicalization">
               Ensino de música infantil
             </option>
           </select>
@@ -194,8 +196,14 @@
         "
         aria-label="Close"
         (click)="salvar()"
+        [disabled]="!teacherForm.valid"
       >
-        salvar
+        <span *ngIf="!loading">enviar</span>
+        <div
+          class="spinner-border spinner-border-sm"
+          role="status"
+          *ngIf="loading"
+        ></div>
       </button>
     </div>
   </div>

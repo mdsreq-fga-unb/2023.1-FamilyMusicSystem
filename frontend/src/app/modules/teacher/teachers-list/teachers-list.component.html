@@ -1,13 +1,21 @@
-<div class="content-content">
+<div *ngIf="loading">
+  <app-preloader />
+</div>
+<div class="content-content" *ngIf="!loading">
   <body>
     <div class="container-fluid">
       <div class="container">
         <div class="right">
           <div class="teachersTitle">
-            <mat-icon class="personIcon">class</mat-icon>
-            <p class="title">Prof(s)</p>
+            <mat-icon class="personIcon">person</mat-icon>
+            <p class="title">Professores</p>
           </div>
-          <form class="d-flex" role="search" [formGroup]="searchForm">
+          <form
+            class="d-flex"
+            role="search"
+            [formGroup]="searchForm"
+            (ngSubmit)="search()"
+          >
             <div class="search-container">
               <input
                 class="form-control me-3"
@@ -21,7 +29,8 @@
             <button
               type="button"
               (click)="search()"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
                 height: min-content;
                 margin-left: 0.5rem;
@@ -69,7 +78,6 @@
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            (click)="modalNewProfessores()"
             style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
@@ -79,6 +87,7 @@
               height: 36px;
               align-self: center;
             "
+            (click)="modalAddProfessores()"
           >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
@@ -87,15 +96,16 @@
       </div>
 
       <div class="scrool">
-        <table class="table">
+        <table class="shadow-sm table">
           <thead>
             <tr>
+              <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col">Nome</th>
               <th scope="col" class="nomobile">Email</th>
               <th scope="col" class="notablet">CPF</th>
               <th scope="col" class="notablet">Telefone</th>
-              <th></th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody *ngIf="teachers$ | async as teachers">
@@ -106,20 +116,48 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
-              <td class="button" (click)="modalProfessores(teacher, false)">
-                <img
-                  src="../../../../assets/image/foto perfil.png"
-                  alt="Foto Aluno"
-                  class="miniProfile"
-                />
-                {{ teacher.Name }}
+              <td class="nomobile">
+                <div class="avatar-container">
+                  <img
+                    *ngIf="
+                      teacher.ProfilePicture &&
+                      teacher.ProfilePicture.data?.attributes.formats.thumbnail
+                        .url
+                    "
+                    [src]="
+                      baseUrl +
+                      teacher.ProfilePicture.data.attributes.formats.thumbnail
+                        .url
+                    "
+                    class="miniProfile"
+                  />
+
+                  <img
+                    *ngIf="
+                      !teacher.ProfilePicture ||
+                      !teacher.ProfilePicture.data?.attributes.formats.thumbnail
+                        .url
+                    "
+                    src="../../../../assets/image/foto perfil.png"
+                    alt="Avatar Alternativo"
+                    class="miniProfile"
+                  />
+                </div>
+              </td>
+              <td
+                class="button"
+                (click)="modalEditProfessores(teacher, false)"
+                cursor="pointer"
+                class="selectedProfile"
+              >
+                {{ obterPrimeiroESegundoNome(teacher.Name) }}
               </td>
               <td class="nomobile">{{ teacher.Email }}</td>
               <td class="notablet" class="notablet">{{ teacher.CPF }}</td>
               <td class="notablet">{{ teacher.Phone }}</td>
               <td>
                 <mat-icon
-                  (click)="modalProfessores(teacher, true)"
+                  (click)="modalEditProfessores(teacher, true)"
                   class="delete"
                   >edit</mat-icon
                 >
@@ -133,25 +171,25 @@
       </div>
     </div>
     <ngb-alert
-      *ngIf="showAlertDelete"
-      class="fixed-top my-warning-alert"
-      (close)="showAlertDelete = false"
+      *ngIf="showAlertAdd"
+      class="fixed-top alert-success"
+      (close)="showAlertAdd = false"
     >
-      <b>Exclusão Realizada!</b> O professor foi excluído com sucesso!
+      <b>Cadastro Realizado!</b> O professor foi cadastrado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertEdit"
-      class="fixed-top my-edit-alert"
+      class="fixed-top alert-warning"
       (close)="showAlertEdit = false"
     >
       <b>Edição Realizada!</b> O perfil de professor foi atualizado com sucesso!
     </ngb-alert>
     <ngb-alert
-      *ngIf="showAlertAdd"
-      class="fixed-top my-custom-alert"
-      (close)="showAlertAdd = false"
+      *ngIf="showAlertDelete"
+      class="fixed-top alert-danger"
+      (close)="showAlertDelete = false"
     >
-      <b>Cadastro Realizado!</b> O professor foi cadastrado com sucesso!
+      <b>Exclusão Realizada!</b> O professor foi excluído com sucesso!
     </ngb-alert>
   </body>
 </div>

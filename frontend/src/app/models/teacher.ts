@@ -11,4 +11,5 @@ export class Teacher {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  ProfilePicture: any;
 }

@@ -60,21 +60,23 @@ export class StudentsListComponent implements OnInit {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie('jwt') || '';
-    const isTokenValid = this.cookieService.isTokenValid(jwt);
-    if (!isTokenValid) {
-      const dialogRef: MatDialogRef<ExpiredComponent> = this.dialog.open(
-        ExpiredComponent,
-        {
-          data: {
-            message: 'Sessão expirada, faça login novamente.',
-            dialogRef: null,
-          },
-          disableClose: true,
-        }
-      );
-      dialogRef.componentInstance.dialogRef = dialogRef;
-    }
+    const jwt = this.cookieService.getCookie('jwt');
+    console.log(jwt);
+
+    // if (jwt == null) {
+    //   const dialogRef: MatDialogRef<ExpiredComponent> = this.dialog.open(
+    //     ExpiredComponent,
+    //     {
+    //       data: {
+    //         message: 'Sessão expirada, faça login novamente.',
+    //         dialogRef: null,
+    //       },
+    //       disableClose: true,
+    //     }
+    //   );
+    //   dialogRef.componentInstance.dialogRef = dialogRef;
+    // } else {
+    // }
 
     let headers = new HttpHeaders();
     headers = headers.append('Authorization', `Bearer ${jwt}`);

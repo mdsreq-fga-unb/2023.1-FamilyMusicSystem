@@ -20,18 +20,18 @@ import { DataSharingService } from '../../../services/data-sharing.service';
   styleUrls: ['./students-register.component.scss'],
 })
 export class StudentsRegisterComponent implements OnInit {
+  public student: Student;
+  public studentForm: FormGroup;
+  public guardian = false;
+  public guardianForm: FormGroup;
+  public studentValid: boolean = false;
+  public guardianValid: boolean = false;
+  public hasGuardian: boolean = true;
   public showAlert: boolean = false;
   public onClose: Subject<boolean>;
   public edicao = false;
   public nome: string;
   public inicial = true;
-  public guardian = false;
-  public student: Student;
-  public studentForm: FormGroup;
-  public guardianForm: FormGroup;
-  public hasGuardian: boolean = true;
-  public studentValid: boolean = false;
-  public guardianValid: boolean = false;
   public dataAtual: string;
   public loading: boolean = false;
   public file: File;
@@ -102,8 +102,6 @@ export class StudentsRegisterComponent implements OnInit {
     this.studentForm
       .get('disabledPersonStudent')
       ?.valueChanges.subscribe((pcdValue: string) => {
-        debugger;
-
         if (this.studentForm.get('disabledPersonTypeStudent') != null) {
           if (pcdValue == 'true') {
             this.studentForm
@@ -131,11 +129,11 @@ export class StudentsRegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const student: Student = new Student();
     const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
     const getFieldsFromImageSelected = new FormData();
     const headers = this.getHeaders();
     const requestOptions = { headers };
-    const student: Student = new Student();
     this.loading = true;
 
     getFieldsFromImageSelected.append('files', this.file);
