@@ -10,6 +10,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ContractComponent } from '../../settings/contract/contract.component';
 import { ChangeDetectorRef } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { DataSharingService } from 'src/app/services/data-sharing.service';
+
 
 @Component({
   selector: 'app-teachers-view',
