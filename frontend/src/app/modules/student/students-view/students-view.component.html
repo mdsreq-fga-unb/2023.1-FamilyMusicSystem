@@ -437,7 +437,7 @@
           align-items: center;
           justify-content: center;
         "
-        [disabled]="!isFormValid"
+        [disabled]="!isFormValid && !canEdit"
         *ngIf="guardian && edit"
         aria-label="Close"
         (click)="onEdit(student)"

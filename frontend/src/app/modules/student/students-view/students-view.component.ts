@@ -33,6 +33,7 @@ export class StudentsViewComponent implements OnInit {
   public showAlert: boolean;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public file: File;
+  public canEdit: boolean = false;
 
   verificarIdade(dataEscolhida: string): boolean {
     const hoje = moment();
@@ -64,6 +65,7 @@ export class StudentsViewComponent implements OnInit {
     const previewImage = document.getElementById("preview-image");
     const imageUrl = URL.createObjectURL(this.file);
     previewImage?.setAttribute("src", imageUrl);
+    this.canEdit = true;
   }
 
   ngOnInit(): void {
@@ -143,8 +145,6 @@ export class StudentsViewComponent implements OnInit {
     this.studentForm
       .get("disabledPersonStudent")
       ?.valueChanges.subscribe((pcdValue: string) => {
-        debugger;
-
         if (this.studentForm.get("disabledPersonTypeStudent") != null) {
           if (pcdValue == "true") {
             this.studentForm
@@ -206,10 +206,6 @@ export class StudentsViewComponent implements OnInit {
     student.LegalGuardianRG = this.studentForm.get("rgLegalGuardian")?.value;
     student.LegalGuardianPhone =
       this.studentForm.get("phoneLegalGuardian")?.value;
-
-    const body = {
-      data: student,
-    };
 
     if (this.file) {
       this.http
@@ -434,6 +430,7 @@ export class StudentsViewComponent implements OnInit {
       this.isFormValid = this.studentForm.valid;
     });
   }
+
   GuardianBack() {
     this.inicial = true;
     this.guardian = false;
