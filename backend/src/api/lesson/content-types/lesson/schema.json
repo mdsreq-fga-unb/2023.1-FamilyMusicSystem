@@ -28,6 +28,9 @@
     "Classroom": {
       "type": "string",
       "required": true
+    },
+    "Frequency": {
+      "type": "string"
     }
   }
 }

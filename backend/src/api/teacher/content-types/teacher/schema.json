@@ -18,7 +18,8 @@
     },
     "Phone": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$"
     },
     "Password": {
       "type": "password"
@@ -37,7 +38,8 @@
     "CPF": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "regex": "([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})"
     },
     "RG": {
       "type": "string",
