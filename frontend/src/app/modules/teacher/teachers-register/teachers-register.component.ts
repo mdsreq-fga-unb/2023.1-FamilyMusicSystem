@@ -9,6 +9,7 @@ import { FormValidations } from '../../../shared/form-validations';
 import { HttpHeaders } from '@angular/common/http';
 import { DataSharingService } from 'src/app/services/data-sharing.service';
 
+
 @Component({
   selector: 'app-teachers-register',
   templateUrl: './teachers-register.component.html',
