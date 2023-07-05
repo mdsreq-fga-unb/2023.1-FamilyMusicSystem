@@ -142,9 +142,6 @@ tr:nth-child(even) {
 .avatar-container {
   display: flex;
   position: relative;
-  border-radius: 50%;
-  // justify-content: center;
-  // align-items: center;
   left: 1.5rem;
   height: 2rem;
   width: 2rem;
@@ -182,7 +179,6 @@ tr:nth-child(even) {
 .miniProfile {
   width: 33px;
   border-radius: 24px;
-  margin-right: 8px;
 }
 
 .table {

@@ -109,11 +109,8 @@ export class TeachersRegisterComponent implements OnInit {
               .post(`${baseUrl}/api/teachers/`, body, requestOptions)
               .subscribe(
                 () => {
-                  console.log("subscribe funcionando");
                   this.dataSharingService.ifshowAlertAdd = true;
                   this.showAlert = true;
-                  console.log(this.dataSharingService.ifshowAlertAdd);
-
                   this.bsModalRef.hide();
                 },
                 (error) => {

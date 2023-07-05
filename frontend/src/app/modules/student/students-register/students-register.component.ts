@@ -135,9 +135,9 @@ export class StudentsRegisterComponent implements OnInit {
     const headers = this.getHeaders();
     const requestOptions = { headers };
     this.loading = true;
-
     getFieldsFromImageSelected.append("files", this.file);
     student.ProfilePicture = getFieldsFromImageSelected;
+
     student.Name = this.studentForm.get("nameStudent")?.value;
     student.Email = this.studentForm.get("emailStudent")?.value;
     student.Phone = this.studentForm.get("phoneStudent")?.value;

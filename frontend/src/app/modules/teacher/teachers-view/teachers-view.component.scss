@@ -4,6 +4,20 @@
   border-radius: 1rem;
 }
 
+.avatar {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-content: center;
+}
+
+#preview-image {
+  width: 15rem !important;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 15rem;
+}
+
 .photo {
   display: flex;
   flex-direction: column;
@@ -34,7 +48,22 @@
   margin: 0;
 }
 
-.subtittle {
+input[type="file"] {
+  display: none;
+}
+
+.upload-image {
+  padding: 0.5rem 1.5rem;
+  background-color: var(--contrast);
+  color: var(--primary);
+  border-radius: 2.5rem;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.subtitle {
   margin-top: 0.2rem;
   color: var(--contrast);
   font-style: normal;
@@ -132,10 +161,6 @@
 }
 
 @media only screen and (max-width: 995px) {
-  img {
-    max-width: 30%;
-    margin-bottom: 0.5rem;
-  }
   .corpo {
     display: contents;
     border-radius: 1rem;

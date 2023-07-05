@@ -146,9 +146,6 @@ export class TeachersListComponent implements OnInit {
       modalConfig
     );
     this.bsModalRef.onHide?.subscribe(() => {
-      console.log("onHide funcionando");
-      console.log(this.dataSharingService.ifshowAlertAdd);
-
       if (this.dataSharingService.ifshowAlertAdd) {
         this.getTeacher();
         this.showAlertAdd = true;

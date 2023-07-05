@@ -39,8 +39,9 @@
 
 .form-row {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   margin: 0;
+  gap: 1em;
 }
 
 .personIcon {
@@ -53,7 +54,6 @@
 .input {
   background: var(--secondary);
   border: none;
-  max-width: 90%;
   color: var(--contrast);
   margin-top: 1rem;
 }
