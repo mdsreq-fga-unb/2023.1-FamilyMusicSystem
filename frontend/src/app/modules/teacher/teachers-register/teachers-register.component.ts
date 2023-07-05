@@ -1,23 +1,23 @@
-import { CookieService } from './../../../services/cookie.service';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Subject } from 'rxjs';
+import { CookieService } from "./../../../services/cookie.service";
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { BsModalRef } from "ngx-bootstrap/modal";
+import { Subject } from "rxjs";
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { Teacher } from '../../../models/teacher';
-import * as moment from 'moment';
-import { FormValidations } from '../../../shared/form-validations';
-import { DataSharingService } from '../../../services/data-sharing.service';
+} from "@angular/common/http";
+import { Observable, of } from "rxjs";
+import { Teacher } from "../../../models/teacher";
+import * as moment from "moment";
+import { FormValidations } from "../../../shared/form-validations";
+import { DataSharingService } from "../../../services/data-sharing.service";
 
 @Component({
-  selector: 'app-teachers-register',
-  templateUrl: './teachers-register.component.html',
-  styleUrls: ['./teachers-register.component.scss'],
+  selector: "app-teachers-register",
+  templateUrl: "./teachers-register.component.html",
+  styleUrls: ["./teachers-register.component.scss"],
 })
 export class TeachersRegisterComponent implements OnInit {
   public teacher: Teacher;
@@ -40,12 +40,12 @@ export class TeachersRegisterComponent implements OnInit {
     private cookieService: CookieService,
     private dataSharingService: DataSharingService
   ) {
-    this.dataAtual = new Date().toISOString().split('T')[0];
+    this.dataAtual = new Date().toISOString().split("T")[0];
   }
 
   getHeaders(): HttpHeaders {
-    const jwt = this.cookieService.getCookie('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+    const jwt = this.cookieService.getCookie("jwt");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${jwt}`);
     return headers;
   }
 
@@ -71,9 +71,9 @@ export class TeachersRegisterComponent implements OnInit {
 
   onImageSelected(event: any) {
     this.file = event.target.files[0];
-    const previewImage = document.getElementById('preview-image');
+    const previewImage = document.getElementById("preview-image");
     const imageUrl = URL.createObjectURL(this.file);
-    previewImage?.setAttribute('src', imageUrl);
+    previewImage?.setAttribute("src", imageUrl);
   }
 
   onSubmit(): void {
@@ -84,14 +84,15 @@ export class TeachersRegisterComponent implements OnInit {
     const requestOptions = { headers };
     this.loading = true;
 
+    getFieldsFromImageSelected.append("files", this.file);
     teacher.ProfilePicture = getFieldsFromImageSelected;
-    teacher.Name = this.teacherForm.get('nameTeacher')?.value;
-    teacher.Email = this.teacherForm.get('emailTeacher')?.value;
-    teacher.Phone = this.teacherForm.get('phoneTeacher')?.value;
-    teacher.CPF = this.teacherForm.get('cpfTeacher')?.value;
-    teacher.RG = this.teacherForm.get('rgTeacher')?.value;
-    teacher.Gender = this.teacherForm.get('genderTeacher')?.value;
-    teacher.Instruments = this.teacherForm.get('instrumentTeacher')?.value;
+    teacher.Name = this.teacherForm.get("nameTeacher")?.value;
+    teacher.Email = this.teacherForm.get("emailTeacher")?.value;
+    teacher.Phone = this.teacherForm.get("phoneTeacher")?.value;
+    teacher.CPF = this.teacherForm.get("cpfTeacher")?.value;
+    teacher.RG = this.teacherForm.get("rgTeacher")?.value;
+    teacher.Gender = this.teacherForm.get("genderTeacher")?.value;
+    teacher.Instruments = this.teacherForm.get("instrumentTeacher")?.value;
 
     if (this.file) {
       this.http
@@ -99,7 +100,7 @@ export class TeachersRegisterComponent implements OnInit {
         .subscribe(
           (response: any) => {
             const image = response[0];
-            teacher.ProfilePicture = image || '/';
+            teacher.ProfilePicture = image || "/";
             const body = {
               data: teacher,
             };
@@ -108,8 +109,11 @@ export class TeachersRegisterComponent implements OnInit {
               .post(`${baseUrl}/api/teachers/`, body, requestOptions)
               .subscribe(
                 () => {
+                  console.log("subscribe funcionando");
                   this.dataSharingService.ifshowAlertAdd = true;
                   this.showAlert = true;
+                  console.log(this.dataSharingService.ifshowAlertAdd);
+
                   this.bsModalRef.hide();
                 },
                 (error) => {
@@ -142,7 +146,7 @@ export class TeachersRegisterComponent implements OnInit {
   }
 
   scrollTop() {
-    const div = document.getElementById('scroll');
+    const div = document.getElementById("scroll");
     if (div !== null) {
       div.scrollTop = 0;
     }
@@ -156,8 +160,8 @@ export class TeachersRegisterComponent implements OnInit {
   transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
     const value = inputElement.value;
     if (value.length > 0) {
-      const words = value.toLowerCase().split(' ');
-      const excludedWords = ['de', 'des', 'do', 'dos', 'das', 'da', 'e'];
+      const words = value.toLowerCase().split(" ");
+      const excludedWords = ["de", "des", "do", "dos", "das", "da", "e"];
       const result = words.map((word, index) => {
         if (index === 0 || !excludedWords.includes(word)) {
           return word.charAt(0).toUpperCase() + word.slice(1);
@@ -165,7 +169,7 @@ export class TeachersRegisterComponent implements OnInit {
           return word;
         }
       });
-      inputElement.value = result.join(' ');
+      inputElement.value = result.join(" ");
     }
   }
 
@@ -175,7 +179,6 @@ export class TeachersRegisterComponent implements OnInit {
 
   salvar() {
     this.showAlert = true;
-    this.bsModalRef.hide();
     this.onSubmit();
   }
 }
