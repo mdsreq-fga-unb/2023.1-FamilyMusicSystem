@@ -18,6 +18,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatDialogRef } from "@angular/material/dialog";
 import { PreloaderComponent } from "../../preloader/preloader.component";
 import { DataSharingService } from "../../../services/data-sharing.service";
+import { ExpiredComponent } from "../../../shared/expired/expired.component";
 
 class Entry<T> {
   id: number;
@@ -60,6 +61,23 @@ export class StudentsListComponent implements OnInit {
 
   headers() {
     const jwt = this.cookieService.getCookie("jwt");
+    console.log(jwt);
+
+    // if (jwt == null) {
+    //   const dialogRef: MatDialogRef<ExpiredComponent> = this.dialog.open(
+    //     ExpiredComponent,
+    //     {
+    //       data: {
+    //         message: 'Sessão expirada, faça login novamente.',
+    //         dialogRef: null,
+    //       },
+    //       disableClose: true,
+    //     }
+    //   );
+    //   dialogRef.componentInstance.dialogRef = dialogRef;
+    // } else {
+    // }
+
     let headers = new HttpHeaders();
     headers = headers.append("Authorization", `Bearer ${jwt}`);
     const opts = { headers: headers, params: { populate: "*" } };

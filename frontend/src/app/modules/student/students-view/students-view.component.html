@@ -442,7 +442,12 @@
         aria-label="Close"
         (click)="onEdit(student)"
       >
-        salvar
+        <span *ngIf="!loading">salvar</span>
+        <div
+          class="spinner-border spinner-border-sm"
+          role="status"
+          *ngIf="loading"
+        ></div>
       </button>
     </div>
   </div>

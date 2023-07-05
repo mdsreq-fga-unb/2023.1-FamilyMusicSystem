@@ -7,22 +7,46 @@
       aria-label="Close"
       id="close"
     ></button>
-    <img src="\assets\image\foto-upload.png" />
-    <h3 class="subtittle">Insira uma imagem do <b>Professor</b></h3>
-    <button
-      type="button"
-      class="btn btn-dark d-flex align-items-center rounded-pill"
-      routerLink=""
-      style="
-        height: min-content;
-        width: 10rem;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 0.5rem;
+
+    <img
+      *ngIf="
+        teacher.ProfilePicture &&
+        teacher.ProfilePicture.data?.attributes.formats.thumbnail.url
       "
-    >
-      carregar imagem
-    </button>
+      [src]="
+        baseUrl + teacher.ProfilePicture.data.attributes.formats.thumbnail.url
+      "
+      class="photoProfile"
+      id="preview-image"
+    />
+
+    <img
+      *ngIf="
+        !teacher.ProfilePicture ||
+        !teacher.ProfilePicture.data?.attributes.formats.thumbnail.url
+      "
+      src="../../../../assets/image/foto perfil.png"
+      alt="Avatar Alternativo"
+      class="miniProfile"
+      id="preview-image"
+    />
+
+    <h3 class="subtittle" *ngIf="this.edit">
+      Insira uma nova imagem do <b>professor</b>
+    </h3>
+    <div class="upload-avatar">
+      <input
+        type="file"
+        id="avatar"
+        (change)="onImageSelected($event)"
+        accept="image/*"
+        class="input-img"
+        *ngIf="this.edit"
+      />
+      <label class="upload-image" for="avatar" *ngIf="this.edit"
+        >carregar imagem</label
+      >
+    </div>
   </div>
   <div class="content" id="scroll">
     <div class="modal-header">
@@ -37,9 +61,11 @@
             >Nome completo<b>*</b></label
           >
           <input
+            #myInput
             type="text"
             name="name"
             formControlName="nameTeacher"
+            (input)="transformFirstLetterToUppercase(myInput)"
             class="form-control form-control-sm input"
           />
           <div
@@ -154,7 +180,7 @@
             <option value="Singing">Canto</option>
             <option value="Guitars">Guitarra/Violão</option>
             <option value="Piano">Piano</option>
-            <option value="Child Musicalization">
+            <option value="ChildMusicalization">
               Ensino de música infantil
             </option>
           </select>
@@ -192,13 +218,17 @@
           align-items: center;
           justify-content: center;
         "
-        *ngIf="edit"
         aria-label="Close"
-        [disabled]="!isFormValid"
+        [disabled]="!isFormValid && !canEdit"
         (click)="onEdit(teacher)"
-        (click)="sair()"
+        *ngIf="edit"
       >
-        salvar
+        <span *ngIf="!loading">enviar</span>
+        <div
+          class="spinner-border spinner-border-sm"
+          role="status"
+          *ngIf="loading"
+        ></div>
       </button>
     </div>
   </div>

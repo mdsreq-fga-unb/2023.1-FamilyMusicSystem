@@ -39,15 +39,20 @@ import { CookieService } from './services/cookie.service';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationComponent } from './shared/confirmation/confirmation.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { ExpiredComponent } from './shared/expired/expired.component';
 import { RoomViewComponent } from './modules/room/room-view/room-view.component';
 import { PreloaderComponent } from './modules/preloader/preloader.component';
 import { KzMaskDirective } from './kz-mask.directive';
+import { DataSharingService } from './services/data-sharing.service';
 
 @NgModule({
   declarations: [
     AboutComponent,
     AppComponent,
     ConfirmationComponent,
+    AlertComponent,
+    ExpiredComponent,
     ContractComponent,
     FooterComponent,
     HeaderComponent,
@@ -90,8 +95,8 @@ import { KzMaskDirective } from './kz-mask.directive';
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [BsModalService, CookieService],
+  providers: [BsModalService, CookieService, DataSharingService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

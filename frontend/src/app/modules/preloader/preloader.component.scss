@@ -1,128 +1,123 @@
 .content-content {
-    background: var(--primary);
-    margin: 0.5rem;
-    height: calc(100vh - 5.9rem);
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--contrast);
+  background: var(--primary);
+  margin: 0.5rem;
+  height: calc(100vh - 5.9rem);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast);
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#top {
+  animation: animateOne 1s linear 1s infinite alternate;
+}
+
+#black-body {
+  animation: animateTwo 1s linear 1s infinite alternate;
+}
+
+#black-dot {
+  animation: animateSeven 1s linear 1s infinite alternate;
+}
+
+#yellow-body {
+  animation: animateThree 1s linear 1s infinite alternate;
+}
+
+#yellow-dot {
+  animation: animateFive 1s linear 1s infinite alternate;
+}
+
+#orange-body {
+  animation: animateFour 1s linear 1s infinite alternate;
+}
+
+#orange-dot {
+  animation: animateSix 1s linear 1s infinite alternate;
+}
+
+@keyframes animateOne {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  .content {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: center;
-    width: 100%;
+  100% {
+    opacity: 1;
+    fill: var(--contrast);
   }
-  
-  .preloader {
-    transform: translate(-50%, -50%);
+}
+
+@keyframes animateTwo {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  #top {
-    animation: animateOne 1s linear 1s infinite alternate;
+  100% {
+    opacity: 1;
+    fill: var(--contrast);
   }
-  
-  #black-body {
-    animation: animateTwo 1s linear 1s infinite alternate;
+}
+
+@keyframes animateThree {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  #black-dot {
-    animation: animateSeven 1s linear 1s infinite alternate;
+  100% {
+    opacity: 1;
+    fill: var(--yellow);
   }
-  
-  #yellow-body {
-    animation: animateThree 1s linear 1s infinite alternate;
+}
+
+@keyframes animateFour {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  #yellow-dot {
-    animation: animateFive 1s linear 1s infinite alternate;
+  100% {
+    opacity: 1;
+    fill: var(--orange);
   }
-  
-  #orange-body {
-    animation: animateFour 1s linear 1s infinite alternate;
+}
+
+@keyframes animateFive {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  #orange-dot {
-    animation: animateSix 1s linear 1s infinite alternate;
+  100% {
+    opacity: 1;
+    fill: var(--yellow);
   }
-  
-  @keyframes animateOne {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #222222;
-    }
+}
+
+@keyframes animateSix {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  @keyframes animateTwo {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #222222;
-    }
+  100% {
+    opacity: 1;
+    fill: var(--orange);
   }
-  
-  @keyframes animateThree {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #F9DE6A;
-    }
+}
+
+@keyframes animateSeven {
+  0% {
+    opacity: 0;
+    fill: var(--background);
   }
-  
-  @keyframes animateFour {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #F1910B;
-    }
+  100% {
+    opacity: 1;
+    fill: var(--contrast);
   }
-  
-  @keyframes animateFive {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #F9DE6A;
-    }
-  }
-  
-  @keyframes animateSix {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #F1910B;
-    }
-  }
-  
-  @keyframes animateSeven {
-    0% {
-      opacity: 0;
-      fill: #fff;
-    }
-    100% {
-      opacity: 1;
-      fill: #222222;
-    }
-  }
-  
+}

@@ -24,6 +24,7 @@ export class StudentsViewComponent implements OnInit {
   public onClose: Subject<boolean>;
   public inicial = true;
   public student: Student;
+  public loading: boolean = false;
   public studentForm: FormGroup;
   public hasGuardian: boolean = true;
   public valid: boolean = false;
@@ -35,13 +36,6 @@ export class StudentsViewComponent implements OnInit {
   public file: File;
   public canEdit: boolean = false;
 
-  verificarIdade(dataEscolhida: string): boolean {
-    const hoje = moment();
-    const dataNascimento = moment(dataEscolhida);
-    const idade = hoje.diff(dataNascimento, "years");
-    return idade >= 18;
-  }
-
   constructor(
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
@@ -52,8 +46,19 @@ export class StudentsViewComponent implements OnInit {
     private dataSharingService: DataSharingService
   ) {}
 
+  verificarIdade(dataEscolhida: string): boolean {
+    const hoje = moment();
+    const dataNascimento = moment(dataEscolhida);
+    const idade = hoje.diff(dataNascimento, "years");
+    return idade >= 18;
+  }
+
   headers() {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie("jwt") || "";
+    const isTokenValid = this.cookieService.isTokenValid(jwt);
+    if (!isTokenValid) {
+      console.log("erro");
+    }
     let headers = new HttpHeaders();
     headers = headers.append("Authorization", `Bearer ${jwt}`);
     const opts = { headers: headers, params: { populate: "*" } };
@@ -178,12 +183,8 @@ export class StudentsViewComponent implements OnInit {
   onEdit($student: Student): void {
     const student: Student = new Student();
     const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
-    const getFieldsFromImageSelected = new FormData();
-    getFieldsFromImageSelected.append("files", this.file);
-    const headers = this.getHeaders();
-    const requestOptions = { headers };
+    this.loading = true;
 
-    student.ProfilePicture = getFieldsFromImageSelected;
     student.Name = this.studentForm.get("nameStudent")?.value;
     student.Email = this.studentForm.get("emailStudent")?.value;
     student.Phone = this.studentForm.get("phoneStudent")?.value;
@@ -208,6 +209,12 @@ export class StudentsViewComponent implements OnInit {
       this.studentForm.get("phoneLegalGuardian")?.value;
 
     if (this.file) {
+      const getFieldsFromImageSelected = new FormData();
+      const headers = this.getHeaders();
+      const requestOptions = { headers };
+      getFieldsFromImageSelected.append("files", this.file);
+      student.ProfilePicture = getFieldsFromImageSelected;
+
       this.http
         .post(`${baseUrl}/api/upload/`, getFieldsFromImageSelected)
         .subscribe(
@@ -240,7 +247,6 @@ export class StudentsViewComponent implements OnInit {
           }
         );
     } else {
-      student.ProfilePicture = null;
       const body = {
         data: student,
       };

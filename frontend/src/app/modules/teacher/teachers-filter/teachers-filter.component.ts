@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Subject } from 'rxjs';
-import { subYears, format } from 'date-fns';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { BsModalRef } from "ngx-bootstrap/modal";
+import { Subject } from "rxjs";
+import { subYears, format } from "date-fns";
 
 @Component({
-  selector: 'app-teachers-filter',
-  templateUrl: './teachers-filter.component.html',
-  styleUrls: ['./teachers-filter.component.scss'],
+  selector: "app-teachers-filter",
+  templateUrl: "./teachers-filter.component.html",
+  styleUrls: ["./teachers-filter.component.scss"],
 })
 export class TeachersFilterComponent {
   public onClose: Subject<any> = new Subject<any>();
@@ -24,6 +24,7 @@ export class TeachersFilterComponent {
     this.teacherFilterForm = this.fb.group({
       createdAt: null,
       genderteacherFilter: null,
+      instrumentsteacherFilter: null,
     });
   }
 
@@ -48,7 +49,14 @@ export class TeachersFilterComponent {
       this.numreq++;
     }
 
-    const urlParams = filters.join('&');
+    if (formValues.instrumentsteacherFilter !== null) {
+      filters.push(
+        `filters[instruments][$in][${this.numreq}]=${formValues.instrumentsteacherFilter}`
+      );
+      this.numreq++;
+    }
+
+    const urlParams = filters.join("&");
     const url = `?${urlParams}`;
 
     this.onClose.next(url);
