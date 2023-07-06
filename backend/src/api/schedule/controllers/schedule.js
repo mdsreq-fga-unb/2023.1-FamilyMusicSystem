@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * lesson controller
+ * schedule controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::lesson.lesson');
+module.exports = createCoreController('api::schedule.schedule');

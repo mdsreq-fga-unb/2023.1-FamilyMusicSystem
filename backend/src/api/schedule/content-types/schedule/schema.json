@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "lessons",
+  "collectionName": "schedules",
   "info": {
-    "singularName": "lesson",
-    "pluralName": "lessons",
-    "displayName": "Lesson",
-    "description": ""
+    "singularName": "schedule",
+    "pluralName": "schedules",
+    "displayName": "Schedule"
   },
   "options": {
     "draftAndPublish": true
@@ -14,18 +13,17 @@
   "attributes": {
     "Horary": {
       "type": "datetime",
-      "required": true,
-      "default": "2023-01-01T15:00:00.000Z"
+      "required": true
     },
-    "Teacher": {
+    "ID_Teacher": {
       "type": "string",
       "required": true
     },
-    "Student": {
+    "ID_Student": {
       "type": "string",
       "required": true
     },
-    "Classroom": {
+    "ID_Room": {
       "type": "string",
       "required": true
     },

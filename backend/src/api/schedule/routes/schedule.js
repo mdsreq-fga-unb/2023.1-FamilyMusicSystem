@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * lesson router
+ * schedule router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::lesson.lesson');
+module.exports = createCoreRouter('api::schedule.schedule');
