@@ -99,16 +99,16 @@
         <table class="shadow-sm table">
           <thead>
             <tr>
-              <th scope="col">Número</th>
+              <th scope="col" style="padding-left: 1.2rem">N°</th>
               <th scope="col">Nome</th>
-              <th scope="col">Descrição</th>
+              <th scope="col" class="nomobile">Descrição</th>
               <th scope="col">Capacidade</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody *ngIf="rooms$ | async as rooms">
             <tr class="selected" *ngFor="let room of rooms; let i = index">
-              <th scope="row" id="select-all" class="num">
+              <th scope="row" class="num">
                 {{ room.Number }}
               </th>
               <td
@@ -119,7 +119,9 @@
               >
                 {{ room.Name }}
               </td>
-              <td>{{ exibirString(room.Description || "Sem descrição") }}</td>
+              <td class="nomobile">
+                {{ exibirString(room.Description || "Sem descrição") }}
+              </td>
               <td>{{ room.Capacity }}</td>
               <td>
                 <mat-icon (click)="modalEditSala(room, true)" class="delete"
