@@ -113,6 +113,7 @@
         aria-label="Close"
         [disabled]="!isFormValid && !canEdit"
         (click)="onEdit(room)"
+        *ngIf="edit"
       >
         <span *ngIf="!loading">enviar</span>
         <div style="height: 1.5rem">
