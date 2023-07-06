@@ -1,7 +1,7 @@
-export class Lesson {
+export class Schedule {
   id: number;
   Horary: string;
-  Classroom: string;
+  Room: string;
   Student: string;
   Teacher: string;
 }

@@ -9,6 +9,7 @@ body {
 .row {
   position: absolute;
   justify-content: center;
+  height: max-content;
   margin: 0;
 }
 
@@ -19,6 +20,7 @@ body {
   transform: scale(1.8);
   color: var(--contrast);
   cursor: pointer;
+  z-index: 100;
 }
 
 .container {
@@ -141,7 +143,7 @@ body {
     justify-content: center;
     flex-direction: column;
     max-width: 90%;
-    height: 100%;
+    height: max-content;
   }
 
   .sidePhoto {
@@ -189,7 +191,7 @@ body {
     justify-content: center;
     flex-direction: column;
     max-width: 70%;
-    height: 100%;
+    height: max-content;
   }
 
   .sidePhoto {
@@ -236,7 +238,7 @@ body {
     justify-content: center;
     flex-direction: column;
     max-width: 50%;
-    height: 100%;
+    height: max-content;
   }
 
   .sidePhoto {
@@ -267,6 +269,7 @@ body {
     justify-content: center;
     flex-direction: column;
     min-width: 50%;
+    height: max-content;
   }
 
   .sidePhoto {
@@ -286,4 +289,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-

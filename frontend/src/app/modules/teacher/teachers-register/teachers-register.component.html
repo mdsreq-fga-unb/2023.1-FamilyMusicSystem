@@ -199,11 +199,13 @@
         [disabled]="!teacherForm.valid"
       >
         <span *ngIf="!loading">enviar</span>
-        <div
-          class="spinner-border spinner-border-sm"
-          role="status"
-          *ngIf="loading"
-        ></div>
+        <div style="height: 1.5rem">
+          <div
+            class="spinner-border spinner-border-sm"
+            role="status"
+            *ngIf="loading"
+          ></div>
+        </div>
       </button>
     </div>
   </div>
