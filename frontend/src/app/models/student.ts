@@ -15,6 +15,8 @@ export class Student {
   LegalGuardianPhone: string;
   LegalGuardianEmail: string;
   Address: string;
+  Value: number;
+  Parcel: number;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

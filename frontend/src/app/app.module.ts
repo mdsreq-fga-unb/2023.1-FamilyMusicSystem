@@ -45,6 +45,7 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
 import { PreloaderComponent } from './modules/preloader/preloader.component';
 import { KzMaskDirective } from './kz-mask.directive';
 import { DataSharingService } from './services/data-sharing.service';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,7 @@ import { DataSharingService } from './services/data-sharing.service';
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [BsModalService, CookieService, DataSharingService],
+  providers: [BsModalService, CookieService, DataSharingService, CurrencyPipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

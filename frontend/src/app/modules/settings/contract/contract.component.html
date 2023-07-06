@@ -126,9 +126,23 @@
         <p>
           <b>CLÁUSULA TERCEIRA</b> - Em contrapartida aos serviços prestados,
           o(a) CONTRATANTE pagará em favor da CONTRATADA o valor certo e ajusta
-          de <b>R$ 900,00 (novecentos reais)</b>, os quais serão pagos em
-          <b>3 (três parcelas)</b> iguais e sucessivas de R$ 300,00 (trezentos
-          reais), sendo que a primeira vencerá no dia <b>11 de Maio de 2023</b>.
+          de
+          <b>{{ student ? currencyFormatter(student.Value) : "-----" }}</b>
+          ({{ student ? converter(student.Value, "moeda") : "-----" }}), os
+          quais serão pagos em
+          <b>{{ student ? student.Parcel : "-----" }}x </b>({{
+            student ? converter(student.Parcel, "numerico") : "-----"
+          }}) iguais e sucessivas de
+          {{
+            student
+              ? currencyFormatter(student.Value / student.Parcel)
+              : "-----"
+          }}
+          ({{
+            student
+              ? converter(student.Value / student.Parcel, "moeda")
+              : "-----"
+          }}), sendo que a primeira vencerá no dia <b>11 de Maio de 2023</b>.
         </p>
         <p><br /></p>
         <p>

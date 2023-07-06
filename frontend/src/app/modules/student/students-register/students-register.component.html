@@ -238,6 +238,54 @@
           </div>
         </div>
 
+        <div class="col-12 col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="value"
+            >Valor cotrato<b>*</b></label
+          >
+          <input
+            #value
+            type="text"
+            (input)="currencyFormatter(value)"
+            formControlName="valueStudent"
+            name="value"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="
+              studentForm.get('valueStudent')?.errors &&
+              studentForm.get('valueStudent')?.touched
+            "
+            class="validators"
+          >
+            Endereço obrigatório
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="value">Parcelas<b>*</b></label>
+          <select
+            name="gender"
+            formControlName="parcelStudent"
+            class="form-control form-control-sm input"
+          >
+            <option
+              *ngFor="let opcao of opcoesParcelas; let i = index"
+              [value]="i + 1"
+            >
+              {{ opcao }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              studentForm.get('genderStudent')?.errors &&
+              studentForm.get('genderStudent')?.touched
+            "
+            class="validators"
+          >
+            Parcelas obrigatórias
+          </div>
+        </div>
+
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="name">Nome<b>*</b></label>
           <input
