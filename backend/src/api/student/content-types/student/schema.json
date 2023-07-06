@@ -102,6 +102,9 @@
     "Value": {
       "type": "string",
       "required": true
+    },
+    "Parcel": {
+      "type": "integer"
     }
   }
 }
