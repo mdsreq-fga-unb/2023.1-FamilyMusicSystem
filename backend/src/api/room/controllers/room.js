@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * classroom controller
+ * room controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::classroom.classroom');
+module.exports = createCoreController('api::room.room');
