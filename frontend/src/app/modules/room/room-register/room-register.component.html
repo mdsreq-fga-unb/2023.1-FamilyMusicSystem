@@ -1,45 +1,129 @@
 <body class="corpo">
-    <div class="content" id="scroll">
-        <div class="modal-header">
-            <h2 class="modal-title" *ngIf="inicial">
-                <mat-icon class="personIcon">meeting_room</mat-icon>Informações da Sala
-            </h2>
+  <button
+    type="button"
+    class="btn-close text-reset"
+    (click)="sair()"
+    aria-label="Close"
+    id="close"
+  ></button>
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <mat-icon class="icon">meeting_room</mat-icon>Informações da Sala
+      </h2>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="roomForm" class="form-row">
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="name">Nome<b>*</b></label>
+          <input
+            #myInput
+            type="text"
+            name="name"
+            formControlName="nameRoom"
+            (input)="transformFirstLetterToUppercase(myInput)"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="roomForm.get('nameRoom')?.errors?.['required'] && roomForm.get('nameRoom')?.touched"
+            class="validators"
+          >
+            Nome obrigatório
+          </div>
         </div>
-        <div class="modal-body">
-            <form [formGroup]="classForm" class="form-row">
-                <div class="col-md-6" *ngIf="inicial">
-                    <label class="m-0 tittle-input" for="classNumber">Número</label>
-                    <input type="text" name="classNumber" formControlName="classNumber"
-                        class="form-control form-control-sm input" />
-                </div>
 
-                <div class="col-md-6" *ngIf="inicial">
-                    <label class="m-0 tittle-input" for="classCapacity">Capacidade</label>
-                    <input type="text" name="classCapacity" formControlName="classCapacity"
-                        class="form-control form-control-sm input" />
-                </div>
-            </form>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="Number">Número<b>*</b></label>
+          <input
+            type="number"
+            name="Number"
+            formControlName="numberRoom"
+            class="form-control form-control-sm input"
+            min="1"
+          />
+          <div
+            *ngIf="
+              roomForm.get('numberRoom')?.errors &&
+              roomForm.get('numberRoom')?.touched
+            "
+            class="validators"
+          >
+            Número obrigatório
+          </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          " (click)="sair()">
-                sair
-            </button>
-            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="description">Descrição</label>
+          <input
+            type="text"
+            name="description"
+            formControlName="descriptionRoom"
+            class="form-control form-control-sm input"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="capacity"
+            >Capacidade<b>*</b></label
+          >
+          <input
+            type="number"
+            name="capacity"
+            formControlName="capacityRoom"
+            class="form-control form-control-sm input"
+            min="1"
+            max="30"
+          />
+          <div
+            *ngIf="
+              roomForm.get('capacityRoom')?.errors &&
+              roomForm.get('capacityRoom')?.touched
+            "
+            class="validators"
+          >
+            Capacidade obrigatória
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="outline"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
           height: min-content;
           width: 6rem;
           align-items: center;
           justify-content: center;
         "
-        (click)="onSubmit()"
         (click)="sair()"
-        >
-                salvar
-            </button>
+      >
+        sair
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        aria-label="Close"
+        (click)="salvar()"
+        [disabled]="!roomForm.valid"
+      >
+        <span *ngIf="!loading">enviar</span>
+        <div style="height: 1.5rem">
+          <div
+            class="spinner-border spinner-border-sm"
+            role="status"
+            *ngIf="loading"
+          ></div>
         </div>
+      </button>
     </div>
+  </div>
 </body>

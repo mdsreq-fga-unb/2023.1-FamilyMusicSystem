@@ -116,7 +116,7 @@
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
-              <td class="nomobile">
+              <td>
                 <div class="avatar-container">
                   <img
                     *ngIf="
@@ -175,21 +175,21 @@
       class="fixed-top alert-success"
       (close)="showAlertAdd = false"
     >
-      <b>Cadastro Realizado!</b> O aluno foi cadastrado com sucesso!
+      <b>Cadastro Realizado!</b> Aluno cadastrado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertEdit"
       class="fixed-top alert-warning"
       (close)="showAlertEdit = false"
     >
-      <b>Edição Realizada!</b> O perfil de aluno foi atualizado com sucesso!
+      <b>Edição Realizada!</b> Aluno atualizado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertDelete"
       class="fixed-top alert-danger"
       (close)="showAlertDelete = false"
     >
-      <b>Exclusão Realizada!</b> O aluno foi excluído com sucesso!
+      <b>Exclusão Realizada!</b> Aluno excluído com sucesso!
     </ngb-alert>
   </body>
 </div>

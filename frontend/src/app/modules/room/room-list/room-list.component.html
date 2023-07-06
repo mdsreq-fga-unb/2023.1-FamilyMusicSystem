@@ -1,17 +1,26 @@
-<div class="content-content">
+<div *ngIf="loading">
+  <app-preloader />
+</div>
+<div class="content-content" *ngIf="!loading">
   <body>
     <div class="container-fluid">
       <div class="container">
         <div class="right">
-          <div class="studentsTitle">
+          <div class="RoomsTitle">
             <mat-icon class="personIcon">meeting_room</mat-icon>
             <p class="title">Salas</p>
           </div>
-          <form class="d-flex" role="search">
+          <form
+            class="d-flex"
+            role="search"
+            [formGroup]="searchForm"
+            (ngSubmit)="search()"
+          >
             <div class="search-container">
               <input
                 class="form-control me-3"
-                id="researchClass"
+                id="researchRooms"
+                formControlName="search"
                 type="search"
                 aria-label="Search"
               />
@@ -19,11 +28,13 @@
             </div>
             <button
               type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              routerLink=""
+              (click)="search()"
+              (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
               style="
                 height: min-content;
                 margin-left: 0.5rem;
+                border: none;
                 width: 5rem;
                 align-items: center;
                 justify-content: center;
@@ -35,15 +46,20 @@
             <button
               type="button"
               class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              id="outline"
               (click)="modalFilterSala()"
+              id="outline"
             >
               <mat-icon class="mobile">filter_list</mat-icon>
               <span class="button-text">filtrar</span>
             </button>
           </form>
         </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic example"
+          style="height: max-content; align-items: center"
+        >
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
@@ -58,18 +74,20 @@
           >
             <span class="button-text">excluir</span>
           </button>
+
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            (click)="modalNewSala()"
             style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
               border: none;
-              width: 6rem;
+              width: 5rem;
               justify-content: center;
-              height: 38px;
+              height: 36px;
+              align-self: center;
             "
+            (click)="modalAddSala()"
           >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
@@ -78,43 +96,66 @@
       </div>
 
       <div class="scrool">
-        <table class="table">
+        <table class="shadow-sm table">
           <thead>
             <tr>
-              <th></th>
-              <th scope="col">N° da Sala</th>
+              <th scope="col" style="padding-left: 1.2rem">N°</th>
+              <th scope="col">Nome</th>
+              <th scope="col" class="nomobile">Descrição</th>
               <th scope="col">Capacidade</th>
-              <th></th>
+              <th scope="col"></th>
             </tr>
           </thead>
-          <tbody *ngIf="Rooms$ | async as rooms">
-            <tr
-                class="selected"
-                *ngFor="let room of rooms; let i = index"
+          <tbody *ngIf="rooms$ | async as rooms">
+            <tr class="selected" *ngFor="let room of rooms; let i = index">
+              <th scope="row" class="num">
+                {{ room.Number }}
+              </th>
+              <td
+                class="button"
+                (click)="modalEditSala(room, false)"
+                cursor="pointer"
+                class="selectedProfile"
               >
-                <th scope="row" id="select-all" class="num">
-                  {{ i + 1 }}
-                </th>
-                <td
-                  class="button"
-                  cursor="pointer"
+                {{ room.Name }}
+              </td>
+              <td class="nomobile">
+                {{ exibirString(room.Description || "Sem descrição") }}
+              </td>
+              <td>{{ room.Capacity }}</td>
+              <td>
+                <mat-icon (click)="modalEditSala(room, true)" class="delete"
+                  >edit</mat-icon
                 >
-                  {{ room.Name }}
-                </td>
-                <td class="notablet" class="notablet">{{ room.Capacity }}</td>
-                <td>
-                  <mat-icon  class="delete" (click)="modalRoom(room, true)"
-                    >edit</mat-icon
-                    
-                  >
-                  <mat-icon (click)="deleteRoom(room)" class="delete"
-                    >restore_from_trash</mat-icon
-                  >
-                </td>
-              </tr>
+                <mat-icon (click)="deleteRoom(room)" class="delete"
+                  >restore_from_trash</mat-icon
+                >
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
+    <ngb-alert
+      *ngIf="showAlertAdd"
+      class="fixed-top alert-success"
+      (close)="showAlertAdd = false"
+    >
+      <b>Cadastro Realizado!</b> Sala cadastrada com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertEdit"
+      class="fixed-top alert-warning"
+      (close)="showAlertEdit = false"
+    >
+      <b>Edição Realizada!</b> Sala atualizada com sucesso!
+    </ngb-alert>
+    <ngb-alert
+      *ngIf="showAlertDelete"
+      class="fixed-top alert-danger"
+      (close)="showAlertDelete = false"
+    >
+      <b>Exclusão Realizada!</b> Sala excluída com sucesso!
+    </ngb-alert>
   </body>
 </div>
