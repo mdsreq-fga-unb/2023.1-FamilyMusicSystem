@@ -1,17 +1,17 @@
-import { CookieService } from './../../../services/cookie.service';
-import { Lesson } from '../../../models/lesson';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { catchError, map, Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ScheduleRegisterComponent } from '../schedule-register/schedule-register.component';
-import { ScheduleFilterComponent } from '../schedule-filter/schedule-filter.component';
-import { ScheduleViewComponent } from '../schedule-view/schedule-view.component';
-import { HttpHeaders } from '@angular/common/http';
-import format from 'date-fns/format';
-import { pt } from 'date-fns/locale';
+import { CookieService } from "./../../../services/cookie.service";
+import { Schedule } from "../../../models/schedule";
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { catchError, map, Observable, of } from "rxjs";
+import { tap } from "rxjs/operators";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ScheduleRegisterComponent } from "../schedule-register/schedule-register.component";
+import { ScheduleFilterComponent } from "../schedule-filter/schedule-filter.component";
+import { ScheduleViewComponent } from "../schedule-view/schedule-view.component";
+import { HttpHeaders } from "@angular/common/http";
+import format from "date-fns/format";
+import { pt } from "date-fns/locale";
 
 class Entry<T> {
   id: number;
@@ -19,13 +19,13 @@ class Entry<T> {
 }
 
 class Response {
-  data: Entry<Lesson>[];
+  data: Entry<Schedule>[];
 }
 
 @Component({
-  selector: 'app-schedule-list',
-  templateUrl: './schedule-list.component.html',
-  styleUrls: ['./schedule-list.component.scss'],
+  selector: "app-schedule-list",
+  templateUrl: "./schedule-list.component.html",
+  styleUrls: ["./schedule-list.component.scss"],
 })
 export class ScheduleListComponent {
   private bsModalRef: BsModalRef;
@@ -34,10 +34,10 @@ export class ScheduleListComponent {
   estilosDinamicos: any;
 
   prefixoUrlLesson =
-    'https://20231-familymusicsystem-production.up.railway.app/api/lessons';
+    "https://20231-familymusicsystem-production.up.railway.app/api/lessons";
 
   error: any | undefined;
-  lessonss$: Observable<Lesson[]> | undefined;
+  lessonss$: Observable<Schedule[]> | undefined;
 
   constructor(
     private modalService: BsModalService,
@@ -47,10 +47,10 @@ export class ScheduleListComponent {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie('jwt');
+    const jwt = this.cookieService.getCookie("jwt");
     let headers = new HttpHeaders();
-    headers = headers.append('Authorization', `Bearer ${jwt}`);
-    const opts = { headers: headers, params: { populate: '*' } };
+    headers = headers.append("Authorization", `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: "*" } };
     return opts;
   }
 
@@ -73,7 +73,7 @@ export class ScheduleListComponent {
       );
   }
 
-  deleteLesson(lesson: Lesson) {
+  deleteLesson(lesson: Schedule) {
     this.http
       .delete(`${this.prefixoUrlLesson}/${lesson.id}`, this.headers())
       .pipe(catchError((error) => this.handleError(error)))
@@ -85,14 +85,14 @@ export class ScheduleListComponent {
 
   search() {
     this.getLesson(
-      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
     );
   }
 
   ngOnInit(): void {
     this.getLesson();
     this.searchForm = this.fb.group({
-      search: ['', Validators.required],
+      search: ["", Validators.required],
     });
   }
 
@@ -100,7 +100,7 @@ export class ScheduleListComponent {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: 'modal-lg',
+      class: "modal-lg",
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
@@ -112,11 +112,11 @@ export class ScheduleListComponent {
     });
   }
 
-  modalLesson(lesson: Lesson, edit: boolean) {
+  modalLesson(lesson: Schedule, edit: boolean) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: 'modal-xl',
+      class: "modal-xl",
       initialState: {
         lesson: lesson,
         edit,
@@ -136,7 +136,7 @@ export class ScheduleListComponent {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: 'modal-md',
+      class: "modal-md",
     };
     this.bsModalRef = this.modalService.show(
       ScheduleFilterComponent,
@@ -161,7 +161,7 @@ export class ScheduleListComponent {
   }
 
   calcularCorDeFundo() {
-    return 'var(--selector)';
+    return "var(--selector)";
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

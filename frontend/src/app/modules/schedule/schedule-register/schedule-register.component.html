@@ -1,123 +1,126 @@
 <body class="corpo">
-    <div class="content" id="scroll">
-      <div class="modal-header">
-        <h2 class="modal-title" >
-          <mat-icon class="icon">person</mat-icon>Cadastrar Aula
-        </h2>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="lessonForm" class="form-row">
-            <div class="col-md-6">
-                <label class="m-0 tittle-input" for="disabledPerson"
-                  >Número da Sala<b>*</b></label
-                >
-                <select
-                  name="disabledPerson"
-                  formControlName="nameRoom"
-                  class="form-control form-control-sm input"
-                  *ngIf="Rooms$ | async as rooms"
-                >
-                    <option *ngFor="let room of rooms" [value]="room.Name">{{ room.Name }}</option>
-                </select>
-                <div
-                  *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
-                  class="validators"
-                >
-                  Seleção obrigatória
-                </div>
-              </div>
-
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="name"
-              >Data da Aula<b>*</b></label
-            >
-            <input
-              type="datetime-local"
-              name="name"
-              formControlName="date"
-              class="form-control form-control-sm input"
-            />
-            <div
-              *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
-              class="validators"
-            >
-              Data obrigatória
-            </div>
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <mat-icon class="icon">person</mat-icon>Cadastrar Aula
+      </h2>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="lessonForm" class="form-row">
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="disabledPerson"
+            >Número da Sala<b>*</b></label
+          >
+          <select
+            name="disabledPerson"
+            formControlName="nameRoom"
+            class="form-control form-control-sm input"
+            *ngIf="Rooms$ | async as rooms"
+          >
+            <option *ngFor="let room of rooms" [value]="room.Name">
+              {{ room.Name }}
+            </option>
+          </select>
+          <div
+            *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
           </div>
+        </div>
 
-          <div class="col-md-6">
-            <label class="m-0 tittle-input" for="disabledPerson"
-              >Professor<b>*</b></label
-            >
-            <select
-              name="disabledPerson"
-              formControlName="nameTeacher"
-              class="form-control form-control-sm input"
-              *ngIf="teachers$ | async as teachers"
-            >
-                <option *ngFor="let teacher of teachers" [value]="teacher.Name">{{ teacher.Name }}</option>
-            </select>
-            <div
-              *ngIf="lessonForm.get('nameTeacher')?.errors?.['required'] && lessonForm.get('nameTeacher')?.touched"
-              class="validators"
-            >
-              Seleção obrigatória
-            </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="name"
+            >Data da Aula<b>*</b></label
+          >
+          <input
+            type="datetime-local"
+            name="name"
+            formControlName="date"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
+            class="validators"
+          >
+            Data obrigatória
           </div>
+        </div>
 
-          <div class="col-md-6" >
-            <label class="m-0 tittle-input" for="gender">Estudante<b>*</b></label>
-            <select
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="disabledPerson"
+            >Professor<b>*</b></label
+          >
+          <select
+            name="disabledPerson"
+            formControlName="nameTeacher"
+            class="form-control form-control-sm input"
+            *ngIf="teachers$ | async as teachers"
+          >
+            <option *ngFor="let teacher of teachers" [value]="teacher.Name">
+              {{ teacher.Name }}
+            </option>
+          </select>
+          <div
+            *ngIf="lessonForm.get('nameTeacher')?.errors?.['required'] && lessonForm.get('nameTeacher')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="gender">Estudante<b>*</b></label>
+          <select
             name="disabledPerson"
             formControlName="nameStudent"
             class="form-control form-control-sm input"
             *ngIf="students$ | async as students"
           >
-              <option *ngFor="let student of students" [value]="student.Name">{{ student.Name }}</option>
+            <option *ngFor="let student of students" [value]="student.Name">
+              {{ student.Name }}
+            </option>
           </select>
-            <div
-              *ngIf="lessonForm.get('nameStudent')?.errors?.['required'] && lessonForm.get('nameStudent')?.touched"
-              class="validators"
-            >
-              Seleção obrigatória
-            </div>
+          <div
+            *ngIf="lessonForm.get('nameStudent')?.errors?.['required'] && lessonForm.get('nameStudent')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
           </div>
-  
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          id="outline"
-          class="btn btn-dark d-flex align-items-center rounded-pill"
-          style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          "
-          (click)="sair()"
-        >
-          sair
-        </button>
-  
-        <button
-          type="button"
-          class="btn btn-dark d-flex align-items-center rounded-pill"
-          style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          "
-          aria-label="Close"
-          (click)="onSubmit()"
-          (click)="sair()"
-        >
-          salvar
-        </button>
-      </div>
+        </div>
+      </form>
     </div>
-  </body>
-  
+    <div class="modal-footer">
+      <button
+        type="button"
+        id="outline"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        (click)="sair()"
+      >
+        sair
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-dark d-flex align-items-center rounded-pill"
+        style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        "
+        aria-label="Close"
+        (click)="onSubmit()"
+        (click)="sair()"
+      >
+        salvar
+      </button>
+    </div>
+  </div>
+</body>

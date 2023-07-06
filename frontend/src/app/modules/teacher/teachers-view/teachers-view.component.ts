@@ -40,7 +40,6 @@ export class TeachersViewComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
-    private modalService: BsModalService,
     private cdr: ChangeDetectorRef,
     private cookieService: CookieService,
     private dataSharingService: DataSharingService
