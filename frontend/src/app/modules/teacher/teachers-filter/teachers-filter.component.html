@@ -9,7 +9,7 @@
     <div class="modal-body">
       <form [formGroup]="teacherFilterForm" class="form-row">
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="radioGroup">Por Cadastro</label>
+          <label class="m-0 tittle-input" for="radioGroup">Cadastro</label>
 
           <div class="col-md-6">
             <select
@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="radioGroup">Por Gênero</label>
+          <label class="m-0 tittle-input" for="radioGroup">Gênero</label>
           <div class="col-md-6">
             <select
               name="genderTeacherFilter"
@@ -34,6 +34,23 @@
               <option value="Male">masculino</option>
               <option value="Female">feminino</option>
               <option value="Others">outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="radioGroup">Instrumento</label>
+          <div class="col-md-6">
+            <select
+              name="instrumentsTeacherFilter"
+              formControlName="instrumentsteacherFilter"
+              class="form-control form-control-sm input"
+            >
+              <option value="Singing">Canto</option>
+              <option value="Guitars">Guitarra/Violão</option>
+              <option value="Piano">Piano</option>
+              <option value="ChildMusicalization">
+                Ensino de música infantil
+              </option>
             </select>
           </div>
         </div>

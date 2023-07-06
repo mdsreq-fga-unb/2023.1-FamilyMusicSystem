@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DataSharingService {
-  ifshowAlertEdit: boolean = false;
   ifshowAlertAdd: boolean = false;
+  ifshowAlertEdit: boolean = false;
 }

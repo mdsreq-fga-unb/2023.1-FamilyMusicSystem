@@ -4,28 +4,32 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user';
 import { CookieService } from '../../services/cookie.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AlertComponent } from '../../shared/alert/alert.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   host: {
-    '(window:keydown)': 'handleKeyDown($event)'
-  }
+    '(window:keydown)': 'handleKeyDown($event)',
+  },
 })
 export class LoginComponent implements OnInit {
   public user: User;
   public loginForm: FormGroup;
+  public loading: boolean = false;
   icon_now = 'brightness_2';
   icon = ['brightness_2', 'wb_sunny'];
+  public isOpen = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private cookieService: CookieService,
     private http: HttpClient,
     private router: Router,
-    private elementRef: ElementRef
-  ) { }
+    private dialog: MatDialog
+  ) {}
 
   public saveCookie(key: string, values: string) {
     this.cookieService.setCookie(key, values);
@@ -57,7 +61,7 @@ export class LoginComponent implements OnInit {
     this.user = new User();
     this.user.Username = this.loginForm.get('username')?.value;
     this.user.Password = this.loginForm.get('password')?.value;
-
+    this.loading = true;
     this.http
       .post<any>(
         'https://20231-familymusicsystem-production.up.railway.app/api/auth/local',
@@ -74,6 +78,29 @@ export class LoginComponent implements OnInit {
         (error) => {
           console.log('An error occurred:', error);
           console.log('error');
+          this.loading = false;
+          if (this.isOpen == false) {
+            this.isOpen = true;
+            const dialogRef: MatDialogRef<AlertComponent> = this.dialog.open(
+              AlertComponent,
+              {
+                data: {
+                  message:
+                    'Certifique-se que usuário e senha foram digitados corretamente.',
+                  dialogRef: null,
+                },
+              }
+            );
+            dialogRef.componentInstance.dialogRef = dialogRef;
+
+            dialogRef.componentInstance.confirmed.subscribe(
+              (result: boolean) => {
+                if (result) {
+                  this.isOpen = false;
+                }
+              }
+            );
+          }
         }
       );
   }
