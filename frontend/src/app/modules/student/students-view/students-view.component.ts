@@ -35,6 +35,9 @@ export class StudentsViewComponent implements OnInit {
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public file: File;
   public canEdit: boolean = false;
+  public value: number;
+  public opcoesParcelas: string[] = [];
+  public parcel: number;
 
   constructor(
     private bsModalRef: BsModalRef,
@@ -114,6 +117,17 @@ export class StudentsViewComponent implements OnInit {
       ],
       addressStudent: [
         { value: this.student.Address, disabled: !this.edit },
+        Validators.required,
+      ],
+      valueStudent: [
+        {
+          value: this.currencyFormatterView(this.student.Value),
+          disabled: !this.edit,
+        },
+        Validators.required,
+      ],
+      parcelStudent: [
+        { value: this.student.Parcel, disabled: !this.edit },
         Validators.required,
       ],
       birthdayStudent: [
@@ -199,6 +213,8 @@ export class StudentsViewComponent implements OnInit {
     student.RG = this.studentForm.get("rgStudent")?.value;
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
+    student.Value = this.studentForm.get("valueStudent")?.value;
+    student.Parcel = this.studentForm.get("parcelStudent")?.value;
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -304,9 +320,63 @@ export class StudentsViewComponent implements OnInit {
   transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
     const value = inputElement.value;
     if (value.length > 0) {
-      const firstLetter = value.charAt(0).toUpperCase();
-      inputElement.value = firstLetter + value.slice(1);
+      const words = value.toLowerCase().split(" ");
+      const excludedWords = ["de", "des", "do", "dos", "das", "da", "e"];
+      const result = words.map((word, index) => {
+        if (index === 0 || !excludedWords.includes(word)) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        } else {
+          return word;
+        }
+      });
+      inputElement.value = result.join(" ");
     }
+  }
+
+  currencyFormatter(inputElement: HTMLInputElement) {
+    inputElement.addEventListener("input", () => {
+      let valor = inputElement.value;
+      valor = valor.replace(/\D/g, "");
+
+      if (valor !== "") {
+        const numero = parseInt(valor, 10) / 100;
+        this.value = parseFloat(numero.toFixed(2));
+
+        valor = numero.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
+
+        this.calcularParcelas();
+      }
+
+      inputElement.value = valor;
+    });
+  }
+
+  calcularParcelas(): void {
+    this.opcoesParcelas = [];
+
+    for (let i = 1; i <= 12; i++) {
+      const valorParcela = this.value / i;
+      const value = valorParcela.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+      const opcao = `${i}x ${value}`;
+      this.opcoesParcelas.push(opcao);
+    }
+  }
+
+  currencyFormatterView(num: number): string {
+    this.value = num;
+    this.calcularParcelas();
+    const valorFormatado = num.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+
+    return valorFormatado;
   }
 
   Guardian() {
@@ -381,6 +451,17 @@ export class StudentsViewComponent implements OnInit {
             value: this.studentForm.get("addressStudent")?.value,
             disabled: false,
           },
+          Validators.required,
+        ],
+        valueStudent: [
+          {
+            value: this.currencyFormatterView(this.student.Value),
+            disabled: !this.edit,
+          },
+          Validators.required,
+        ],
+        parcelStudent: [
+          { value: this.student.Parcel, disabled: !this.edit },
           Validators.required,
         ],
         birthdayStudent: [

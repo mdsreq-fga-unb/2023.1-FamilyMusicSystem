@@ -1,15 +1,15 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { jsPDF } from 'jspdf';
-import { ElementRef, ViewChild } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Student } from '../../../models/student';
-import { format } from 'date-fns';
-import { pt } from 'date-fns/locale';
+import { Component, ChangeDetectorRef } from "@angular/core";
+import { jsPDF } from "jspdf";
+import { ElementRef, ViewChild } from "@angular/core";
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
+import { Student } from "../../../models/student";
+import { format } from "date-fns";
+import { pt } from "date-fns/locale";
 
 @Component({
-  selector: 'app-contract',
-  templateUrl: './contract.component.html',
-  styleUrls: ['./contract.component.scss'],
+  selector: "app-contract",
+  templateUrl: "./contract.component.html",
+  styleUrls: ["./contract.component.scss"],
 })
 export class ContractComponent {
   public student: Student;
@@ -23,7 +23,7 @@ export class ContractComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
-  @ViewChild('containerContract', { static: false }) el!: ElementRef;
+  @ViewChild("containerContract", { static: false }) el!: ElementRef;
 
   ispdf = false;
 
@@ -38,88 +38,82 @@ export class ContractComponent {
 
   saveContract() {
     const pdf = new jsPDF({
-      orientation: 'p',
-      unit: 'px',
-      format: 'a4',
-      hotfixes: ['px_scaling'],
+      orientation: "p",
+      unit: "px",
+      format: "a4",
+      hotfixes: ["px_scaling"],
     });
     pdf.setCharSpace(-1);
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
-        pdf.save('Prestacao de servico');
+        pdf.save("Prestacao de servico");
       },
     });
     this.ispdf = !this.ispdf;
   }
 
-  currencyFormatter(num: number) {
-    let valor = num.toString();
-    valor = valor.replace(/\D/g, '');
+  currencyFormatter(num: number): string {
+    const valorFormatado = num.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
 
-    if (valor !== '') {
-      const numero = parseInt(valor, 10) / 100;
-      valor = numero.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      });
-    }
-
-    return valor;
+    return valorFormatado;
   }
 
-  converter(numero: number, tipo: 'moeda' | 'numerico'): string {
+  converter(numero: number, tipo: "moeda" | "numerico"): string {
     const unidades = [
-      '',
-      'um',
-      'dois',
-      'três',
-      'quatro',
-      'cinco',
-      'seis',
-      'sete',
-      'oito',
-      'nove',
+      "",
+      "um",
+      "dois",
+      "três",
+      "quatro",
+      "cinco",
+      "seis",
+      "sete",
+      "oito",
+      "nove",
     ];
     const dezADezenove = [
-      'dez',
-      'onze',
-      'doze',
-      'treze',
-      'quatorze',
-      'quinze',
-      'dezesseis',
-      'dezessete',
-      'dezoito',
-      'dezenove',
+      "dez",
+      "onze",
+      "doze",
+      "treze",
+      "quatorze",
+      "quinze",
+      "dezesseis",
+      "dezessete",
+      "dezoito",
+      "dezenove",
     ];
     const dezenas = [
-      '',
-      '',
-      'vinte',
-      'trinta',
-      'quarenta',
-      'cinquenta',
-      'sessenta',
-      'setenta',
-      'oitenta',
-      'noventa',
+      "",
+      "",
+      "vinte",
+      "trinta",
+      "quarenta",
+      "cinquenta",
+      "sessenta",
+      "setenta",
+      "oitenta",
+      "noventa",
     ];
     const centenas = [
-      '',
-      'cento',
-      'duzentos',
-      'trezentos',
-      'quatrocentos',
-      'quinhentos',
-      'seiscentos',
-      'setecentos',
-      'oitocentos',
-      'novecentos',
+      "",
+      "cento",
+      "duzentos",
+      "trezentos",
+      "quatrocentos",
+      "quinhentos",
+      "seiscentos",
+      "setecentos",
+      "oitocentos",
+      "novecentos",
     ];
 
     const valorNumerico = Math.abs(numero);
 
-    if (tipo === 'moeda') {
+    if (tipo === "moeda") {
       const valorPorExtenso = this.converterParaExtenso(
         Math.floor(valorNumerico),
         unidades,
@@ -136,12 +130,12 @@ export class ContractComponent {
         centenas
       );
 
-      let resposta = valorPorExtenso + ' reais';
-      if (centavos !== '') {
-        resposta += ' e ' + centavos + ' centavos';
+      let resposta = valorPorExtenso + " reais";
+      if (centavos !== "") {
+        resposta += " e " + centavos + " centavos";
       }
       return resposta;
-    } else if (tipo === 'numerico') {
+    } else if (tipo === "numerico") {
       return this.converterParaExtenso(
         valorNumerico,
         unidades,
@@ -150,7 +144,7 @@ export class ContractComponent {
         centenas
       );
     } else {
-      return 'Tipo de conversão inválido';
+      return "Tipo de conversão inválido";
     }
   }
 
@@ -162,7 +156,7 @@ export class ContractComponent {
     centenas: string[]
   ): string {
     if (numero === 0) {
-      return 'zero';
+      return "zero";
     } else if (numero < 10) {
       return unidades[numero];
     } else if (numero < 20) {
@@ -173,7 +167,7 @@ export class ContractComponent {
       if (unidade === 0) {
         return dezenas[dezena];
       } else {
-        return dezenas[dezena] + ' e ' + unidades[unidade];
+        return dezenas[dezena] + " e " + unidades[unidade];
       }
     } else if (numero < 1000) {
       const centena = Math.floor(numero / 100);
@@ -183,7 +177,7 @@ export class ContractComponent {
       } else {
         return (
           centenas[centena] +
-          ' e ' +
+          " e " +
           this.converterParaExtenso(
             resto,
             unidades,
@@ -204,7 +198,7 @@ export class ContractComponent {
             dezADezenove,
             dezenas,
             centenas
-          ) + ' mil'
+          ) + " mil"
         );
       } else {
         return (
@@ -215,7 +209,7 @@ export class ContractComponent {
             dezenas,
             centenas
           ) +
-          ' mil e ' +
+          " mil e " +
           this.converterParaExtenso(
             resto,
             unidades,
@@ -226,6 +220,6 @@ export class ContractComponent {
         );
       }
     }
-    return 'Número muito grande';
+    return "Número muito grande";
   }
 }
