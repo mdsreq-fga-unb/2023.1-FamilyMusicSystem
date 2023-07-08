@@ -45,6 +45,10 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
 import { PreloaderComponent } from './modules/preloader/preloader.component';
 import { KzMaskDirective } from './kz-mask.directive';
 import { DataSharingService } from './services/data-sharing.service';
+import { MuralListComponent } from './modules/murals/mural-list/mural-list.component';
+import { MuralRegisterComponent } from './modules/murals/mural-register/mural-register.component';
+import { MuralFilterComponent } from './modules/murals/mural-filter/mural-filter.component';
+import { MuralViewComponent } from './modules/murals/mural-view/mural-view.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +86,10 @@ import { DataSharingService } from './services/data-sharing.service';
     TeachersListComponent,
     TeachersRegisterComponent,
     TeachersViewComponent,
+    MuralListComponent,
+    MuralRegisterComponent,
+    MuralFilterComponent,
+    MuralViewComponent,
   ],
   imports: [
     AlertModule,
