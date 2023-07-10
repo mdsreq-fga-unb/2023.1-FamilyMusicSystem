@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "murals",
+  "info": {
+    "singularName": "mural",
+    "pluralName": "murals",
+    "displayName": "Mural"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": false
+    },
+    "Message": {
+      "type": "text"
+    },
+    "Date": {
+      "type": "datetime"
+    }
+  }
+}
