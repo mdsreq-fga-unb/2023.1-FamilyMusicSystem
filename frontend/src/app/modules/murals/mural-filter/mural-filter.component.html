@@ -1,0 +1,43 @@
+<body class="corpo">
+    <div class="content" id="scroll">
+        <div class="modal-header">
+            <h2 class="modal-title">
+                <mat-icon class="personIcon">filter_list</mat-icon>Filtrar
+            </h2>
+        </div>
+
+        <div class="modal-body">
+            <form [formGroup]="muralFilterForm" class="form-row">
+                <div class="col-md-6">
+                    <label class="m-0 tittle-input" for="radioGroup">Data</label>
+
+                    <div class="col-md-6">
+                        <select name="createdAt" formControlName="createdAt" class="form-control form-control-sm input">
+                            <option value="desc">Mais recentes</option>
+                            <option value="asc">Mais antigos</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          " (click)="exit()">
+                cancelar
+            </button>
+            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+            height: min-content;
+            width: 6rem;
+            align-items: center;
+            justify-content: center;
+          " (click)="filter()">
+                filtrar
+            </button>
+        </div>
+    </div>
+</body>

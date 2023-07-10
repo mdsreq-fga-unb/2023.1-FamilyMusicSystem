@@ -1,0 +1,59 @@
+<body class="corpo">
+    <div class="photo">
+        <button type="button" class="btn-close text-reset" (click)="sair()" aria-label="Close" id="close"></button>
+    </div>
+    <div class="content" id="scroll">
+        <div class="modal-header">
+            <h2 class="modal-title">
+                <mat-icon class="icon">person</mat-icon>Informações da Mensagem
+            </h2>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="muralForm" class="form-row">
+                <div class="col-md-6">
+                    <label class="m-0 tittle-input" for="title">Título<b>*</b></label>
+                    <input #myInput type="text" name="title" (input)="transformFirstLetterToUppercase(myInput)"
+                        formControlName="titleMural" class="shadow-sm form-control form-control-sm input" />
+                    <div *ngIf="muralForm.get('titleMural')?.errors?.['required'] && muralForm.get('titleMural')?.touched"
+                        class="validators">
+                        Título obrigatório.
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="m-0 tittle-input" for="message">Mensagem<b>*</b></label>
+                    <input type="text" name="message" formControlName="muralMessage"
+                        class="form-control form-control-sm input" />
+                    <div *ngIf="
+                muralForm.get('muralMessage')?.errors &&
+                muralForm.get('muralMessage')?.touched
+              " class="validators">
+                        Mensagem obrigatória
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="outline" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        " (click)="sair()">
+                sair
+            </button>
+
+            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        " aria-label="Close" (click)="onEdit(mural)" [disabled]="!muralForm.valid">
+                <span *ngIf="!loading">enviar</span>
+                <div style="height: 1.5rem">
+                    <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+</body>

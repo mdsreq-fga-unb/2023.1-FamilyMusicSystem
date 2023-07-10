@@ -3,15 +3,15 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of } from "rxjs";
 import { tap } from "rxjs/operators";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Student } from "./../../../models/student";
+import { Mural } from "src/app/models/mural";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { StudentsRegisterComponent } from "../students-register/students-register.component";
-import { StudentsViewComponent } from "../students-view/students-view.component";
-import { StudentsFilterComponent } from "../students-filter/students-filter.component";
+import { MuralRegisterComponent } from "../mural-register/mural-register.component";
+import { MuralFilterComponent } from "../mural-filter/mural-filter.component";
+import { MuralViewComponent } from "../mural-view/mural-view.component";
 import { CookieService } from "../../../services/cookie.service";
 import { ConfirmationComponent } from "../../../shared/confirmation/confirmation.component";
 import { MatDialog } from "@angular/material/dialog";
@@ -26,29 +26,29 @@ class Entry<T> {
 }
 
 class Response {
-  data: Entry<Student>[];
+  data: Entry<Mural>[];
 }
 
 @Component({
-  selector: "app-students-list",
-  templateUrl: "./students-list.component.html",
-  styleUrls: ["./students-list.component.scss"],
+  selector: 'app-mural-list',
+  templateUrl: './mural-list.component.html',
+  styleUrls: ['./mural-list.component.scss']
 })
-export class StudentsListComponent implements OnInit {
+export class MuralListComponent implements OnInit {
   public loading = true;
   public showAlertEdit = false;
   public showAlertDelete = false;
   public showAlertAdd = false;
-  public students: Student[];
+  public mural: Mural[];
   private bsModalRef: BsModalRef;
   public checked: boolean = false;
   public searchForm: FormGroup;
   public estilosDinamicos: any;
   public error: any | undefined;
-  public students$: Observable<Student[]> | undefined;
+  public mural$: Observable<Mural[]> | undefined;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
-  public prefixoUrlStudent =
-    "https://20231-familymusicsystem-production.up.railway.app/api/students";
+  public prefixoUrlMural =
+    "https://20231-familymusicsystem-production.up.railway.app/api/mural";
 
   constructor(
     private modalService: BsModalService,
@@ -61,33 +61,35 @@ export class StudentsListComponent implements OnInit {
 
   headers() {
     const jwt = this.cookieService.getCookie("jwt");
+    console.log(jwt);
+
     let headers = new HttpHeaders();
     headers = headers.append("Authorization", `Bearer ${jwt}`);
     const opts = { headers: headers, params: { populate: "*" } };
     return opts;
   }
 
-  getStudent(args?: string) {
-    this.loading = true;
+  getMural(args?: string) {
+    this.loading = true; // Define o estado de loading como true antes de fazer a requisição
 
-    this.students$ = this.http
+    this.mural$ = this.http
       .get<Response>(
-        args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
+        args ? `${this.prefixoUrlMural}${args}` : this.prefixoUrlMural,
         this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
         tap((response: Response) => {
-          response.data.forEach((student) => {
-            student.attributes.id = student.id;
+          response.data.forEach((mural) => {
+            mural.attributes.id = mural.id;
           });
         }),
         map((response: Response) =>
-          response.data.map((student) => student.attributes)
+          response.data.map((mural) => mural.attributes)
         )
       );
 
-    this.students$.subscribe(
+    this.mural$.subscribe(
       () => {
         this.loading = false;
       },
@@ -98,14 +100,14 @@ export class StudentsListComponent implements OnInit {
   }
 
   search() {
-    this.getStudent(
+    this.getMural(
       `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
     );
   }
 
   ngOnInit(): void {
     const jwt = this.cookieService.getCookie("jwt");
-    this.getStudent();
+    this.getMural();
     this.searchForm = this.fb.group({
       search: ["", Validators.required],
     });
@@ -117,7 +119,7 @@ export class StudentsListComponent implements OnInit {
     return of();
   }
 
-  modalAddAlunos() {
+  modalAddMural() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -125,12 +127,12 @@ export class StudentsListComponent implements OnInit {
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
-      StudentsRegisterComponent,
+      MuralRegisterComponent,
       modalConfig
     );
     this.bsModalRef.onHide?.subscribe(() => {
       if (this.dataSharingService.ifshowAlertAdd) {
-        this.getStudent();
+        this.getMural();
         this.showAlertAdd = true;
         setTimeout(() => {
           this.showAlertAdd = false;
@@ -140,23 +142,23 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  modalEditAlunos(student: Student, edit: boolean) {
+  modalEditMural(mural: Mural, edit: boolean) {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
       class: "modal-xl",
       initialState: {
-        student: student,
+        mural: mural,
         edit,
       },
     };
     this.bsModalRef = this.modalService.show(
-      StudentsViewComponent,
+      MuralViewComponent,
       modalConfig
     );
     this.bsModalRef.onHide?.subscribe(() => {
       if (this.dataSharingService.ifshowAlertEdit) {
-        this.getStudent();
+        this.getMural();
         this.showAlertEdit = true;
         setTimeout(() => {
           this.showAlertEdit = false;
@@ -166,12 +168,12 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  deleteStudent(student: Student) {
+  deleteMural(mural: Mural) {
     const dialogRef: MatDialogRef<ConfirmationComponent> = this.dialog.open(
       ConfirmationComponent,
       {
         data: {
-          message: "Deseja realmente excluir esse perfil?",
+          message: "Deseja realmente excluir esse aviso?",
           dialogRef: null,
         },
       }
@@ -182,12 +184,12 @@ export class StudentsListComponent implements OnInit {
     dialogRef.componentInstance.confirmed.subscribe((result: boolean) => {
       if (result) {
         this.http
-          .delete(`${this.prefixoUrlStudent}/${student.id}`, this.headers())
+          .delete(`${this.prefixoUrlMural}/${mural.id}`, this.headers())
           .pipe(catchError((error) => this.handleError(error)))
           .subscribe((response) => {
             console.log(response);
             dialogRef.close();
-            this.getStudent();
+            this.getMural();
             this.showAlertDelete = true;
             setTimeout(() => {
               this.showAlertDelete = false;
@@ -197,7 +199,7 @@ export class StudentsListComponent implements OnInit {
     });
   }
 
-  modalFilterAlunos() {
+  modalFilterMural() {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
@@ -205,20 +207,12 @@ export class StudentsListComponent implements OnInit {
       class: "modal-md",
     };
     this.bsModalRef = this.modalService.show(
-      StudentsFilterComponent,
+      MuralFilterComponent,
       modalConfig
     );
     this.bsModalRef.content.onClose.subscribe((url: string) => {
-      this.getStudent(url);
+      this.getMural(url);
     });
-  }
-
-  obterPrimeiroESegundoNome(nomeCompleto: string): string[] {
-    const nomesSeparados = nomeCompleto.split(" ");
-    const primeiroNome = nomesSeparados[0];
-    const segundoNome = nomesSeparados[1];
-    const completeName = primeiroNome + " " + segundoNome;
-    return [completeName];
   }
 
   toggle() {
