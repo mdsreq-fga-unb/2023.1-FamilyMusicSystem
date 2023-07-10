@@ -71,7 +71,7 @@
           <b>SHA CONJUNTO 6 CHÁCARA 519</b>, número <b>01</b>, Arniqueiras, CEP
           <b>71.994-503</b> em <b>Brasília</b>; neste ato, representado por seu
           administrador, <b>Jennyfer Fernandes Soares</b>, brasileiro,
-          empresário, portador da carteira de identidade RG de n.º |,
+          empresário, portador da carteira de identidade RG de n.º 3.173.788,
           <b>inscrito no CPF/MF sob o n.º 050.957.801-27</b>, residente e
           domiciliado em <b>Brasília - DF</b>.
         </p>
@@ -126,9 +126,26 @@
         <p>
           <b>CLÁUSULA TERCEIRA</b> - Em contrapartida aos serviços prestados,
           o(a) CONTRATANTE pagará em favor da CONTRATADA o valor certo e ajusta
-          de <b>R$ 900,00 (novecentos reais)</b>, os quais serão pagos em
-          <b>3 (três parcelas)</b> iguais e sucessivas de R$ 300,00 (trezentos
-          reais), sendo que a primeira vencerá no dia <b>11 de Maio de 2023</b>.
+          de
+          <b>{{ student ? currencyFormatter(student.Value) : "-----" }}</b>
+          ({{ student ? converter(student.Value, "moeda") : "-----" }}), os
+          quais serão pagos em
+          <b>{{ student ? student.Parcel : "-----" }} </b>({{
+            student ? converter(student.Parcel, "numerico") : "-----"
+          }}) parcelas iguais e sucessivas de
+          <b>
+            {{
+              student
+                ? currencyFormatter(student.Value / student.Parcel)
+                : "-----"
+            }}</b
+          >
+          ({{
+            student
+              ? converter(student.Value / student.Parcel, "moeda")
+              : "-----"
+          }}), sendo que a primeira vencerá no dia <b>{{ dataDue }}</b
+          >.
         </p>
         <p><br /></p>
         <p>
