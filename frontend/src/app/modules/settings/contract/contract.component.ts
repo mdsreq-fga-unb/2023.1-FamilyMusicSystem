@@ -3,7 +3,7 @@ import { jsPDF } from "jspdf";
 import { ElementRef, ViewChild } from "@angular/core";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { Student } from "../../../models/student";
-import { format } from "date-fns";
+import { addMonths, format } from "date-fns";
 import { pt } from "date-fns/locale";
 
 @Component({
@@ -17,11 +17,13 @@ export class ContractComponent {
     locale: pt,
   });
 
-  constructor(
-    private modal: BsModalRef,
-    private modalService: BsModalService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  currentDate = new Date();
+  futureDate = addMonths(this.currentDate, 1);
+  dataDue = format(this.futureDate, `dd 'de' MMMM 'de' yyyy`, {
+    locale: pt,
+  });
+
+  constructor(private modal: BsModalRef, private cdr: ChangeDetectorRef) {}
 
   @ViewChild("containerContract", { static: false }) el!: ElementRef;
 
@@ -130,11 +132,17 @@ export class ContractComponent {
         centenas
       );
 
-      let resposta = valorPorExtenso + " reais";
-      if (centavos !== "") {
+      let resposta = "";
+      if (valorPorExtenso === "um mil") {
+        resposta = "mil";
+      } else {
+        resposta = valorPorExtenso + " reais";
+      }
+
+      if (valorDecimal !== 0) {
         resposta += " e " + centavos + " centavos";
       }
-      return resposta;
+      return resposta.trim(); // Remover espaços em branco no início e no final
     } else if (tipo === "numerico") {
       return this.converterParaExtenso(
         valorNumerico,
@@ -191,24 +199,10 @@ export class ContractComponent {
       const milhar = Math.floor(numero / 1000);
       const resto = numero % 1000;
       if (resto === 0) {
-        return (
-          this.converterParaExtenso(
-            milhar,
-            unidades,
-            dezADezenove,
-            dezenas,
-            centenas
-          ) + " mil"
-        );
+        return (milhar === 1 ? "" : unidades[milhar]) + "mil";
       } else {
         return (
-          this.converterParaExtenso(
-            milhar,
-            unidades,
-            dezADezenove,
-            dezenas,
-            centenas
-          ) +
+          (milhar === 1 ? "" : unidades[milhar]) +
           " mil e " +
           this.converterParaExtenso(
             resto,

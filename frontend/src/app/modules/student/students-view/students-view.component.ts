@@ -37,7 +37,7 @@ export class StudentsViewComponent implements OnInit {
   public canEdit: boolean = false;
   public value: number;
   public opcoesParcelas: string[] = [];
-  public parcel: number;
+  public selectedParcel: string;
 
   constructor(
     private bsModalRef: BsModalRef,
@@ -77,6 +77,7 @@ export class StudentsViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.value = this.student.Value;
     this.studentForm = this.fb.group({
       nameStudent: [
         { value: this.student.Name, disabled: !this.edit },
@@ -121,7 +122,7 @@ export class StudentsViewComponent implements OnInit {
       ],
       valueStudent: [
         {
-          value: this.currencyFormatterView(this.student.Value),
+          value: this.viewFormatter(this.student.Value),
           disabled: !this.edit,
         },
         Validators.required,
@@ -186,6 +187,10 @@ export class StudentsViewComponent implements OnInit {
     this.studentForm.statusChanges.subscribe(() => {
       this.isFormValid = this.studentForm.valid;
     });
+
+    this.selectedParcel = this.studentForm
+      .get("parcelStudent")
+      ?.value?.toString();
   }
 
   getHeaders(): HttpHeaders {
@@ -213,8 +218,8 @@ export class StudentsViewComponent implements OnInit {
     student.RG = this.studentForm.get("rgStudent")?.value;
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
-    student.Value = this.studentForm.get("valueStudent")?.value;
-    student.Parcel = this.studentForm.get("parcelStudent")?.value;
+    student.Value = this.value;
+    student.Parcel = parseInt(this.studentForm.get("parcelStudent")?.value);
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -346,37 +351,31 @@ export class StudentsViewComponent implements OnInit {
           style: "currency",
           currency: "BRL",
         });
-
-        this.calcularParcelas();
       }
 
       inputElement.value = valor;
     });
   }
 
-  calcularParcelas(): void {
-    this.opcoesParcelas = [];
+  viewFormatter(value: number) {
+    if (value !== null && value !== undefined) {
+      let formattedValue = value.toString().replace(/[^\d.,]/g, "");
 
-    for (let i = 1; i <= 12; i++) {
-      const valorParcela = this.value / i;
-      const value = valorParcela.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
-      const opcao = `${i}x ${value}`;
-      this.opcoesParcelas.push(opcao);
+      if (formattedValue !== "") {
+        const number = parseFloat(formattedValue.replace(",", "."));
+
+        formattedValue = number.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      }
+
+      return formattedValue;
     }
-  }
 
-  currencyFormatterView(num: number): string {
-    this.value = num;
-    this.calcularParcelas();
-    const valorFormatado = num.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-
-    return valorFormatado;
+    return ""; // Retorna uma string vazia caso o valor seja nulo ou indefinido
   }
 
   Guardian() {
@@ -455,13 +454,18 @@ export class StudentsViewComponent implements OnInit {
         ],
         valueStudent: [
           {
-            value: this.currencyFormatterView(this.student.Value),
+            value: this.viewFormatter(
+              this.studentForm.get("valueStudent")?.value
+            ),
             disabled: !this.edit,
           },
           Validators.required,
         ],
         parcelStudent: [
-          { value: this.student.Parcel, disabled: !this.edit },
+          {
+            value: this.studentForm.get("parcelStudent")?.value,
+            disabled: !this.edit,
+          },
           Validators.required,
         ],
         birthdayStudent: [

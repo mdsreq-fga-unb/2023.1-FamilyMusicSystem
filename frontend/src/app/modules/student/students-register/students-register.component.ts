@@ -159,7 +159,7 @@ export class StudentsRegisterComponent implements OnInit {
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
     student.Value = this.value;
-    student.Parcel = this.studentForm.get("parcelStudent")?.value;
+    student.Parcel = parseInt(this.studentForm.get("parcelStudent")?.value);
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -254,6 +254,8 @@ export class StudentsRegisterComponent implements OnInit {
       if (valor !== "") {
         const numero = parseInt(valor, 10) / 100;
         this.value = numero;
+        console.log(this.value);
+
         valor = numero.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
@@ -265,6 +267,23 @@ export class StudentsRegisterComponent implements OnInit {
 
       inputElement.value = valor;
     });
+  }
+
+  parcelFormatter(value: number) {
+    let formattedValue = value.toString().replace(/[^\d.,]/g, "");
+
+    if (formattedValue !== "") {
+      const number = parseFloat(formattedValue.replace(",", "."));
+
+      formattedValue = number.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+
+    return formattedValue;
   }
 
   calcularParcelas(): void {
@@ -353,9 +372,9 @@ export class StudentsRegisterComponent implements OnInit {
           },
           Validators.required,
         ],
-        valueStudent: [
+        parcelStudent: [
           {
-            value: this.studentForm.get("valueStudent")?.value,
+            value: this.studentForm.get("parcelStudent")?.value,
             disabled: false,
           },
           Validators.required,

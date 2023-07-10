@@ -130,19 +130,22 @@
           <b>{{ student ? currencyFormatter(student.Value) : "-----" }}</b>
           ({{ student ? converter(student.Value, "moeda") : "-----" }}), os
           quais serão pagos em
-          <b>{{ student ? student.Parcel : "-----" }}x </b>({{
+          <b>{{ student ? student.Parcel : "-----" }} </b>({{
             student ? converter(student.Parcel, "numerico") : "-----"
-          }}) iguais e sucessivas de
-          {{
-            student
-              ? currencyFormatter(student.Value / student.Parcel)
-              : "-----"
-          }}
+          }}) parcelas iguais e sucessivas de
+          <b>
+            {{
+              student
+                ? currencyFormatter(student.Value / student.Parcel)
+                : "-----"
+            }}</b
+          >
           ({{
             student
               ? converter(student.Value / student.Parcel, "moeda")
               : "-----"
-          }}), sendo que a primeira vencerá no dia <b>11 de Maio de 2023</b>.
+          }}), sendo que a primeira vencerá no dia <b>{{ dataDue }}</b
+          >.
         </p>
         <p><br /></p>
         <p>
