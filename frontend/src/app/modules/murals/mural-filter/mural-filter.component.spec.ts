@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MuralFilterComponent } from './mural-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('MuralFilterComponent', () => {
   let component: MuralFilterComponent;
@@ -8,7 +8,8 @@ describe('MuralFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MuralFilterComponent ]
+      declarations: [ MuralFilterComponent ],
+      imports: [ReactiveFormsModule],
     })
     .compileComponents();
 

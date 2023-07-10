@@ -1,6 +1,6 @@
 export class Mural {
     id: number;
-    Titulo: string;
+    Title: string;
     Message: string;
     date: number;
 }  
