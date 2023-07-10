@@ -48,7 +48,7 @@
           width: 6rem;
           align-items: center;
           justify-content: center;
-        " aria-label="Close" (click)="salvar()" [disabled]="!muralForm.valid">
+        " aria-label="Close" (click)="onEdit(mural)" [disabled]="!muralForm.valid">
                 <span *ngIf="!loading">enviar</span>
                 <div style="height: 1.5rem">
                     <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading"></div>
