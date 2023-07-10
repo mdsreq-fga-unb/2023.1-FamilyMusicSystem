@@ -1,4 +1,4 @@
-import { Mural } from "src/app/models/mural";
+import { Mural } from "../../../models/mural";
 import { CookieService } from "./../../../services/cookie.service";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";

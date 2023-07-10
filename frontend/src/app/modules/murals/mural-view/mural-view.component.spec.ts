@@ -3,8 +3,7 @@ import { MuralViewComponent } from './mural-view.component';
 import { BsModalService } from "ngx-bootstrap/modal";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClient, HttpHandler } from "@angular/common/http";
-import { Room } from "../../../models/room";
-import { Mural } from 'src/app/models/mural';
+import { Mural } from '../../../models/mural';
 
 describe('MuralViewComponent', () => {
   let component: MuralViewComponent;
@@ -21,6 +20,7 @@ describe('MuralViewComponent', () => {
 
     fixture = TestBed.createComponent(MuralViewComponent);
     component = fixture.componentInstance;
+    component.mural = mural;
     fixture.detectChanges();
   });
 

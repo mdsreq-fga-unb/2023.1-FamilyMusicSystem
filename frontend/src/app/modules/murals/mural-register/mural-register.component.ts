@@ -10,7 +10,7 @@ import {
 import { Observable, of } from "rxjs";
 import { FormValidations } from "../../../shared/form-validations";
 import { DataSharingService } from "../../../services/data-sharing.service";
-import { Mural } from "src/app/models/mural";
+import { Mural } from "../../../models/mural";
 import { CookieService } from "./../../../services/cookie.service";
 
 @Component({
