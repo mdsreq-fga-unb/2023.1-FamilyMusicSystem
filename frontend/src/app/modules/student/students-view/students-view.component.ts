@@ -35,6 +35,9 @@ export class StudentsViewComponent implements OnInit {
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public file: File;
   public canEdit: boolean = false;
+  public value: number;
+  public opcoesParcelas: string[] = [];
+  public selectedParcel: string;
 
   constructor(
     private bsModalRef: BsModalRef,
@@ -74,6 +77,7 @@ export class StudentsViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.value = this.student.Value;
     this.studentForm = this.fb.group({
       nameStudent: [
         { value: this.student.Name, disabled: !this.edit },
@@ -114,6 +118,17 @@ export class StudentsViewComponent implements OnInit {
       ],
       addressStudent: [
         { value: this.student.Address, disabled: !this.edit },
+        Validators.required,
+      ],
+      valueStudent: [
+        {
+          value: this.viewFormatter(this.student.Value),
+          disabled: !this.edit,
+        },
+        Validators.required,
+      ],
+      parcelStudent: [
+        { value: this.student.Parcel, disabled: !this.edit },
         Validators.required,
       ],
       birthdayStudent: [
@@ -172,6 +187,10 @@ export class StudentsViewComponent implements OnInit {
     this.studentForm.statusChanges.subscribe(() => {
       this.isFormValid = this.studentForm.valid;
     });
+
+    this.selectedParcel = this.studentForm
+      .get("parcelStudent")
+      ?.value?.toString();
   }
 
   getHeaders(): HttpHeaders {
@@ -199,6 +218,8 @@ export class StudentsViewComponent implements OnInit {
     student.RG = this.studentForm.get("rgStudent")?.value;
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
+    student.Value = this.value;
+    student.Parcel = parseInt(this.studentForm.get("parcelStudent")?.value);
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -304,9 +325,57 @@ export class StudentsViewComponent implements OnInit {
   transformFirstLetterToUppercase(inputElement: HTMLInputElement) {
     const value = inputElement.value;
     if (value.length > 0) {
-      const firstLetter = value.charAt(0).toUpperCase();
-      inputElement.value = firstLetter + value.slice(1);
+      const words = value.toLowerCase().split(" ");
+      const excludedWords = ["de", "des", "do", "dos", "das", "da", "e"];
+      const result = words.map((word, index) => {
+        if (index === 0 || !excludedWords.includes(word)) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        } else {
+          return word;
+        }
+      });
+      inputElement.value = result.join(" ");
     }
+  }
+
+  currencyFormatter(inputElement: HTMLInputElement) {
+    inputElement.addEventListener("input", () => {
+      let valor = inputElement.value;
+      valor = valor.replace(/\D/g, "");
+
+      if (valor !== "") {
+        const numero = parseInt(valor, 10) / 100;
+        this.value = parseFloat(numero.toFixed(2));
+
+        valor = numero.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
+      }
+
+      inputElement.value = valor;
+    });
+  }
+
+  viewFormatter(value: number) {
+    if (value !== null && value !== undefined) {
+      let formattedValue = value.toString().replace(/[^\d.,]/g, "");
+
+      if (formattedValue !== "") {
+        const number = parseFloat(formattedValue.replace(",", "."));
+
+        formattedValue = number.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      }
+
+      return formattedValue;
+    }
+
+    return ""; // Retorna uma string vazia caso o valor seja nulo ou indefinido
   }
 
   Guardian() {
@@ -380,6 +449,22 @@ export class StudentsViewComponent implements OnInit {
           {
             value: this.studentForm.get("addressStudent")?.value,
             disabled: false,
+          },
+          Validators.required,
+        ],
+        valueStudent: [
+          {
+            value: this.viewFormatter(
+              this.studentForm.get("valueStudent")?.value
+            ),
+            disabled: !this.edit,
+          },
+          Validators.required,
+        ],
+        parcelStudent: [
+          {
+            value: this.studentForm.get("parcelStudent")?.value,
+            disabled: !this.edit,
           },
           Validators.required,
         ],

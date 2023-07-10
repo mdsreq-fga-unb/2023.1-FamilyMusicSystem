@@ -45,6 +45,8 @@ import { RoomViewComponent } from './modules/room/room-view/room-view.component'
 import { PreloaderComponent } from './modules/preloader/preloader.component';
 import { KzMaskDirective } from './kz-mask.directive';
 import { DataSharingService } from './services/data-sharing.service';
+import { CurrencyPipe } from "@angular/common";
+import { FormControl } from "@angular/forms";
 import { MuralListComponent } from './modules/murals/mural-list/mural-list.component';
 import { MuralRegisterComponent } from './modules/murals/mural-register/mural-register.component';
 import { MuralFilterComponent } from './modules/murals/mural-filter/mural-filter.component';
@@ -103,7 +105,13 @@ import { MuralViewComponent } from './modules/murals/mural-view/mural-view.compo
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [BsModalService, CookieService, DataSharingService],
+  providers: [
+    BsModalService,
+    CookieService,
+    DataSharingService,
+    CurrencyPipe,
+    FormControl,
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -35,6 +35,8 @@ export class StudentsRegisterComponent implements OnInit {
   public dataAtual: string;
   public loading: boolean = false;
   public file: File;
+  public value: number;
+  public opcoesParcelas: string[] = [];
 
   error: any | undefined;
   constructor(
@@ -80,6 +82,8 @@ export class StudentsRegisterComponent implements OnInit {
       addressStudent: [null, Validators.required],
       birthdayStudent: [null, [Validators.required]],
       profilePicture: [null],
+      valueStudent: [null, [Validators.required]],
+      parcelStudent: [null, [Validators.required]],
     });
 
     this.guardianForm = this.fb.group({
@@ -138,6 +142,8 @@ export class StudentsRegisterComponent implements OnInit {
     getFieldsFromImageSelected.append("files", this.file);
     student.ProfilePicture = getFieldsFromImageSelected;
 
+    console.log(this.studentForm.get("parcelStudent")?.value);
+
     student.Name = this.studentForm.get("nameStudent")?.value;
     student.Email = this.studentForm.get("emailStudent")?.value;
     student.Phone = this.studentForm.get("phoneStudent")?.value;
@@ -152,6 +158,8 @@ export class StudentsRegisterComponent implements OnInit {
     student.RG = this.studentForm.get("rgStudent")?.value;
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
+    student.Value = this.value;
+    student.Parcel = parseInt(this.studentForm.get("parcelStudent")?.value);
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -238,6 +246,60 @@ export class StudentsRegisterComponent implements OnInit {
     }
   }
 
+  currencyFormatter(inputElement: HTMLInputElement) {
+    inputElement.addEventListener("input", () => {
+      let valor = inputElement.value;
+      valor = valor.replace(/\D/g, "");
+
+      if (valor !== "") {
+        const numero = parseInt(valor, 10) / 100;
+        this.value = numero;
+        console.log(this.value);
+
+        valor = numero.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
+
+        // Recalcula as parcelas quando o valor for alterado
+        this.calcularParcelas();
+      }
+
+      inputElement.value = valor;
+    });
+  }
+
+  parcelFormatter(value: number) {
+    let formattedValue = value.toString().replace(/[^\d.,]/g, "");
+
+    if (formattedValue !== "") {
+      const number = parseFloat(formattedValue.replace(",", "."));
+
+      formattedValue = number.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+
+    return formattedValue;
+  }
+
+  calcularParcelas(): void {
+    this.opcoesParcelas = [];
+
+    for (let i = 1; i <= 12; i++) {
+      const valorParcela = this.value / i;
+      const value = valorParcela.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+      const opcao = `${i}x ${value}`;
+      this.opcoesParcelas.push(opcao);
+    }
+  }
+
   Guardian() {
     this.hasGuardian = this.verificarIdade(
       this.studentForm.get("birthdayStudent")?.value
@@ -310,6 +372,13 @@ export class StudentsRegisterComponent implements OnInit {
           },
           Validators.required,
         ],
+        parcelStudent: [
+          {
+            value: this.studentForm.get("parcelStudent")?.value,
+            disabled: false,
+          },
+          Validators.required,
+        ],
         birthdayStudent: [
           {
             value: this.studentForm.get("birthdayStudent")?.value,
@@ -369,4 +438,6 @@ export class StudentsRegisterComponent implements OnInit {
   sair() {
     this.bsModalRef.hide();
   }
+
+  // Jquery Dependency
 }
