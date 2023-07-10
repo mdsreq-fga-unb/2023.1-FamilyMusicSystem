@@ -9,6 +9,7 @@ import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule-list.component';
 import { RoomListComponent } from './modules/room/room-list/room-list.component';
 import { AuthGuard } from './modules/login/auth.guard';
+import { MuralListComponent } from './modules/murals/mural-list/mural-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'students', component: StudentsListComponent },
       { path: 'teachers', component: TeachersListComponent },
-      { path: 'mural', component: MuralComponent },
+      { path: 'mural', component: MuralListComponent },
       { path: 'rooms', component: RoomListComponent },
       { path: 'schedule', component: ScheduleListComponent },
     ],

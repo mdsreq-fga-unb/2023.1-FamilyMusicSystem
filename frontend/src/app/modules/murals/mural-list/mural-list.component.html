@@ -1,0 +1,159 @@
+  <div class="content-content">
+    <body>
+      <div class="container-fluid">
+        <div class="container">
+          <div class="right">
+            <div class="muralTitle">
+              <mat-icon class="personIcon">person</mat-icon>
+              <p class="title">Mural</p>
+            </div>
+            <form
+              class="d-flex"
+              role="search"
+              [formGroup]="searchForm"
+              (ngSubmit)="search()"
+            >
+              <div class="search-container">
+                <input
+                  class="form-control me-3"
+                  id="researchMural"
+                  formControlName="search"
+                  type="search"
+                  aria-label="Search"
+                />
+                <i class="material-icons search-icon">search</i>
+              </div>
+              <button
+                type="button"
+                (click)="search()"
+                (keydown.enter)="search()"
+                class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
+                style="
+                  height: min-content;
+                  margin-left: 0.5rem;
+                  border: none;
+                  width: 5rem;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <mat-icon class="mobile">search</mat-icon>
+                <span class="button-text">buscar</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+                (click)="modalFilterMural()"
+                id="outline"
+              >
+                <mat-icon class="mobile">filter_list</mat-icon>
+                <span class="button-text">filtrar</span>
+              </button>
+            </form>
+          </div>
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic example"
+            style="height: max-content; align-items: center"
+          >
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              routerLink=""
+              style="
+                background: var(--red) !important;
+                border: none;
+                width: 5rem;
+                justify-content: center;
+              "
+              *ngIf="checked"
+            >
+              <span class="button-text">excluir</span>
+            </button>
+  
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              style="
+                margin-left: 0.5rem;
+                background: var(--orange) !important;
+                border: none;
+                width: 5rem;
+                justify-content: center;
+                height: 36px;
+                align-self: center;
+              "
+              (click)="modalAddMural()"
+            >
+              <mat-icon class="mobile">add</mat-icon>
+              <span class="button-text">novo</span>
+            </button>
+          </div>
+        </div>
+  
+        <div class="scrool">
+          <table class="shadow-sm table">
+            <thead>
+              <tr>
+                <th scope="col">Nº</th>
+                <th scope="col">Data</th>
+                <th scope="col" class="nomobile">Título</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody *ngIf="mural$ | async as mural">
+              <tr
+                class="selected"
+                *ngFor="let mural of mural; let i = index"
+              >
+                <th scope="row" id="select-all" class="num">
+                  {{ i + 1 }}
+                </th>
+                <td
+                  class="button"
+                  (click)="modalEditMural(mural, false)"
+                  cursor="pointer"
+                  class="selectedProfile"
+                >
+                  {{ mural.Title }}
+                </td>
+                <td>
+                  <mat-icon
+                    (click)="modalEditMural(mural, true)"
+                    class="delete"
+                    >edit</mat-icon
+                  >
+                  <mat-icon (click)="deleteMural(mural)" class="delete"
+                    >restore_from_trash</mat-icon
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <ngb-alert
+        *ngIf="showAlertAdd"
+        class="fixed-top alert-success"
+        (close)="showAlertAdd = false"
+      >
+        <b>Cadastro Realizado!</b> Aviso cadastrado com sucesso!
+      </ngb-alert>
+      <ngb-alert
+        *ngIf="showAlertEdit"
+        class="fixed-top alert-warning"
+        (close)="showAlertEdit = false"
+      >
+        <b>Edição Realizada!</b> Aviso atualizado com sucesso!
+      </ngb-alert>
+      <ngb-alert
+        *ngIf="showAlertDelete"
+        class="fixed-top alert-danger"
+        (close)="showAlertDelete = false"
+      >
+        <b>Exclusão Realizada!</b> Aviso excluído com sucesso!
+      </ngb-alert>
+    </body>
+  </div>
+  
