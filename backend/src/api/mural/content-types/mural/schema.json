@@ -4,7 +4,8 @@
   "info": {
     "singularName": "mural",
     "pluralName": "murals",
-    "displayName": "Mural"
+    "displayName": "Mural",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +20,7 @@
       "type": "text"
     },
     "Date": {
-      "type": "datetime"
+      "type": "string"
     }
   }
 }
