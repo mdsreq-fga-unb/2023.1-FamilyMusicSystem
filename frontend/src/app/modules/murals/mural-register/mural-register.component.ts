@@ -60,24 +60,36 @@ export class MuralRegisterComponent {
     const mural: Mural = new Mural();
     const headers = this.getHeaders();
     const requestOptions = { headers };
+    const dateNow = new Date;
+    const day = dateNow.getDate().toString();
+    const dayAtt = (day.length == 1) ? '0' + day : day;
+    const month = (dateNow.getMonth()+1).toString();
+    const monthAtt = (month.length == 1) ? '0'+month : month;
+    const yearAtt = dateNow.getFullYear();
+    const hours = dateNow.getHours().toString();
+    const hoursAtt = (hours.length == 1) ? '0'+hours : hours;
+    const minutes = dateNow.getMinutes().toString();
+    const minutesAtt = (minutes.length == 1) ? '0'+minutes : minutes;
+
 
     mural.Title = this.muralForm.get("titleMural")?.value.toString();
     mural.Message = this.muralForm.get("muralMessage")?.value.toString();
+    mural.Date = dayAtt+"/"+monthAtt+"/"+yearAtt+" - "+hoursAtt+":"+minutesAtt;
 
-    // const body = {
-    //   data: mural,
-    // };
-    // this.http.post(`${baseUrl}/api/rooms/`, body, requestOptions).subscribe(
-    //   () => {
-    //     this.dataSharingService.ifshowAlertAdd = true;
-    //     this.showAlert = true;
-    //     this.loading = true;
-    //     this.bsModalRef.hide();
-    //   },
-    //   (error) => {
-    //     this.handleError(error);
-    //   }
-    // );
+    const body = {
+      data: mural,
+    };
+    this.http.post(`${baseUrl}/api/murals/`, body, requestOptions).subscribe(
+      () => {
+        this.dataSharingService.ifshowAlertAdd = true;
+        this.showAlert = true;
+        this.loading = true;
+        this.bsModalRef.hide();
+      },
+      (error) => {
+        this.handleError(error);
+      }
+    );
   }
 
   transformFirstLetterToUppercase(inputElement: HTMLInputElement) {

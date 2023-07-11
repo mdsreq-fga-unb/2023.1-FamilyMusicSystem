@@ -97,8 +97,8 @@
             <thead>
               <tr>
                 <th scope="col">Nº</th>
-                <th scope="col">Data</th>
                 <th scope="col" class="nomobile">Título</th>
+                <th scope="col">Data</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -117,6 +117,14 @@
                   class="selectedProfile"
                 >
                   {{ mural.Title }}
+                </td>
+                <td
+                  class="button"
+                  (click)="modalEditMural(mural, false)"
+                  cursor="pointer"
+                  class="selectedProfile"
+                >
+                  {{ mural.Date }}
                 </td>
                 <td>
                   <mat-icon

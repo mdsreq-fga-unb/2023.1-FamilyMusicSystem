@@ -20,7 +20,7 @@ import { DataSharingService } from "../../../services/data-sharing.service";
 })
 export class MuralViewComponent {
   public mural: Mural;
-  room$: Observable<Mural[]> | undefined;
+  mural$: Observable<Mural[]> | undefined;
   public muralForm: FormGroup;
   public muralValid: boolean = false;
   public showAlert: boolean = false;
@@ -85,18 +85,46 @@ export class MuralViewComponent {
   }
 
   onEdit($mural: Mural): void {
-    const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
     const mural: Mural = new Mural();
     const headers = this.getHeaders();
     const requestOptions = { headers };
+    const dateNow = new Date;
+    const day = dateNow.getDate().toString();
+    const dayAtt = (day.length == 1) ? '0' + day : day;
+    const month = (dateNow.getMonth()+1).toString();
+    const monthAtt = (month.length == 1) ? '0'+month : month;
+    const yearAtt = dateNow.getFullYear();
+    const hours = dateNow.getHours().toString();
+    const hoursAtt = (hours.length == 1) ? '0'+hours : hours;
+    const minutes = dateNow.getMinutes().toString();
+    const minutesAtt = (minutes.length == 1) ? '0'+minutes : minutes;
+
 
     mural.Title = this.muralForm.get("titleMural")?.value.toString();
-    mural.Message = this.muralForm.get("MuralMessage")?.value.toString();
+    mural.Message = this.muralForm.get("muralMessage")?.value.toString();
+    mural.Date = dayAtt+"/"+monthAtt+"/"+yearAtt+" - "+hoursAtt+":"+minutesAtt;
 
     const body = {
       data: mural,
     };
 
+    this.http
+      .put(
+        `https://20231-familymusicsystem-production.up.railway.app/api/murals/${$mural.id}`,
+        body,
+        this.headers()
+      )
+      .subscribe(
+        () => {
+          this.dataSharingService.ifshowAlertEdit = true;
+          this.showAlert = true;
+          this.loading = true;
+          this.bsModalRef.hide();
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
 
   }
 
