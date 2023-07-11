@@ -8,6 +8,7 @@
 | 06/06/2023 |  0.4   |                Atualização de Tecnologias Utilizadas                | Luan Mateus, <br> Luana Ribeiro, <br> Maykon Junio |
 | 26/06/2023 |  0.5   |      Inserção de Estratégia de Testes Referentes aos dois MVPs      |           Luan Mateus,<br>Luana Ribeiro            |
 | 03/07/2023 | 0.6 | Edição da Estratégia de Testes Referentes ao dois MVPs | Luana Ribeiro |
+| 10/07/2023 | 0.7 | Edição da Estratégia de Testes | Luana Ribeiro |
 
 
 ## Declaração Geral do Produto
@@ -55,12 +56,12 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 ####MVP2
 
-| Tipos de Teste | Níveis de Teste | Técnicas de Testes |
-| -------------------------- | ------------- | ------------------------------------------ |
-| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Caixa Preta; </br> - Manual; </br> - Automático. |
-| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | 
-| Confiabilidade | - Unitário; </br> - Integração; </br> - Aceitação. | - Manual;</br> - Automático; </br> - Caixa Branca. |
-| Suportabilidade | - Integração; </br> - Sistema; </br> - Aceitação. | - Manual; </br> - Automática. | 
+| Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva |
+| -------------------------- | ------------- | -------------------------------- | --------- | -----------|
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Manual; </br> - Manual; </br> - Automático. | - Qualidade Interna;</br> - Qualidade Interna; </br> - Qualidade Interna. | - Negócio; </br> - Negócio; </br> - Técnico. |
+| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | - Externa; </br> - Externa. | - Negócio; </br> - Negócio. |
+| Confiabilidade | - Unitário; </br> - Integração; </br> - Aceitação. | - Automático; </br> - Automático; </br> - Manual. | - Interna; </br> - Interna; </br> - Interna. | - Técnico; </br> - Técnico; </br> - Técnico. |
+| Suportabilidade | - Sistema; </br> - Aceitação. | - Manual; </br> - Manual. | - Interna; </br> - Interna. | - Negócio; </br> - Negócio. |
 
 
 ## Ferramentas

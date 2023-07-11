@@ -75,10 +75,10 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[TE02]</b> | <b>[EP04]</b> | <b id="us16">[US16]</b> | - O professor deve conseguir editar aulas anteriormente marcadas;</br> - Devem ser solicitados os dados de alteração: tipo de aula (coletiva ou individual)(número da turma ou nome do aluno), instrumento, dia e horário; </br> - Deve ser perguntado se o professor realmente deseja fazer essa alteração; </br> - O professor deve visualizar as alteraçōes realizadas;  </br > - As alterações devem ser salvas no banco de dados;                                               |
 | <b>[TE02]</b> | <b>[EP05]</b> | <b id="us17">[US17]</b> | - O professor deve conseguir registrar a presença do aluno desejado; </br> - Deve ser exibido um alert ao registrar a presença para o aluno; |
 | <b>[TE03]</b> | <b>[EP06]</b> | <b id="us18">[US18]</b> | - Devem ser preenchidos todos os campos obrigatórios para que seja possível salvar no banco de dados (aluno, mês, valor, modo de pagamento) |
-| <b>[TE03]</b> | <b>[EP07]</b> | <b id="us19">[US19]</b> | - O Administrador deve conseguir gerar o contrato acessando a aba de ferramentas da plataforma;</br> - O Contrato deve ser gerado em formato .pdf; </br> - Deve ser exibido o modelo de contrato antes do administrador gerar;|
+| <b>[TE03]</b> | <b>[EP07]</b> | <b id="us19">[US19]</b> | - O Administrador deve conseguir gerar o contrato acessando a aba de ferramentas da plataforma; </br> - Devem ser preenchidos os campos obrigatórios (valor do contrato, quantidade de parcelas) para que o contrato seja gerado; </br> - O Contrato deve ser gerado em formato .pdf; </br> - Deve ser exibido o modelo de contrato antes do administrador gerar;|
 | <b>[TE03]</b> | <b>[EP07]</b> | <b id="us20">[US20]</b> | - O contrato deve ser enviado via e-mail assim que o administrador cadastrar um novo aluno; </br> - O contrato deve ser enviado via e-mail até, no máximo 30 minutos; |
 | <b>[TE03]</b> | <b>[EP07]</b> | <b id="us21">[US21]</b> | - Deve haver uma opção de avisar o determinado aluno caso esteja ocorrendo algum impasse no contrato; |
-| <b>[TE04]</b> | <b>[EP08]</b> | <b id="us22">[US22]</b> | - O Administrador deve ser capaz de escrever um comunicado; </br> - Só deve ser possível enviar um comunicado caso a caixa de texto esteja preenchida; |
+| <b>[TE04]</b> | <b>[EP08]</b> | <b id="us22">[US22]</b> | - O Administrador deve ser capaz de escrever um comunicado;  </br> - Só deve ser possível enviar um comunicado caso a caixa de texto esteja preenchida; |
 
 
 ## Requisitos não-funcionais
