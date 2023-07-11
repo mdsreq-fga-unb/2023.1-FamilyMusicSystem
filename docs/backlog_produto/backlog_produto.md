@@ -11,6 +11,8 @@
 | 10/06/2023 |  0.6   |          Adição de Requisitos não-funcionais e Atualização do MVP1 e MVP2          |                                         Luana Ribeiro                                          |
 | 30/06/2023 |  0.7   |         Adição de Novas Histórias de Usuário e Atualização do MVP1 e MVP2          |                                          Luan Mateus                                           |
 | 03/07/2023 | 0.8 | Edição da tabela de critérios de aceitação | Luana Ribeiro |
+| 10/07/2023 | 0.9 | Atualização dos Critérios de Aceitação | Luana Ribeiro |
+
 
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
@@ -78,7 +80,7 @@ Os requisitos funcionais são as funcionalidades que o software deve realizar, e
 | <b>[TE03]</b> | <b>[EP07]</b> | <b id="us19">[US19]</b> | - O Administrador deve conseguir gerar o contrato acessando a aba de ferramentas da plataforma; </br> - Devem ser preenchidos os campos obrigatórios (valor do contrato, quantidade de parcelas) para que o contrato seja gerado; </br> - O Contrato deve ser gerado em formato .pdf; </br> - Deve ser exibido o modelo de contrato antes do administrador gerar;|
 | <b>[TE03]</b> | <b>[EP07]</b> | <b id="us20">[US20]</b> | - O contrato deve ser enviado via e-mail assim que o administrador cadastrar um novo aluno; </br> - O contrato deve ser enviado via e-mail até, no máximo 30 minutos; |
 | <b>[TE03]</b> | <b>[EP07]</b> | <b id="us21">[US21]</b> | - Deve haver uma opção de avisar o determinado aluno caso esteja ocorrendo algum impasse no contrato; |
-| <b>[TE04]</b> | <b>[EP08]</b> | <b id="us22">[US22]</b> | - O Administrador deve ser capaz de escrever um comunicado;  </br> - Só deve ser possível enviar um comunicado caso a caixa de texto esteja preenchida; |
+| <b>[TE04]</b> | <b>[EP08]</b> | <b id="us22">[US22]</b> | - O Administrador deve ser capaz de escrever um comunicado;  </br> - Campos obrigatórios precisam estar preenchidos para envio de comunicado (Título e Mensagem); |
 
 
 ## Requisitos não-funcionais
