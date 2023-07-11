@@ -22,8 +22,8 @@
 
                 <div class="col-md-6">
                     <label class="m-0 tittle-input" for="message">Mensagem<b>*</b></label>
-                    <input type="text" name="message" formControlName="muralMessage"
-                        class="form-control form-control-sm input" />
+                    <textarea type="text" name="message" formControlName="muralMessage"
+                        class="form-control form-control-sm input" ></textarea>
                     <div *ngIf="
                 muralForm.get('muralMessage')?.errors &&
                 muralForm.get('muralMessage')?.touched
