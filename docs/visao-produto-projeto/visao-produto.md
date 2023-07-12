@@ -67,6 +67,7 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 ## Ferramentas
 
 - Miro - Planejamento de rotina
+- Notion - Planejamento de rotina
 - Discord - Reuniões de Daily, Review e Retrospective
 - GitHub - Armazenamento de versões
 - Visual Studio Code - Editor de código

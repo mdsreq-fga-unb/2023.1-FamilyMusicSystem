@@ -32,7 +32,7 @@
 |   3    | MVP 1</br>TE01-EP01-US03;</br>TE01-EP01-US04;</br>TE01-EP01-US05;</br>TE01-EP01-US06;</br>TE01-EP02-US07;</br>TE01-EP02-US08;</br>TE02-EP04-US11;</br>TE02-EP04-US12;</br>TE02-EP04-US13;</br>TE02-EP04-US14;</br>TE03-EP07-US17. | 28/05/2023  | 11/06/2023 |
 |   4    | Correções de bugs MVP1: </br> - Bugs de Interface no contexto de aluno; </br> - Problemas relacionados ao login de usuários e loader; </br> - Bugs de componentes gerais, como itens de cabeçalho, side menu, ou que aparecem em vários componentes. | 12/06/2023  | 26/06/2023 |
 |   5    | Correções de bugs MVP 1 e início de desenvolvimento do MVP2: </br> - TE02-EP03-US09;</br> - TE02-EP03-US10; </br> -TE04-EP08-US22;                                                                                      | 27/06/2023  | 11/07/2023 |
-| 6 | Finalização MVP 2: </br> - TE02-EP05-US17; </br> - TE03-EP06-US18; </br> - TE03-EP07-US20; </br> - TE03-EP07-US21. | 12/07/2023 | 26/07/2023 | 
+| 6 | Finalização MVP 2: </br> - TE02-EP05-US17; </br> - TE03-EP06-US18; </br> - TE03-EP07-US20; </br> - TE03-EP07-US21; </br> - TE03-EP07-US22; </br> - TE03-EP07-US23. | 12/07/2023 | 26/07/2023 | 
 
 ## Matriz de Comunicação
 
