@@ -5,11 +5,10 @@ import { MainComponent } from './modules/main/main.component';
 import { StudentsListComponent } from './modules/student/students-list/students-list.component';
 import { TeachersListComponent } from './modules/teacher/teachers-list/teachers-list.component';
 import { HomeComponent } from './modules/home/home.component';
-import { MuralComponent } from './modules/mural/mural.component';
 import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule-list.component';
 import { RoomListComponent } from './modules/room/room-list/room-list.component';
 import { AuthGuard } from './modules/login/auth.guard';
-import { MuralListComponent } from './modules/murals/mural-list/mural-list.component';
+import { MuralListComponent } from './modules/mural/mural-list/mural-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

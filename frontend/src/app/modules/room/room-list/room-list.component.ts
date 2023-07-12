@@ -85,8 +85,9 @@ export class RoomListComponent implements OnInit {
       );
 
     this.rooms$.subscribe(
-      () => {
+      (room) => {
         this.loading = false;
+        console.log(room);
       },
       () => {
         this.loading = false;
