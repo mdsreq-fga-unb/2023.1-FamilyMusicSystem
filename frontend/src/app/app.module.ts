@@ -51,6 +51,7 @@ import { MuralListComponent } from './modules/murals/mural-list/mural-list.compo
 import { MuralRegisterComponent } from './modules/murals/mural-register/mural-register.component';
 import { MuralFilterComponent } from './modules/murals/mural-filter/mural-filter.component';
 import { MuralViewComponent } from './modules/murals/mural-view/mural-view.component';
+import { ForgotPasswordComponent } from './modules/login/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { MuralViewComponent } from './modules/murals/mural-view/mural-view.compo
     MuralRegisterComponent,
     MuralFilterComponent,
     MuralViewComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     AlertModule,
