@@ -22,7 +22,7 @@
             </option>
           </select>
           <div
-            *ngIf="lessonForm.get('numberRoom')?.errors?.['required'] && lessonForm.get('numberRoom')?.touched"
+            *ngIf="scheduleForm.get('numberRoom')?.errors?.['required'] && scheduleForm.get('numberRoom')?.touched"
             class="validators"
           >
             Seleção obrigatória
@@ -40,7 +40,7 @@
             class="form-control form-control-sm input"
           />
           <div
-            *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
+            *ngIf="scheduleForm.get('nameRoom')?.errors?.['required'] && scheduleForm.get('nameRoom')?.touched"
             class="validators"
           >
             Data obrigatória
@@ -62,7 +62,7 @@
             </option>
           </select>
           <div
-            *ngIf="lessonForm.get('nameTeacher')?.errors?.['required'] && lessonForm.get('nameTeacher')?.touched"
+            *ngIf="scheduleForm.get('nameTeacher')?.errors?.['required'] && scheduleForm.get('nameTeacher')?.touched"
             class="validators"
           >
             Seleção obrigatória
@@ -82,7 +82,7 @@
             </option>
           </select>
           <div
-            *ngIf="lessonForm.get('nameStudent')?.errors?.['required'] && lessonForm.get('nameStudent')?.touched"
+            *ngIf="scheduleForm.get('nameStudent')?.errors?.['required'] && scheduleForm.get('nameStudent')?.touched"
             class="validators"
           >
             Seleção obrigatória

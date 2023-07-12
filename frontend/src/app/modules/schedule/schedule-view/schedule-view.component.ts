@@ -71,9 +71,9 @@ export class ScheduleViewComponent implements OnInit {
 
   onEdit($lesson: Schedule): void {
     const lesson: Schedule = new Schedule();
-    lesson.Student = this.lessonForm.get("nameStudent")?.value;
-    lesson.Teacher = this.lessonForm.get("nameTeacher")?.value;
-    lesson.Room = this.lessonForm.get("nameRoom")?.value;
+    lesson.ID_Student = this.lessonForm.get("nameStudent")?.value;
+    lesson.ID_Teacher = this.lessonForm.get("nameTeacher")?.value;
+    lesson.ID_Room = this.lessonForm.get("nameRoom")?.value;
     lesson.Horary = this.lessonForm.get("date")?.value;
     const body = {
       data: lesson,
@@ -98,11 +98,11 @@ export class ScheduleViewComponent implements OnInit {
   ngOnInit(): void {
     this.lessonForm = this.fb.group({
       nameRoom: [
-        { value: this.lesson.Room, disabled: !this.edit },
+        { value: this.lesson.ID_Room, disabled: !this.edit },
         Validators.required,
       ],
       nameTeacher: [
-        { value: this.lesson.Teacher, disabled: !this.edit },
+        { value: this.lesson.ID_Teacher, disabled: !this.edit },
         Validators.required,
       ],
       date: [
@@ -110,7 +110,7 @@ export class ScheduleViewComponent implements OnInit {
         [Validators.required],
       ],
       nameStudent: [
-        { value: this.lesson.Student, disabled: !this.edit },
+        { value: this.lesson.ID_Student, disabled: !this.edit },
         Validators.required,
       ],
     });
