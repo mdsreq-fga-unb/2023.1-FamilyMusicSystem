@@ -1,11 +1,13 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { User } from '../../models/user';
 import { CookieService } from '../../services/cookie.service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AlertComponent } from '../../shared/alert/alert.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login',
@@ -18,18 +20,20 @@ import { AlertComponent } from '../../shared/alert/alert.component';
 export class LoginComponent implements OnInit {
   public user: User;
   public loginForm: FormGroup;
+  private bsModalRef: BsModalRef;
   public loading: boolean = false;
   icon_now = 'brightness_2';
   icon = ['brightness_2', 'wb_sunny'];
   public isOpen = false;
 
   constructor(
+    private modalService: BsModalService,
     private formBuilder: FormBuilder,
     private cookieService: CookieService,
     private http: HttpClient,
     private router: Router,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   public saveCookie(key: string, values: string) {
     this.cookieService.setCookie(key, values);
@@ -40,6 +44,19 @@ export class LoginComponent implements OnInit {
       username: [''],
       password: [''],
     });
+  }
+
+  modalForgotPassword(user: User) {
+    const modalConfig = {
+      backdrop: true,
+      ignoreBackdropClick: false,
+      initialState: {
+        user: User,
+      },
+      class: "modal-lg",
+    };
+    this.bsModalRef = this.modalService.show(ForgotPasswordComponent);
+    this.bsModalRef.onHide?.subscribe(() => { });
   }
 
   toggle() {

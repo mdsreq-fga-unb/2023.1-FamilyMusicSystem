@@ -1,24 +1,12 @@
 <body class="corpo">
   <div class="photo">
-    <button
-      type="button"
-      class="btn-close text-reset"
-      (click)="sair()"
-      aria-label="Close"
-      id="close"
-    ></button>
+    <button type="button" class="btn-close text-reset" (click)="sair()" aria-label="Close" id="close"></button>
     <div class="avatar">
       <img id="preview-image" src="\assets\image\foto-upload.png" />
     </div>
     <h3 class="subtitle">Insira uma imagem do <b>aluno</b></h3>
     <div class="upload-avatar">
-      <input
-        type="file"
-        id="avatar"
-        (change)="onImageSelected($event)"
-        accept="image/*"
-        class="input-img"
-      />
+      <input type="file" id="avatar" (change)="onImageSelected($event)" accept="image/*" class="input-img" />
       <label class="upload-image" for="avatar">carregar imagem</label>
     </div>
   </div>
@@ -34,240 +22,144 @@
     <div class="modal-body">
       <form [formGroup]="studentForm" class="form-row">
         <div class="col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="name"
-            >Nome completo<b>*</b></label
-          >
-          <input
-            #myInput
-            type="text"
-            name="name"
-            (input)="transformFirstLetterToUppercase(myInput)"
-            formControlName="nameStudent"
-            class="shadow-sm form-control form-control-sm input"
-          />
-          <div
-            *ngIf="studentForm.get('nameStudent')?.errors?.['required'] && studentForm.get('nameStudent')?.touched"
-            class="validators"
-          >
+          <label class="m-0 tittle-input" for="name">Nome completo<b>*</b></label>
+          <input #myInput type="text" name="name" (input)="transformFirstLetterToUppercase(myInput)"
+            formControlName="nameStudent" class="shadow-sm form-control form-control-sm input" />
+          <div *ngIf="studentForm.get('nameStudent')?.errors?.['required'] && studentForm.get('nameStudent')?.touched"
+            class="validators">
             Nome obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="email">Email<b>*</b></label>
-          <input
-            type="text"
-            name="email"
-            formControlName="emailStudent"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" name="email" formControlName="emailStudent" class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('emailStudent')?.errors &&
               studentForm.get('emailStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Email obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
-          <input
-            type="text"
-            kzMask="(99) 9 9999-9999"
-            name="phone"
-            formControlName="phoneStudent"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" kzMask="(99) 9 9999-9999" name="phone" formControlName="phoneStudent"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('phoneStudent')?.errors &&
               studentForm.get('phoneStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Insira um formato de telefone válido. Ex.: 61944028922
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
-          <input
-            type="text"
-            kzMask="999.999.999-99"
-            name="cpf"
-            formControlName="cpfStudent"
-            class="form-control form-control-sm input"
-          />
-          <div
-            class="validators"
-            *ngIf="
+          <input type="text" kzMask="999.999.999-99" name="cpf" formControlName="cpfStudent"
+            class="form-control form-control-sm input" />
+          <div class="validators" *ngIf="
               studentForm.get('cpfStudent')?.errors?.['required'] &&
               studentForm.get('cpfStudent')?.touched
-            "
-          >
+            ">
             CPF obrigatório
           </div>
-          <div
-            class="validators"
-            *ngIf="
+          <div class="validators" *ngIf="
               studentForm.get('cpfStudent')?.errors?.['iscpf'] &&
               studentForm.get('cpfStudent')?.touched
-            "
-          >
+            ">
             Insira um CPF válido
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="rg">RG<b>*</b></label>
-          <input
-            type="text"
-            name="rg"
-            formControlName="rgStudent"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="studentForm.get('rgStudent')?.errors?.['required'] && studentForm.get('rgStudent')?.touched"
-            class="validators"
-          >
+          <input type="text" name="rg" formControlName="rgStudent" class="form-control form-control-sm input" />
+          <div *ngIf="studentForm.get('rgStudent')?.errors?.['required'] && studentForm.get('rgStudent')?.touched"
+            class="validators">
             RG obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="disabledPerson"
-            >PCD<b>*</b></label
-          >
-          <select
-            name="disabledPerson"
-            formControlName="disabledPersonStudent"
-            class="form-control form-control-sm input"
-          >
+          <label class="m-0 tittle-input" for="disabledPerson">PCD<b>*</b></label>
+          <select name="disabledPerson" formControlName="disabledPersonStudent"
+            class="form-control form-control-sm input">
             <option value="false">não</option>
             <option value="true">sim</option>
           </select>
           <div
             *ngIf="studentForm.get('disabledPersonStudent')?.errors?.['required'] && studentForm.get('disabledPersonStudent')?.touched"
-            class="validators"
-          >
+            class="validators">
             Seleção obrigatória
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="disabledPersonType"
-            >Se sim, qual tipo</label
-          >
-          <input
-            type="text"
-            name="disabledPersonType"
-            formControlName="disabledPersonTypeStudent"
-            class="shadow-sm form-control form-control-sm input"
-          />
-          <div
-            class="validators"
-            *ngIf="
+          <label class="m-0 tittle-input" for="disabledPersonType">Se sim, qual tipo</label>
+          <input type="text" name="disabledPersonType" formControlName="disabledPersonTypeStudent"
+            class="shadow-sm form-control form-control-sm input" />
+          <div class="validators" *ngIf="
             studentForm.get('disabledPersonTypeStudent')?.errors?.['required'] &&
             studentForm.get('disabledPersonTypeStudent')?.touched
-          "
-          >
+          ">
             tipo de deficiência obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="gender">Gênero<b>*</b></label>
-          <select
-            name="gender"
-            formControlName="genderStudent"
-            class="form-control form-control-sm input"
-          >
+          <select name="gender" formControlName="genderStudent" class="form-control form-control-sm input">
             <option value="Male">masculino</option>
             <option value="Female">feminino</option>
             <option value="Others">outro</option>
           </select>
           <div
             *ngIf="studentForm.get('genderStudent')?.errors?.['required'] && studentForm.get('genderStudent')?.touched"
-            class="validators"
-          >
+            class="validators">
             Seleção obrigatória
           </div>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="birthday"
-            >Data de nascimento<b>*</b></label
-          >
-          <input
-            type="date"
-            [max]="dataAtual"
-            formControlName="birthdayStudent"
-            name="birthday"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <label class="m-0 tittle-input" for="birthday">Data de nascimento<b>*</b></label>
+          <input type="date" [max]="dataAtual" formControlName="birthdayStudent" name="birthday"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('birthdayStudent')?.errors &&
               studentForm.get('birthdayStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Data de nascimento obrigatória
           </div>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="address">Endereço<b>*</b></label>
-          <input
-            type="text"
-            formControlName="addressStudent"
-            name="address"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" formControlName="addressStudent" name="address"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('addressStudent')?.errors &&
               studentForm.get('addressStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Endereço obrigatório
           </div>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="value"
-            >Valor cotrato<b>*</b></label
-          >
-          <input
-            #value
-            type="text"
-            (input)="currencyFormatter(value)"
-            formControlName="valueStudent"
-            name="value"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <label class="m-0 tittle-input" for="value">Valor contrato<b>*</b></label>
+          <input #value type="text" (input)="currencyFormatter(value)" formControlName="valueStudent" name="value"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('valueStudent')?.errors &&
               studentForm.get('valueStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Endereço obrigatório
           </div>
         </div>
 
         <div class="col-12 col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="value">Parcelas<b>*</b></label>
-          <select
-            name="parcel"
-            formControlName="parcelStudent"
-            class="form-control form-control-sm input"
-          >
+          <select name="parcel" formControlName="parcelStudent" class="form-control form-control-sm input">
             <option value="1">
               1x {{ value && parcelFormatter(value / 1) }}
             </option>
@@ -305,179 +197,108 @@
               12x {{ value && parcelFormatter(value / 12) }}
             </option>
           </select>
-          <div
-            *ngIf="
+          <div *ngIf="
               studentForm.get('genderStudent')?.errors &&
               studentForm.get('genderStudent')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Parcelas obrigatórias
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="name">Nome<b>*</b></label>
-          <input
-            type="text"
-            name="name"
-            formControlName="nameLegalGuardian"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" name="name" formControlName="nameLegalGuardian"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('nameLegalGuardian')?.errors &&
               studentForm.get('nameLegalGuardian')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Nome obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="email">Email<b>*</b></label>
-          <input
-            type="text"
-            name="email"
-            formControlName="emailLegalGuardian"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" name="email" formControlName="emailLegalGuardian"
+            class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('emailLegalGuardian')?.errors?.['email'] &&
               studentForm.get('emailLegalGuardian')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Email obrigatório
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="phone">Telefone<b>*</b></label>
-          <input
-            type="text"
-            name="phone"
-            formControlName="phoneLegalGuardian"
-            class="form-control form-control-sm input"
-            kzMask="(99) 9 9999-9999"
-          />
-          <div
-            *ngIf="
+          <input type="text" name="phone" formControlName="phoneLegalGuardian"
+            class="form-control form-control-sm input" kzMask="(99) 9 9999-9999" />
+          <div *ngIf="
               studentForm.get('phoneLegalGuardian')?.errors &&
               studentForm.get('phoneLegalGuardian')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             Telefone Inválido Ex.: (99) 9 9999-9999
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="cpf">CPF<b>*</b></label>
-          <input
-            type="text"
-            name="cpf"
-            kzMask="999.999.999-99"
-            formControlName="cpfLegalGuardian"
-            class="form-control form-control-sm input"
-          />
-          <div
-            class="validators"
-            *ngIf="
+          <input type="text" name="cpf" kzMask="999.999.999-99" formControlName="cpfLegalGuardian"
+            class="form-control form-control-sm input" />
+          <div class="validators" *ngIf="
               studentForm.get('cpfLegalGuardian')?.errors?.['required'] &&
               studentForm.get('cpfLegalGuardian')?.touched
-            "
-          >
+            ">
             CPF obrigatório
           </div>
-          <div
-            class="validators"
-            *ngIf="
+          <div class="validators" *ngIf="
               studentForm.get('cpfLegalGuardian')?.errors?.['iscpf'] &&
               studentForm.get('cpfLegalGuardian')?.touched
-            "
-          >
+            ">
             Insira um CPF válido
           </div>
         </div>
 
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="rg">RG<b>*</b></label>
-          <input
-            type="text"
-            name="rg"
-            formControlName="rgLegalGuardian"
-            class="form-control form-control-sm input"
-          />
-          <div
-            *ngIf="
+          <input type="text" name="rg" formControlName="rgLegalGuardian" class="form-control form-control-sm input" />
+          <div *ngIf="
               studentForm.get('rgLegalGuardian')?.errors &&
               studentForm.get('rgLegalGuardian')?.touched
-            "
-            class="validators"
-          >
+            " class="validators">
             RG obrigatório
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-dark d-flex align-items-center rounded-pill"
-        id="outline"
-        style="
+      <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" id="outline" style="
           height: min-content;
           width: 6rem;
           align-items: center;
           justify-content: center;
-        "
-        *ngIf="guardian"
-        (click)="GuardianBack()"
-        aria-label="Close"
-      >
+        " *ngIf="guardian" (click)="GuardianBack()" aria-label="Close">
         voltar
       </button>
 
-      <button
-        type="button"
-        class="btn btn-dark d-flex align-items-center rounded-pill"
-        style="
+      <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
           height: min-content;
           width: 6rem;
           align-items: center;
           justify-content: center;
-        "
-        *ngIf="inicial"
-        (click)="Guardian()"
-        [disabled]="!studentForm.valid"
-        aria-label="Close"
-      >
+        " *ngIf="inicial" (click)="Guardian()" [disabled]="!studentForm.valid" aria-label="Close">
         <span *ngIf="!loading">enviar</span>
         <div style="height: 1.5rem">
-          <div
-            class="spinner-border spinner-border-sm"
-            role="status"
-            *ngIf="loading"
-          ></div>
+          <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading"></div>
         </div>
       </button>
 
-      <button
-        type="button"
-        class="btn btn-dark d-flex align-items-center rounded-pill"
-        style="
+      <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
           height: min-content;
           width: 6rem;
           align-items: center;
           justify-content: center;
-        "
-        *ngIf="guardian"
-        aria-label="Close"
-        (click)="onSubmit()"
-      >
+        " *ngIf="guardian" aria-label="Submit" (click)="onSubmit()">
         enviar
       </button>
     </div>
