@@ -4,7 +4,8 @@
   "info": {
     "singularName": "schedule",
     "pluralName": "schedules",
-    "displayName": "Schedule"
+    "displayName": "Schedule",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -29,6 +30,18 @@
     },
     "Frequency": {
       "type": "string"
+    },
+    "Student": {
+      "type": "string",
+      "required": true
+    },
+    "Teacher": {
+      "type": "string",
+      "required": true
+    },
+    "Room": {
+      "type": "string",
+      "required": true
     }
   }
 }
