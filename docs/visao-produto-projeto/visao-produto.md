@@ -47,21 +47,12 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 ## Estratégia de Testes
 
-####MVP1 
-
-| Tipos de Teste | Níveis de Teste | Técnicas de Testes |
-| -------------------------- | ------------- | ------------------------------------------ |
-| Funcional | - Sistema; </br> - Aceitação; </br> - Integração | - Caixa Preta; </br> - Manual; </br> - Automático. |
-| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | 
-
-####MVP2
-
-| Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva |
-| -------------------------- | ------------- | -------------------------------- | --------- | -----------|
-| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Manual; </br> - Manual; </br> - Automático. | - Qualidade Interna;</br> - Qualidade Interna; </br> - Qualidade Interna. | - Negócio; </br> - Negócio; </br> - Técnico. |
-| Usabilidade | - Sistema. | - Caixa Preta; </br> - Manual. | - Externa; </br> - Externa. | - Negócio; </br> - Negócio. |
-| Confiabilidade | - Unitário; </br> - Integração; </br> - Aceitação. | - Automático; </br> - Automático; </br> - Manual. | - Interna; </br> - Interna; </br> - Interna. | - Técnico; </br> - Técnico; </br> - Técnico. |
-| Suportabilidade | - Sistema; </br> - Aceitação. | - Manual; </br> - Manual. | - Interna; </br> - Interna. | - Negócio; </br> - Negócio. |
+| Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva | Escopo |
+| -------------------------- | ------------- | -------------------------------- | --------- | -----------| -------- |
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Manual; </br> - Manual; </br> - Automático. | - Qualidade Externa;</br> - Qualidade Externa; </br> - Qualidade Interna. | - Negócio; </br> - Negócio; </br> - Técnico. | MVP 1 e 2 |
+| Usabilidade | - Aceitação. | - Manual. | - Qualidade Externa. | - Negócio. | MVP 2: RNF's 02,03,04,05,e 06|
+| Confiabilidade | - Sistema. | - Manual,Caixa Branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF's 08,09 e 10 |
+| Suportabilidade | - Sistema; | - Manual,Caixa branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF07 |
 
 
 ## Ferramentas
