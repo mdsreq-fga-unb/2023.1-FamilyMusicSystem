@@ -110,7 +110,7 @@ tr:nth-child(even) {
   align-items: center;
 }
 
-.schedulesTitle {
+.MuralsTitle {
   display: flex;
   align-items: center;
   align-self: center;
@@ -154,7 +154,7 @@ tr:nth-child(even) {
   border-radius: 50%;
 }
 
-#researchSchedules {
+#researchMurals {
   color: var(--contrast);
   border: none;
 }
@@ -194,7 +194,7 @@ tr:nth-child(even) {
   flex-direction: row;
 }
 
-#researchSchedules {
+#researchMurals {
   padding-left: 2.2rem;
   background: var(--secondary);
   border-radius: 2rem;
@@ -275,7 +275,7 @@ tr:nth-child(even) {
   .personIcon {
     transform: scale(1.25);
   }
-  #researchSchedules {
+  #researchMurals {
     width: 10rem;
     margin-left: 0.1rem !important;
   }
@@ -307,7 +307,7 @@ tr:nth-child(even) {
   .button-text {
     display: none;
   }
-  #researchSchedules {
+  #researchMurals {
     width: 3rem;
     margin-left: 0.1rem !important;
   }
