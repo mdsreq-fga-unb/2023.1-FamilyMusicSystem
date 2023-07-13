@@ -1,20 +1,20 @@
-import { Schedule } from "./../../../models/schedule";
-import { CookieService } from "./../../../services/cookie.service";
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { Subject, catchError, map, tap } from "rxjs";
+import { Schedule } from './../../../models/schedule';
+import { CookieService } from './../../../services/cookie.service';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subject, catchError, map, tap } from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { Room } from "../../../models/room";
-import { Teacher } from "../../../models/teacher";
-import { Student } from "../../../models/student";
-import { DataSharingService } from "../../../services/data-sharing.service";
-import * as moment from "moment";
+} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { Room } from '../../../models/room';
+import { Teacher } from '../../../models/teacher';
+import { Student } from '../../../models/student';
+import { DataSharingService } from '../../../services/data-sharing.service';
+import * as moment from 'moment';
 
 class Entry<T> {
   id: number;
@@ -32,20 +32,20 @@ class ResponseRoom {
 }
 
 @Component({
-  selector: "app-schedule-view",
-  templateUrl: "./schedule-view.component.html",
-  styleUrls: ["./schedule-view.component.scss"],
+  selector: 'app-schedule-view',
+  templateUrl: './schedule-view.component.html',
+  styleUrls: ['./schedule-view.component.scss'],
 })
 export class ScheduleViewComponent implements OnInit {
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   prefixoUrlRoom =
-    "https://20231-familymusicsystem-production.up.railway.app/api/rooms";
+    'https://20231-familymusicsystem-production.up.railway.app/api/rooms';
 
   prefixoUrlStudent =
-    "https://20231-familymusicsystem-production.up.railway.app/api/students";
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   prefixoUrlTeacher =
-    "https://20231-familymusicsystem-production.up.railway.app/api/teachers";
+    'https://20231-familymusicsystem-production.up.railway.app/api/teachers';
   public onClose: Subject<boolean>;
   public edicao = false;
   public inicial = true;
@@ -74,38 +74,38 @@ export class ScheduleViewComponent implements OnInit {
     private cookieService: CookieService,
     private dataSharingService: DataSharingService
   ) {
-    this.dataAtual = new Date().toISOString().split("T")[0];
+    this.dataAtual = new Date().toISOString().split('T')[0];
   }
 
   headers() {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     let headers = new HttpHeaders();
-    headers = headers.append("Authorization", `Bearer ${jwt}`);
-    const opts = { headers: headers, params: { populate: "*" } };
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
     return opts;
   }
 
   getHeaders(): HttpHeaders {
-    const jwt = this.cookieService.getCookie("jwt");
-    const headers = new HttpHeaders().set("Authorization", `Bearer ${jwt}`);
+    const jwt = this.cookieService.getCookie('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
     return headers;
   }
 
   ngOnInit(): void {
     const formattedHorary = moment(this.schedule?.Horary).format(
-      "YYYY-MM-DDTHH:mm"
+      'YYYY-MM-DDTHH:mm'
     );
     this.scheduleForm = this.fb.group({
       ID_Student: [
-        { value: this.schedule?.StudentObject.id, disabled: !this.edit },
+        { value: this.schedule?.Student, disabled: !this.edit },
         Validators.required,
       ],
       ID_Teacher: [
-        { value: this.schedule?.TeacherObject.id, disabled: !this.edit },
+        { value: this.schedule?.Teacher, disabled: !this.edit },
         Validators.required,
       ],
       ID_Room: [
-        { value: this.schedule?.RoomObject.id, disabled: !this.edit },
+        { value: this.schedule?.Room, disabled: !this.edit },
         Validators.required,
       ],
       Horary: [
@@ -128,21 +128,42 @@ export class ScheduleViewComponent implements OnInit {
     this.getRoom();
   }
 
+  separar(str: string, propriedade: 'id' | 'name'): string {
+    const [id, name] = str.split('-');
+    return propriedade === 'id' ? id : name;
+  }
+
   onEdit($schedule: Schedule): void {
     const schedule: Schedule = new Schedule();
     const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
     const headers = this.getHeaders();
     const requestOptions = { headers };
 
-    schedule.ID_Student = this.scheduleForm
-      .get("ID_Student")
-      ?.value?.toString();
-    schedule.ID_Teacher = this.scheduleForm
-      .get("ID_Teacher")
-      ?.value?.toString();
-    schedule.ID_Room = this.scheduleForm.get("ID_Room")?.value?.toString();
-    schedule.Horary = this.scheduleForm.get("Horary")?.value;
-
+    schedule.ID_Student = this.separar(
+      this.scheduleForm.get('ID_Student')?.value?.toString(),
+      'id'
+    );
+    schedule.Student = this.separar(
+      this.scheduleForm.get('ID_Student')?.value?.toString(),
+      'name'
+    );
+    schedule.ID_Teacher = this.separar(
+      this.scheduleForm.get('ID_Teacher')?.value?.toString(),
+      'id'
+    );
+    schedule.Teacher = this.separar(
+      this.scheduleForm.get('ID_Teacher')?.value?.toString(),
+      'name'
+    );
+    schedule.ID_Room = this.separar(
+      this.scheduleForm.get('ID_Room')?.value?.toString(),
+      'id'
+    );
+    schedule.Room = this.separar(
+      this.scheduleForm.get('ID_Room')?.value?.toString(),
+      'name'
+    );
+    schedule.Horary = this.scheduleForm.get('Horary')?.value;
     const body = {
       data: schedule,
     };

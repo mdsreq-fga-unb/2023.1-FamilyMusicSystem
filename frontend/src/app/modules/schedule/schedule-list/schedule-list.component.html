@@ -82,7 +82,7 @@
                 {{ i + 1 }}
               </th>
               <td scope="row" class="num">
-                {{ schedule.RoomObject.Name }}
+                {{ schedule.Room }}
               </td>
               <td
                 class="button"
@@ -90,10 +90,10 @@
                 cursor="pointer"
                 class="selectedProfile"
               >
-                {{ schedule.TeacherObject.Name }}
+                {{ schedule.Teacher }}
               </td>
               <td class="nomobile">
-                {{ schedule.StudentObject.Name }}
+                {{ schedule.Student }}
               </td>
               <td>{{ date(schedule.Horary) }}</td>
               <td>

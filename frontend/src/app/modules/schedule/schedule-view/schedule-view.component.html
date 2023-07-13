@@ -24,8 +24,12 @@
             formControlName="ID_Room"
             class="form-control form-control-sm input"
             *ngIf="rooms$ | async as rooms"
+            multiple
           >
-            <option *ngFor="let room of rooms" [value]="room.id">
+            <option
+              *ngFor="let room of rooms"
+              [value]="room.id + '-' + room.Name"
+            >
               {{ room.Name }}
             </option>
           </select>
@@ -47,8 +51,12 @@
             formControlName="ID_Student"
             class="form-control form-control-sm input"
             *ngIf="students$ | async as students"
+            multiple
           >
-            <option *ngFor="let student of students" [value]="student.id">
+            <option
+              *ngFor="let student of students"
+              [value]="student.id + '-' + student.Name"
+            >
               {{ student.Name }}
             </option>
           </select>
@@ -69,8 +77,12 @@
             formControlName="ID_Teacher"
             class="form-control form-control-sm input"
             *ngIf="teachers$ | async as teachers"
+            multiple
           >
-            <option *ngFor="let teacher of teachers" [value]="teacher.id">
+            <option
+              *ngFor="let teacher of teachers"
+              [value]="teacher.id + '-' + teacher.Name"
+            >
               {{ teacher.Name }}
             </option>
           </select>
