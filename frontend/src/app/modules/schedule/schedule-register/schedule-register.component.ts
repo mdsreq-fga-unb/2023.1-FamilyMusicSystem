@@ -1,3 +1,4 @@
+import { Schedule } from "./../../../models/schedule";
 import { CookieService } from "./../../../services/cookie.service";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -9,7 +10,6 @@ import {
   HttpHeaders,
 } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { Schedule } from "../../../models/schedule";
 import { Room } from "../../../models/room";
 import { Teacher } from "../../../models/teacher";
 import { Student } from "../../../models/student";
@@ -49,8 +49,8 @@ export class ScheduleRegisterComponent implements OnInit {
   public edicao = false;
   public inicial = true;
   public guardian = false;
-  public lesson: Schedule;
-  public lessonForm: FormGroup;
+  public Schedule: Schedule;
+  public scheduleForm: FormGroup;
   public valid: boolean = false;
   Rooms$: Observable<Room[]> | undefined;
   teachers$: Observable<Teacher[]> | undefined;
@@ -73,7 +73,7 @@ export class ScheduleRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.lessonForm = this.fb.group({
+    this.scheduleForm = this.fb.group({
       nameRoom: [null, Validators.required],
       nameTeacher: [null, [Validators.required, Validators.email]],
       date: [null, [Validators.required]],
@@ -87,10 +87,10 @@ export class ScheduleRegisterComponent implements OnInit {
 
   onSubmit(): void {
     const lesson: Schedule = new Schedule();
-    lesson.Student = this.lessonForm.get("nameStudent")?.value;
-    lesson.Teacher = this.lessonForm.get("nameTeacher")?.value;
-    lesson.Room = this.lessonForm.get("nameRoom")?.value;
-    lesson.Horary = this.lessonForm.get("date")?.value;
+    lesson.ID_Student = this.scheduleForm.get("nameStudent")?.value;
+    lesson.ID_Teacher = this.scheduleForm.get("nameTeacher")?.value;
+    lesson.ID_Room = this.scheduleForm.get("nameRoom")?.value;
+    lesson.Horary = this.scheduleForm.get("date")?.value;
     const body = {
       data: lesson,
     };

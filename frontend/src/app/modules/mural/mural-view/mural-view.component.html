@@ -22,8 +22,8 @@
 
                 <div class="col-md-6">
                     <label class="m-0 tittle-input" for="message">Mensagem<b>*</b></label>
-                    <input type="text" name="message" formControlName="muralMessage"
-                        class="form-control form-control-sm input" />
+                    <textarea type="text" name="message" formControlName="muralMessage"
+                        class="form-control form-control-sm input" ></textarea>
                     <div *ngIf="
                 muralForm.get('muralMessage')?.errors &&
                 muralForm.get('muralMessage')?.touched
@@ -44,12 +44,15 @@
             </button>
 
             <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill" style="
-            height: min-content;
-            width: 6rem;
-            align-items: center;
-            justify-content: center;
-          " aria-label="Close" (click)="salvar()" [disabled]="!muralForm.valid">
-                enviar
+          height: min-content;
+          width: 6rem;
+          align-items: center;
+          justify-content: center;
+        " aria-label="Close" (click)="onEdit(mural)" [disabled]="!muralForm.valid">
+                <span *ngIf="!loading">enviar</span>
+                <div style="height: 1.5rem">
+                    <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading"></div>
+                </div>
             </button>
         </div>
     </div>

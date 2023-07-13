@@ -48,7 +48,7 @@ export class MuralListComponent implements OnInit {
   public mural$: Observable<Mural[]> | undefined;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlMural =
-    "https://20231-familymusicsystem-production.up.railway.app/api/mural";
+    "https://20231-familymusicsystem-production.up.railway.app/api/murals";
 
   constructor(
     private modalService: BsModalService,
@@ -101,7 +101,7 @@ export class MuralListComponent implements OnInit {
 
   search() {
     this.getMural(
-      `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
+      `?filters[Title][$startsWithi][0]=${this.searchForm.get("search")?.value}`
     );
   }
 
