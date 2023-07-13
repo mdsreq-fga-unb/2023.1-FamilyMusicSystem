@@ -10,49 +10,6 @@
             <mat-icon class="personIcon">calendar_today</mat-icon>
             <p class="title">Agenda</p>
           </div>
-          <form
-            class="d-flex"
-            role="search"
-            [formGroup]="searchForm"
-            (ngSubmit)="search()"
-          >
-            <div class="search-container">
-              <input
-                class="form-control me-3"
-                id="researchSchedules"
-                formControlName="search"
-                type="search"
-                aria-label="Search"
-              />
-              <i class="material-icons search-icon">search</i>
-            </div>
-            <button
-              type="button"
-              (click)="search()"
-              (keydown.enter)="search()"
-              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
-              style="
-                height: min-content;
-                margin-left: 0.5rem;
-                border: none;
-                width: 5rem;
-                align-items: center;
-                justify-content: center;
-              "
-            >
-              <mat-icon class="mobile">search</mat-icon>
-              <span class="button-text">buscar</span>
-            </button>
-            <button
-              type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              (click)="modalFilterSala()"
-              id="outline"
-            >
-              <mat-icon class="mobile">filter_list</mat-icon>
-              <span class="button-text">filtrar</span>
-            </button>
-          </form>
         </div>
         <div
           class="btn-group"
@@ -60,6 +17,15 @@
           aria-label="Basic example"
           style="height: max-content; align-items: center"
         >
+          <button
+            type="button"
+            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+            (click)="modalFilterSala()"
+            id="outline"
+          >
+            <mat-icon class="mobile">filter_list</mat-icon>
+            <span class="button-text">filtrar</span>
+          </button>
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
@@ -116,7 +82,7 @@
                 {{ i + 1 }}
               </th>
               <td scope="row" class="num">
-                {{ schedule.RoomObject.Name }}
+                {{ schedule.Room }}
               </td>
               <td
                 class="button"
@@ -124,10 +90,10 @@
                 cursor="pointer"
                 class="selectedProfile"
               >
-                {{ schedule.TeacherObject.Name }}
+                {{ schedule.Teacher }}
               </td>
               <td class="nomobile">
-                {{ schedule.StudentObject.Name }}
+                {{ schedule.Student }}
               </td>
               <td>{{ date(schedule.Horary) }}</td>
               <td>
