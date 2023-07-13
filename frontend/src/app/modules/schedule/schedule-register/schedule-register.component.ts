@@ -13,22 +13,21 @@ import { Observable, of } from "rxjs";
 import { Room } from "../../../models/room";
 import { Teacher } from "../../../models/teacher";
 import { Student } from "../../../models/student";
+import { DataSharingService } from "../../../services/data-sharing.service";
 
 class Entry<T> {
   id: number;
   attributes: T;
 }
-
-class Response {
-  data: Entry<Room>[];
-}
-
-class Response2 {
+class ResponseStudent {
   data: Entry<Student>[];
 }
-
-class Response3 {
+class ResponseTeacher {
   data: Entry<Teacher>[];
+}
+
+class ResponseRoom {
+  data: Entry<Room>[];
 }
 
 @Component({
@@ -37,8 +36,9 @@ class Response3 {
   styleUrls: ["./schedule-register.component.scss"],
 })
 export class ScheduleRegisterComponent implements OnInit {
+  public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   prefixoUrlRoom =
-    "https://20231-familymusicsystem-production.up.railway.app/api/classrooms";
+    "https://20231-familymusicsystem-production.up.railway.app/api/rooms";
 
   prefixoUrlStudent =
     "https://20231-familymusicsystem-production.up.railway.app/api/students";
@@ -52,7 +52,12 @@ export class ScheduleRegisterComponent implements OnInit {
   public Schedule: Schedule;
   public scheduleForm: FormGroup;
   public valid: boolean = false;
-  Rooms$: Observable<Room[]> | undefined;
+  public showAlert: boolean = false;
+  public nome: string;
+  public dataAtual: string;
+  public loading: boolean = false;
+
+  rooms$: Observable<Room[]> | undefined;
   teachers$: Observable<Teacher[]> | undefined;
   students$: Observable<Student[]> | undefined;
 
@@ -61,8 +66,11 @@ export class ScheduleRegisterComponent implements OnInit {
     private bsModalRef: BsModalRef,
     private fb: FormBuilder,
     private http: HttpClient,
-    private cookieService: CookieService
-  ) {}
+    private cookieService: CookieService,
+    private dataSharingService: DataSharingService
+  ) {
+    this.dataAtual = new Date().toISOString().split("T")[0];
+  }
 
   headers() {
     const jwt = this.cookieService.getCookie("jwt");
@@ -72,12 +80,18 @@ export class ScheduleRegisterComponent implements OnInit {
     return opts;
   }
 
+  getHeaders(): HttpHeaders {
+    const jwt = this.cookieService.getCookie("jwt");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${jwt}`);
+    return headers;
+  }
+
   ngOnInit(): void {
     this.scheduleForm = this.fb.group({
-      nameRoom: [null, Validators.required],
-      nameTeacher: [null, [Validators.required, Validators.email]],
-      date: [null, [Validators.required]],
-      nameStudent: [null, Validators.required],
+      ID_Student: [null, Validators.required],
+      ID_Teacher: [null, Validators.required],
+      ID_Room: [null, Validators.required],
+      Horary: [null, Validators.required],
     });
 
     this.getStudent();
@@ -86,86 +100,125 @@ export class ScheduleRegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const lesson: Schedule = new Schedule();
-    lesson.ID_Student = this.scheduleForm.get("nameStudent")?.value;
-    lesson.ID_Teacher = this.scheduleForm.get("nameTeacher")?.value;
-    lesson.ID_Room = this.scheduleForm.get("nameRoom")?.value;
-    lesson.Horary = this.scheduleForm.get("date")?.value;
+    const schedule: Schedule = new Schedule();
+    const baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
+    const headers = this.getHeaders();
+    const requestOptions = { headers };
+
+    schedule.ID_Student = this.scheduleForm
+      .get("ID_Student")
+      ?.value?.toString();
+    schedule.ID_Teacher = this.scheduleForm
+      .get("ID_Teacher")
+      ?.value?.toString();
+    schedule.ID_Room = this.scheduleForm.get("ID_Room")?.value?.toString();
+    schedule.Horary = this.scheduleForm.get("Horary")?.value;
     const body = {
-      data: lesson,
+      data: schedule,
     };
 
-    this.http
-      .post(
-        "https://20231-familymusicsystem-production.up.railway.app/api/lessons",
-        body,
-        this.headers()
-      )
-      .subscribe(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          this.handleError(error);
-        }
-      );
-  }
-
-  getRoom(args?: string) {
-    this.Rooms$ = this.http
-      .get<Response>(
-        args ? `${this.prefixoUrlRoom}${args}` : this.prefixoUrlRoom,
-        this.headers()
-      )
-      .pipe(
-        catchError((error) => this.handleError(error)),
-        tap((response: Response) => {
-          response.data.forEach((room) => {
-            room.attributes.id = room.id;
-          });
-        }),
-        map((response: Response) =>
-          response.data.map((room) => room.attributes)
-        )
-      );
+    this.http.post(`${baseUrl}/api/schedules/`, body, requestOptions).subscribe(
+      () => {
+        this.dataSharingService.ifshowAlertAdd = true;
+        this.showAlert = true;
+        this.loading = true;
+        this.bsModalRef.hide();
+      },
+      (error) => {
+        this.handleError(error);
+      }
+    );
   }
 
   getStudent(args?: string) {
+    this.loading = true;
+
     this.students$ = this.http
-      .get<Response2>(
+      .get<ResponseStudent>(
         args ? `${this.prefixoUrlStudent}${args}` : this.prefixoUrlStudent,
         this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
-        tap((response: Response2) => {
+        tap((response: ResponseStudent) => {
           response.data.forEach((student) => {
             student.attributes.id = student.id;
           });
         }),
-        map((response: Response2) =>
+        map((response: ResponseStudent) =>
           response.data.map((student) => student.attributes)
         )
       );
+
+    this.students$.subscribe(
+      () => {
+        this.loading = false;
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
 
   getTeacher(args?: string) {
+    this.loading = true;
+
     this.teachers$ = this.http
-      .get<Response3>(
+      .get<ResponseTeacher>(
         args ? `${this.prefixoUrlTeacher}${args}` : this.prefixoUrlTeacher,
         this.headers()
       )
       .pipe(
         catchError((error) => this.handleError(error)),
-        tap((response: Response3) => {
+        tap((response: ResponseTeacher) => {
           response.data.forEach((teacher) => {
             teacher.attributes.id = teacher.id;
           });
         }),
-        map((response: Response3) =>
+        map((response: ResponseTeacher) =>
           response.data.map((teacher) => teacher.attributes)
         )
       );
+
+    this.teachers$.subscribe(
+      () => {
+        this.loading = false;
+      },
+      () => {
+        this.loading = false;
+      }
+    );
+  }
+
+  getRoom(args?: string) {
+    this.loading = true;
+
+    this.rooms$ = this.http
+      .get<ResponseRoom>(
+        args ? `${this.prefixoUrlRoom}${args}` : this.prefixoUrlRoom,
+        this.headers()
+      )
+      .pipe(
+        catchError((error) => this.handleError(error)),
+        tap((response: ResponseRoom) => {
+          response.data.forEach((room) => {
+            room.attributes.id = room.id;
+          });
+        }),
+        map((response: ResponseRoom) =>
+          response.data.map((room) => room.attributes)
+        )
+      );
+
+    this.rooms$.subscribe(
+      (room) => {
+        this.loading = false;
+        console.log(room);
+      },
+      () => {
+        this.loading = false;
+      }
+    );
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -175,5 +228,10 @@ export class ScheduleRegisterComponent implements OnInit {
 
   sair() {
     this.bsModalRef.hide();
+  }
+
+  salvar() {
+    this.showAlert = true;
+    this.onSubmit();
   }
 }

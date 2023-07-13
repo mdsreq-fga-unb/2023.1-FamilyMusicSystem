@@ -29,7 +29,6 @@ export class RoomRegisterComponent implements OnInit {
   public inicial = true;
   public dataAtual: string;
   public loading: boolean = false;
-  public file: File;
 
   error: any | undefined;
   constructor(

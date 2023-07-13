@@ -1,89 +1,107 @@
 <body class="corpo">
-    <div class="content" id="scroll">
-      <div class="modal-header">
-        <h2 class="modal-title">
-          <mat-icon class="icon">person</mat-icon>Informações da Aula
-        </h2>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="lessonForm" class="form-row">
-            <div class="col-md-6" >
-              <label class="m-0 tittle-input" for="nameRoom"
-                >Numero da Sala<b>*</b></label
-              >
-              <input
-                type="text"
-                name="nameRoom"
-                formControlName="nameRoom"
-                class="form-control form-control-sm input"
-              />
-              <div
-                *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
-                class="validators"
-              >
-                Número obrigatório
-              </div>
-            </div>
+  <button
+    type="button"
+    class="btn-close text-reset"
+    (click)="sair()"
+    aria-label="Close"
+    id="close"
+  ></button>
+  <div class="content" id="scroll">
+    <div class="modal-header">
+      <h2 class="modal-title">
+        <mat-icon class="icon">calendar_today</mat-icon>Informações
+      </h2>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="scheduleForm" class="form-row">
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="ID_Room"
+            >Número da Sala<b>*</b></label
+          >
+          <select
+            name="ID_Room"
+            id="room"
+            formControlName="ID_Room"
+            class="form-control form-control-sm input"
+            *ngIf="rooms$ | async as rooms"
+          >
+            <option *ngFor="let room of rooms" [value]="room.id">
+              {{ room.Name }}
+            </option>
+          </select>
+          <div
+            *ngIf="scheduleForm.get('ID_Room')?.errors?.['required'] && scheduleForm.get('ID_Room')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
 
-            <div class="col-md-6" >
-              <label class="m-0 tittle-input" for="name"
-                >Data da Aula<b>*</b></label
-              >
-              <input
-                type="date"
-                name="name"
-                formControlName="date"
-                class="form-control form-control-sm input"
-              />
-              <div
-                *ngIf="lessonForm.get('nameRoom')?.errors?.['required'] && lessonForm.get('nameRoom')?.touched"
-                class="validators"
-              >
-                Data obrigatória
-              </div>
-            </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="ID_Student"
+            >Estudante<b>*</b></label
+          >
+          <select
+            id="student"
+            name="ID_Student"
+            formControlName="ID_Student"
+            class="form-control form-control-sm input"
+            *ngIf="students$ | async as students"
+          >
+            <option *ngFor="let student of students" [value]="student.id">
+              {{ student.Name }}
+            </option>
+          </select>
+          <div
+            *ngIf="scheduleForm.get('ID_Student')?.errors?.['required'] && scheduleForm.get('ID_Student')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
 
-            <div class="col-md-6">
-              <label class="m-0 tittle-input" for="disabledPerson"
-                >Professor<b>*</b></label
-              >
-              <select
-                name="disabledPerson"
-                formControlName="nameTeacher"
-                class="form-control form-control-sm input"
-                *ngIf="teachers$ | async as teachers"
-              >
-                  <option *ngFor="let teacher of teachers" [value]="teacher.Name">{{ teacher.Name }}</option>
-              </select>
-              <div
-                *ngIf="lessonForm.get('nameTeacher')?.errors?.['required'] && lessonForm.get('nameTeacher')?.touched"
-                class="validators"
-              >
-                Seleção obrigatória
-              </div>
-            </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="ID_Teacher"
+            >Professor<b>*</b></label
+          >
+          <select
+            name="ID_Teacher"
+            formControlName="ID_Teacher"
+            class="form-control form-control-sm input"
+            *ngIf="teachers$ | async as teachers"
+          >
+            <option *ngFor="let teacher of teachers" [value]="teacher.id">
+              {{ teacher.Name }}
+            </option>
+          </select>
+          <div
+            *ngIf="scheduleForm.get('ID_Teacher')?.errors?.['required'] && scheduleForm.get('ID_Teacher')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
 
-            <div class="col-md-6" >
-              <label class="m-0 tittle-input" for="gender">Estudante<b>*</b></label>
-              <select
-              name="disabledPerson"
-              formControlName="nameStudent"
-              class="form-control form-control-sm input"
-              *ngIf="students$ | async as students"
-            >
-                <option *ngFor="let student of students" [value]="student.Name">{{ student.Name }}</option>
-            </select>
-              <div
-                *ngIf="lessonForm.get('nameStudent')?.errors?.['required'] && lessonForm.get('nameStudent')?.touched"
-                class="validators"
-              >
-                Seleção obrigatória
-              </div>
-            </div>
-
-
-          </form>
-      </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="Horary"
+            >Data da Aula<b>*</b></label
+          >
+          <input
+            type="datetime-local"
+            name="Horary"
+            formControlName="Horary"
+            class="form-control form-control-sm input"
+          />
+          <div
+            *ngIf="scheduleForm.get('Horary')?.errors?.['required'] && scheduleForm.get('Horary')?.touched"
+            class="validators"
+          >
+            Data obrigatória
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
       <div class="modal-footer">
         <button
           type="button"
@@ -100,7 +118,6 @@
           sair
         </button>
 
-
         <button
           type="button"
           class="btn btn-dark d-flex align-items-center rounded-pill"
@@ -111,11 +128,20 @@
             justify-content: center;
           "
           aria-label="Close"
-          (click)="onEdit(lesson)"
-          (click)="sair()"
+          [disabled]="!isFormValid && !canEdit"
+          (click)="onEdit(schedule)"
+          *ngIf="edit"
         >
-          salvar
+          <span *ngIf="!loading">enviar</span>
+          <div style="height: 1.5rem">
+            <div
+              class="spinner-border spinner-border-sm"
+              role="status"
+              *ngIf="loading"
+            ></div>
+          </div>
         </button>
       </div>
     </div>
-  </body>
+  </div>
+</body>

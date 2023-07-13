@@ -6,6 +6,7 @@ import {
 import { Component, OnInit } from "@angular/core";
 import { catchError, forkJoin, from, map, Observable, of } from "rxjs";
 import {
+  defaultIfEmpty,
   mergeMap,
   publishReplay,
   refCount,
@@ -96,7 +97,7 @@ export class ScheduleListComponent implements OnInit {
   }
 
   date(date: string) {
-    const formattedDate = format(Date.parse(date), `HH':'mm '-' dd'/'MM`, {
+    const formattedDate = format(Date.parse(date), `dd'/'MM '-' HH':'mm`, {
       locale: pt,
     });
     return formattedDate;
@@ -125,49 +126,59 @@ export class ScheduleListComponent implements OnInit {
 
     this.schedules$ = scheduleRequest.pipe(
       mergeMap((schedules) => {
-        const roomRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseRoom>(
-              `${this.prefixoUrlRoom}${schedule.ID_Room}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((room: ResponseRoom) => {
-                room.data.attributes.id = room.data.id;
-              }),
-              map((room: ResponseRoom) => room.data.attributes)
-            )
+        if (schedules.length === 0) {
+          return of([]); // Retorna um array vazio se não houver registros na agenda
+        }
+
+        const roomRequests = schedules.map(
+          (schedule) =>
+            this.http
+              .get<ResponseRoom>(
+                `${this.prefixoUrlRoom}${schedule.ID_Room}`,
+                this.headers()
+              )
+              .pipe(
+                catchError((error) => this.handleError(error)),
+                tap((room: ResponseRoom) => {
+                  room.data.attributes.id = room.data.id;
+                }),
+                map((room: ResponseRoom) => room.data.attributes)
+              ),
+          shareReplay(1)
         );
 
-        const studentRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseStudent>(
-              `${this.prefixoUrlStudent}${schedule.ID_Student}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((student: ResponseStudent) => {
-                student.data.attributes.id = student.data.id;
-              }),
-              map((student: ResponseStudent) => student.data.attributes)
-            )
+        const studentRequests = schedules.map(
+          (schedule) =>
+            this.http
+              .get<ResponseStudent>(
+                `${this.prefixoUrlStudent}${schedule.ID_Student}`,
+                this.headers()
+              )
+              .pipe(
+                catchError((error) => this.handleError(error)),
+                tap((student: ResponseStudent) => {
+                  student.data.attributes.id = student.data.id;
+                }),
+                map((student: ResponseStudent) => student.data.attributes)
+              ),
+          shareReplay(1)
         );
 
-        const teacherRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseTeacher>(
-              `${this.prefixoUrlTeacher}${schedule.ID_Teacher}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((teacher: ResponseTeacher) => {
-                teacher.data.attributes.id = teacher.data.id;
-              }),
-              map((teacher: ResponseTeacher) => teacher.data.attributes)
-            )
+        const teacherRequests = schedules.map(
+          (schedule) =>
+            this.http
+              .get<ResponseTeacher>(
+                `${this.prefixoUrlTeacher}${schedule.ID_Teacher}`,
+                this.headers()
+              )
+              .pipe(
+                catchError((error) => this.handleError(error)),
+                tap((teacher: ResponseTeacher) => {
+                  teacher.data.attributes.id = teacher.data.id;
+                }),
+                map((teacher: ResponseTeacher) => teacher.data.attributes)
+              ),
+          shareReplay(1)
         );
 
         return forkJoin(roomRequests).pipe(
@@ -198,7 +209,8 @@ export class ScheduleListComponent implements OnInit {
             )
           )
         );
-      })
+      }),
+      defaultIfEmpty([]) // Retorna um array vazio se o observable estiver vazio após as transformações
     );
 
     this.schedules$.subscribe(
