@@ -1,15 +1,55 @@
-<div *ngIf="loading">
-  <app-preloader />
-</div>
-<div class="content-content" *ngIf="!loading">
+<div class="content-content">
   <body>
     <div class="container-fluid">
       <div class="container">
         <div class="right">
-          <div class="schedulesTitle">
-            <mat-icon class="personIcon">calendar_today</mat-icon>
-            <p class="title">Agenda</p>
+          <div class="MuralsTitle">
+            <mat-icon class="personIcon">dashboard</mat-icon>
+            <p class="title">Mural</p>
           </div>
+          <form
+            class="d-flex"
+            role="search"
+            [formGroup]="searchForm"
+            (ngSubmit)="search()"
+          >
+            <div class="search-container">
+              <input
+                class="form-control me-3"
+                id="researchMurals"
+                formControlName="search"
+                type="search"
+                aria-label="Search"
+              />
+              <i class="material-icons search-icon">search</i>
+            </div>
+            <button
+              type="button"
+              (click)="search()"
+              (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
+              style="
+                height: min-content;
+                margin-left: 0.5rem;
+                border: none;
+                width: 5rem;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <mat-icon class="mobile">search</mat-icon>
+              <span class="button-text">buscar</span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              (click)="modalFilterMural()"
+              id="outline"
+            >
+              <mat-icon class="mobile">filter_list</mat-icon>
+              <span class="button-text">filtrar</span>
+            </button>
+          </form>
         </div>
         <div
           class="btn-group"
@@ -17,15 +57,6 @@
           aria-label="Basic example"
           style="height: max-content; align-items: center"
         >
-          <button
-            type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            (click)="modalFilterSala()"
-            id="outline"
-          >
-            <mat-icon class="mobile">filter_list</mat-icon>
-            <span class="button-text">filtrar</span>
-          </button>
           <button
             type="button"
             class="btn btn-dark d-flex align-items-center rounded-pill buttons"
@@ -53,7 +84,7 @@
               height: 36px;
               align-self: center;
             "
-            (click)="modalAddAgenda()"
+            (click)="modalAddMural()"
           >
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
@@ -66,43 +97,37 @@
           <thead>
             <tr>
               <th scope="col" style="padding-left: 1.2rem">Nº</th>
-              <th scope="col" style="padding-left: 1.2rem">Sala</th>
-              <th scope="col">Professor</th>
-              <th scope="col" class="nomobile">Aluno</th>
+              <th scope="col" class="nomobile">Título</th>
               <th scope="col">Data</th>
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody *ngIf="schedules$ | async as schedules">
-            <tr
-              class="selected"
-              *ngFor="let schedule of schedules; let i = index"
-            >
+          <tbody *ngIf="mural$ | async as mural">
+            <tr class="selected" *ngFor="let mural of mural; let i = index">
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
-              <td scope="row" class="num">
-                {{ schedule.Room }}
-              </td>
               <td
                 class="button"
-                (click)="modalEditAgenda(schedule, false)"
+                (click)="modalEditMural(mural, false)"
                 cursor="pointer"
                 class="selectedProfile"
               >
-                {{ schedule.Teacher }}
+                {{ mural.Title }}
               </td>
-              <td class="nomobile">
-                {{ schedule.Student }}
+              <td
+                class="button"
+                (click)="modalEditMural(mural, false)"
+                cursor="pointer"
+                class="selectedProfile"
+              >
+                {{ mural.Date }}
               </td>
-              <td>{{ date(schedule.Horary) }}</td>
               <td>
-                <mat-icon
-                  (click)="modalEditAgenda(schedule, true)"
-                  class="delete"
+                <mat-icon (click)="modalEditMural(mural, true)" class="delete"
                   >edit</mat-icon
                 >
-                <mat-icon (click)="deleteSchedule(schedule)" class="delete"
+                <mat-icon (click)="deleteMural(mural)" class="delete"
                   >restore_from_trash</mat-icon
                 >
               </td>
@@ -116,21 +141,21 @@
       class="fixed-top alert-success"
       (close)="showAlertAdd = false"
     >
-      <b>Cadastro Realizado!</b> Agenda cadastrada com sucesso!
+      <b>Cadastro Realizado!</b> Aviso cadastrado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertEdit"
       class="fixed-top alert-warning"
       (close)="showAlertEdit = false"
     >
-      <b>Edição Realizada!</b> Agenda atualizada com sucesso!
+      <b>Edição Realizada!</b> Aviso atualizado com sucesso!
     </ngb-alert>
     <ngb-alert
       *ngIf="showAlertDelete"
       class="fixed-top alert-danger"
       (close)="showAlertDelete = false"
     >
-      <b>Exclusão Realizada!</b> Agenda excluída com sucesso!
+      <b>Exclusão Realizada!</b> Aviso excluído com sucesso!
     </ngb-alert>
   </body>
 </div>

@@ -7,26 +7,21 @@
     </div>
 
     <div class="modal-body">
-      <form [formGroup]="lessonFilterForm" class="form-row">
+      <form [formGroup]="scheduleFilterForm" class="form-row">
         <div class="col-md-6">
-        <label class="m-0 tittle-input" for="age">Por Aluno</label>
-        <input
-          type="text"
-          name="age"
-          formControlName="student"
-          class="form-control form-control-sm input"
-        />
-      </div>
-  
+          <label class="m-0 tittle-input" for="radioGroup">Cadastro</label>
+
           <div class="col-md-6">
-            <label class="m-0 tittle-input" for="age">Por Professor</label>
-            <input
-              type="text"
-              name="age"
-              formControlName="teacher"
+            <select
+              name="createdAt"
+              formControlName="createdAt"
               class="form-control form-control-sm input"
-            />
+            >
+              <option value="desc">Mais recentes</option>
+              <option value="asc">Mais antigos</option>
+            </select>
           </div>
+        </div>
       </form>
     </div>
 
