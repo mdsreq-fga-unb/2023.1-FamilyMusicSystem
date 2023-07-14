@@ -14,7 +14,6 @@ import { StudentsListComponent } from './modules/student/students-list/students-
 import { TeachersListComponent } from './modules/teacher/teachers-list/teachers-list.component';
 import { TeachersRegisterComponent } from './modules/teacher/teachers-register/teachers-register.component';
 import { HomeComponent } from './modules/home/home.component';
-import { MuralComponent } from './modules/mural/mural.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentsViewComponent } from './modules/student/students-view/students-view.component';
@@ -69,7 +68,6 @@ import { ResetPasswordComponent } from './modules/reset-password/reset-password.
     KzMaskDirective,
     LoginComponent,
     MainComponent,
-    MuralComponent,
     PreloaderComponent,
     PrivacyComponent,
     ResourcesComponent,

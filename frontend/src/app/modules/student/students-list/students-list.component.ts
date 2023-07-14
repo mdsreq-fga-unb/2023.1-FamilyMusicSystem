@@ -2,23 +2,21 @@ import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { catchError, map, Observable, of } from "rxjs";
-import { tap } from "rxjs/operators";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Student } from "./../../../models/student";
-import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { StudentsRegisterComponent } from "../students-register/students-register.component";
-import { StudentsViewComponent } from "../students-view/students-view.component";
-import { StudentsFilterComponent } from "../students-filter/students-filter.component";
-import { CookieService } from "../../../services/cookie.service";
-import { ConfirmationComponent } from "../../../shared/confirmation/confirmation.component";
-import { MatDialog } from "@angular/material/dialog";
-import { MatDialogRef } from "@angular/material/dialog";
-import { PreloaderComponent } from "../../preloader/preloader.component";
-import { DataSharingService } from "../../../services/data-sharing.service";
-import { ExpiredComponent } from "../../../shared/expired/expired.component";
+} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
+import { shareReplay, tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Student } from './../../../models/student';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { StudentsRegisterComponent } from '../students-register/students-register.component';
+import { StudentsViewComponent } from '../students-view/students-view.component';
+import { StudentsFilterComponent } from '../students-filter/students-filter.component';
+import { CookieService } from '../../../services/cookie.service';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DataSharingService } from '../../../services/data-sharing.service';
 
 class Entry<T> {
   id: number;
@@ -30,9 +28,9 @@ class Response {
 }
 
 @Component({
-  selector: "app-students-list",
-  templateUrl: "./students-list.component.html",
-  styleUrls: ["./students-list.component.scss"],
+  selector: 'app-students-list',
+  templateUrl: './students-list.component.html',
+  styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
   public loading = true;
@@ -48,7 +46,7 @@ export class StudentsListComponent implements OnInit {
   public students$: Observable<Student[]> | undefined;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlStudent =
-    "https://20231-familymusicsystem-production.up.railway.app/api/students";
+    'https://20231-familymusicsystem-production.up.railway.app/api/students';
 
   constructor(
     private modalService: BsModalService,
@@ -60,10 +58,10 @@ export class StudentsListComponent implements OnInit {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     let headers = new HttpHeaders();
-    headers = headers.append("Authorization", `Bearer ${jwt}`);
-    const opts = { headers: headers, params: { populate: "*" } };
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
     return opts;
   }
 
@@ -84,7 +82,8 @@ export class StudentsListComponent implements OnInit {
         }),
         map((response: Response) =>
           response.data.map((student) => student.attributes)
-        )
+        ),
+        shareReplay(1)
       );
 
     this.students$.subscribe(
@@ -99,15 +98,15 @@ export class StudentsListComponent implements OnInit {
 
   search() {
     this.getStudent(
-      `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
   }
 
   ngOnInit(): void {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     this.getStudent();
     this.searchForm = this.fb.group({
-      search: ["", Validators.required],
+      search: ['', Validators.required],
     });
   }
 
@@ -121,7 +120,7 @@ export class StudentsListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-xl",
+      class: 'modal-xl',
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
@@ -144,7 +143,7 @@ export class StudentsListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-xl",
+      class: 'modal-xl',
       initialState: {
         student: student,
         edit,
@@ -171,7 +170,7 @@ export class StudentsListComponent implements OnInit {
       ConfirmationComponent,
       {
         data: {
-          message: "Deseja realmente excluir esse perfil?",
+          message: 'Deseja realmente excluir esse perfil?',
           dialogRef: null,
         },
       }
@@ -202,7 +201,7 @@ export class StudentsListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: "modal-md",
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       StudentsFilterComponent,
@@ -214,10 +213,10 @@ export class StudentsListComponent implements OnInit {
   }
 
   obterPrimeiroESegundoNome(nomeCompleto: string): string[] {
-    const nomesSeparados = nomeCompleto.split(" ");
+    const nomesSeparados = nomeCompleto.split(' ');
     const primeiroNome = nomesSeparados[0];
     const segundoNome = nomesSeparados[1];
-    const completeName = primeiroNome + " " + segundoNome;
+    const completeName = primeiroNome + ' ' + segundoNome;
     return [completeName];
   }
 
@@ -228,6 +227,6 @@ export class StudentsListComponent implements OnInit {
   }
 
   calcularCorDeFundo() {
-    return "var(--selector)";
+    return 'var(--selector)';
   }
 }

@@ -32,7 +32,6 @@ export class RoomViewComponent implements OnInit {
   public isFormValid = false;
   public dataAtual: string;
   public loading: boolean = false;
-  public file: File;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public canEdit: boolean = false;
 
