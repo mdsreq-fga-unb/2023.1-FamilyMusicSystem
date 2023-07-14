@@ -52,6 +52,7 @@ import { MuralRegisterComponent } from './modules/murals/mural-register/mural-re
 import { MuralFilterComponent } from './modules/murals/mural-filter/mural-filter.component';
 import { MuralViewComponent } from './modules/murals/mural-view/mural-view.component';
 import { ForgotPasswordComponent } from './modules/login/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './modules/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ForgotPasswordComponent } from './modules/login/forgot-password/forgot-
     MuralFilterComponent,
     MuralViewComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     AlertModule,
@@ -117,4 +119,4 @@ import { ForgotPasswordComponent } from './modules/login/forgot-password/forgot-
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

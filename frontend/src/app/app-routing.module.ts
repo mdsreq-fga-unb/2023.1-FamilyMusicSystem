@@ -10,9 +10,11 @@ import { ScheduleListComponent } from './modules/schedule/schedule-list/schedule
 import { RoomListComponent } from './modules/room/room-list/room-list.component';
 import { AuthGuard } from './modules/login/auth.guard';
 import { MuralListComponent } from './modules/murals/mural-list/mural-list.component';
+import { ResetPasswordComponent } from './modules/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   {
     path: 'main',
     component: MainComponent,
@@ -32,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

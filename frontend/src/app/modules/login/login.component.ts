@@ -17,6 +17,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     '(window:keydown)': 'handleKeyDown($event)',
   },
 })
+
 export class LoginComponent implements OnInit {
   public user: User;
   public loginForm: FormGroup;
