@@ -2,20 +2,20 @@ import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { catchError, map, Observable, of } from "rxjs";
-import { tap } from "rxjs/operators";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { CookieService } from "../../../services/cookie.service";
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { DataSharingService } from "../../../services/data-sharing.service";
-import { Room } from "../../../models/room";
-import { RoomFilterComponent } from "../room-filter/room-filter.component";
-import { RoomRegisterComponent } from "../room-register/room-register.component";
-import { RoomViewComponent } from "../room-view/room-view.component";
-import { ConfirmationComponent } from "../../../shared/confirmation/confirmation.component";
+} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, map, Observable, of } from 'rxjs';
+import { shareReplay, tap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CookieService } from '../../../services/cookie.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DataSharingService } from '../../../services/data-sharing.service';
+import { Room } from '../../../models/room';
+import { RoomFilterComponent } from '../room-filter/room-filter.component';
+import { RoomRegisterComponent } from '../room-register/room-register.component';
+import { RoomViewComponent } from '../room-view/room-view.component';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
 
 class Entry<T> {
   id: number;
@@ -27,9 +27,9 @@ class Response {
 }
 
 @Component({
-  selector: "app-room-list",
-  templateUrl: "./room-list.component.html",
-  styleUrls: ["./room-list.component.scss"],
+  selector: 'app-room-list',
+  templateUrl: './room-list.component.html',
+  styleUrls: ['./room-list.component.scss'],
 })
 export class RoomListComponent implements OnInit {
   public loading = true;
@@ -45,7 +45,7 @@ export class RoomListComponent implements OnInit {
   public rooms$: Observable<Room[]> | undefined;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlRoom =
-    "https://20231-familymusicsystem-production.up.railway.app/api/rooms";
+    'https://20231-familymusicsystem-production.up.railway.app/api/rooms';
 
   constructor(
     private modalService: BsModalService,
@@ -57,10 +57,10 @@ export class RoomListComponent implements OnInit {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     let headers = new HttpHeaders();
-    headers = headers.append("Authorization", `Bearer ${jwt}`);
-    const opts = { headers: headers, params: { populate: "*" } };
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
     return opts;
   }
 
@@ -81,7 +81,8 @@ export class RoomListComponent implements OnInit {
         }),
         map((response: Response) =>
           response.data.map((room) => room.attributes)
-        )
+        ),
+        shareReplay(1)
       );
 
     this.rooms$.subscribe(
@@ -97,15 +98,15 @@ export class RoomListComponent implements OnInit {
 
   search() {
     this.getRoom(
-      `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
   }
 
   ngOnInit(): void {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     this.getRoom();
     this.searchForm = this.fb.group({
-      search: ["", Validators.required],
+      search: ['', Validators.required],
     });
   }
 
@@ -119,7 +120,7 @@ export class RoomListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-lg",
+      class: 'modal-lg',
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
@@ -142,7 +143,7 @@ export class RoomListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-lg",
+      class: 'modal-lg',
       initialState: {
         room: room,
         edit,
@@ -166,7 +167,7 @@ export class RoomListComponent implements OnInit {
       ConfirmationComponent,
       {
         data: {
-          message: "Deseja realmente excluir essa sala?",
+          message: 'Deseja realmente excluir essa sala?',
           dialogRef: null,
         },
       }
@@ -197,7 +198,7 @@ export class RoomListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: "modal-md",
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(RoomFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe((url: string) => {
@@ -209,7 +210,7 @@ export class RoomListComponent implements OnInit {
     if (string.length <= 20) {
       return string;
     } else {
-      return string.substring(0, 20) + "...";
+      return string.substring(0, 20) + '...';
     }
   }
 
@@ -220,6 +221,6 @@ export class RoomListComponent implements OnInit {
   }
 
   calcularCorDeFundo() {
-    return "var(--selector)";
+    return 'var(--selector)';
   }
 }

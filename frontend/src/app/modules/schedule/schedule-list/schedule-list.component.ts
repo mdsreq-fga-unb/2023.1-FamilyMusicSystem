@@ -2,10 +2,11 @@ import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
-} from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { catchError, forkJoin, from, map, Observable, of } from "rxjs";
+} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { catchError, forkJoin, from, map, Observable, of } from 'rxjs';
 import {
+  defaultIfEmpty,
   mergeMap,
   publishReplay,
   refCount,
@@ -13,22 +14,22 @@ import {
   switchMap,
   tap,
   toArray,
-} from "rxjs/operators";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { CookieService } from "../../../services/cookie.service";
-import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { DataSharingService } from "../../../services/data-sharing.service";
-import { ConfirmationComponent } from "../../../shared/confirmation/confirmation.component";
-import { ScheduleViewComponent } from "../schedule-view/schedule-view.component";
-import { ScheduleRegisterComponent } from "../schedule-register/schedule-register.component";
-import { ScheduleFilterComponent } from "../schedule-filter/schedule-filter.component";
-import { Teacher } from "../../../models/teacher";
-import { Student } from "../../../models/student";
-import { Schedule } from "./../../../models/schedule";
-import { Room } from "../../../models/room";
-import format from "date-fns/format";
-import { pt } from "date-fns/locale";
+} from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CookieService } from '../../../services/cookie.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DataSharingService } from '../../../services/data-sharing.service';
+import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
+import { ScheduleViewComponent } from '../schedule-view/schedule-view.component';
+import { ScheduleRegisterComponent } from '../schedule-register/schedule-register.component';
+import { ScheduleFilterComponent } from '../schedule-filter/schedule-filter.component';
+import { Teacher } from '../../../models/teacher';
+import { Student } from '../../../models/student';
+import { Schedule } from './../../../models/schedule';
+import { Room } from '../../../models/room';
+import format from 'date-fns/format';
+import { pt } from 'date-fns/locale';
 
 class Entry<T> {
   id: number;
@@ -38,21 +39,11 @@ class Entry<T> {
 class ResponseSchedule {
   data: Entry<Schedule>[];
 }
-class ResponseStudent {
-  data: Entry<Student>;
-}
-class ResponseTeacher {
-  data: Entry<Teacher>;
-}
-
-class ResponseRoom {
-  data: Entry<Room>;
-}
 
 @Component({
-  selector: "app-schedule-list",
-  templateUrl: "./schedule-list.component.html",
-  styleUrls: ["./schedule-list.component.scss"],
+  selector: 'app-schedule-list',
+  templateUrl: './schedule-list.component.html',
+  styleUrls: ['./schedule-list.component.scss'],
 })
 export class ScheduleListComponent implements OnInit {
   public loading = true;
@@ -70,13 +61,13 @@ export class ScheduleListComponent implements OnInit {
   public students$: Observable<Student[]> | undefined;
   public baseUrl = `https://20231-familymusicsystem-production.up.railway.app`;
   public prefixoUrlSchedule =
-    "https://20231-familymusicsystem-production.up.railway.app/api/schedules";
+    'https://20231-familymusicsystem-production.up.railway.app/api/schedules';
   public prefixoUrlRoom =
-    "https://20231-familymusicsystem-production.up.railway.app/api/rooms/";
+    'https://20231-familymusicsystem-production.up.railway.app/api/rooms/';
   public prefixoUrlStudent =
-    "https://20231-familymusicsystem-production.up.railway.app/api/students/";
+    'https://20231-familymusicsystem-production.up.railway.app/api/students/';
   public prefixoUrlTeacher =
-    "https://20231-familymusicsystem-production.up.railway.app/api/teachers/";
+    'https://20231-familymusicsystem-production.up.railway.app/api/teachers/';
 
   constructor(
     private modalService: BsModalService,
@@ -88,15 +79,15 @@ export class ScheduleListComponent implements OnInit {
   ) {}
 
   headers() {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     let headers = new HttpHeaders();
-    headers = headers.append("Authorization", `Bearer ${jwt}`);
-    const opts = { headers: headers, params: { populate: "*" } };
+    headers = headers.append('Authorization', `Bearer ${jwt}`);
+    const opts = { headers: headers, params: { populate: '*' } };
     return opts;
   }
 
   date(date: string) {
-    const formattedDate = format(Date.parse(date), `HH':'mm '-' dd'/'MM`, {
+    const formattedDate = format(Date.parse(date), `dd'/'MM '-' HH':'mm`, {
       locale: pt,
     });
     return formattedDate;
@@ -105,7 +96,7 @@ export class ScheduleListComponent implements OnInit {
   getSchedules(args?: string) {
     this.loading = true;
 
-    const scheduleRequest = this.http
+    this.schedules$ = this.http
       .get<ResponseSchedule>(
         args ? `${this.prefixoUrlSchedule}${args}` : this.prefixoUrlSchedule,
         this.headers()
@@ -123,84 +114,6 @@ export class ScheduleListComponent implements OnInit {
         shareReplay(1)
       );
 
-    this.schedules$ = scheduleRequest.pipe(
-      mergeMap((schedules) => {
-        const roomRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseRoom>(
-              `${this.prefixoUrlRoom}${schedule.ID_Room}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((room: ResponseRoom) => {
-                room.data.attributes.id = room.data.id;
-              }),
-              map((room: ResponseRoom) => room.data.attributes)
-            )
-        );
-
-        const studentRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseStudent>(
-              `${this.prefixoUrlStudent}${schedule.ID_Student}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((student: ResponseStudent) => {
-                student.data.attributes.id = student.data.id;
-              }),
-              map((student: ResponseStudent) => student.data.attributes)
-            )
-        );
-
-        const teacherRequests = schedules.map((schedule) =>
-          this.http
-            .get<ResponseTeacher>(
-              `${this.prefixoUrlTeacher}${schedule.ID_Teacher}`,
-              this.headers()
-            )
-            .pipe(
-              catchError((error) => this.handleError(error)),
-              tap((teacher: ResponseTeacher) => {
-                teacher.data.attributes.id = teacher.data.id;
-              }),
-              map((teacher: ResponseTeacher) => teacher.data.attributes)
-            )
-        );
-
-        return forkJoin(roomRequests).pipe(
-          map((rooms) => {
-            schedules.forEach((schedule, index) => {
-              schedule.RoomObject = rooms[index];
-            });
-            return schedules;
-          }),
-          mergeMap((updatedSchedules) =>
-            forkJoin(studentRequests).pipe(
-              map((students) => {
-                updatedSchedules.forEach((schedule, index) => {
-                  schedule.StudentObject = students[index];
-                });
-                return updatedSchedules;
-              })
-            )
-          ),
-          mergeMap((updatedSchedules) =>
-            forkJoin(teacherRequests).pipe(
-              map((teachers) => {
-                updatedSchedules.forEach((schedule, index) => {
-                  schedule.TeacherObject = teachers[index];
-                });
-                return updatedSchedules;
-              })
-            )
-          )
-        );
-      })
-    );
-
     this.schedules$.subscribe(
       () => {
         this.loading = false;
@@ -213,16 +126,16 @@ export class ScheduleListComponent implements OnInit {
 
   search() {
     this.getSchedules(
-      `?filters[name][$startsWithi][0]=${this.searchForm.get("search")?.value}`
+      `?filters[name][$startsWithi][0]=${this.searchForm.get('search')?.value}`
     );
   }
 
   ngOnInit(): void {
-    const jwt = this.cookieService.getCookie("jwt");
+    const jwt = this.cookieService.getCookie('jwt');
     this.getSchedules();
 
     this.searchForm = this.fb.group({
-      search: ["", Validators.required],
+      search: ['', Validators.required],
     });
   }
 
@@ -236,7 +149,7 @@ export class ScheduleListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-lg",
+      class: 'modal-lg',
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
@@ -259,7 +172,7 @@ export class ScheduleListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-lg",
+      class: 'modal-lg',
       initialState: {
         schedule: schedule,
         edit,
@@ -286,7 +199,7 @@ export class ScheduleListComponent implements OnInit {
       ConfirmationComponent,
       {
         data: {
-          message: "Deseja realmente excluir a Agenda?",
+          message: 'Deseja realmente excluir a Agenda?',
           dialogRef: null,
         },
       }
@@ -317,7 +230,7 @@ export class ScheduleListComponent implements OnInit {
       backdrop: true,
       ignoreBackdropClick: false,
       initialState: {},
-      class: "modal-md",
+      class: 'modal-md',
     };
     this.bsModalRef = this.modalService.show(
       ScheduleFilterComponent,
@@ -332,7 +245,7 @@ export class ScheduleListComponent implements OnInit {
     if (string.length <= 20) {
       return string;
     } else {
-      return string.substring(0, 20) + "...";
+      return string.substring(0, 20) + '...';
     }
   }
 
@@ -343,6 +256,6 @@ export class ScheduleListComponent implements OnInit {
   }
 
   calcularCorDeFundo() {
-    return "var(--selector)";
+    return 'var(--selector)';
   }
 }
