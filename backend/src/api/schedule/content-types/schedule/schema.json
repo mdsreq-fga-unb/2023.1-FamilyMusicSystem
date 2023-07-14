@@ -28,9 +28,6 @@
       "type": "string",
       "required": true
     },
-    "Frequency": {
-      "type": "string"
-    },
     "Student": {
       "type": "string",
       "required": true
@@ -42,6 +39,9 @@
     "Room": {
       "type": "string",
       "required": true
+    },
+    "Frequency": {
+      "type": "boolean"
     }
   }
 }
