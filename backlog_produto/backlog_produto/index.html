@@ -484,8 +484,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#personas" class="md-nav__link">
-    Personas
+  <a href="#persona" class="md-nav__link">
+    Persona
   </a>
   
 </li>
@@ -826,12 +826,10 @@
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
 
-<h2 id="personas">Personas</h2>
+<h2 id="persona">Persona</h2>
 <ul>
-<li><strong>Professor:</strong> É o usuário comum que é capaz de ser cadastrado pelo administrador. <br></li>
-<li><strong>Aluno:</strong> É o usuário comum que é capaz de ser cadastrado na plataforma e receber avisos por e-mail. <br></li>
-<li><strong>Administrador:</strong> Pessoa com funções que vão desde o gerenciamento da escola de música até o envio de mensagens de aviso para os alunos. <br></li>
-<li><strong>Usuário:</strong> Refere-se tanto ao aluno quanto ao professor. <br></li>
+<li><strong>Administrador:</strong> Pessoa com funções que vão desde o gerenciamento da escola de música até o envio de mensagens de aviso para os alunos. </br></li>
+<li><strong>Usuário:</strong> Refere-se ao administrador. </br></li>
 </ul>
 <h2 id="requisitos-funcionais">Requisitos funcionais</h2>
 <p>Os requisitos funcionais são as funcionalidades que o software deve realizar, e dependem de diversos fatores, como a abordagem utilizada para descrever os requisitos, o usuário do software, dentre outros. No projeto FMS, a análise de viabilidade do projeto conta com três critérios: Valor de negócio (N), Viabilidade (V) e Criticidade (C). Na tabela a seguir, cada requisito recebe uma nota de 1 a 5 atribuindo valor para esse requisito, e cada um receberá seu grau de prioridade de acordo com a média desses critérios para cada requisito: <b>(N+V+C)/3</b>.</p>
@@ -1127,7 +1125,7 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP03]</b></td>
 <td><b id="us10">[US10]</b></td>
-<td>- Não será possível editar uma sala não cadastrada;<br>- Não poderá adicionar duas aulas para a mesma sala;<br> - Não poderá editar o nome da sala para um nome que já está cadastrado;</td>
+<td>- Não será possível editar uma sala não cadastrada;<br>- Não poderá adicionar duas aulas para a mesma sala;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
@@ -1139,7 +1137,7 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us12">[US12]</b></td>
-<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados da Agenda (Número da Sala, Data da Aula, Professor, Estudante); </br> - Deve ser perguntado se o administrador realmente deseja fazer essa alteração; </br> - O Administrador deve visualizar as alteraçōes realizadas; </br> - As alterações devem ser salvas no banco de dados;</td>
+<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados da Agenda (Número da Sala, Data da Aula, Professor, Estudante); </br>  - O Administrador deve visualizar as alteraçōes realizadas; </br> - As alterações devem ser salvas no banco de dados;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
@@ -1163,7 +1161,7 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us16">[US16]</b></td>
-<td>- O professor deve conseguir registrar a presença do aluno desejado; </br> - Deve ser exibido um alert ao registrar a presença para o aluno;</td>
+<td>- O Administrador deve conseguir registrar a presença do aluno desejado; </br> - Deve ser exibido um alert ao registrar a presença para o aluno;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
@@ -1193,7 +1191,7 @@
 <td><b>[TE03]</b></td>
 <td><b>[EP07]</b></td>
 <td><b id="us21">[US21]</b></td>
-<td>- O Administrador deve ser capaz de escrever um comunicado;  </br> - Campos obrigatórios precisam estar preenchidos para envio de comunicado (Título e Mensagem);</td>
+<td>- O Administrador deve ser capaz de escrever um comunicado;  </br> - Campos obrigatórios precisam estar preenchidos para envio de comunicado (Título e Mensagem); </br> - O comunicado deverá ser enviado para o email do aluno ou do responsável (caso o aluno seja menor de idade);</td>
 </tr>
 <tr>
 <td><b>[TE04]</b></td>
@@ -1244,19 +1242,15 @@
 </tr>
 <tr>
 <td>Suportabilidade</td>
-<td><b>[RNF07]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
+<td><b>[RNF07]</b> A aplicação deve ser compatível com as versões de até Junho de 2023 dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF08]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).</td>
+<td><b>[RNF08]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF09]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
-</tr>
-<tr>
-<td>Confiabilidade</td>
-<td><b>[RNF10]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente</td>
+<td><b>[RNF09]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente</td>
 </tr>
 </tbody>
 </table>
