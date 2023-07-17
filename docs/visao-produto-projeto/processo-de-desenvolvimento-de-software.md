@@ -5,6 +5,7 @@
 | 16/04/2023 |  0.1   |        Criação e estruturação do documento         | Guilherme Santos, </br> Levi Braz, </br> Luan Mateus, </br> Maykon Junio |
 | 30/04/2023 |  0.2   | Adicionando Definition of done e Defition of Ready |                               Maykon Junio                               |
 | 16/05/2023 | 0.3 | Edição das abordagens XP utilizadas | Luana Ribeiro |
+| 17/07/2023 | 0.4 | Edição das abordagens XP utilizadas | Luana Ribeiro |
 
 ## Metodologia
 
@@ -30,14 +31,12 @@
 | Jogo de Planejamento    | Será utilizado no início de cada Sprint da metodologia SCRUM para priorizar as funcionalidades e definir as tarefas que serão realizadas para cumprir os objetivos                           | VisualStudio Code            |
 | Testes de Cliente       | O cliente especifica um ou mais Testes de Cliente para cada história de usuário do sistema, descrevendo em detalhes como ele espera que cada história funcione                               | Google Meet                  |
 | Propriedade Coletiva    | A prática de propriedade coletiva declara que qualquer membro da equipe pode alterar qualquer parte do código do sistema a qualquer momento                                                  | VisualStudio Code            |
-| Padrões de Codificações | Definir um padrão de codificação aumenta a capacidade de entendimento do código entre os membros da equipe                                                                                   | VisualStudio Code            |
 | Ritmo Sustentável       | Evita a sobrecarga de trabalho e o esgotamento físico e mental dos membros da equipe. O que sucede em uma boa qualidade do produto, diminuição na incidência de erros e prazos não cumpridos | VisualStudio Code            |
 | Metáfora                | Para tornar mais claro o entendimento de toda a equipe sobre o projeto e suas funcionalidades                                                                                                | Discord                      |
 | Integração Contínua     | Automatizar a compilação e os testes do código faz com que problemas (bugs) sejam detectados com maior facilidade                                                                            | VisualStudio Code \| Git Hub |
 | Refatoração             | Prática que envolve a melhoria contínua do código existente sem alterar sua funcionalidade                                                                                                   | VisualStudio Code            |
 | Testes Unitários        | A prática da refatoração torna o código inteligível, pode ajudar na diminuição de ocorrência de bugs e, também, podendo melhorar o desempenho do software                                    | Jest \| GitActions           |
-| Programação em Pares    | Prática que permite que dois ou mais participantes trabalhem simultâneamente no mesmo código através de uma vídeo-chamada ou até chamada de voz                                              | VisualStudio Code \| Discord |
-| TDD | Elaboração dos testes antes da implementação | GitActions | 
+| Programação em Pares    | Prática que permite que dois ou mais participantes trabalhem simultâneamente no mesmo código através de uma vídeo-chamada ou até chamada de voz                                              | VisualStudio Code \| Discord | 
 
 Para realizações das devidas sprints, a equipe utilizará as técnicas do XP listadas acima.
 

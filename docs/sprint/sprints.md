@@ -9,6 +9,7 @@
 | 12/06/2023 | 0.5 | Edição da sprint | Luana Ribeiro |
 | 03/07/2023 | 0.6 | Adição de Sprint 4 e 5 | Luana Ribeiro |
 | 10/07/2023 | 0.7 | Adição conteúdo sprints | Luana Ribeiro |
+| 17/07/2023 | 0.8 | Edição Sprint 5 e 6 | Luana Ribeiro |
 
 ## Sprint 0 
 
@@ -107,9 +108,9 @@
 | ---- | --------------- |
 | <b>Sprint Planning - Goal<b> | - Correção de bugs restantes </br> - Início do desenvolvimento do MVP2 |
 | <b>Backlog da Sprint<b> | -  Fazer as correções que fizemos em alunos nas telas de professores e salas também; </br> - US09- Cadastrar novas salas de aula  ;  </br> - US10- Gerenciar salas de aula; </br> -  US22- Mural de comunicação; |
-| <b>Sprint Review<b> | - Ainda em desenvolvimento |
-| <b>Débitos técnicos<b> | - Ainda em desenvolvimento  |
-| <b>Sprint Retrospective<b> |  - Ainda em desenvolvimento  |
+| <b>Sprint Review<b> | - Nessa Sprint, a Review ocorreu com o professor durante o ponto de controle |
+| <b>Débitos técnicos<b> | - US22: Mural de Comunicação. </br> - Justificativa: Houve dificuldade a respeito do envio do comunicado via email, pois é necessário um plug-in que precisa ser melhor estudado |
+| <b>Sprint Retrospective<b> |  - Pontos fortes: Comunicação e Harmonia do grupo melhorou, a equipe percebeu que o grupo está realizando as demandas de forma mais eficiente, pois todos já estão familiarizados com as linguagens </br> - Pontos Fracos: O backlog da sprint demorou a ser definido, o grupo não conseguia se reunir pra resolver problemas, e os critérios de aceitação foram deixados de lado pela equipe </br> - Melhorias para a próxima sprint: Melhorar ainda mais a harmonia do grupo.   |
 
 <p style="text-indent: 50px;text-align: justify;">  Pair Programming realizado nessa Sprint
 </p>
@@ -119,3 +120,26 @@
 | Luana/Luan | - Updates no pages | 03/07/2023 |
 | Luan/Maykon | - Edições frontend | 03/07/2023 |
 | Guilherme/Davi | - Finalização Mural | 28/05/2023 |
+
+
+##Sprint 6
+
+<p style="text-indent: 50px;text-align: justify;">  Data: 12/07/2023 - 26/07/2023 
+</p>
+<p style="text-indent: 50px;text-align: justify;"> Na Sprint 6, ocorreu a finalização do MVP 2 para entrega final e últimas correções do GitPages.
+</p>
+
+| Sprint | 6 |
+| ---- | --------------- |
+| <b>Sprint Planning - Goal<b> | - Finalizar MVP2 </br> - Finalizar GitPages |
+| <b>Backlog da Sprint<b> | - US16- Controlar frequência  ;  </br> - US17- Controlar Pagamentos; </br> -  US19- Enviar contrato por email; </br> - US20- Gerenciar a situação contratual do aluno; </br> - US21- Cadastrar comunicado no mural de avisos; </br> - US22- Deletar comunicado; </br> - US23- Editar comunicado. |
+| <b>Sprint Review<b> | - Ainda em desenvolvimento |
+| <b>Débitos técnicos<b> | - Ainda em desenvolvimento  |
+| <b>Sprint Retrospective<b> |  - Ainda em desenvolvimento  |
+
+<p style="text-indent: 50px;text-align: justify;">  Pair Programming realizado nessa Sprint
+</p>
+
+| <b>Dupla<b> | <b>Descrição do que foi feito<b> | <b>Data<b> |
+| ----------- | -------------------------------- | ---------- |
+| Luana/Luan | - Updates no pages | 17/07/2023 |

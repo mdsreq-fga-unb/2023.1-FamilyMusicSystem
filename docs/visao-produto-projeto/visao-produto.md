@@ -9,6 +9,7 @@
 | 26/06/2023 |  0.5   |      Inserção de Estratégia de Testes Referentes aos dois MVPs      |           Luan Mateus,<br>Luana Ribeiro            |
 | 03/07/2023 | 0.6 | Edição da Estratégia de Testes Referentes ao dois MVPs | Luana Ribeiro |
 | 10/07/2023 | 0.7 | Edição da Estratégia de Testes | Luana Ribeiro |
+| 17/07/2023 | 0.8 | Edição da Estratégia de Testes | Luana Ribeiro |
 
 
 ## Declaração Geral do Produto
@@ -47,12 +48,12 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 ## Estratégia de Testes
 
-| Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva | Escopo |
-| -------------------------- | ------------- | -------------------------------- | --------- | -----------| -------- |
-| Funcional | - Sistema; </br> - Aceitação; </br> - Integração. | - Manual; </br> - Manual; </br> - Automático. | - Qualidade Externa;</br> - Qualidade Externa; </br> - Qualidade Interna. | - Negócio; </br> - Negócio; </br> - Técnico. | MVP 1 e 2 |
-| Usabilidade | - Aceitação. | - Manual. | - Qualidade Externa. | - Negócio. | MVP 2: RNF's 02,03,04,05,e 06|
-| Confiabilidade | - Sistema. | - Manual,Caixa Branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF's 08,09 e 10 |
-| Suportabilidade | - Sistema; | - Manual,Caixa branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF07 |
+| Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva | Escopo | Resultados |
+| ------------------ | ---------------------- | --------------- | ------------------- | -----------| ----- | ---------------------------------- |
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração; </br> - Unitário. | - Manual; </br> - Manual; </br> - Automático; </br> - Automático. | - Qualidade Externa;</br> - Qualidade Externa; </br> - Qualidade Interna; </br> - Qualidade Interna. | - Técnico; </br> - Negócio; </br> - Técnico; </br> - Técnico. | MVP 1 e 2 | - Passou: us..... </br> - Não passou: us.... |
+| Usabilidade | - Aceitação. | - Manual. | - Qualidade Externa. | - Negócio. | MVP 2: RNF's 02,03,04,05,e 06|  - Passou: us..... </br> - Não passou: us.... |
+| Confiabilidade | - Sistema. | - Manual,Caixa Branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF's 08 e 09 |  - Passou: us..... </br> - Não passou: us.... |
+| Suportabilidade | - Sistema; | - Manual,Caixa branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF07 |  - Passou: us..... </br> - Não passou: us.... |
 
 
 ## Ferramentas
