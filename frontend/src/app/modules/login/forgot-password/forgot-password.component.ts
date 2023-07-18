@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { BsModalRef } from "ngx-bootstrap/modal";
 import { User } from "../../../models/user";
 import axios from "axios";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-forgot-password",
@@ -17,9 +18,10 @@ export class ForgotPasswordComponent {
 
   constructor(
     private bsModalRef: BsModalRef,
+    private router: Router,
     private http: HttpClient,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.resetForm = this.formBuilder.group({
@@ -43,12 +45,13 @@ export class ForgotPasswordComponent {
         "https://20231-familymusicsystem-production.up.railway.app/api/auth/forgot-password",
         {
           email: this.user.Username,
-          // url: 'http:/localhost:1337/admin/plugins/users-permissions/auth/reset-password',
         }
       )
       .then((response) => {
         console.log("Your user received an email");
         this.loading = false;
+        this.router.navigate(['/reset-password']);
+        this.bsModalRef.hide();
       })
       .catch((error) => {
         console.log("An error occurred:", error.response);
