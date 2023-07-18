@@ -107,6 +107,9 @@
     },
     "DueDate": {
       "type": "date"
+    },
+    "confirmedPayment": {
+      "type": "boolean"
     }
   }
 }
