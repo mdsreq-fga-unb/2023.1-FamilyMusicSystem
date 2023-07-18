@@ -9,17 +9,36 @@
     <div class="modal-body">
       <form [formGroup]="scheduleFilterForm" class="form-row">
         <div class="col-md-6">
-          <label class="m-0 tittle-input" for="radioGroup">Cadastro</label>
+          <label class="m-0 tittle-input" for="radioGroup">Aluno</label>
 
           <div class="col-md-6">
-            <select
-              name="createdAt"
-              formControlName="createdAt"
+            <input
+              name="studentName"
+              formControlName="studentName"
               class="form-control form-control-sm input"
-            >
-              <option value="desc">Mais recentes</option>
-              <option value="asc">Mais antigos</option>
-            </select>
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="radioGroup">Professor</label>
+
+          <div class="col-md-6">
+            <input
+              name="teacherName"
+              formControlName="teacherName"
+              class="form-control form-control-sm input"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="radioGroup">Sala</label>
+
+          <div class="col-md-6">
+            <input
+              name="roomName"
+              formControlName="roomName"
+              class="form-control form-control-sm input"
+            />
           </div>
         </div>
       </form>

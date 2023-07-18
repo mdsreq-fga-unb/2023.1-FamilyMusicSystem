@@ -17,13 +17,15 @@ export class ScheduleFilterComponent implements OnInit {
   public Resp = false;
   public numreq = 0;
   public scheduleFilterForm: FormGroup;
+  public formValues: any;
 
   constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.scheduleFilterForm = this.fb.group({
-      createdAt: null,
-      numberRoomFilter: null,
+      studentName: null,
+      teacherName: null,
+      roomName: null,
     });
   }
 
@@ -36,8 +38,22 @@ export class ScheduleFilterComponent implements OnInit {
     const filters = [];
     this.numreq = 0;
 
-    if (formValues.createdAt !== null) {
-      filters.push(`sort[${this.numreq}]=createdAt:${formValues.createdAt}`);
+    if (formValues.studentName !== null) {
+      filters.push(
+        `filters[Student][$startsWithi][${this.numreq}]=${formValues.studentName}`
+      );
+      this.numreq++;
+    }
+    if (formValues.teacherName !== null) {
+      filters.push(
+        `filters[Teacher][$startsWithi][${this.numreq}]=${formValues.teacherName}`
+      );
+      this.numreq++;
+    }
+    if (formValues.roomName !== null) {
+      filters.push(
+        `filters[Room][$startsWithi][${this.numreq}]=${formValues.roomName}`
+      );
       this.numreq++;
     }
 
