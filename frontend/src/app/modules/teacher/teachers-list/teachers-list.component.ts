@@ -1,3 +1,4 @@
+import { Schedule } from './../../../models/schedule';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -19,6 +20,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { PreloaderComponent } from '../../preloader/preloader.component';
 import { DataSharingService } from '../../../services/data-sharing.service';
 import { ExpiredComponent } from '../../../shared/expired/expired.component';
+import { Router } from '@angular/router';
+import { id } from 'date-fns/locale';
 
 class Entry<T> {
   id: number;
@@ -56,7 +59,8 @@ export class TeachersListComponent implements OnInit {
     private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private router: Router
   ) {}
 
   headers() {
@@ -230,5 +234,11 @@ export class TeachersListComponent implements OnInit {
 
   calcularCorDeFundo() {
     return 'var(--selector)';
+  }
+
+  goSchedule(teacher: Teacher) {
+    this.router.navigate(['/main/schedule'], {
+      queryParams: { id: teacher['id'], obj: 'Teacher' },
+    });
   }
 }
