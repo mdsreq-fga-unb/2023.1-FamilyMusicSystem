@@ -2,6 +2,7 @@
   <app-preloader />
 </div>
 <div class="content-content" *ngIf="!loading">
+
   <body>
     <div class="container-fluid">
       <div class="container">
@@ -10,75 +11,42 @@
             <mat-icon class="personIcon">class</mat-icon>
             <p class="title">Prof.</p>
           </div>
-          <form
-            class="d-flex"
-            role="search"
-            [formGroup]="searchForm"
-            (ngSubmit)="search()"
-          >
+          <form class="d-flex" role="search" [formGroup]="searchForm" (ngSubmit)="search()">
             <div class="search-container">
-              <input
-                class="form-control me-3"
-                id="researchTeachers"
-                formControlName="search"
-                type="search"
-                aria-label="Search"
-              />
+              <input class="form-control me-3" id="researchTeachers" formControlName="search" type="search"
+                aria-label="Search" />
               <i class="material-icons search-icon">search</i>
             </div>
-            <button
-              type="button"
-              (click)="search()"
-              (keydown.enter)="search()"
-              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons"
-              style="
+            <button type="button" (click)="search()" (keydown.enter)="search()"
+              class="shadow-sm btn btn-dark d-flex align-items-center rounded-pill buttons" style="
                 height: min-content;
                 margin-left: 0.5rem;
                 border: none;
                 width: 5rem;
                 align-items: center;
                 justify-content: center;
-              "
-            >
+              ">
               <mat-icon class="mobile">search</mat-icon>
               <span class="button-text">buscar</span>
             </button>
-            <button
-              type="button"
-              class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-              (click)="modalFilterProfessores()"
-              id="outline"
-            >
+            <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons"
+              (click)="modalFilterProfessores()" id="outline">
               <mat-icon class="mobile">filter_list</mat-icon>
               <span class="button-text">filtrar</span>
             </button>
           </form>
         </div>
-        <div
-          class="btn-group"
-          role="group"
-          aria-label="Basic example"
-          style="height: max-content; align-items: center"
-        >
-          <button
-            type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            routerLink=""
-            style="
+        <div class="btn-group" role="group" aria-label="Basic example" style="height: max-content; align-items: center">
+          <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons" routerLink="" style="
               background: var(--red) !important;
               border: none;
               width: 5rem;
               justify-content: center;
-            "
-            *ngIf="checked"
-          >
+            " *ngIf="checked">
             <span class="button-text">excluir</span>
           </button>
 
-          <button
-            type="button"
-            class="btn btn-dark d-flex align-items-center rounded-pill buttons"
-            style="
+          <button type="button" class="btn btn-dark d-flex align-items-center rounded-pill buttons" style="
               margin-left: 0.5rem;
               background: var(--orange) !important;
               border: none;
@@ -86,9 +54,7 @@
               justify-content: center;
               height: 36px;
               align-self: center;
-            "
-            (click)="modalAddProfessores()"
-          >
+            " (click)="modalAddProfessores()">
             <mat-icon class="mobile">add</mat-icon>
             <span class="button-text">novo</span>
           </button>
@@ -109,86 +75,54 @@
             </tr>
           </thead>
           <tbody *ngIf="teachers$ | async as teachers">
-            <tr
-              class="selected"
-              *ngFor="let teacher of teachers; let i = index"
-            >
+            <tr class="selected" *ngFor="let teacher of teachers; let i = index">
               <th scope="row" id="select-all" class="num">
                 {{ i + 1 }}
               </th>
               <td>
                 <div class="avatar-container">
-                  <img
-                    *ngIf="
+                  <img *ngIf="
                       teacher.ProfilePicture &&
                       teacher.ProfilePicture.data?.attributes.formats.thumbnail
                         .url
-                    "
-                    [src]="
+                    " [src]="
                       baseUrl +
                       teacher.ProfilePicture.data.attributes.formats.thumbnail
                         .url
-                    "
-                    class="miniProfile"
-                  />
+                    " class="miniProfile" />
 
-                  <img
-                    *ngIf="
+                  <img *ngIf="
                       !teacher.ProfilePicture ||
                       !teacher.ProfilePicture.data?.attributes.formats.thumbnail
                         .url
-                    "
-                    src="../../../../assets/image/foto perfil.png"
-                    alt="Avatar Alternativo"
-                    class="miniProfile"
-                  />
+                    " src="../../../../assets/image/foto perfil.png" alt="Avatar Alternativo" class="miniProfile" />
                 </div>
               </td>
-              <td
-                class="button"
-                (click)="modalEditProfessores(teacher, false)"
-                cursor="pointer"
-                class="selectedProfile"
-              >
+              <td (click)="modalEditProfessores(teacher, false)" cursor="pointer" class="selectedProfile button">
                 {{ obterPrimeiroESegundoNome(teacher.Name) }}
               </td>
-              <td class="nomobile">{{ teacher.Email }}</td>
-              <td class="notablet">{{ teacher.CPF }}</td>
-              <td class="notablet">{{ teacher.Phone }}</td>
+              <td (click)="modalEditProfessores(teacher, false)" cursor="pointer"
+                class="selectedProfile nomobile button">{{ teacher.Email }}</td>
+              <td (click)="modalEditProfessores(teacher, false)" cursor="pointer"
+                class="selectedProfile nomobile button">{{ teacher.CPF }}</td>
+              <td (click)="modalEditProfessores(teacher, false)" cursor="pointer"
+                class="selectedProfile nomobile button">{{ teacher.Phone }}</td>
               <td>
-                <mat-icon
-                  (click)="modalEditProfessores(teacher, true)"
-                  class="delete"
-                  >edit</mat-icon
-                >
-                <mat-icon (click)="deleteTeacher(teacher)" class="delete"
-                  >restore_from_trash</mat-icon
-                >
+                <mat-icon (click)="modalEditProfessores(teacher, true)" class="delete">edit</mat-icon>
+                <mat-icon (click)="deleteTeacher(teacher)" class="delete">restore_from_trash</mat-icon>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <ngb-alert
-      *ngIf="showAlertAdd"
-      class="fixed-top alert-success"
-      (close)="showAlertAdd = false"
-    >
+    <ngb-alert *ngIf="showAlertAdd" class="fixed-top alert-success" (close)="showAlertAdd = false">
       <b>Cadastro Realizado!</b> Professor cadastrado com sucesso!
     </ngb-alert>
-    <ngb-alert
-      *ngIf="showAlertEdit"
-      class="fixed-top alert-warning"
-      (close)="showAlertEdit = false"
-    >
+    <ngb-alert *ngIf="showAlertEdit" class="fixed-top alert-warning" (close)="showAlertEdit = false">
       <b>Edição Realizada!</b> Professor atualizado com sucesso!
     </ngb-alert>
-    <ngb-alert
-      *ngIf="showAlertDelete"
-      class="fixed-top alert-danger"
-      (close)="showAlertDelete = false"
-    >
+    <ngb-alert *ngIf="showAlertDelete" class="fixed-top alert-danger" (close)="showAlertDelete = false">
       <b>Exclusão Realizada!</b> Professor excluído com sucesso!
     </ngb-alert>
   </body>

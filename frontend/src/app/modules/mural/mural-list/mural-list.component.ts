@@ -3,11 +3,11 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from "@angular/common/http";
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { catchError, map, Observable, of } from "rxjs";
 import { tap } from "rxjs/operators";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Mural } from "src/app/models/mural";
+import { Mural } from "../../../models/mural";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { MuralRegisterComponent } from "../mural-register/mural-register.component";
 import { MuralFilterComponent } from "../mural-filter/mural-filter.component";
@@ -16,9 +16,7 @@ import { CookieService } from "../../../services/cookie.service";
 import { ConfirmationComponent } from "../../../shared/confirmation/confirmation.component";
 import { MatDialog } from "@angular/material/dialog";
 import { MatDialogRef } from "@angular/material/dialog";
-import { PreloaderComponent } from "../../preloader/preloader.component";
 import { DataSharingService } from "../../../services/data-sharing.service";
-import { ExpiredComponent } from "../../../shared/expired/expired.component";
 
 class Entry<T> {
   id: number;
@@ -30,9 +28,9 @@ class Response {
 }
 
 @Component({
-  selector: 'app-mural-list',
-  templateUrl: './mural-list.component.html',
-  styleUrls: ['./mural-list.component.scss']
+  selector: "app-mural-list",
+  templateUrl: "./mural-list.component.html",
+  styleUrls: ["./mural-list.component.scss"],
 })
 export class MuralListComponent implements OnInit {
   public loading = true;
@@ -152,10 +150,7 @@ export class MuralListComponent implements OnInit {
         edit,
       },
     };
-    this.bsModalRef = this.modalService.show(
-      MuralViewComponent,
-      modalConfig
-    );
+    this.bsModalRef = this.modalService.show(MuralViewComponent, modalConfig);
     this.bsModalRef.onHide?.subscribe(() => {
       if (this.dataSharingService.ifshowAlertEdit) {
         this.getMural();
@@ -206,10 +201,7 @@ export class MuralListComponent implements OnInit {
       initialState: {},
       class: "modal-md",
     };
-    this.bsModalRef = this.modalService.show(
-      MuralFilterComponent,
-      modalConfig
-    );
+    this.bsModalRef = this.modalService.show(MuralFilterComponent, modalConfig);
     this.bsModalRef.content.onClose.subscribe((url: string) => {
       this.getMural(url);
     });
