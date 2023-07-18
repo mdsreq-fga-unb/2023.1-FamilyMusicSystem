@@ -156,6 +156,9 @@
               <td class="notablet">{{ teacher.CPF }}</td>
               <td class="notablet">{{ teacher.Phone }}</td>
               <td>
+                <mat-icon (click)="goSchedule(teacher)" class="delete"
+                  >calendar_today</mat-icon
+                >
                 <mat-icon
                   (click)="modalEditProfessores(teacher, true)"
                   class="delete"
