@@ -478,8 +478,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#personas" class="md-nav__link">
-    Personas
+  <a href="#persona" class="md-nav__link">
+    Persona
   </a>
   
 </li>
@@ -820,12 +820,10 @@
 <p style="text-indent: 50px;text-align: justify;"> O backlog do produto é uma lista ordenada que contém todos os requisitos que possam ser necessários para desenvolvimento de um projeto, podendo conter: epics, features e users stories. Além disso, é a única fonte de requisitos para todas as mudanças a serem feitas no produto. O time recorrerá a ele durante o processo para eventuais dúvidas sobre projeto.
 </p>
 
-<h2 id="personas">Personas</h2>
+<h2 id="persona">Persona</h2>
 <ul>
-<li><strong>Professor:</strong> É o usuário comum que é capaz de ser cadastrado pelo administrador. <br></li>
-<li><strong>Aluno:</strong> É o usuário comum que é capaz de ser cadastrado na plataforma e receber avisos por e-mail. <br></li>
-<li><strong>Administrador:</strong> Pessoa com funções que vão desde o gerenciamento da escola de música até o envio de mensagens de aviso para os alunos. <br></li>
-<li><strong>Usuário:</strong> Refere-se tanto ao aluno quanto ao professor. <br></li>
+<li><strong>Administrador:</strong> Pessoa com funções que vão desde o gerenciamento da escola de música até o envio de mensagens de aviso para os alunos. </br></li>
+<li><strong>Usuário:</strong> Refere-se ao administrador. </br></li>
 </ul>
 <h2 id="requisitos-funcionais">Requisitos funcionais</h2>
 <p>Os requisitos funcionais são as funcionalidades que o software deve realizar, e dependem de diversos fatores, como a abordagem utilizada para descrever os requisitos, o usuário do software, dentre outros. No projeto FMS, a análise de viabilidade do projeto conta com três critérios: Valor de negócio (N), Viabilidade (V) e Criticidade (C). Na tabela a seguir, cada requisito recebe uma nota de 1 a 5 atribuindo valor para esse requisito, e cada um receberá seu grau de prioridade de acordo com a média desses critérios para cada requisito: <b>(N+V+C)/3</b>.</p>
@@ -854,7 +852,7 @@
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
 <td><b>[EP04]</b> Controle de Agendas</td>
-<td><b>[US11]</b> Eu, como administrador, quero ter a opção de agendar as aulas dos alunos, para que sejam registradas na agenda do professor. <a href="#us11">Critérios de aceitação</a>.</td>
+<td><b>[US11]</b> Eu, como administrador, quero ter a opção de agendar as aulas dos alunos, para que sejam registradas na agenda. <a href="#us11">Critérios de aceitação</a>.</td>
 <td align="center">5.0</td>
 <td align="center">4.0</td>
 <td align="center">5.0</td>
@@ -863,7 +861,7 @@
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
 <td><b>[EP04]</b> Controle de Agendas</td>
-<td><b>[US12]</b> Eu, como administrador, quero ter a opção de editar as aulas dos alunos, para que sejam atualizadas na agenda do professor, caso já tenham sido marcadas. <a href="#us12">Critérios de aceitação</a>.</td>
+<td><b>[US12]</b> Eu, como administrador, quero ter a opção de editar as aulas dos alunos, para que sejam atualizadas na agenda, caso já tenham sido marcadas. <a href="#us12">Critérios de aceitação</a>.</td>
 <td align="center">5.0</td>
 <td align="center">4.0</td>
 <td align="center">5.0</td>
@@ -926,7 +924,7 @@
 <tr>
 <td><b>[TE02]</b> Gerenciar Aulas</td>
 <td><b>[EP04]</b> Controle de Agendas</td>
-<td><b>[US15]</b> Eu, como administrador, quero ter a opção de visualizar a agenda do professor para escolher a data para agendamento de aulas. <a href="#us15">Critérios de aceitação</a>.</td>
+<td><b>[US15]</b> Eu, como administrador, quero ter a opção de visualizar a agenda para escolher a data para agendamento de aulas. <a href="#us15">Critérios de aceitação</a>.</td>
 <td align="center">4.0</td>
 <td align="center">4.0</td>
 <td align="center">4.0</td>
@@ -1073,13 +1071,13 @@
 <td><b>[TE01]</b></td>
 <td><b>[EP01]</b></td>
 <td><b id="us02">[US02]</b></td>
-<td>- Campos obrigatórios precisam estar preenchidos para cadastramento de dados do professor (Nome, Sobrenome, Data de Nascimento , CPF, RG, PCD, Tipo de deficiência e Gênero);<br/>- O sistema deve verificar se não há outro professor com o mesmo CPF, RG e e-mail;</td>
+<td>- Campos obrigatórios precisam estar preenchidos para cadastramento de dados do professor (Nome, Sobrenome, Data de Nascimento , CPF, RG e Gênero);<br/>- O sistema deve verificar se não há outro professor com o mesmo CPF, RG e e-mail;</td>
 </tr>
 <tr>
 <td><b>[TE01]</b></td>
 <td><b>[EP01]</b></td>
 <td><b id="us03">[US03]</b></td>
-<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados do professor  (Nome, Sobrenome, Data de Nascimento , CPF, RG, PCD, Tipo de deficiência e Gênero);<br/>- O sistema deve verificar se não há outro professor com o mesmo CPF, RG e e-mail;</td>
+<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados do professor  (Nome, Sobrenome, Data de Nascimento , CPF, RG e Gênero);<br/>- O sistema deve verificar se não há outro professor com o mesmo CPF, RG e e-mail;</td>
 </tr>
 <tr>
 <td><b>[TE01]</b></td>
@@ -1103,13 +1101,13 @@
 <td><b>[TE01]</b></td>
 <td><b>[EP02]</b></td>
 <td><b id="us07">[US07]</b></td>
-<td>- O usuário deverá ter um CPF e senha registrados para conseguir acessar o sistema.<br>- O usuário deverá receber uma confirmação de acesso, caso suas credenciais estejam corretas.</td>
+<td>- O usuário deverá ter um E-mail e Senha registrados para conseguir acessar o sistema.<br>- O usuário deverá receber uma confirmação de acesso, caso suas credenciais estejam corretas.</td>
 </tr>
 <tr>
 <td><b>[TE01]</b></td>
 <td><b>[EP02]</b></td>
 <td><b id="us08">[US08]</b></td>
-<td>- O usuário deverá fornecer seu e-mail, CPF e data de nascimento para que uma nova senha seja enviada via correio eletrônico;<br>- O usuário deverá trocar a senha temporária após entrar na aplicação;<br>- O usuário terá o tempo mínimo de 30 minutos entre uma recuperação de senha e outra;</td>
+<td>- O usuário deverá fornecer seu e-mail, CPF e data de nascimento para que uma nova senha seja enviada via correio eletrônico;<br>- O usuário deverá trocar a senha temporária após entrar na aplicação;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
@@ -1121,19 +1119,19 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP03]</b></td>
 <td><b id="us10">[US10]</b></td>
-<td>- Não será possível editar uma sala não cadastrada;<br>- Não poderá adicionar duas aulas para a mesma sala;<br> - Não poderá editar o nome da sala para um nome que já está cadastrado;</td>
+<td>- Não será possível editar uma sala não cadastrada;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us11">[US11]</b></td>
-<td>- Não será possível registrar uma aula em um horário não disponível para o professor;<br>- Não será possível registrar uma aula em uma sala não existente; <br>- Não será possível cadastrar uma aula em uma sala em que já ocorre uma aula nesse mesmo horário;</td>
+<td>- Não será possível registrar uma aula em uma sala não existente;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us12">[US12]</b></td>
-<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados da Agenda (Número da Sala, Data da Aula, Professor, Estudante); </br> - Deve ser perguntado se o administrador realmente deseja fazer essa alteração; </br> - O Administrador deve visualizar as alteraçōes realizadas; </br> - As alterações devem ser salvas no banco de dados;</td>
+<td>- Campos obrigatórios precisam estar preenchidos para alteração de dados da Agenda (Número da Sala, Data da Aula, Professor, Estudante); </br>  - O Administrador deve visualizar as alteraçōes realizadas; </br> - As alterações devem ser salvas no banco de dados;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
@@ -1145,25 +1143,25 @@
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us14">[US14]</b></td>
-<td>-Para agendar, devem ser solicitados: nome do professor, horário, tipo de aula (coletiva ou individual) que deverá estar disposta em um campo de seleção e o instrumento;</br> -Se a aula for coletiva , deverá ser solicitado o número da turma, e se for individual, o nome do aluno;</br> - O horário escolhido deverá estar de acordo com o horário de funcionamento das aulas;   </br> - O administrador deve realizar um agendamento de aula sem que o software permita horários que se choquem;</br> - As aulas agendadas devem ser registradas no banco de dados;</br>- O administrador deve ver a confirmação do agendamento;</td>
+<td>-Para agendar, devem ser solicitados: nome do professor, horário;</br> - O horário escolhido deverá estar de acordo com o horário de funcionamento das aulas;   </br> - O administrador deve realizar um agendamento de aula sem que o software permita horários que se choquem;</br> - As aulas agendadas devem ser registradas no banco de dados;</br>- O administrador deve ver a confirmação do agendamento;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us15">[US15]</b></td>
-<td>- O administrador deve conseguir filtrar as aulas agendadas por dia, mês e ano; </br> - Deve ser possível visualizar o nome do professor que dará a aula, o tipo da aula (coletiva ou individual), se for individual mostrar o nome do aluno e se for coletiva mostrar o número da turma, o instrumento, o dia e horário; </br > - Deve ser visível uma área para edição da aula agendada; </br > - Deve ser visível uma área para remoção da aula agendada;</td>
+<td>- O administrador deve conseguir filtrar as aulas agendadas por dia, mês e ano; </br> - Deve ser possível visualizar o nome do professor que dará a aula; </br > - Deve ser visível uma área para edição da aula agendada; </br > - Deve ser visível uma área para remoção da aula agendada;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP04]</b></td>
 <td><b id="us16">[US16]</b></td>
-<td>- O professor deve conseguir registrar a presença do aluno desejado; </br> - Deve ser exibido um alert ao registrar a presença para o aluno;</td>
+<td>- O Administrador deve conseguir registrar a presença do aluno desejado; </br> - Deve ser exibido um alert ao registrar a presença para o aluno;</td>
 </tr>
 <tr>
 <td><b>[TE02]</b></td>
 <td><b>[EP05]</b></td>
 <td><b id="us17">[US17]</b></td>
-<td>- Devem ser preenchidos todos os campos obrigatórios para que seja possível salvar no banco de dados (aluno, mês, valor, modo de pagamento)</td>
+<td>- Devem ser selecionado se a situação do aluno está em débito ou se já está pago;</td>
 </tr>
 <tr>
 <td><b>[TE03]</b></td>
@@ -1181,25 +1179,19 @@
 <td><b>[TE03]</b></td>
 <td><b>[EP07]</b></td>
 <td><b id="us20">[US20]</b></td>
-<td>- Deve haver uma opção de avisar o determinado aluno caso esteja ocorrendo algum impasse no contrato;</td>
+<td>- - O administrador deve ser capaz de selecionar o aluno que esteja cumprindo ou não as informações de contrato;</td>
 </tr>
 <tr>
 <td><b>[TE03]</b></td>
 <td><b>[EP07]</b></td>
 <td><b id="us21">[US21]</b></td>
-<td>- O Administrador deve ser capaz de escrever um comunicado;  </br> - Campos obrigatórios precisam estar preenchidos para envio de comunicado (Título e Mensagem);</td>
+<td>- O Administrador deve ser capaz de escrever um comunicado;  </br> - Campos obrigatórios precisam estar preenchidos para envio de comunicado (Título e Mensagem); </br> - O comunicado deverá ser enviado para o email do aluno ou do responsável (caso o aluno seja menor de idade);</td>
 </tr>
 <tr>
 <td><b>[TE04]</b></td>
 <td><b>[EP08]</b></td>
 <td><b id="us22">[US22]</b></td>
-<td>- O aviso deve ser excluídos da base de dados;</td>
-</tr>
-<tr>
-<td>- Deve haver uma confirmação para o administrador conferir se realmente deseja excluir o aviso.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>- O aviso deve ser excluídos da base de dados; </br>   - Deve haver uma confirmação para o administrador conferir se realmente deseja excluir o aviso.</td>
 </tr>
 <tr>
 <td><b>[TE04]</b></td>
@@ -1244,19 +1236,15 @@
 </tr>
 <tr>
 <td>Suportabilidade</td>
-<td><b>[RNF07]</b> A aplicação deve ser compatível com as versões mais recentes dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
+<td><b>[RNF07]</b> A aplicação deve ser compatível com as versões de até Junho de 2023 dos navegadores modernos como Chrome, Safari, Edge, Firefox, e Opera.</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF08]</b> A aplicação deve garantir a privacidade dos dados dos usuários, estando de acordo com a Lei Geral de Proteção de Dados (13.709/2018).</td>
+<td><b>[RNF08]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
 </tr>
 <tr>
 <td>Confiabilidade</td>
-<td><b>[RNF09]</b> A aplicação deve proporcionar um ambiente suficientemente seguro para garantir que apenas aqueles registrados no sistema tenham acesso a ele.</td>
-</tr>
-<tr>
-<td>Confiabilidade</td>
-<td><b>[RNF10]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente</td>
+<td><b>[RNF09]</b> A aplicação deve possuir Política de Privacidade clara e transparente para com o cliente</td>
 </tr>
 </tbody>
 </table>

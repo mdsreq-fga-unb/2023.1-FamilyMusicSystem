@@ -9,7 +9,7 @@
 | 12/06/2023 | 0.5 | Edição da sprint | Luana Ribeiro |
 | 03/07/2023 | 0.6 | Adição de Sprint 4 e 5 | Luana Ribeiro |
 | 10/07/2023 | 0.7 | Adição conteúdo sprints | Luana Ribeiro |
-| 17/07/2023 | 0.8 | Edição Sprint 5 e 6 | Luana Ribeiro |
+| 18/07/2023 | 0.8 | Edição Sprint 5 e 6 | Luana Ribeiro, </br> Luan Mateus |
 
 ## Sprint 0 
 
@@ -119,7 +119,7 @@
 | ----------- | -------------------------------- | ---------- |
 | Luana/Luan | - Updates no pages | 03/07/2023 |
 | Luan/Maykon | - Edições frontend | 03/07/2023 |
-| Guilherme/Davi | - Finalização Mural | 28/05/2023 |
+| Guilherme/Davi | - Finalização Mural | 25/07/2023 |
 
 
 ##Sprint 6
@@ -135,11 +135,15 @@
 | <b>Backlog da Sprint<b> | - US16- Controlar frequência  ;  </br> - US17- Controlar Pagamentos; </br> -  US19- Enviar contrato por email; </br> - US20- Gerenciar a situação contratual do aluno; </br> - US21- Cadastrar comunicado no mural de avisos; </br> - US22- Deletar comunicado; </br> - US23- Editar comunicado. |
 | <b>Sprint Review<b> | - Ainda em desenvolvimento |
 | <b>Débitos técnicos<b> | - Ainda em desenvolvimento  |
-| <b>Sprint Retrospective<b> |  - Ainda em desenvolvimento  |
+| <b>Sprint Retrospective<b> |  - Pontos fortes: Harmonia do grupo melhorou, Aumento da quantidade de pair programming em relação à outra sprint; </br> - Pontos Fracos: Surgimento de débitos técnicos de algumas Histórias de Usuário; </br>   |
 
 <p style="text-indent: 50px;text-align: justify;">  Pair Programming realizado nessa Sprint
 </p>
 
 | <b>Dupla<b> | <b>Descrição do que foi feito<b> | <b>Data<b> |
 | ----------- | -------------------------------- | ---------- |
+| Luan/Maykon | - Tentativa de integrar envio de e-mail no Angular | 17/07/2023 |
 | Luana/Luan | - Updates no pages | 17/07/2023 |
+| Luana/Luan | - Updates no pages | 18/07/2023 |
+| Luana/Guilherme | - Revisão de Critérios de Aceitação | 18/07/2023 |
+| Maykon/Davi | - Correção de Bugs na Plataforma | 18/07/2023 |
