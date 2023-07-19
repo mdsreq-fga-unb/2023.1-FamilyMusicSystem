@@ -30,6 +30,7 @@ import { Schedule } from './../../../models/schedule';
 import { Room } from '../../../models/room';
 import format from 'date-fns/format';
 import { pt } from 'date-fns/locale';
+import { ActivatedRoute } from '@angular/router';
 
 class Entry<T> {
   id: number;
@@ -68,6 +69,8 @@ export class ScheduleListComponent implements OnInit {
     'https://20231-familymusicsystem-production.up.railway.app/api/students/';
   public prefixoUrlTeacher =
     'https://20231-familymusicsystem-production.up.railway.app/api/teachers/';
+  public id: string;
+  public obj: string;
 
   constructor(
     private modalService: BsModalService,
@@ -75,7 +78,8 @@ export class ScheduleListComponent implements OnInit {
     private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private route: ActivatedRoute
   ) {}
 
   headers() {
@@ -93,12 +97,14 @@ export class ScheduleListComponent implements OnInit {
     return formattedDate;
   }
 
-  getSchedules(args?: string) {
+  getSchedules(id?: string, obj?: string, args?: string) {
     this.loading = true;
 
     this.schedules$ = this.http
       .get<ResponseSchedule>(
-        args ? `${this.prefixoUrlSchedule}${args}` : this.prefixoUrlSchedule,
+        id
+          ? `${this.prefixoUrlSchedule}?filters[ID_${obj}][$eq][0]=${id}&${args}`
+          : `${this.prefixoUrlSchedule}`,
         this.headers()
       )
       .pipe(
@@ -132,11 +138,13 @@ export class ScheduleListComponent implements OnInit {
 
   ngOnInit(): void {
     const jwt = this.cookieService.getCookie('jwt');
-    this.getSchedules();
 
-    this.searchForm = this.fb.group({
-      search: ['', Validators.required],
+    this.route.queryParams.subscribe((params) => {
+      this.id = params['id'];
+      this.obj = params['obj'];
+      console.log(this.id);
     });
+    this.getSchedules(this.id, this.obj);
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -237,7 +245,7 @@ export class ScheduleListComponent implements OnInit {
       modalConfig
     );
     this.bsModalRef.content.onClose.subscribe((url: string) => {
-      this.getSchedules(url);
+      this.getSchedules(this.id, url);
     });
   }
 

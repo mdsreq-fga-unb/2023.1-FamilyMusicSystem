@@ -131,6 +131,10 @@ export class StudentsViewComponent implements OnInit {
         { value: this.student.Parcel, disabled: !this.edit },
         Validators.required,
       ],
+      paymentStudent: [
+        { value: this.student.confirmedPayment, disabled: !this.edit },
+        Validators.required,
+      ],
       birthdayStudent: [
         { value: this.student.Birthday, disabled: !this.edit },
         Validators.required,
@@ -220,6 +224,8 @@ export class StudentsViewComponent implements OnInit {
     student.Address = this.studentForm.get("addressStudent")?.value;
     student.Value = this.value;
     student.Parcel = parseInt(this.studentForm.get("parcelStudent")?.value);
+    debugger;
+    student.confirmedPayment = this.studentForm.get("paymentStudent")?.value;
     student.LegalGuardianCPF = this.studentForm.get("cpfLegalGuardian")?.value;
     student.LegalGuardianName =
       this.studentForm.get("nameLegalGuardian")?.value;
@@ -449,6 +455,13 @@ export class StudentsViewComponent implements OnInit {
           {
             value: this.studentForm.get("addressStudent")?.value,
             disabled: false,
+          },
+          Validators.required,
+        ],
+        paymentStudent: [
+          {
+              value: this.studentForm.get("paymentStudent")?.value,
+              disabled: !this.edit,
           },
           Validators.required,
         ],

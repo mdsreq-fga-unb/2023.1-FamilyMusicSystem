@@ -6,6 +6,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('ScheduleListComponent', () => {
   let component: ScheduleListComponent;
@@ -15,6 +17,15 @@ describe('ScheduleListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ScheduleListComponent],
       providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            queryParams: of({ id: 'student-id', obj: 'Student' }),
+            snapshot: {
+              paramMap: convertToParamMap({}),
+            },
+          },
+        },
         BsModalService,
         MatDialogModule,
         MatIconModule,

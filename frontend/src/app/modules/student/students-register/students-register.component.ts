@@ -84,6 +84,7 @@ export class StudentsRegisterComponent implements OnInit {
       profilePicture: [null],
       valueStudent: [null, [Validators.required]],
       parcelStudent: [null, [Validators.required]],
+      paymentStudent: [null, [Validators.required]],
     });
 
     this.guardianForm = this.fb.group({
@@ -155,6 +156,7 @@ export class StudentsRegisterComponent implements OnInit {
       "disabledPersonTypeStudent"
     )?.value;
     student.CPF = this.studentForm.get("cpfStudent")?.value;
+    student.confirmedPayment = this.studentForm.get("paymentStudent")?.value;
     student.RG = this.studentForm.get("rgStudent")?.value;
     student.Gender = this.studentForm.get("genderStudent")?.value;
     student.Address = this.studentForm.get("addressStudent")?.value;
@@ -362,6 +364,13 @@ export class StudentsRegisterComponent implements OnInit {
           {
             value: this.studentForm.get("genderStudent")?.value,
             disabled: false,
+          },
+          Validators.required,
+        ],
+        paymentStudent: [
+          {
+              value: this.studentForm.get("paymentStudent")?.value,
+              disabled: false,
           },
           Validators.required,
         ],
