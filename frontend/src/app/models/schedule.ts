@@ -7,4 +7,5 @@ export class Schedule {
   Room: string;
   Student: string;
   Teacher: string;
+  Frequency: boolean;
 }

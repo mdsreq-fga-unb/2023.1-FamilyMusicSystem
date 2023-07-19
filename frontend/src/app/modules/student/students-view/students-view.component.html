@@ -340,6 +340,19 @@
           </div>
         </div>
 
+        <div class="col-md-6" *ngIf="inicial">
+          <label class="m-0 tittle-input" for="payment">Situação do Pagamento<b>*</b></label>
+          <select name="payment" formControlName="paymentStudent" class="form-control form-control-sm input">
+            <option value="true">Pago</option>
+            <option value="false">Ainda em Débito</option>
+          </select>
+          <div
+            *ngIf="studentForm.get('paymentStudent')?.errors?.['required'] && studentForm.get('paymentStudent')?.touched"
+            class="validators">
+            Seleção obrigatória
+          </div>
+        </div>
+
         <div class="col-md-6" *ngIf="guardian">
           <label class="m-0 tittle-input" for="name">Nome<b>*</b></label>
           <input

@@ -21,4 +21,5 @@ export class Student {
   updatedAt: string;
   publishedAt: string;
   ProfilePicture: any;
+  confirmedPayment: boolean;
 }
