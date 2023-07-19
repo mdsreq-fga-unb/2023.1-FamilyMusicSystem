@@ -17,6 +17,7 @@ import { ConfirmationComponent } from '../../../shared/confirmation/confirmation
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataSharingService } from '../../../services/data-sharing.service';
+import { Router } from '@angular/router';
 
 class Entry<T> {
   id: number;
@@ -54,7 +55,8 @@ export class StudentsListComponent implements OnInit {
     private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private router: Router
   ) {}
 
   headers() {
@@ -228,5 +230,11 @@ export class StudentsListComponent implements OnInit {
 
   calcularCorDeFundo() {
     return 'var(--selector)';
+  }
+
+  goSchedule(student: Student) {
+    this.router.navigate(['/main/schedule'], {
+      queryParams: { id: student['id'], obj: 'Student' },
+    });
   }
 }
