@@ -91,9 +91,6 @@ export class ScheduleRegisterComponent implements OnInit {
       ID_Student: [null, Validators.required],
       ID_Teacher: [null, Validators.required],
       ID_Room: [null, Validators.required],
-      Student: [null, Validators.required],
-      Teacher: [null, Validators.required],
-      Room: [null, Validators.required],
       Horary: [null, Validators.required],
     });
 

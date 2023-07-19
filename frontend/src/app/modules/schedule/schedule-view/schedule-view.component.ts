@@ -15,6 +15,7 @@ import { Teacher } from "../../../models/teacher";
 import { Student } from "../../../models/student";
 import { DataSharingService } from "../../../services/data-sharing.service";
 import * as moment from "moment";
+import { addHours } from "date-fns";
 
 class Entry<T> {
   id: number;
@@ -92,9 +93,10 @@ export class ScheduleViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const formattedHorary = moment(this.schedule?.Horary).format(
-      "YYYY-MM-DDTHH:mm"
-    );
+    const formattedHorary = moment(this.schedule?.Horary)
+      .add(3, "hours")
+      .format("YYYY-MM-DDTHH:mm");
+
     this.scheduleForm = this.fb.group({
       ID_Student: [
         {
