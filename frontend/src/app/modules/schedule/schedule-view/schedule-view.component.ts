@@ -108,6 +108,10 @@ export class ScheduleViewComponent implements OnInit {
         { value: this.schedule?.Room, disabled: !this.edit },
         Validators.required,
       ],
+      frequency: [
+        { value: this.schedule?.Frequency , disabled: !this.edit },
+        Validators.required,
+      ],
       Horary: [
         {
           value: formattedHorary,
@@ -164,6 +168,7 @@ export class ScheduleViewComponent implements OnInit {
       'name'
     );
     schedule.Horary = this.scheduleForm.get('Horary')?.value;
+    schedule.Frequency = this.scheduleForm.get('frequency')?.value;
     const body = {
       data: schedule,
     };

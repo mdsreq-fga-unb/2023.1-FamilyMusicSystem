@@ -124,6 +124,9 @@
               </td>
               <td>{{ room.Capacity }}</td>
               <td>
+                <mat-icon (click)="goSchedule(room)" class="delete"
+                  >calendar_today</mat-icon
+                >
                 <mat-icon (click)="modalEditSala(room, true)" class="delete"
                   >edit</mat-icon
                 >

@@ -16,6 +16,7 @@ import { RoomFilterComponent } from '../room-filter/room-filter.component';
 import { RoomRegisterComponent } from '../room-register/room-register.component';
 import { RoomViewComponent } from '../room-view/room-view.component';
 import { ConfirmationComponent } from '../../../shared/confirmation/confirmation.component';
+import { Router } from '@angular/router';
 
 class Entry<T> {
   id: number;
@@ -53,7 +54,8 @@ export class RoomListComponent implements OnInit {
     private cookieService: CookieService,
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dataSharingService: DataSharingService
+    private dataSharingService: DataSharingService,
+    private router: Router
   ) {}
 
   headers() {
@@ -222,5 +224,11 @@ export class RoomListComponent implements OnInit {
 
   calcularCorDeFundo() {
     return 'var(--selector)';
+  }
+
+  goSchedule(room: Room) {
+    this.router.navigate(['/main/schedule'], {
+      queryParams: { id: room['id'], obj: 'Room' },
+    });
   }
 }

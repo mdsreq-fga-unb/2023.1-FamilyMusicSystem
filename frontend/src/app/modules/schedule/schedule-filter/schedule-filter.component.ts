@@ -1,13 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { BsModalRef } from "ngx-bootstrap/modal";
-import { Subject } from "rxjs";
-import { subYears, format } from "date-fns";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
+import { subYears, format } from 'date-fns';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: "app-schedule-filter",
-  templateUrl: "./schedule-filter.component.html",
-  styleUrls: ["./schedule-filter.component.scss"],
+  selector: 'app-schedule-filter',
+  templateUrl: './schedule-filter.component.html',
+  styleUrls: ['./schedule-filter.component.scss'],
 })
 export class ScheduleFilterComponent implements OnInit {
   public onClose: Subject<any> = new Subject<any>();
@@ -18,14 +19,24 @@ export class ScheduleFilterComponent implements OnInit {
   public numreq = 0;
   public scheduleFilterForm: FormGroup;
   public formValues: any;
+  public teacherId: string;
+  public id: string;
 
-  constructor(private bsModalRef: BsModalRef, private fb: FormBuilder) {}
+  constructor(
+    private bsModalRef: BsModalRef,
+    private fb: FormBuilder,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.scheduleFilterForm = this.fb.group({
       studentName: null,
       teacherName: null,
       roomName: null,
+    });
+    this.route.queryParams.subscribe((params) => {
+      this.id = params['id'];
+      console.log(this.id);
     });
   }
 
@@ -36,7 +47,8 @@ export class ScheduleFilterComponent implements OnInit {
   filter() {
     const formValues = this.scheduleFilterForm.value;
     const filters = [];
-    this.numreq = 0;
+
+    this.id ? (this.numreq = 1) : (this.numreq = 0);
 
     if (formValues.studentName !== null) {
       filters.push(
@@ -57,8 +69,8 @@ export class ScheduleFilterComponent implements OnInit {
       this.numreq++;
     }
 
-    const urlParams = filters.join("&");
-    const url = `?${urlParams}`;
+    const urlParams = filters.join('&');
+    const url = `${urlParams}`;
 
     this.onClose.next(url);
     this.bsModalRef.hide();
