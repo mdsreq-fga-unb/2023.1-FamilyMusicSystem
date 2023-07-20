@@ -50,11 +50,10 @@ Com isso, surgiu o Family Music System, uma ideia de projeto que veio para facil
 
 | Tipos de Teste | Níveis de Teste | Técnicas de Testes | Objetivo | Perspectiva | Escopo | Resultados |
 | ------------------ | ---------------------- | --------------- | ------------------- | -----------| ----- | ---------------------------------- |
-| Funcional | - Sistema; </br> - Aceitação; </br> - Integração; </br> - Unitário. | - Manual; </br> - Manual; </br> - Automático; </br> - Automático. | - Qualidade Externa;</br> - Qualidade Externa; </br> - Qualidade Interna; </br> - Qualidade Interna. | - Técnico; </br> - Negócio; </br> - Técnico; </br> - Técnico. | MVP 1 e 2 | - Passou: us..... </br> - Não passou: us.... |
-| Usabilidade | - Aceitação. | - Manual. | - Qualidade Externa. | - Negócio. | MVP 2: RNF's 02,03,04,05,e 06|  - Passou: us..... </br> - Não passou: us.... |
-| Confiabilidade | - Sistema. | - Manual,Caixa Branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF's 08 e 09 |  - Passou: us..... </br> - Não passou: us.... |
-| Suportabilidade | - Sistema; | - Manual,Caixa branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF07 |  - Passou: us..... </br> - Não passou: us.... |
-
+| Funcional | - Sistema; </br> - Aceitação; </br> - Integração; </br> - Unitário. | - Manual; </br> - Manual; </br> - Automático; </br> - Automático. | - Qualidade Externa;</br> - Qualidade Externa; </br> - Qualidade Interna; </br> - Qualidade Interna. | - Técnico; </br> - Negócio; </br> - Técnico; </br> - Técnico. | MVP 1 e 2 | - Não passou: US01 e US19 |
+| Usabilidade | - Aceitação. | - Manual. | - Qualidade Externa. | - Negócio. | MVP 2: RNF's 02,03,04,05,e 06|  - Passou... |
+| Confiabilidade | - Sistema. | - Manual,Caixa Branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF's 08 e 09 |  - Passou... |
+| Suportabilidade | - Sistema; | - Manual,Caixa branca. | - Qualidade Interna. | - Técnico. | MVP 2: RNF07 |  - Passou... |
 
 ## Ferramentas
 

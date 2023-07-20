@@ -11,6 +11,8 @@ nav:
   - Design:
       - Arquitetura do produto: design/arquitetura_do_produto.md
       - Padrões de interface: design/padroes_de_interface.md
+  - CI Test:
+      - Documentação do CI: ci-test/ci-test.md
   - Entregas:
       - Unidade 1: entregas\unidade-1.md
       - Unidade 2: entregas\unidade-2.md

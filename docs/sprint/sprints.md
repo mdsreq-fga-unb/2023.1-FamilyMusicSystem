@@ -133,8 +133,8 @@
 | ---- | --------------- |
 | <b>Sprint Planning - Goal<b> | - Finalizar MVP2 </br> - Finalizar GitPages |
 | <b>Backlog da Sprint<b> | - US16- Controlar frequência  ;  </br> - US17- Controlar Pagamentos; </br> -  US19- Enviar contrato por email; </br> - US20- Gerenciar a situação contratual do aluno; </br> - US21- Cadastrar comunicado no mural de avisos; </br> - US22- Deletar comunicado; </br> - US23- Editar comunicado. |
-| <b>Sprint Review<b> | - Ainda em desenvolvimento |
-| <b>Débitos técnicos<b> | - Ainda em desenvolvimento  |
+| <b>Sprint Review<b> | - Apresentação da Entrega Final do Projeto Family Music System; </br> - Feedback do Cliente em relação à aplicação; </br> - Teste de Usabilidade de Cliente de Aceitação; |
+| <b>Débitos técnicos<b> | - TE03-EP07-US19 : Contrato ser enviado por e-mail para o aluno.  |
 | <b>Sprint Retrospective<b> |  - Pontos fortes: Harmonia do grupo melhorou, Aumento da quantidade de pair programming em relação à outra sprint; </br> - Pontos Fracos: Surgimento de débitos técnicos de algumas Histórias de Usuário; </br>   |
 
 <p style="text-indent: 50px;text-align: justify;">  Pair Programming realizado nessa Sprint
@@ -147,3 +147,4 @@
 | Luana/Luan | - Updates no pages | 18/07/2023 |
 | Luana/Guilherme | - Revisão de Critérios de Aceitação | 18/07/2023 |
 | Maykon/Davi | - Correção de Bugs na Plataforma | 18/07/2023 |
+| Maykon/Guilherme | - Atualização de Página de Alunos | 18/07/2023 |
