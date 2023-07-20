@@ -121,7 +121,7 @@ export class MuralListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-xl",
+      class: "modal-md",
       initialState: {},
     };
     this.bsModalRef = this.modalService.show(
@@ -144,7 +144,7 @@ export class MuralListComponent implements OnInit {
     const modalConfig = {
       backdrop: true,
       ignoreBackdropClick: false,
-      class: "modal-xl",
+      class: "modal-md",
       initialState: {
         mural: mural,
         edit,
