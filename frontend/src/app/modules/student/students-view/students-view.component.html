@@ -263,7 +263,7 @@
 
         <div class="col-12 col-md-6" *ngIf="inicial">
           <label class="m-0 tittle-input" for="value"
-            >Valor cotrato<b>*</b></label
+            >Valor contrato<b>*</b></label
           >
           <input
             #value
@@ -341,14 +341,21 @@
         </div>
 
         <div class="col-md-6" *ngIf="inicial">
-          <label class="m-0 tittle-input" for="payment">Situação do Pagamento<b>*</b></label>
-          <select name="payment" formControlName="paymentStudent" class="form-control form-control-sm input">
+          <label class="m-0 tittle-input" for="payment"
+            >Situação do Pagamento<b>*</b></label
+          >
+          <select
+            name="payment"
+            formControlName="paymentStudent"
+            class="form-control form-control-sm input"
+          >
             <option value="true">Pago</option>
             <option value="false">Ainda em Débito</option>
           </select>
           <div
             *ngIf="studentForm.get('paymentStudent')?.errors?.['required'] && studentForm.get('paymentStudent')?.touched"
-            class="validators">
+            class="validators"
+          >
             Seleção obrigatória
           </div>
         </div>
