@@ -24,7 +24,6 @@
             formControlName="ID_Room"
             class="form-control form-control-sm input"
             *ngIf="rooms$ | async as rooms"
-            multiple
           >
             <option
               *ngFor="let room of rooms"
@@ -51,7 +50,6 @@
             formControlName="ID_Student"
             class="form-control form-control-sm input"
             *ngIf="students$ | async as students"
-            multiple
           >
             <option
               *ngFor="let student of students"
@@ -77,7 +75,6 @@
             formControlName="ID_Teacher"
             class="form-control form-control-sm input"
             *ngIf="teachers$ | async as teachers"
-            multiple
           >
             <option
               *ngFor="let teacher of teachers"

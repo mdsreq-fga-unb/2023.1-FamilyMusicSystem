@@ -1,6 +1,5 @@
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { ContractComponent } from "../../modules/settings/contract/contract.component";
-import { PrivacyComponent } from "../../modules/settings/privacy/privacy.component";
 import { ResourcesComponent } from "../../modules/settings/resources/resources.component";
 import { AboutComponent } from "../../modules/settings/about/about.component";
 import { HelpComponent } from "../../modules/settings/help/help.component";
@@ -65,16 +64,6 @@ export class HeaderComponent implements OnInit {
       class: "modal-lg",
     };
     this.bsModalRef = this.modalService.show(ContractComponent, modalConfig);
-    this.bsModalRef.onHide?.subscribe(() => {});
-  }
-  modalprivacy() {
-    const modalConfig = {
-      backdrop: true,
-      ignoreBackdropClick: false,
-      initialState: {},
-      class: "modal-lg",
-    };
-    this.bsModalRef = this.modalService.show(PrivacyComponent, modalConfig);
     this.bsModalRef.onHide?.subscribe(() => {});
   }
   modalresources() {

@@ -24,7 +24,6 @@ import { RoomListComponent } from "./modules/room/room-list/room-list.component"
 import { RoomRegisterComponent } from "./modules/room/room-register/room-register.component";
 import { RoomFilterComponent } from "./modules/room/room-filter/room-filter.component";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
-import { PrivacyComponent } from "./modules/settings/privacy/privacy.component";
 import { AboutComponent } from "./modules/settings/about/about.component";
 import { ResourcesComponent } from "./modules/settings/resources/resources.component";
 import { ContractComponent } from "./modules/settings/contract/contract.component";
@@ -69,7 +68,6 @@ import { ResetPasswordComponent } from "./modules/reset-password/reset-password.
     LoginComponent,
     MainComponent,
     PreloaderComponent,
-    PrivacyComponent,
     ResourcesComponent,
     RoomFilterComponent,
     RoomListComponent,
