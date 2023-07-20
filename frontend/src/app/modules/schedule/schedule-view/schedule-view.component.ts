@@ -131,10 +131,7 @@ export class ScheduleViewComponent implements OnInit {
         { value: this.schedule?.Room, disabled: !this.edit },
         Validators.required,
       ],
-      frequency: [
-        { value: this.schedule?.Frequency, disabled: !this.edit },
-        Validators.required,
-      ],
+      frequency: [{ value: this.schedule?.Frequency, disabled: !this.edit }],
       Horary: [
         {
           value: formattedHorary,
