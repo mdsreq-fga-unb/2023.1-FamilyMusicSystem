@@ -108,6 +108,26 @@
             Data obrigatória
           </div>
         </div>
+        
+        <div class="col-md-6">
+          <label class="m-0 tittle-input" for="disabledPerson"
+            >Presença do aluno<b>*</b></label
+          >
+          <select
+            name="frequency"
+            formControlName="frequency"
+            class="form-control form-control-sm input"
+          >
+            <option value="false">ausente</option>
+            <option value="true">presente</option>
+          </select>
+          <div
+            *ngIf="scheduleForm.get('frequency')?.errors?.['required'] && scheduleForm.get('frequency')?.touched"
+            class="validators"
+          >
+            Seleção obrigatória
+          </div>
+        </div>
       </form>
     </div>
     <div class="modal-footer">
